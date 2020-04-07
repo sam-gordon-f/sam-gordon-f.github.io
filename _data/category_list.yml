@@ -9,6 +9,3 @@ serverless-functions:
 test3:
   name: test3
   description: test3
-test4:
-  name: test4
-  description: test4

@@ -1,8 +1,8 @@
 #This file defines all the categories you
 
-cloudformation:
-  name: Cloudformation
-  description: Cloudformation Posts
-lambda:
-  name: Lambda
-  description: Lambda Posts
+technical-series:
+  name: Technical Series
+  description: Tech Posts with examples / samples
+conceptual-series:
+  name: Conceptual Series
+  description: Concept posts with rundowns / media 

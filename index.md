@@ -2,7 +2,6 @@
 
 ![blog map](media/images/blog-map.jpg "blog map")
 
-# Categories
 {% for category in site.categories %}
   <h3>{{ category['category-landing'] }}</h3>
   <ul>

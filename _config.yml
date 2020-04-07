@@ -39,15 +39,15 @@ twitter_username:
 facebook_page:
 github_username: sam-gordon-f
 email: sam.gordon.f@gmail.com
+full_name: Sam Gordon
 linkedin_page: https://www.linkedin.com/in/sam-gordon-10b42985/
 instagram_username:
-
 
 # Navivation
 nav_item_one: Github
 nav_item_one_link: https://github.com/sam-gordon-f
 
-nav_item_two: Twitter
+nav_item_two:
 nav_item_two_link:
 
 nav_item_three: #

@@ -2,10 +2,7 @@
 
 cloudformation:
   name: Cloudformation
-  description: cloudformation posts
-serverless-functions:
-  name: Serverless Functions
-  description: serverless posts
-test3:
-  name: test3
-  description: test3
+  description: Cloudformation Posts
+lambda:
+  name: Lambda
+  description: Lambda Posts

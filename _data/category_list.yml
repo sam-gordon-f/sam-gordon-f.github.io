@@ -1,8 +1,8 @@
 #This file defines all the categories you
 
 cloudformation:
-  name: cloudformation
+  name: Cloudformation
   description: Cloudformation Posts
 lambda:
-  name: lambda
+  name: Lambda
   description: Lambda Posts

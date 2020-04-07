@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Cloudformation 1"
-categories: [cloudformation]
+categories: [Cloudformation]
 tags: [cloudformation]
 ---
 

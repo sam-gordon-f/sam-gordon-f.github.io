@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Serverless Functions 1"
-categories: [serverlessFunctions]
+categories: [Serverless Functions]
 tags: [serverless, functions]
 ---
 

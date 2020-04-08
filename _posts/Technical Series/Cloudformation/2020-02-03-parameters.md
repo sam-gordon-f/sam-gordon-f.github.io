@@ -8,6 +8,4 @@ short-description: Cloudformation Parameters
 tags: [cloudformation, parameters, yml, json]
 ---
 
-### Cloudformation Parameters
-
 [AWS docs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html)

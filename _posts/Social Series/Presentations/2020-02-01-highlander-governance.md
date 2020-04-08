@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Presentation - Highlander - Governance
-date: 2019-11-05 08:44:38 -0400
+date: 2020-02-01 08:44:38
 category: social-series
 author: samGordon
 short-description: Presentation - Highlander - Governance

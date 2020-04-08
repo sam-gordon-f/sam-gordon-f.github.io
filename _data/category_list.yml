@@ -6,3 +6,6 @@ technical-series:
 conceptual-series:
   name: Conceptual Series
   description: Conceptual posts with rundowns / media
+social-series:
+  name: Social Series
+  description: Social posts that arent to run through tech / concepts

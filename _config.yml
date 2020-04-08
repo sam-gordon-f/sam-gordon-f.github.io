@@ -20,7 +20,7 @@
 
 title: A whimsical screen-name
 description: Some Random thoughts / findings / knowledge bases from an experienced Cloud Engineer
-baseurl:  # the subpath of your site, e.g. /support
+baseurl:  
 url: https://sam-gordon-f.github.io # the base hostname AND PROTOCOL for your site, e.g. http://example.com
 permalink: /:categories/:title
 

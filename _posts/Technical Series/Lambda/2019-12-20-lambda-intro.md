@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Lambda 1"
+title: "Lambda Intro"
 date: 2019-11-05 08:44:38 -0400
 category: technical-series
 author: Sam
-short-description: Lambda 1
-tags: [lambda]
+short-description: Lambda Intro
+tags: [lambda, introduction]
 ---
 
 ### Lambda 1

@@ -9,3 +9,5 @@ tags: [cloudformation, introduction]
 ---
 
 ### Cloudformation Intro
+
+[overview]({{ site.baseurl }}/assets/images/technical-series/cloudformation/overview.jpg)

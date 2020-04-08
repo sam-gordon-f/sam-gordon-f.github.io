@@ -11,6 +11,6 @@ title: Conceptual Series
 Category Tags
 {% for post in site.categories.conceptual-series %}
 {% for tag in post.tags %}
-   {{ tag  }}
+   {% include tag-card.html %}
 {% endfor %}
 {% endfor %}

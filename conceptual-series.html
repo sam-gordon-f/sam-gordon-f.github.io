@@ -4,13 +4,13 @@ category: conceptual-series
 title: Conceptual Series
 ---
 
-popular tags
+{% for post in site.categories.conceptual-series %}
+  {% include article-card.html %}
+{% endfor %}
+
+Category Tags
 {% for post in site.categories.conceptual-series %}
 {% for tag in post.tags %}
    {{ tag  }}
 {% endfor %}
-{% endfor %}
-
-{% for post in site.categories.conceptual-series %}
-  {% include article-card.html %}
 {% endfor %}

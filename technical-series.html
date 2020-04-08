@@ -4,13 +4,13 @@ category: technical-series
 title: Technical Series
 ---
 
-popular tags
+{% for post in site.categories.technical-series %}
+  {% include article-card.html %}
+{% endfor %}
+
+Category Tags
 {% for post in site.categories.technical-series %}
 {% for tag in post.tags %}
    {{ tag  }}
 {% endfor %}
-{% endfor %}
-
-{% for post in site.categories.technical-series %}
-  {% include article-card.html %}
 {% endfor %}

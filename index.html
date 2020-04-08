@@ -31,12 +31,15 @@ title: Home
     </div>
   </div>
 </div>
-<div class="column col-12 text-center">
+<a id = "linkShowHideBlogMap">show / hide blog map</a>
+<div id = "divBlogMap" class="column col-12 text-center" style = "display:none;">
   <img src="{{ site.baseurl }}/assets/images/BlogMap.jpg" alt="..." style = "width:100%;">
 </div>
 <script type = "text/javascript">
-  $(document).ready(function() {
-    console.log('completed');
+  $("#linkShowHideBlogMap").ready(function() {
+    $("#divBlogMap").slideToggle(function() {
+      console.log('show/hide')
+    });
   })
 </script>
 <div class="container-full">

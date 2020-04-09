@@ -29,8 +29,9 @@ use_authors: true #Set this to false to disable showing post authors
 
 brand_logo: logo.png
 brand_name:
-header: A whimsical screename
-subheader: A collection of posts / knowledge articles 
+header: A Whimsical Screename
+header_formatted: "<a id = \"linkA\">A</a> <a id = \"linkW\">Whimsical</a> <aid = \"linkS\">Screename</a>"
+subheader: A collection of posts / knowledge articles
 
 meta_image: odin-meta.png
 

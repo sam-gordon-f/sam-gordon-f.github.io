@@ -6,13 +6,13 @@ var rotateBrand = function(index) {
   var indexTemp = index;
 
     // loop logic
-  if(arrayW.length == index)
+  if(arrayW.length == indexTemp)
     indexTemp = 0;
   
   setTimeout(function() {
     $("#spanW").fadeOut(1000).text(arrayW[indexTemp]).fadeIn(1000);
     
-    rotateBrand(indexTemp++);
+    rotateBrand((indexTemp += 1));
   }, 10000);
 }
 

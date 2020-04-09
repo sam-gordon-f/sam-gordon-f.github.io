@@ -17,10 +17,10 @@ title: Home
               <div class="card-body text-center my-6">
                 <h5 class="text-bold">{{ series.name }}</h5>
                     
-                {% if category[1].size == 1 %}
-                <p class="m-0">{{ category[1] | last | size }} article</p>
+                {% if category[0].size == 1 %}
+                <p class="m-0">{{ category | last | size }} article</p>
                 {% else %}
-                <p class="m-0">{{ category[1] | last | size }} articles</p>
+                <p class="m-0">{{ category | last | size }} articles</p>
                 {% endif %}
 
               </div>

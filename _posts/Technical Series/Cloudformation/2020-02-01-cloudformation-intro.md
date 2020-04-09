@@ -13,12 +13,22 @@ tags: [cloudformation, introduction]
 Cloudformation is an incredibly powerful infrastructure templating service, and vital to at least understand in principal
 for anyone looking to keep their tech wealth in AWS.
 
-Throughout this series, I'll be breaking down, summarising, and explaining each of the above areas to help learn the
-fundamentals, and then explore advanced use cases.
+Throughout this series, I'll be breaking down, summarising, and explaining each of the above areas which fall into the below categories
 
-#### Fundamentals 
+#### Fundamentals
+
 > [Cloudformation template formats]({{ site.baseurl }}/technical-series/cloudformation-formats)
+
+> [Cloudformation template anatomy]({{ site.baseurl }}/technical-series/cloudformation-anatomy)
 
 > [Cloudformation template/stack parameters]({{ site.baseurl }}/technical-series/cloudformation-parameters)
 
 > [Cloudformation template/stack resources]({{ site.baseurl }}/technical-series/cloudformation-resources)
+
+#### Extras
+
+> [Cloudformation macros]({{ site.baseurl }}/technical-series/cloudformation-macros)
+
+> [Cloudformation macros - transform]({{ site.baseurl }}/technical-series/cloudformation-macros-transform)
+
+> [Cloudformation macros - include]({{ site.baseurl }}/technical-series/cloudformation-macros-include)

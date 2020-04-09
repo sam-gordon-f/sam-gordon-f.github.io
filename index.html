@@ -10,9 +10,9 @@ title: Home
         <h6 class="text-secondary">{{ site.content_type }} Series</h6>
       </div>
       {% for series in site.data.series_list %}
-      {% assign category = site.categories[series_name] %}
+      {% assign category = site.categories[series.name] %}
         <div class="column col-4 col-md-6 col-sm-12">
-          <a href="{{ site.baseurl }}/{{ category_name | slugify }}">
+          <a href="{{ site.baseurl }}/{{ series.name | slugify }}">
             <div class="card card-link">
               <div class="card-body text-center my-6">
                 <h5 class="text-bold">{{ series.name }}</h5>

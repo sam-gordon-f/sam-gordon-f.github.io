@@ -11,7 +11,7 @@ title: Home
       </div>
       {% for series in site.data.series_list %}
       {% assign category = site.categories[series.category] %}
-        {{ category[0] }} 
+        {{ series[name] }} 
       {% endfor %}
       <div class = "column col-12">
         <div class = "card card-link text-center">

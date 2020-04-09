@@ -10,9 +10,12 @@ var rotateBrand = function(index) {
     indexTemp = 0;
   
   setTimeout(function() {
-    $("#spanW").fadeOut(1000).text(arrayW[indexTemp]).fadeIn(1000);
-    
-    rotateBrand((indexTemp += 1));
+    $("#spanW").fadeOut(1000, function() {
+      $("#spanW").text(arrayW[indexTemp], function() {
+        $("#spanW").fadeIn(1000);
+        rotateBrand((indexTemp += 1));
+      })
+    });
   }, 10000);
 }
 

@@ -16,13 +16,7 @@ title: Home
             <div class="card card-link">
               <div class="card-body text-center my-6">
                 <h5 class="text-bold">{{ series.name }}</h5>
-                    
-                {% if category[0].size == 1 %}
-                <p class="m-0">{{ category | last | size }} article</p>
-                {% else %}
-                <p class="m-0">{{ category | last | size }} articles</p>
-                {% endif %}
-
+                <p class="m-0">{{ category | size }} article(s)</p>
               </div>
             </div>
           </a>

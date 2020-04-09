@@ -10,13 +10,13 @@ title: Home
         <h6 class="text-secondary">{{ site.content_type }} Series</h6>
       </div>
       {% for series in site.data.series_list %}
-      {% capture series_name %}{{ series | first }}{% endcapture %}
-      {% assign category = site.categories[series_name] %}
+      {% assign category = site.categories[series.name] %}
         <div class="column col-4 col-md-6 col-sm-12">
           <a href="{{ site.baseurl }}/{{ series_name | slugify }}">
             <div class="card card-link">
               <div class="card-body text-center my-6">
-                <h5 class="text-bold">{{ category[0] }}</h5>
+                <h5 class="text-bold">seriesname {{ series.name }}</h5>
+                <h5 class="text-bold">categoryname {{ category[0] }}</h5>
                     
                 {% if category[1].size == 1 %}
                 <p class="m-0">{{ category[1] | last | size }} article</p>

@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: A whimsical screen-name
+title: A whimsical screenname
 description: Some Random thoughts / findings / knowledge bases from an experienced Cloud Engineer
 baseurl:
 url: https://sam-gordon-f.github.io # the base hostname AND PROTOCOL for your site, e.g. http://example.com
@@ -29,8 +29,8 @@ use_authors: true #Set this to false to disable showing post authors
 
 brand_logo: logo.png
 brand_name:
-header: Major Series
-subheader: Click for a break down of articles in each
+header: A whimsical screename
+subheader: A collection of posts / knowledge articles 
 
 meta_image: odin-meta.png
 

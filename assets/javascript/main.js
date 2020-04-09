@@ -1,6 +1,16 @@
+var arrayA = ["A"]
+var arrayW = ["whimsical", "wasted", "wistful"]
+var arrayS = ["screename"]
+
 var rotateBrand = function(index) {
-  $("#h1HeadingMain").fadeOut(1000).text('test').fadeIn(1000)
-  setTimeout(scrollHeader(0), 5000);
+    // reset index if at end
+  if(arrayW.length == index)
+    index = 0;
+
+  var textWTemp = arrayW[index];
+  
+  $("#h1HeadingMain").fadeOut(1000).text(textWTemp).fadeIn(1000)
+  setTimeout(scrollHeader(index++), 5000);
 }
 
 $(document).ready(function() {

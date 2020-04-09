@@ -2,7 +2,7 @@
 layout: post
 title: "Cloudformation Intro"
 date: 2020-02-01 08:44:38
-category: technical-series
+category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Overview of concepts that make up AWS cloudformation templates / stacks / extras
 tags: [cloudformation, introduction]

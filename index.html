@@ -9,7 +9,7 @@ title: Home
       <div class="column col-12 text-center">
         <h6 class="text-secondary">{{ site.content_type }} Series</h6>
       </div>
-      {% for category in site.categories %}
+      {% for category in site.data.series_list %}
       {% capture category_name %}{{ category | first }}{% endcapture %}
       {% assign page_category = site.data.category_list[category_name] %}
         <div class="column col-4 col-md-6 col-sm-12">

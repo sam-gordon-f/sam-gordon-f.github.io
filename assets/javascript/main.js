@@ -11,6 +11,8 @@ var rotateBrand = function(index) {
   
   setTimeout(function() {
     $("#spanW").fadeOut(1000).text(arrayW[indexTemp]).fadeIn(1000);
+    
+    rotateBrand(indexTemp++);
   }, 10000);
 }
 

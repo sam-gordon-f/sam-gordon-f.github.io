@@ -1,0 +1,13 @@
+# This file defines all category extended details
+
+technical-series:
+  name: Technical Series
+  description: Technical Posts with examples / samples
+
+conceptual-series:
+  name: Technical Series
+  description: Conceptual posts with rundowns / media
+
+social-series:
+  name: Technical Series
+  description: Social posts that arent to run through tech / concepts

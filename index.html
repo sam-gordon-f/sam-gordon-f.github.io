@@ -16,7 +16,7 @@ title: Home
           <a href="{{ site.baseurl }}/{{ series_name | slugify }}">
             <div class="card card-link">
               <div class="card-body text-center my-6">
-                <h5 class="text-bold">{{ series_name }}</h5>
+                <h5 class="text-bold">{{ category.name }}</h5>
                     
                 {% if category.posts.size == 1 %}
                 <p class="m-0">{{ category | last | size }} article</p>

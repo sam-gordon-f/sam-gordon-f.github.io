@@ -3,11 +3,6 @@ $(document).ready(function() {
   for(var i = 0; i < 5; i++) {
     console.log('switching')
 
-    $("#h1HeadingMain")
-      .fadeOut(400)
-      .delay(1000)
-      .fadeIn(function() {
-        console.log('switched')
-      })
+    $("#h1HeadingMain").fadeOut(400).delay(1000).fadeIn(400)
   }
 });

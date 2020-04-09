@@ -1,8 +1,9 @@
+var rotateBrand = function(index) {
+  $("#h1HeadingMain").fadeOut(1000).text('test').fadeIn(1000)
+  setTimeout(scrollHeader(0), 5000);
+}
+
 $(document).ready(function() {
     // rotate the main banner
-  for(var i = 0; i < 5; i++) {
-    console.log('switching')
-
-    $("#h1HeadingMain").fadeOut(400).delay(1000).fadeIn(400)
-  }
+  rotateBrand(0);
 });

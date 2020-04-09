@@ -8,6 +8,5 @@ short-description: Presentation - Highlander - Governance
 tags: [presentation, highlander, powerpoint, governance]
 ---
 
-### Presentation - Highlander - Governance
-
+[aws listing link](https://pages.awscloud.com/20190807-enterprise-support-highlander.html)
 [presentation link]({{ site.baseurl }}/assets/presentations/highlander.pptx)

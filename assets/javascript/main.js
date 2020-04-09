@@ -9,8 +9,8 @@ var rotateBrand = function(index) {
   if(arrayW.length == indexTemp)
     indexTemp = 0;
   
-  $("#spanW").fadeOut(1000, function() {
-    $("#spanW").text(arrayW[indexTemp]).fadeIn(1000, function() {
+  $(".spanW").fadeOut(1000, function() {
+    $(".spanW").text(arrayW[indexTemp]).fadeIn(1000, function() {
       setTimeout(function() {
         rotateBrand((indexTemp += 1));
       }, 10000);

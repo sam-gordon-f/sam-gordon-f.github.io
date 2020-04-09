@@ -1,3 +1,7 @@
 $(document).ready(function() {
-  console.log('test')
+  // rotate the main banner
+  
+  while(true) {
+    $("#h1HeadingMain").fadeOut(400).delay(1000).fadeIn()
+  }
 });

@@ -10,7 +10,7 @@ var rotateBrand = function(index) {
   var textWTemp = arrayW[index];
   
   $("#h1HeadingMain").fadeOut(1000).text(textWTemp).fadeIn(1000)
-  setTimeout(scrollHeader(index++), 5000);
+  setTimeout(rotateBrand(index++), 5000);
 }
 
 $(document).ready(function() {

@@ -3,7 +3,7 @@ layout: default
 ---
 {% include header.html %}
 
-{% assign page_category = site.data.category_details[page.category] %}
+{% assign page_category = site.data.category_details[page.category[0]] %}
 
 <div class="container-full">
   <div class="container grid-xl">

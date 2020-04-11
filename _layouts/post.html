@@ -16,7 +16,7 @@ layout: default
           {% if page.category.first %}
             {% for category in page.category %}
               <li class="breadcrumb-item">
-                <a href="../{{ category }}">{{ site.data.category_details[category].name }}</a>
+                <a href="{{ site.url }}/{{ category }}">{{ site.data.category_details[category].name }}</a>
               </li>
             {% endfor %}
           {% else %}

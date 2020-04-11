@@ -6,21 +6,6 @@ layout: default
 {% assign page_category = site.data.category_details[page.category] %}
 
 <div class="container-full">
-<h1>page_category:
-{{ page_category }}
-</h1>
-
-<h1>page.category<br>
-{{ page.category }}
-</h1>
-<h1>
-page.category[0]:<br>
-{{ page.category[0] }}<br>
-page.category[1]:<br>
-{{ page.category[1] }}
-</h1>
-</div>
-<div class="container-full">
   <div class="container grid-xl">
     <div class="mt-12 show-md"></div>
     <div class="mt-8"></div>
@@ -30,9 +15,18 @@ page.category[1]:<br>
           <li class="breadcrumb-item">
             <a href="{{ site.url }}{{ site.baseurl }}">{{ site.content_type }}</a>
           </li>
-          <li class="breadcrumb-item">
-            <a href="../{{ page.category }}">{{ page_category.name }}</a>
-          </li>
+          
+          <!-- needs to be a loop / check here -->
+          {% if page.category.first %}
+            <li class="breadcrumb-item">
+              <a href="../{{ page.category }}">need some crazy logic here</a>
+            </li>
+          {% else %}
+            <li class="breadcrumb-item">
+              <a href="../{{ page.category }}">{{ site.data.category_details[page.category].name }}</a>
+            </li>
+          {% endif %}
+
           <li class="breadcrumb-item">
             <a href="#">{{ page.title }}</a>
           </li>

@@ -1,5 +1,6 @@
 # This file defines all category extended details
 
+### main series
 technical-series:
   name: Technical Series
   description: Technical Posts with examples / samples
@@ -10,4 +11,9 @@ conceptual-series:
 
 social-series:
   name: Social Series
+  description: Social posts that arent to run through tech / concepts
+
+### sub series
+cloudformation-series:
+  name: Cloudformation Series
   description: Social posts that arent to run through tech / concepts

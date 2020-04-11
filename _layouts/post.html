@@ -3,8 +3,6 @@ layout: default
 ---
 
 {% include header.html %}
-{% assign page_category = site.data.category_details[page.category] %}
-
 <div class="container-full">
   <div class="container grid-xl">
     <div class="mt-12 show-md"></div>
@@ -15,12 +13,10 @@ layout: default
           <li class="breadcrumb-item">
             <a href="{{ site.url }}{{ site.baseurl }}">{{ site.content_type }}</a>
           </li>
-          
-          <!-- needs to be a loop / check here -->
           {% if page.category.first %}
             {% for category in page.category %}
               <li class="breadcrumb-item">
-                <a href="../{{ category }}">{{ category }}</a>
+                <a href="../{{ category }}">{{ site.data.category_details[category].name }}</a>
               </li>
             {% endfor %}
           {% else %}

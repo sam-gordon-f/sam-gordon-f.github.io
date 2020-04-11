@@ -18,9 +18,11 @@ layout: default
           
           <!-- needs to be a loop / check here -->
           {% if page.category.first %}
-            <li class="breadcrumb-item">
-              <a href="../{{ page.category }}">need some crazy logic here</a>
-            </li>
+            {% for category in page.category %}
+              <li class="breadcrumb-item">
+                <a href="../{{ category }}">category</a>
+              </li>
+            {% endfor %}
           {% else %}
             <li class="breadcrumb-item">
               <a href="../{{ page.category }}">{{ site.data.category_details[page.category].name }}</a>

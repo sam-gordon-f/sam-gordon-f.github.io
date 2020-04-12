@@ -10,25 +10,33 @@ tags: [cloudformation, anatomy]
 
 [AWS docs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)
 
-Below is a sample template to highlight each of the areas that make up a cloudformation template
+Below are a number of samples that discuss what each section means
 
 ---
 
-<pre>
-  test
-</pre>
-
-```json
+```
 {
   "AWSTemplateFormatVersion" : "2010-09-09 (only available version)",
   "Description" : "A description to help identify the purpose of the template",
+```  
+<br>
+
+```
   "Transform" : [
     "transformName1",
     "..."
   ],
+```  
+<br>
+
+```
   "Metadata" : {
     template metadata
   },
+```  
+<br>
+
+```
   "Parameters" : {
     "param1": {
       "Type": "String",
@@ -36,6 +44,10 @@ Below is a sample template to highlight each of the areas that make up a cloudfo
       "Default": "first"
     }
   },
+```  
+<br>
+
+```
   "Mappings" : {
     "mapping1" : {
       "mappingPropLevel1" : {
@@ -43,6 +55,10 @@ Below is a sample template to highlight each of the areas that make up a cloudfo
       }
     }
   },
+```  
+<br>
+
+```
   "Conditions" : {
     "condition1CheckParam1IsSetToSecond" : {
       "Fn::Equals" : [
@@ -51,6 +67,10 @@ Below is a sample template to highlight each of the areas that make up a cloudfo
       ]
     }
   },
+```  
+<br>
+
+```
   "Resources" : {
     "resource1": {
       "Type": "AWS::S3::Bucket",
@@ -59,6 +79,10 @@ Below is a sample template to highlight each of the areas that make up a cloudfo
       }
     }
   },
+```  
+<br>
+
+```
   "Outputs" : {
     "output1": {
       "Value": {

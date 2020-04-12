@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Cloudformation Intro"
+title: "Cloudformation Series"
 date: 2020-02-01 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
-short-description: Overview of concepts that make up AWS cloudformation templates / stacks / extras
+short-description: Introduction to Cloudformation Series
 tags: [cloudformation, introduction]
 ---
 
@@ -24,7 +24,7 @@ Throughout this series, I'll be breaking down, summarising, and explaining each 
       
     </div>
     <div class="column col-3 col-md-4 col-sm-12 col-xs-12">
-      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-anatomy">Template Anatomy</a>
+      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-concepts">Concepts</a>
     </div>
   </div>
 </div>

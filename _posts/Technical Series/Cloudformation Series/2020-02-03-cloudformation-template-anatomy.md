@@ -7,8 +7,16 @@ author: samGordon
 short-description: Cloudformation template dissection / anatomy
 tags: [cloudformation, anatomy]
 ---
-
-Below is a broken down template, with annotations / links to describe each section. Official Docs [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)
+<div class="card official-docs">
+  <div class="card-body">
+    <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">AWS docs</a>
+  </div>
+</div>
+<div class="card tip">
+  <div class="card-body">
+    cfn-flip is super handy if examples arent in a format that you're used to working with
+  </div>
+</div>
 
 1. [AWSTemplateFormatVersion](#aws-template-format-version)
 2. [Description](#description)
@@ -21,6 +29,7 @@ Below is a broken down template, with annotations / links to describe each secti
 9. [Outputs / Exports](#outputs-exports)
 10. [Full Examples](#full-examples)
 11. [Useful Tools](#useful-tools)
+
 ---
 
 #### AWSTemplateFormatVersion<a name="aws-template-format-version"></a>
@@ -431,14 +440,6 @@ Outputs:
     Export:
       Name: export1
 ```
-
-#### Useful Tools<a name="useful-tools"></a>
-
-> [JSON Validator](https://jsonlint.com/)
-
-> [YML Validator](http://www.yamllint.com/)
-
-> [cfn-flip](https://github.com/awslabs/aws-cfn-template-flip) - used for converting yml >> json and vice versa
 
 usage
 ```sh

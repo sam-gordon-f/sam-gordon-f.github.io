@@ -8,12 +8,12 @@ short-description: Overview of Cloudformation Concepts
 tags: [cloudformation, concepts]
 ---
 
-<div class="card">
+<div class="card official-docs">
   <div class="card-body">
-    [AWS docs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html)
+    <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html">AWS docs</a>
   </div>
 </div>
-<div class="card">
+<div class="card tip">
   <div class="card-body">
     Tips
   </div>

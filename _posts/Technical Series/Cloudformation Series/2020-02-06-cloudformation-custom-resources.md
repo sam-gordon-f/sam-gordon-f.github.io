@@ -8,6 +8,8 @@ short-description: Custom Resources
 tags: [cloudformation, custom, resources]
 ---
 
+Custom Resources are a way 
+
 <div class="container grid-xl">
   <div class="columns">
     <div class = "column col-3 col-md-4 col-sm-12 col-xs-12">

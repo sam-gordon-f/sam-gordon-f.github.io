@@ -20,7 +20,7 @@ tags: [cloudformation, anatomy]
 
 1. [AWSTemplateFormatVersion](#aws-template-format-version)
 2. [Description](#description)
-3. [Transforms](#transforms)
+3. [Macros](#macros)
 4. [Parameters](#parameters)
 5. [Metadata](#metadata)
 6. [Mappings](#mappings)
@@ -57,7 +57,7 @@ Description: "A description to help identify the purpose of the template"
 
 ---
 
-#### Transforms<a name="transforms"></a>
+#### Macros<a name="macros"></a>
 
 Are a directive for cloudformation (at runtime) to take the entirety of whats supplied and run through one or more custom, or AWS managed macros.
 In the above example, there must be a custom macro (pre-defined lambda function) defined as "transformName1", which will return a result to cloudformation on changeset operations.
@@ -73,7 +73,10 @@ Transform: ["transformName1"]
 
 <div class="card tip">
   <div class="card-body">
-    These are covered in a lot more detail in the <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-transform">following post</a>
+    These are covered in a lot more detail in the following two posts
+    <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-transform">transform</a>
+      <br>
+    <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-include">includes</a>
   </div>
 </div>
 

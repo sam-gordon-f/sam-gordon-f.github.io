@@ -9,12 +9,12 @@ tags: [cloudformation, anatomy]
 ---
 <div class="card official-docs">
   <div class="card-body">
-    <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">AWS docs</a>
+    <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">AWS docs on cloudformation template components</a>
   </div>
 </div>
 <div class="card tip">
   <div class="card-body">
-    <a href = "https://github.com/awslabs/aws-cfn-template-flip">cfn-flip</a> is super handy if examples arent in a format that you're used to working with
+    <a href = "https://github.com/awslabs/aws-cfn-template-flip">cfn-flip</a> is super handy if examples arent in a format that you're used to working with. In the examples below, I've used both JSON and yml to save you the hassle
   </div>
 </div>
 

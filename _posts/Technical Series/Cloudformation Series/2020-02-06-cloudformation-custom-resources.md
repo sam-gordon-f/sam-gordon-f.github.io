@@ -27,7 +27,7 @@ Custom Resources are a way to define non-cloudformation standard template resour
       
     </div>
     <div class="column col-3 col-md-4 col-sm-12 col-xs-12">
-      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-transform">Macros - Transforms</a>
+      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros">Macros</a>
     </div>
   </div>
 </div>

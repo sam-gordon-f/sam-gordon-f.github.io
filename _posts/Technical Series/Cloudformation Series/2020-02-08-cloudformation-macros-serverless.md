@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Macro - Transform - Serverless
+title: Macro - Serverless
 date: 2020-02-02 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
@@ -25,7 +25,7 @@ The Cloudformation S3 Include Macr
       
     </div>
     <div class="column col-3 col-md-4 col-sm-12 col-xs-12">
-      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-transform">Macros - Transforms</a>
+      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros">Macros - Transforms</a>
     </div>
   </div>
 </div>

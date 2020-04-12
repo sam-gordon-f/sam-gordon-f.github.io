@@ -415,7 +415,6 @@ The full template examples are here (some properties omitted as their have depen
 ---
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "A description to help identify the purpose of the template"
-Transform: ["transformName1"]
 Parameters:
   param1:
     Type: String

@@ -59,16 +59,25 @@ Description: "A description to help identify the purpose of the template"
 
 #### Macros<a name="macros"></a>
 
-Are a directive for cloudformation (at runtime) to take the entirety of whats supplied and run through one or more custom, or AWS managed macros.
-In the above example, there must be a custom macro (pre-defined lambda function) defined as "transformName1", which will return a result to cloudformation on changeset operations.
+Are a directive for cloudformation (at runtime) to take the entirety of whats supplied and run through one or more custom, or AWS managed transforms. These can be defined in the header (as shown) for full template transforms, or inline (more details later)
+  <br>
+In the below example, there are the following sample transforms defined.
+
+> transform1 - which is a custom user defined transform (actions not listed)
+
+> AWS::Serverless - which is an AWS defined transform for creating lambda functions (details [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html))
+
+> AWS::Include - which is an AWS defined transform for pulling in cloudformation snippets from S3
 
 ```
 "Transform" : [
-  "transformName1"
+  "transform1",
+  "AWS::Serverless",
+  "AWS::Include"
 ]
 ```  
 ```yml
-Transform: ["transformName1"]
+Transform: ["transform", "AWS::Serverless", "AWS::Include"]
 ```
 
 <div class="card tip">

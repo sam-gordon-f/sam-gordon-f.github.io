@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Intro"
+title: "Cloudformation Intro"
 date: 2020-02-01 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
@@ -17,18 +17,18 @@ Throughout this series, I'll be breaking down, summarising, and explaining each 
 
 #### Fundamentals
 
-> [Cloudformation template formats]({{ site.baseurl }}/technical-series/cloudformation-formats)
+> [Cloudformation template formats]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-formats)
 
-> [Cloudformation template anatomy]({{ site.baseurl }}/technical-series/cloudformation-anatomy)
+> [Cloudformation template anatomy]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-anatomy)
 
-> [Cloudformation template/stack parameters]({{ site.baseurl }}/technical-series/cloudformation-parameters)
+> [Cloudformation template/stack parameters]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-parameters)
 
-> [Cloudformation template/stack resources]({{ site.baseurl }}/technical-series/cloudformation-resources)
+> [Cloudformation template/stack resources]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-resources)
 
 #### Extras
 
-> [Cloudformation macros]({{ site.baseurl }}/technical-series/cloudformation-macros)
+> [Cloudformation macros]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros)
 
-> [Cloudformation macros - transform]({{ site.baseurl }}/technical-series/cloudformation-macros-transform)
+> [Cloudformation macros - transform]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-transform)
 
-> [Cloudformation macros - include]({{ site.baseurl }}/technical-series/cloudformation-macros-include)
+> [Cloudformation macros - include]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-include)

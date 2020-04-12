@@ -8,12 +8,22 @@ short-description: Overview of Cloudformation Concepts
 tags: [cloudformation, concepts]
 ---
 
-<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/map.jpg" alt="drawing" style="width:100%;"/>
+<div class="card">
+  <div class="card-body">
+    [AWS docs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html)
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    Tips
+  </div>
+</div>
 
-Cloudformation is an incredibly powerful infrastructure templating service, and vital to at least understand in principal
-for anyone looking to keep their tech wealth in AWS.
+Templates
 
-Throughout this series, I'll be breaking down, summarising, and explaining each of the above areas which fall into the below categories
+Stacks
+
+Change Sets
 
 <div class="container grid-xl">
   <div class="columns">

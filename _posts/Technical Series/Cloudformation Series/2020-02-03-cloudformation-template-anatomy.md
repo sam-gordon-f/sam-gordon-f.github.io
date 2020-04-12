@@ -20,7 +20,7 @@ Below is a broken down template, with annotations / links to describe each secti
 8. [Resources](#resources)
 9. [Outputs / Exports](#outputs-exports)
 10. [Full Examples](#full-examples)
-
+11. [Useful Tools](#useful-tools)
 ---
 
 #### AWSTemplateFormatVersion<a name="aws-template-format-version"></a>
@@ -430,6 +430,20 @@ Outputs:
     Name: "resource1LogicalId"
     Export:
       Name: export1
+```
+
+#### Useful Tools<a name="useful-tools"></a>
+
+> [JSON Validator](https://jsonlint.com/)
+
+> [YML Validator](http://www.yamllint.com/)
+
+> [cfn-flip](https://github.com/awslabs/aws-cfn-template-flip) - used for converting yml >> json and vice versa
+
+usage
+```sh
+cfn-flip input.json output.yaml #writes output to file
+cfn-flip input.json #outputs to stdout
 ```
 
 <div class="container grid-xl">

@@ -8,12 +8,12 @@ short-description: Introduction to Cloudformation Series
 tags: [cloudformation, introduction]
 ---
 
-<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/map.jpg" alt="drawing" style="width:100%;"/>
-
 Cloudformation is an incredibly powerful infrastructure templating service, and vital to at least understand in principal
 for anyone looking to keep their tech wealth in AWS.
 
-Throughout this series, I'll be breaking down, summarising, and explaining each of the above areas which fall into the below categories
+Throughout this series, I'll be progressively exploring the concepts that make up the below
+
+<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/map.jpg" alt="drawing" style="width:100%;"/>
 
 <div class="container grid-xl">
   <div class="columns">

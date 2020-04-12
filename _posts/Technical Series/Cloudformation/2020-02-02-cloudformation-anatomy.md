@@ -10,9 +10,13 @@ tags: [cloudformation, anatomy]
 
 [AWS docs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)
 
-Below is a sample template highlight each of the areas that make up a cloudformation template
+Below is a sample template to highlight each of the areas that make up a cloudformation template
 
 ---
+
+<pre>
+  test
+</pre>
 
 ```json
 {

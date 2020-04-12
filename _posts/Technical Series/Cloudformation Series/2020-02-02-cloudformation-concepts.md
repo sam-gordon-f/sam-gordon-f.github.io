@@ -14,11 +14,18 @@ tags: [cloudformation, concepts]
   </div>
 </div>
 
-Templates
+The Cloudformation lifecycle is fairly straight forward
 
-Stacks
+1) Cloudformation templates are written to describe infrastructure in the desired state
+2) These templates are then fed to cloudformation with the `createStack` directive
+3) The service will attempt to create a stack containing the resource aforementioned
+4) Moving forwards, the following operations can be undertaken
+  - deleteStack, which will attempt to remove all resources
+  - updateStack, which will take an updated template and attempt to update all resources to match the new changes
+  - createChangeSet, which will attempt to create a list of changes that would occur if an update was executed
+  - executeChangeSet, which will attempt to update the stack, much like the `updateStack` operation
 
-Change Sets
+<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts1.png" alt="drawing" style="width:100%;"/>
 
 <div class="container grid-xl">
   <div class="columns">

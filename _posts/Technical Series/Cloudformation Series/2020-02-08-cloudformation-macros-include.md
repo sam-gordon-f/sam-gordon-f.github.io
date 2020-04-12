@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Macro - Transform - Include
+title: Macro - Include
 date: 2020-02-02 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
@@ -14,7 +14,70 @@ tags: [cloudformation, include, lambda, macro]
   </div>
 </div>
 
-The Cloudformation S3 Include Transform is an AWS managed transform that takes an
+The Cloudformation S3 Include Transform is an AWS managed transform that takes an S3 Key, finds the content, and merges with the template supplied.
+  <br><br>  
+In the below example, the main template (template2), includes a bucket defined in template1 are runtime
+
+---
+
+template1 (file to include)
+
+```json
+"S3Bucket1": {
+  "Type" : "AWS::S3::Bucket",
+  "Properties" : {
+    "AccessControl" : "Private"
+  }
+}
+```
+
+```yml
+---
+S3Bucket1:
+  Type: AWS::S3::Bucket
+  Properties:
+    AccessControl: "Private"
+```
+
+---
+
+template2 (transform template)
+
+```json
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description": "A description to help identify the purpose of the template",
+  "Resources": {
+    "S3Bucket2": {
+      "Type" : "AWS::S3::Bucket",
+      "Properties" : {
+        "AccessControl" : "Private"
+      }
+    },
+    "Fn::Transform": {
+      "Name": "AWS::Include",
+      "Parameters": {
+        "Location": "s3://pathToS3TemplateAbove"
+      }
+    }
+  }
+}
+```
+
+```yml
+---
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "A description to help identify the purpose of the template"
+Resources:
+  S3Bucket1:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: "Private"
+  'Fn::Transform':
+    Name: "AWS::Include"
+    Parameters:
+      Location: "s3://pathToS3TemplateAbove"
+```
 
 <div class="container grid-xl">
   <div class="columns">

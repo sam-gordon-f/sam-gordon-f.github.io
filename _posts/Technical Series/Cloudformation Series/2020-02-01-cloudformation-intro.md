@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cloudformation Series"
+title: "Intro"
 date: 2020-02-01 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon

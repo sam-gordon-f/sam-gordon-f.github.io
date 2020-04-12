@@ -10,8 +10,6 @@ tags: [cloudformation, anatomy]
 
 Below is a broken down template, with annotations / links to describe each section. Official Docs [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)
 
-`(examples are in json, then yml)`
-
 1. [AWSTemplateFormatVersion](#aws-template-format-version)
 2. [Description](#description)
 3. [Transforms](#transforms)
@@ -21,6 +19,7 @@ Below is a broken down template, with annotations / links to describe each secti
 7. [Conditions](#conditions)
 8. [Resources](#resources)
 9. [Outputs / Exports](#outputs-exports)
+10. [Full Examples](#full-examples)
 
 ---
 
@@ -53,7 +52,7 @@ Description: "A description to help identify the purpose of the template"
 #### Transforms<a name="transforms"></a>
 
 Are a directive for cloudformation (at runtime) to take the entirety of whats supplied and run through one or more custom, or AWS managed macros.
-In the above example, there must be a custom macro (pre-defined lambda function) defined as "transformName1", which will return a result to cloudformation on changeset operations. Futher information [here]({{ site.baseurl }}/technical-series/cloudformation-macros-transform)
+In the above example, there must be a custom macro (pre-defined lambda function) defined as "transformName1", which will return a result to cloudformation on changeset operations. Futher information [here]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-transform)
 
 ```
 "Transform" : [
@@ -106,11 +105,11 @@ Ref: "param1"
 
 Can be for storing custom information about your stack and/or some reserved directives. 3 sections described below
 
-- AWS::CloudFormation::Designer. Used by the Cloudformation Designer to store meta about where resources reside on the map
+> AWS::CloudFormation::Designer. Used by the Cloudformation Designer to store meta about where resources reside on the map
 
-- AWS::CloudFormation::Init. Used by cfn-init to bootstrap EC2 Instances
+> AWS::CloudFormation::Init. Used by cfn-init to bootstrap EC2 Instances
 
-- AWS::CloudFormation::Interface. Used to help prettify cloudformation operation interfaces (create / update)
+> AWS::CloudFormation::Interface. Used to help prettify cloudformation operation interfaces (create / update)
 
 ```
   "Metadata" : {
@@ -118,18 +117,18 @@ Can be for storing custom information about your stack and/or some reserved dire
     "Databases" : {"Description" : "Information about the databases"}",
     "AWS::CloudFormation::Designer",
     "AWS::CloudFormation::Init",
-    "AWS::CloudFormation::Interface": : {
+    "AWS::CloudFormation::Interface": {
       "ParameterGroups": [{
         "Label": {
           "default": "Custom Parameter Group1"
         },
         "Parameters": ["param1"]
-      },
-      "ParameterLabels": {
+      }],
+      "ParameterLabels": [{
         "param1": {
           "default": "Here is a custom description for param1"
         }
-      }
+      }]
     }
   },
 ```
@@ -246,7 +245,7 @@ See. [Cloudformation template/stack resources]({{ site.baseurl }}/technical-seri
         "AccessControl": "Private"
       }
     }
-  },
+  }
 ```  
 
 ```yml
@@ -257,6 +256,24 @@ Resources:
       AccessControl: "Private"
 ```
 
+> How to reference resource properies
+
+```
+{ "Ref" : "resource1" }
+```
+```yml
+Ref: "param1"
+```
+
+```
+{ "Fn::GetAtt" : ["resource1", "Arn"] }
+```
+```yml
+Fn::GetAtt: ["param1", "Arn"]
+```
+
+
+
 ---
 
 #### Outputs / Exports<a name="outputs-exports"></a>
@@ -264,17 +281,17 @@ Resources:
 A list of values that you wish to make available for vierers. These can also be exposed as exports (`must be unique keys`, and use the directive in the example above)
 
 ```
-  "Outputs" : {
-    "output1": {
-      "Description": "Here is the default value when referencing an S3 Bucket",
-      "Value": {
-        "Ref": "resource1"
-      },
-      "Name": "resource1LogicalId",
-      "Export": "export1"
-    }
+"Outputs" : {
+  "output1": {
+    "Description": "Here is the default value when referencing an S3 Bucket",
+    "Value": {
+      "Ref": "resource1"
+    },
+    "Name": "resource1LogicalId",
+    "Export": "export1"
   }
 }
+
 ```
 
 ```yml
@@ -295,4 +312,122 @@ Outputs:
 
 ```yml
 Fn::ImportValue: "export1"
+```
+
+---
+
+#### Full Examples<a name="full-examples"></a>
+
+The full template examples are here (some properties omitted as their have dependencies)
+
+```json
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description": "A description to help identify the purpose of the template",
+  "Parameters" : {
+    "param1": {
+      "Type": "String",
+      "AllowedValues": ["first", "second", "third"],
+      "Default": "first"
+    }
+  },
+  "Metadata" : {
+    "AWS::CloudFormation::Interface": {
+      "ParameterGroups": [{
+        "Label": {
+          "default": "Custom Parameter Group1"
+        },
+        "Parameters": ["param1"]
+      }],
+      "ParameterLabels": [{
+        "param1": {
+          "default": "Here is a custom description for param1"
+        }
+      }]
+    }
+  },
+  "Mappings" : {
+    "mapping1" : {
+      "mappingPropCategory1" : {
+        "mappingPropName" : "mappingPropValue"
+      },
+      "mappingPropCategory2" : {
+        "mappingPropName" : "mappingPropValue2"
+      }
+    }
+  },
+  "Conditions" : {
+    "condition1CheckParam1IsSetToSecond" : {
+      "Fn::Equals" : [
+        {"Ref" : "param1"},
+        "second"
+      ]
+    }
+  },
+  "Resources" : {
+    "resource1": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "AccessControl": "Private"
+      }
+    }
+  },
+  "Outputs" : {
+    "output1": {
+      "Description": "Here is the default value when referencing an S3 Bucket",
+      "Value": {
+        "Ref": "resource1"
+      },
+      "Name": "resource1LogicalId",
+      "Export": "export1"
+    }
+  }
+}
+```
+
+```yml
+---
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "A description to help identify the purpose of the template"
+Transform: ["transformName1"]
+Parameters:
+  param1:
+    Type: String
+    AllowedValues:
+      - first
+      - second
+      - third
+    Default: first  
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      -
+        Label:
+          default: "Custom Parameter Group1"
+        Parameters:
+          - param1
+    ParameterLabels:
+      param1:
+        default: "Here is a custom description for param1"
+Mappings:
+  mapping1:
+    mappingPropCategory1:
+      mappingPropName: mappingPropValue
+    mappingPropCategory2:
+      mappingPropName: mappingPropValue2
+Conditions:
+  condition1CheckParam1IsSetToSecond:
+    Fn::Equals: [!Ref param1, second]
+Resources:
+  resource1:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: "Private"
+Outputs:
+  output1:
+    Description: "Here is the default value when referencing an S3 Bucket (logicalId)"
+    Value: !Ref resource1
+    Name: "resource1LogicalId"
+    Export:
+      Name: export1
 ```

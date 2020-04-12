@@ -18,6 +18,8 @@ Cloudformation Macros are a way to define lambda backed functionality to run aga
 
 They can used in one of the following two ways
 
+---
+
 example 1 - defined at heading level
 In this example our macro would take the entire template, and could potentially return anything in exchange.
 `This is useful for auto-generating resources`
@@ -36,6 +38,8 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: "A description to help identify the purpose of the template"
 Transform: ["transformName1"]
 ```
+
+---
 
 example 2 - defined at specific point<br>
 In this example we're expecting our macro to return a value for the property `AccessControl` inside our bucket.

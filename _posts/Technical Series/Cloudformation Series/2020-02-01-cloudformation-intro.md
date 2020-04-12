@@ -15,7 +15,19 @@ for anyone looking to keep their tech wealth in AWS.
 
 Throughout this series, I'll be breaking down, summarising, and explaining each of the above areas which fall into the below categories
 
-<a style="height: auto;" class="btn btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-anatomy">Next</a>
+<div class="container grid-xl">
+  <div class="columns">
+    <div class = "column col-3 col-md-4 col-sm-12 col-xs-12">
+      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-anatomy">Return Home</a>
+    </div>
+    <div class = "column col-6 col-md-4 col-sm-12 col-xs-12">
+      
+    </div>
+    <div class="column col-3 col-md-4 col-sm-12 col-xs-12">
+      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-anatomy">Template Anatomy</a>
+    </div>
+  </div>
+</div>
 
 #### Fundamentals
 

@@ -13,9 +13,9 @@ tags: [cloudformation, include, lambda, macro]
     <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">AWS docs on cloudformation Transforms</a>
   </div>
 </div>
-
-The Cloudformation S3 Include Macr
-
+<div>
+  The Cloudformation Serverless Macro is used for generating quick lambda stacks based on few details
+</div>
 <div class="container grid-xl">
   <div class="columns">
   <div class = "column col-3 col-md-4 col-sm-12 col-xs-12">

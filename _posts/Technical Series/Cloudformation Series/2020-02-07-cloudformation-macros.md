@@ -18,7 +18,6 @@ tags: [cloudformation, transform, lambda, macro]
     Macros can be referenced in two ways in your template. They are both listed below
   </div>
 </div>
-  <br>
 <div>
   Cloudformation Macros are a way to define lambda backed functionality to run against your cloudformation templates. They can be used to model all sorts of crazy scenarios, and remove the previous imposed limits.
     <br>

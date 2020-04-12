@@ -13,7 +13,6 @@ tags: [cloudformation, include, lambda, macro]
     <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">AWS docs on cloudformation Transforms</a>
   </div>
 </div>
-  <br>
 <div>
   The Cloudformation S3 Include Transform is an AWS managed transform that takes an S3 Key, finds the content, and merges with the template supplied.
     <br><br>  

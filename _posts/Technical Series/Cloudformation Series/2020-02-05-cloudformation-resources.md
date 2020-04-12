@@ -8,7 +8,11 @@ short-description: Resources contained within a cloudformation template/stack
 tags: [cloudformation, parameters, yml, json]
 ---
 
-[AWS docs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+<div class="card official-docs">
+  <div class="card-body">
+    <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS docs on cloudformation resources</a>
+  </div>
+</div>
 
 <div class="container grid-xl">
   <div class="columns">

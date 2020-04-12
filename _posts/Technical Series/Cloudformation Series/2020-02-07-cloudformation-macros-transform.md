@@ -14,7 +14,14 @@ tags: [cloudformation, transform, lambda, macro]
   </div>
 </div>
 
+Cloudformation Transforms are a way to define lambda backed functionality to run against your cloudformation templates. They can be used to model all sorts of crazy scenarios, and remove the previous imposed limits.
 
+They can be defined at a header level (which will run against the entirity of your template),<br>
+or<br>
+they can be defined at specific points within your template.
+<br><br>
+example 1 - defined at heading level
+example 2 - defined at specific point
 
 <div class="container grid-xl">
   <div class="columns">

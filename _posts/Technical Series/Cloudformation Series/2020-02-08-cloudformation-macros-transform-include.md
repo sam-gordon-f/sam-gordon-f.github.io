@@ -14,7 +14,7 @@ tags: [cloudformation, include, lambda, macro]
   </div>
 </div>
 
-The Cloudformation S3 Include Macr
+The Cloudformation S3 Include Transform is an AWS managed transform that takes an
 
 <div class="container grid-xl">
   <div class="columns">

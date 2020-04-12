@@ -8,7 +8,15 @@ short-description: A means to define non-cloudformation standard resources
 tags: [cloudformation, custom, resources]
 ---
 
-Custom Resources are a way
+<div class="card official-docs">
+  <div class="card-body">
+    <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html">AWS docs on custom resources</a>
+  </div>
+</div>
+
+Custom Resources are a way to define non-cloudformation standard template resources.
+
+
 
 <div class="container grid-xl">
   <div class="columns">

@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Cloudformation Parameters"
+title: "Parameters"
 date: 2020-02-03 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
-short-description: Cloudformation Parameters
+short-description: Cloudformation template/stack Parameters
 tags: [cloudformation, parameters, yml, json]
 ---
 

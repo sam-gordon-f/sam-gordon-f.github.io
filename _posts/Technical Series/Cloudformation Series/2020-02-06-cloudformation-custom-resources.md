@@ -4,11 +4,11 @@ title: Custom Resources
 date: 2020-02-02 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
-short-description: Custom Resources
+short-description: A means to define non-cloudformation standard resources
 tags: [cloudformation, custom, resources]
 ---
 
-Custom Resources are a way 
+Custom Resources are a way
 
 <div class="container grid-xl">
   <div class="columns">

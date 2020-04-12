@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cloudformation Resources"
+title: "Resources"
 date: 2020-02-03 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon

@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Cloudformation Macro - Transform
+title: Macro - Transform
 date: 2020-02-02 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
-short-description: Cloudformation Macro - Transform
+short-description: Lambda transforms for cloudformation templates
 tags: [cloudformation, transform, lambda, macro]
 ---
 

@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Cloudformation Macro - Include
+title: Macro - Include
 date: 2020-02-02 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
-short-description: S3 File Inclusions for templates
+short-description: S3 File Inclusions for Cloudformation templates
 tags: [cloudformation, include, lambda, macro]
 ---
 

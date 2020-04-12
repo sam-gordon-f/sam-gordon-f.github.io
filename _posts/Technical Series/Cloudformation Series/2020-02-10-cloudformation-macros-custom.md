@@ -23,11 +23,13 @@ tags: [cloudformation, include, lambda, macro]
     You can also use lambda alias's / versions when defining their ARNs in the macro below
   </div>
 </div>
-
-When defining your own custom macros, you need to create the lambda function / macro definition in advance.
-In the following two examples, there is already a lambda function created in the same account (named `lambdaFunction1`)
-<br><br>
-The referencer is using the macro in the header (see <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros">here</a> for more details)
+  <br>
+<div>
+  When defining your own custom macros, you need to create the lambda function / macro definition in advance.
+  In the following two examples, there is already a lambda function created in the same account (named `lambdaFunction1`)
+  <br><br>
+  The referencer is using the macro in the header (see <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros">here</a> for more details)
+</div>
 
 ---
 

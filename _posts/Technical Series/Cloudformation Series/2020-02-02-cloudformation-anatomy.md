@@ -10,43 +10,65 @@ tags: [cloudformation, anatomy]
 
 Below is a broken down template, with annotations / links to describe each section. Official Docs [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)
 
+`(examples are in json, then yml)`
+
+1. [AWSTemplateFormatVersion](#aws-template-format-version)
+2. [Description](#description)
+3. [Transforms](#transforms)
+4. [Parameters](#parameters)
+5. [Metadata](#metadata)
+6. [Mappings](#mappings)
+7. [Conditions](#conditions)
+8. [Resources](#resources)
+9. [Outputs / Exports](#outputs-exports)
+
 ---
 
-#### Basic Details
+#### AWSTemplateFormatVersion<a name="aws-template-format-version"></a>
+
+Identifies the structure and supported capabilities. [2010-09-09](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html) is currently the only version available
+
 ```
-{
-  "AWSTemplateFormatVersion" : "2010-09-09",
-  "Description" : "A description to help identify the purpose of the template",
+"AWSTemplateFormatVersion" : "2010-09-09"
 ```  
-
 ```yml
----
 AWSTemplateFormatVersion: "2010-09-09"
-Description: "A description to help identify the purpose of the template"
-
 ```  
 
-> [AWSTemplateFormatVersion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html) - Identifies the structure and supported capabilities. 2010-09-09 is currently the only version available
+---
 
-> Description - is used to help viewers identify the purpose of the template
+#### Description<a name="description"></a>
 
-#### Transforms
-
+Is used to help viewers identify the purpose of the template
 
 ```
-  "Transform" : [
-    "transformName1"
-  ],
+"Description" : "A description to help identify the purpose of the template"
 ```  
-
 ```yml
-Transform: [transformName1]
+Description: "A description to help identify the purpose of the template"
 ```
 
-Is a directive for cloudformation (at runtime) to take the entirety of whats supplied and run through one or more custom, or AWS managed macros.
+---
+
+#### Transforms<a name="transforms"></a>
+
+Are a directive for cloudformation (at runtime) to take the entirety of whats supplied and run through one or more custom, or AWS managed macros.
 In the above example, there must be a custom macro (pre-defined lambda function) defined as "transformName1", which will return a result to cloudformation on changeset operations. Futher information [here]({{ site.baseurl }}/technical-series/cloudformation-macros-transform)
 
-#### Parameters
+```
+"Transform" : [
+  "transformName1"
+]
+```  
+```yml
+Transform: ["transformName1"]
+```
+
+---
+
+#### Parameters<a name="parameters"></a>
+
+Are a way of creating dynamic inputs for your stacks. These are placeholder definitions for what the user/system can provide to cloudformation at runtime operationa
 
 ```
   "Parameters" : {
@@ -57,7 +79,6 @@ In the above example, there must be a custom macro (pre-defined lambda function)
     }
   },
 ```  
-
 ```yml
 Parameters:
   param1:
@@ -69,10 +90,27 @@ Parameters:
     Default: first  
 ```
 
-Are a way of creating dynamic inputs for your stacks. These are placeholder definitions for what the user/system can provide
+> How to reference parameters
 
+```
+{ "Ref" : "param1" }
+```
 
-#### Metadata
+```yml
+Ref: "param1"
+```
+
+---
+
+#### Metadata<a name="metadata"></a>
+
+Can be for storing custom information about your stack and/or some reserved directives. 3 sections described below
+
+- AWS::CloudFormation::Designer. Used by the Cloudformation Designer to store meta about where resources reside on the map
+
+- AWS::CloudFormation::Init. Used by cfn-init to bootstrap EC2 Instances
+
+- AWS::CloudFormation::Interface. Used to help prettify cloudformation operation interfaces (create / update)
 
 ```
   "Metadata" : {
@@ -116,46 +154,62 @@ Metadata:
         default: "Here is a custom description for param1"
 ```
 
-Is for storing custom information about your stack and/or some reserved directives. 3 sections described below
+---
 
-- AWS::CloudFormation::Designer. Used by the Cloudformation Designer to store meta about where resources reside on the map
+#### Mappings<a name="mappings"></a>
 
-- AWS::CloudFormation::Init. Used by cfn-init to bootstrap EC2 Instances
-
-- AWS::CloudFormation::Interface. Used to help prettify cloudformation operation interfaces (create / update)
-
-#### Mappings
+Ways of defining config for within templates. These can be dynamically referenced using intrinsic functions paired with 'Parameters'
 
 ```
-  "Mappings" : {
-    "mapping1" : {
-      "mappingPropLevel1" : {
-        "mappingPropName" : "mappingPropValue"
-      }
+"Mappings" : {
+  "mapping1" : {
+    "mappingPropCategory1" : {
+      "mappingPropName" : "mappingPropValue"
+    },
+    "mappingPropCategory2" : {
+      "mappingPropName" : "mappingPropValue2"
     }
-  },
+  }
+}
 ```  
 
 ```yml
 Mappings:
   mapping1:
-    mappingPropLevel1:
+    mappingPropCategory1:
       mappingPropName: mappingPropValue
+    mappingPropCategory2:
+      mappingPropName: mappingPropValue2
 ```
 
-Ways of defining config for your templates. These can be dynamically referenced using intrinsic functions paired with 'Parameters'
-
-#### Conditions
+> How to reference map variables
 
 ```
-  "Conditions" : {
-    "condition1CheckParam1IsSetToSecond" : {
-      "Fn::Equals" : [
-        {"Ref" : "param1"},
-        "second"
-      ]
-    }
-  },
+{ "Fn::FindInMap" : [ "mapping1", "mappingPropCategory1", "mappingPropName"] }
+```
+
+```yml
+Fn::FindInMap:
+  - mapping1
+  - mappingPropCategory1
+  - mappingPropName
+```
+
+---
+
+#### Conditions<a name="conditions"></a>
+
+A way of creating logic around property values, and/or cloudformation resource configuration. Mainly used for checking null values and helping your template work with them
+
+```
+"Conditions" : {
+  "condition1CheckParam1IsSetToSecond" : {
+    "Fn::Equals" : [
+      {"Ref" : "param1"},
+      "second"
+    ]
+  }
+}
 ```  
 
 ```yml
@@ -164,11 +218,27 @@ Conditions:
     Fn::Equals: [!Ref param1, second]
 ```
 
-A way of creating logic around property values, and/or cloudformation resource configuration
+> How to use conditions
 
-#### Resources
+```
+{ "Fn::FindInMap" : [ "mapping1", "mappingPropCategory1", "mappingPropName"] }
+```
 
-```json
+```yml
+Fn::FindInMap:
+  - mapping1
+  - mappingPropCategory1
+  - mappingPropName
+```
+
+---
+
+#### Resources<a name="resources"></a>
+
+The contents(resources) to be contained within your stack. Typically each resource is denoted by one logical ID (what the template specifies as the JSON/YML key).
+See. [Cloudformation template/stack resources]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-resources)
+
+```
   "Resources" : {
     "resource1": {
       "Type": "AWS::S3::Bucket",
@@ -187,10 +257,11 @@ Resources:
       AccessControl: "Private"
 ```
 
-The contents(resources) to be contained within your stack. Typically each resource is denoted by one logical ID (what the template specifies as the JSON/YML key).
-See. [Cloudformation template/stack resources]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-resources)
+---
 
-#### Outputs / Exports
+#### Outputs / Exports<a name="outputs-exports"></a>
+
+A list of values that you wish to make available for vierers. These can also be exposed as exports (`must be unique keys`, and use the directive in the example above)
 
 ```
   "Outputs" : {
@@ -216,9 +287,7 @@ Outputs:
       Name: export1
 ```
 
-A list of values that you wish to make available for vierers. These can also be exposed as exports (`must be unique keys`, and use the directive in the example above)
-
-For other stacks to reference the aforementioned exports, use the intrinsic function [Fn::ImportValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html)
+> How to reference exports
 
 ```
 { "Fn::ImportValue" : "export1" }
@@ -227,6 +296,3 @@ For other stacks to reference the aforementioned exports, use the intrinsic func
 ```yml
 Fn::ImportValue: "export1"
 ```
-
-
----

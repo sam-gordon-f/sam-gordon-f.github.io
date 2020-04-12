@@ -14,7 +14,7 @@ tags: [cloudformation, anatomy]
 </div>
 <div class="card tip">
   <div class="card-body">
-    cfn-flip is super handy if examples arent in a format that you're used to working with
+    <a href = "https://github.com/awslabs/aws-cfn-template-flip">cfn-flip</a> is super handy if examples arent in a format that you're used to working with
   </div>
 </div>
 
@@ -28,7 +28,6 @@ tags: [cloudformation, anatomy]
 8. [Resources](#resources)
 9. [Outputs / Exports](#outputs-exports)
 10. [Full Examples](#full-examples)
-11. [Useful Tools](#useful-tools)
 
 ---
 

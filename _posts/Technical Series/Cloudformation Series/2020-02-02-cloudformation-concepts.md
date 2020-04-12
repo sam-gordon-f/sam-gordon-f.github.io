@@ -13,11 +13,6 @@ tags: [cloudformation, concepts]
     <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html">AWS docs</a>
   </div>
 </div>
-<div class="card tip">
-  <div class="card-body">
-    Tips
-  </div>
-</div>
 
 Templates
 

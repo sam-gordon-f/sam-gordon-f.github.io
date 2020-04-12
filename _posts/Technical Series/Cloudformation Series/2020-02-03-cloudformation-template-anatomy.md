@@ -60,7 +60,7 @@ Description: "A description to help identify the purpose of the template"
 #### Transforms<a name="transforms"></a>
 
 Are a directive for cloudformation (at runtime) to take the entirety of whats supplied and run through one or more custom, or AWS managed macros.
-In the above example, there must be a custom macro (pre-defined lambda function) defined as "transformName1", which will return a result to cloudformation on changeset operations. Futher information [here]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-transform)
+In the above example, there must be a custom macro (pre-defined lambda function) defined as "transformName1", which will return a result to cloudformation on changeset operations.
 
 ```
 "Transform" : [
@@ -70,6 +70,12 @@ In the above example, there must be a custom macro (pre-defined lambda function)
 ```yml
 Transform: ["transformName1"]
 ```
+
+<div class="card tip">
+  <div class="card-body">
+    These are covered in a lot more detail in the <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-transform">following post</a>
+  </div>
+</div>
 
 ---
 

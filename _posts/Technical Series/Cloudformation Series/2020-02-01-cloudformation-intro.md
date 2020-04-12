@@ -28,21 +28,3 @@ Throughout this series, I'll be breaking down, summarising, and explaining each 
     </div>
   </div>
 </div>
-
-#### Fundamentals
-
-> [Cloudformation template formats]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-formats)
-
-> [Cloudformation template anatomy]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-anatomy)
-
-> [Cloudformation template/stack parameters]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-parameters)
-
-> [Cloudformation template/stack resources]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-resources)
-
-#### Extras
-
-> [Cloudformation macros]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros)
-
-> [Cloudformation macros - transform]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-transform)
-
-> [Cloudformation macros - include]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-include)

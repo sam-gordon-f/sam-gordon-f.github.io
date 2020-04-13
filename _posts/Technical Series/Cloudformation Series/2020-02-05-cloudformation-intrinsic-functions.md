@@ -28,22 +28,24 @@ These are the following functions cloudformation makes available, and a definiti
   a. [Usage](#findinmap-usage)
 4. [GetAtt](#getatt)
   a. [Usage](#getatt-usage)
-4. [GetAZs](#getazs)
+5. [GetAZs](#getazs)
   a. [Usage](#getazs-usage)
-4. [ImportValue](#importvalue)
+6. [ImportValue](#importvalue)
   a. [Usage](#importvalue-usage)
-4. [Join](#join)
+7. [Join](#join)
   a. [Usage](#join-usage)
-4. [Select](#select)
+8. [Select](#select)
   a. [Usage](#select-usage)
-4. [Split](#split)
+9. [Split](#split)
   a. [Usage](#split-usage)
-4. [Sub](#sub)
+10. [Sub](#sub)
   a. [Usage](#sub-usage)
-4. [Transform](#transform)
+11. [Transform](#transform)
   a. [Usage](#transform-usage)
-4. [Ref](#ref)
+12. [Ref](#ref)
   a. [Usage](#ref-usage)
+
+---
 
 #### Fn::Base64 <a name="base64"></a>
 
@@ -104,6 +106,8 @@ Resources:
             "         --region ", { "Ref" : "AWS::Region" }, "\n"  
           ]]
 ```
+
+---
 
 #### Fn::Cidr <a name="cidr"></a>
 
@@ -189,11 +193,11 @@ Resources:
       VpcId: !Ref 'EC2Vpc'
 ```
 
+---
+
 #### Fn::FindInMap <a name="findinmap"></a>
 
 Used for referencing values from mapping constructs. This is generally seen when looking up config in templates.
-
-The below has a mapping that contains a property value that an S3 Bucket needs to reference
 
 ```json
 {
@@ -205,10 +209,12 @@ The below has a mapping that contains a property value that an S3 Bucket needs t
 }
 ```
 ```yml
-Fn::FindInMap" : [ "mapping1", "mappingPropCategory1", "mappingPropName"] }
+Fn::FindInMap" : [ "mapping1", "mappingPropCategory1", "mappingPropName"]
 ```
 
 ##### Usage <a name="findinmap-usage"></a>
+
+The below has a mapping that contains a property value that an S3 Bucket needs to reference
 
 ```json
 {
@@ -250,35 +256,100 @@ Resources:
         - mappingPropName
 ```
 
+---
+
 #### Fn::GetAtt <a name="getatt"></a>
+
+Used for referencing attributes from other resources in the same template. This is generally seen when resources have a dependency on a value from another resource.
+
+<div class="card tip">
+  <div class="card-body">
+    When using this function you have to keep in mind the properties that the resource exposes, as not `every` value is accessible. You'll need to continually reference [the docs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) as this can be close to impossible to remember
+  </div>
+</div>
+
+```json
+{
+  "Fn::GetAtt" : [
+    "resource1",
+    "<<propName>>"
+  ]
+}
+```
+```yml
+Fn::GetAtt" : [ "resource1", "<<propName>>"]
+```
+
 ##### Usage <a name="getatt-usage"></a>
+
+The below has an SNS Topic (not named), and an output that looks up the AWS-allocated name to present to a viewer
+
+```json
+{
+  "Resources" : {
+    "SNSTopic": {
+      "Type" : "AWS::SNS::Topic"
+    }
+  },
+  "Outputs": {
+    "OutputSNSTopic": {
+      "Value": {
+        "Fn::GetAtt": [
+          "SNSTopic",
+          "TopicName"
+        ]
+      },
+      "Name": "SNSTopic"
+    }
+  }
+}
+```
+```yml
+Resources:
+  SNSTopic:
+    Type: AWS::SNS::Topic
+Outputs:
+  OutputSNSTopic:
+    Value: !GetAtt 'SNSTopic.TopicName'
+    Name: SNSTopic
+```
+
+---
 
 #### Fn::GetAZs <a name="getazs"></a>
 ##### Usage <a name="getazs-usage"></a>
 
+---
 
 #### Fn::ImportValue <a name="importvalue"></a>
 ##### Usage <a name="importvalue-usage"></a>
 
+---
 
 #### Fn::Join <a name="join"></a>
 ##### Usage <a name="join-usage"></a>
 
+---
 
 #### Fn::Select <a name="select"></a>
 ##### Usage <a name="select-usage"></a>
 
+---
 
 #### Fn::Split <a name="split"></a>
 ##### Usage <a name="split-usage"></a>
 
+---
 
 #### Fn::Sub <a name="sub"></a>
 ##### Usage <a name="sub-usage"></a>
 
+---
 
 #### Fn::Transform <a name="transform"></a>
 ##### Usage <a name="transform-usage"></a>
+
+---
 
 #### Ref <a name="ref"></a>
 ##### Usage <a name="ref-usage"></a>

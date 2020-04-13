@@ -1,23 +1,18 @@
 {
-  "Mappings" : {
-    "mapping1" : {
-      "mappingPropCategory1" : {
-        "mappingPropName" : "Private"
-      }
+  "Resources" : {
+    "SNSTopic": {
+      "Type" : "AWS::SNS::Topic"
     }
   },
-  "Resources" : {
-    "S3Bucket" : {
-      "Type" : "AWS::S3::Bucket",
-      "Properties" : {
-        "AccessControl" : {
-          "Fn::FindInMap": [
-            "mapping1",
-            "mappingPropCategory1",
-            "mappingPropName"
-          ]
-        }
-      }
+  "Outputs": {
+    "OutputSNSTopic": {
+      "Value": {
+        "Fn::GetAtt": [
+          "SNSTopic",
+          "TopicName"
+        ]
+      },
+      "Name": "SNSTopic"
     }
   }
 }

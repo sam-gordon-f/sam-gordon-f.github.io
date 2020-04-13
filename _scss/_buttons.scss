@@ -108,6 +108,9 @@
   &.btn-red {
     @include button-variant($error)
   }
+  &.btn-info {
+    @include button-variant($info)
+  }
 
   // Button Link
   &.btn-link {

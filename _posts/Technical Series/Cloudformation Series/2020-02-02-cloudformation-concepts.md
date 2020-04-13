@@ -13,7 +13,7 @@ nextPost:
   text: "Template Anatomy"
   link: "/technical-series/cloudformation-series/cloudformation-template-anatomy"
 docs:
-  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html\">AWS docs</a>"
+  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html\">AWS docs on cloudformation key concepts</a>"
 ---
 
 The Major concepts are fairly straight forward, and they follow the actions below
@@ -26,13 +26,13 @@ The Major concepts are fairly straight forward, and they follow the actions belo
   
 4) Moving forwards, the following operations can be undertaken
   
-  - `deleteStack`, which will attempt to remove all resources
+  a. `deleteStack`, which will attempt to remove all resources
     
-  - `updateStack`, which will take an updated template and attempt to update all resources to match the new changes
+  b. `updateStack`, which will take an updated template and attempt to update all resources to match the new changes
   
-  - `createChangeSet`, which will attempt to create a list of changes that would occur if an update was executed
+  c. `createChangeSet`, which will attempt to create a list of changes that would occur if an update was executed
   
-  - `executeChangeSet`, which will attempt to update the stack, much like the `updateStack` operation
+  d. `executeChangeSet`, which will attempt to update the stack, much like the `updateStack` operation
 
 5) If an issue occurs with any of the above steps. The service will attempt to revert to the previous known state. This is why the service is so powerful !
 

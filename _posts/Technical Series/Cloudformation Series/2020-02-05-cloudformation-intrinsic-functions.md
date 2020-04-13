@@ -565,7 +565,7 @@ The placeholders, and keys in the following map have to be indentical in case
 
 #### Fn::Transform <a name="transform"></a>
 
-See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros#inline">Here for more information on using this function for inline transforms</a>
+See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros#inline">here for more information on using this function for inline transforms</a>
 
 ---
 

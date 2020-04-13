@@ -74,11 +74,14 @@ Are a directive for cloudformation (at runtime) to take the entirety of whats su
 
 In the below example, there are the following sample transforms defined.
 
-> transform1 - which is a custom user defined transform (details [here]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-custom))
+> "transform1"
+which is a custom user defined transform (details [here]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-custom))
 
-> AWS::Serverless - which is an AWS defined transform for creating lambda functions (details [here]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-serverless))
+> "AWS::Serverless"
+which is an AWS defined transform for creating lambda functions (details [here]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-serverless))
 
-> AWS::Include - which is an AWS defined transform for pulling in cloudformation snippets from S3 (details [here]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-include))
+> "AWS::Include"
+which is an AWS defined transform for pulling in cloudformation snippets from S3 (details [here]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-include))
 
 ```json
 {
@@ -139,11 +142,14 @@ Ref: "param1"
 
 Can be for storing custom information about your stack and/or some reserved directives. 3 sections described below
 
-> AWS::CloudFormation::Designer. Used by the Cloudformation Designer to store meta about where resources reside on the map
+> "AWS::CloudFormation::Designer"
+Used by the Cloudformation Designer to store meta about where resources reside on the map
 
-> AWS::CloudFormation::Init. Used by cfn-init to bootstrap EC2 Instances
+> "AWS::CloudFormation::Init"
+Used by cfn-init to bootstrap EC2 Instances
 
-> AWS::CloudFormation::Interface. Used to help prettify cloudformation operation interfaces (create / update)
+> "AWS::CloudFormation::Interface"
+Used to help prettify cloudformation/service catalog operation interfaces (create / update)
 
 ```json
 {
@@ -220,6 +226,8 @@ Mappings:
 
 <a name="mappings-referencing"></a>
 ##### Referencing
+
+See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intrinsic-functions#findinmap">here</a> for more information interogating maps</a>
 
 ```json
 {
@@ -315,7 +323,8 @@ Resources:
 #### Resources<a name="resources"></a>
 
 The contents(resources) to be contained within your stack. Typically each resource is denoted by one logical ID (what the template specifies as the JSON/YML key).
-See. [Cloudformation template/stack resources]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-resources)
+
+See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-resources">here</a> for more information on resources</a>
 
 ```json
 {
@@ -340,6 +349,8 @@ Resources:
 <a name="resources-reference"></a>
 ##### Referencing
 
+See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intrinsic-functions#ref">here</a> for more information on `Ref`</a>
+
 ```json
 {
   "Ref" : "resource1"
@@ -351,6 +362,8 @@ Ref: "param1"
 
 <a name="resources-properties"></a>
 ##### Properties
+
+See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intrinsic-functions#getatt">here</a> for more information on `GetAtt`</a>
 
 ```json
 {
@@ -397,6 +410,8 @@ Outputs:
 
 <a name="outputs-exports"></a>
 ##### Exports
+
+See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intrinsic-functions#importvalue">here</a> for more information on `ImportValue`</a>
 
 ```json
 {

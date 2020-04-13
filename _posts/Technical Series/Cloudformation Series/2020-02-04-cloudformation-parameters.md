@@ -12,12 +12,9 @@ prevPost:
 nextPost:
   text: "Resources"
   link: "/technical-series/cloudformation-series/cloudformation-resources"
+docs:
+  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html\">AWS docs on cloudformation parameters</a>"
+tips:
+  - "AWS special params cannot be used for optional parameters"
+  - "AWS special params may not be useful for when systems specify values, as they're more for user assistance"
 ---
-
-<div class="card official-docs">
-  <div class="card-body">
-    <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html">AWS docs on cloudformation parameters</a>
-  </div>
-</div>
-
-{% include post-navigation.html %}

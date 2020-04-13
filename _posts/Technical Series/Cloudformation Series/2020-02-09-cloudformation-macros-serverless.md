@@ -6,26 +6,14 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Quick serverless functions with minimal config
 tags: [cloudformation, include, lambda, macro]
+prevPost:
+  text: "Macros - Include"
+  link: "/technical-series/cloudformation-series/cloudformation-macros-include"
+nextPost:
+  text: "Macros - Custom"
+  link: "/technical-series/cloudformation-series/cloudformation-macros-custom"
+docs:
+  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html\">AWS docs on cloudformation Transforms</a>"
 ---
 
-<div class="card official-docs">
-  <div class="card-body">
-    <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">AWS docs on cloudformation Transforms</a>
-  </div>
-</div>
-<div>
-  The Cloudformation Serverless Macro is used for generating quick lambda stacks based on few details
-</div>
-<div class="container grid-xl">
-  <div class="columns">
-  <div class = "column col-3 col-md-4 col-sm-12 col-xs-12">
-    <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-include">Macros - Include</a>
-  </div>
-    <div class = "column col-6 col-md-4 col-sm-12 col-xs-12">
-      
-    </div>
-    <div class="column col-3 col-md-4 col-sm-12 col-xs-12">
-      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-custom">Macros - Custom</a>
-    </div>
-  </div>
-</div>
+The Cloudformation Serverless Macro is used for generating quick lambda stacks based on few details

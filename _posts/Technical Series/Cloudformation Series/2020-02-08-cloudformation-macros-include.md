@@ -6,18 +6,19 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: S3 File Inclusions for Cloudformation templates
 tags: [cloudformation, include, lambda, macro]
+prevPost:
+  text: "Macros"
+  link: "/technical-series/cloudformation-series/cloudformation-macros"
+nextPost:
+  text: "Macros - Serverless"
+  link: "/technical-series/cloudformation-series/cloudformation-macros-serverless"
+docs:
+  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html\">AWS docs on cloudformation Transforms</a>"
 ---
 
-<div class="card official-docs">
-  <div class="card-body">
-    <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">AWS docs on cloudformation Transforms</a>
-  </div>
-</div>
-<div>
-  The Cloudformation S3 Include Transform is an AWS managed transform that takes an S3 Key, finds the content, and merges with the template supplied.
-    <br><br>  
-  In the below example, the main template (template2), includes a bucket defined in template1 are runtime
-</div>
+The Cloudformation S3 Include Transform is an AWS managed transform that takes an S3 Key, finds the content, and merges with the template supplied.
+  <br><br>  
+In the below example, the main template (template2), includes a bucket defined in template1 are runtime
 
 ---
 
@@ -79,17 +80,3 @@ Resources:
     Parameters:
       Location: "s3://pathToS3TemplateAbove"
 ```
-
-<div class="container grid-xl">
-  <div class="columns">
-    <div class = "column col-3 col-md-4 col-sm-12 col-xs-12">
-      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros">Macros</a>
-    </div>
-    <div class = "column col-6 col-md-4 col-sm-12 col-xs-12">
-      
-    </div>
-    <div class="column col-3 col-md-4 col-sm-12 col-xs-12">
-      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-serverless">Macros - Serverless</a>
-    </div>
-  </div>
-</div>

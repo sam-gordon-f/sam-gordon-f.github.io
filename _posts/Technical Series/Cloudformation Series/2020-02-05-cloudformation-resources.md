@@ -6,24 +6,12 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Resources contained within a cloudformation template/stack
 tags: [cloudformation, parameters, yml, json]
+prevPost:
+  text: "Parameters"
+  link: "/cloudformation-series/cloudformation-parameters"
+nextPost:
+  text: "Custom Resources"
+  link: "/technical-series/cloudformation-series/cloudformation-custom-resources"
+docs:
+  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">AWS docs on cloudformation resources</a>"
 ---
-
-<div class="card official-docs">
-  <div class="card-body">
-    <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS docs on cloudformation resources</a>
-  </div>
-</div>
-
-<div class="container grid-xl">
-  <div class="columns">
-    <div class = "column col-3 col-md-4 col-sm-12 col-xs-12">
-      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-parameters">Parameters</a>
-    </div>
-    <div class = "column col-6 col-md-4 col-sm-12 col-xs-12">
-      
-    </div>
-    <div class="column col-3 col-md-4 col-sm-12 col-xs-12">
-      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-custom-resources">Custom Resources</a>
-    </div>
-  </div>
-</div>

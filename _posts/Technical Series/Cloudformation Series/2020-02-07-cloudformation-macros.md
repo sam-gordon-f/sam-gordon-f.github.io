@@ -6,24 +6,22 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Transforms for cloudformation templates
 tags: [cloudformation, transform, lambda, macro]
+prevPost:
+  text: "Custom Resources"
+  link: "/technical-series/cloudformation-series/cloudformation-custom-resources"
+nextPost:
+  text: "Macros - Include"
+  link: "/technical-series/cloudformation-series/cloudformation-macros-include"
+docs:
+  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html\">AWS docs on cloudformation Macros</a>"
+tips:
+  - "Macros can be referenced in two ways in your template. They are both listed below"
 ---
 
-<div class="card official-docs">
-  <div class="card-body">
-    <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">AWS docs on cloudformation Macros</a>
-  </div>
-</div>
-<div class="card tip">
-  <div class="card-body">
-    Macros can be referenced in two ways in your template. They are both listed below
-  </div>
-</div>
-<div>
-  Cloudformation Macros are a way to define lambda backed functionality to run against your cloudformation templates. They can be used to model all sorts of crazy scenarios, and remove the previous imposed limits.
-    <br>
-    <br>
-  The Following are the two ways that you can reference in your templates
-</div>
+Cloudformation Macros are a way to define lambda backed functionality to run against your cloudformation templates. They can be used to model all sorts of crazy scenarios, and remove the previous imposed limits.
+  <br>
+  <br>
+The Following are the two ways that you can reference in your templates
 
 ---
 
@@ -88,17 +86,3 @@ Resources:
           Parameters:
             macroParam1: 'macroValue1'
 ```
-
-<div class="container grid-xl">
-  <div class="columns">
-    <div class = "column col-3 col-md-4 col-sm-12 col-xs-12">
-      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-custom-resources">Custom Resources</a>
-    </div>
-    <div class = "column col-6 col-md-4 col-sm-12 col-xs-12">
-      
-    </div>
-    <div class="column col-3 col-md-4 col-sm-12 col-xs-12">
-      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-include">Macros - Include</a>
-    </div>
-  </div>
-</div>

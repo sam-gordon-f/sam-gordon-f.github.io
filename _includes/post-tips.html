@@ -1,9 +1,11 @@
-{% if page.tips %}
-  {% for tip in page.tips %}
-    <div class="card tips">
-      <div class="card-body">
-        {{ tip }}
+<div>
+  {% if page.tips %}
+    {% for tip in page.tips %}
+      <div class="card tips">
+        <div class="card-body">
+          {{ tip }}
+        </div>
       </div>
-    </div>
-  {% endfor %}
-{% endif %}
+    {% endfor %}
+  {% endif %}
+</div>

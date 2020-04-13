@@ -10,8 +10,8 @@ prevPost:
   text: "Template anatomy"
   link: "/technical-series/cloudformation-series/cloudformation-template-anatomy"
 nextPost:
-  text: "Resources"
-  link: "/technical-series/cloudformation-series/cloudformation-resources"
+  text: "Intrinsic Fucntions"
+  link: "/technical-series/cloudformation-series/cloudformation-intrinsic-functions"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html\">AWS docs on cloudformation parameters</a>"
 tips:

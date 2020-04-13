@@ -25,6 +25,7 @@ The referencer is using the macro in the header (see <a href = "{{ site.baseurl 
 
 template1 (definition)
 
+testing rouge 1
 {% highlight JSON %}
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
@@ -59,17 +60,17 @@ Resources:
 
 template2 (referencing)
 
-```json
+{% highlight JSON %}
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Description": "A description to help identify the purpose of the template",
   "Transform": ["cloudformationMacro"]
 }
-```
+{% endhighlight %}
 
-```yml
+{% highlight YAML %}
 ---
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "A description to help identify the purpose of the template"
 Transform: ["cloudformationMacro"]
-```
+{% endhighlight %}

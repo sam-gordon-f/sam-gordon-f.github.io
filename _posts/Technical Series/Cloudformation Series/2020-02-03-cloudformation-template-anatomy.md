@@ -121,7 +121,8 @@ Parameters:
     Default: first  
 ```
 
-> How to reference parameters<a name="parameters-referencing"></a>
+<a name="parameters-referencing"></a>
+##### Referencing
 
 ```json
 {
@@ -217,7 +218,8 @@ Mappings:
       mappingPropName: mappingPropValue2
 ```
 
-> How to reference map variables<a name="mappings-referencing"></a>
+<a name="mappings-referencing"></a>
+##### Referencing
 
 ```json
 {
@@ -260,7 +262,9 @@ Conditions:
     Fn::Equals: [!Ref param1, second]
 ```
 
-> 1) How to use conditions for values (if condition true, return the text '1234', else null value)<a name="conditions-property-level"></a>
+<a name="conditions-property-level"></a>
+##### Conditions at property level
+(if condition true, return the text '1234', else null value)
 
 ```json
 {
@@ -279,8 +283,9 @@ Fn::If:
   - true
   - Ref: "AWS::NoValue"
 ```
-
-> 2) How to use conditions for Resources (if condition true, create the resources, else do not create)<a name="conditions-resource-level"></a>
+<a name="conditions-resource-level"></a>
+##### Conditions at resource level
+(if condition true, create the resources, else do not create)
 
 ```json
 {
@@ -330,7 +335,8 @@ Resources:
       AccessControl: "Private"
 ```
 
-> How to reference resource<a name="resources-reference"></a>
+<a name="resources-reference"></a>
+##### Referencing
 
 ```json
 {
@@ -341,7 +347,8 @@ Resources:
 Ref: "param1"
 ```
 
-> How to reference resource properties<a name="resources-properties"></a>
+<a name="resources-properties"></a>
+##### Properties
 
 ```json
 {
@@ -359,7 +366,8 @@ Fn::GetAtt: ["param1", "Arn"]
 
 #### Outputs <a name="outputs"></a>
 
-A list of values that you wish to make available for vierers. These can also be exposed as exports (`must be unique keys`, and use the directive in the example above)
+A list of values that you wish to make available for viewers. These can also be exposed as exports
+(`must be unique keys`, and use the directive in the examples below)
 
 ```json
 {
@@ -385,7 +393,8 @@ Outputs:
       Name: export1
 ```
 
-> How to reference exports<a name="outputs-exports"></a>
+<a name="outputs-exports"></a>
+##### Exports
 
 ```json
 {

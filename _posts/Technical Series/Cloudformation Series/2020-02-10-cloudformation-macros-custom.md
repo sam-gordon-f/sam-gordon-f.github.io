@@ -25,7 +25,7 @@ The referencer is using the macro in the header (see <a href = "{{ site.baseurl 
 
 template1 (definition)
 
-{% highlight json %}
+{% highlight JSON %}
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Description": "A description to help identify the purpose of the template",
@@ -42,7 +42,7 @@ template1 (definition)
 }
 {% endhighlight %}
 
-{% highlight yml %}
+{% highlight YAML %}
 ---
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "A description to help identify the purpose of the template"

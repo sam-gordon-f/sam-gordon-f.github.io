@@ -24,4 +24,9 @@ $(document).ready(function() {
   setTimeout(function() {
     rotateBrand(0)
   }, 10000);
+
+  $(".btnBackToTop").click(function(){
+      $("html, body").animate({ scrollTop: 0 }, 500);
+      return false;
+  });
 });

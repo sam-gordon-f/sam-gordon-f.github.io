@@ -33,34 +33,17 @@ layout: default
       <div class="column col-12">
         <div class="card">
           <div class="card-body">
-            {% if site.use_authors == true %}
-            {% assign post_author = site.data.authors[page.author] %}
-              <div class="columns">
-                <div class = "column col-6">
-                  <figure class="avatar d-inline-block" style="align-items: center;">
-                    <img  src="../assets/{{ post_author.image }}" alt="...">
-                  </figure>
-                  <div class="ml-2">
-                    <p class="text-dark text-small mb-0">Written by <span class="text-primary">{{ post_author.name }}</span></p>
-                    <p class="text-dark text-small text-italic mb-0">{% include reading-time.html %}</p>
-                  </div>
-                </div>
-                <div class = "column col-6">
-                  {% include post-skill.html %}
-                </div>
-              </div>
-            {% else %}
-              <div class="ml-2">
-                <p class="m-0 text-small">Last updated:</p>
-                <p class="text-dark text-small text-italic mb-0">{{ page.last_modified_at | date: '%B %d, %Y'  }} - {% include reading-time.html %}</p>
-              </div>
-            {% endif %}
-          
             {% include post-navigation.html %}
+            {% include post-authors.html %}
             {% include post-docs.html %}
             {% include post-tips.html %}
             {{ content }}
-            {% include post-navigation.html %}
+            <a
+              style="height: auto; width:100%;"
+              class="btn btn-lg btn-outline py-2 mt-4 btnBackToTop"
+              href = "#">
+                Back to top
+            </a>
           </div>
         </div>
         {% include post-tags.html %}

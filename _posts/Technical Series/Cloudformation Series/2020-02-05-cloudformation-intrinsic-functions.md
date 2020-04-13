@@ -570,4 +570,54 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 ---
 
 #### Ref <a name="ref"></a>
+
+The most useful function to learn. When used against a parameter, it returns a value; and when used against a resource, it returns the default return property
+
+<div class="card tip">
+  <div class="card-body">
+    When using this function you have to keep in mind the properties that the resource exposes, as not `every` resource is the same. You'll need to continually reference <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">the docs</a> as this can be close to impossible to remember all the supported outputs per resource
+  </div>
+</div>
+
+```json
+{
+  "Ref" : "resourceLogicalId"
+}
+```
+```yml
+!Ref 'resourceLogicalId'
+```
+
 ##### Usage <a name="ref-usage"></a>
+
+The below returns a bucket name to an output
+
+```json
+{
+  "Resources": {
+    "S3Bucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "AccessControl": "Private"
+      }
+    }
+  },
+  "Outputs": {
+    "bucketName": {
+      "Value": {
+        "Ref": "S3Bucket"
+      }
+    }
+  }
+}
+```
+```yml
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: Private
+Outputs:
+  bucketName:
+    Value: !Ref 'S3Bucket'
+```

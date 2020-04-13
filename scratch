@@ -1,9 +1,17 @@
 {
-  "Fn::Sub" : [
-    "www.${domain}.com/${pathPart}",
-    {
-      "domain": "testDomain",
-      "pathPart": "part1/part2"
+  "Resources": {
+    "S3Bucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "AccessControl": "Private"
+      }
     }
-  ]
+  },
+  "Outputs": {
+    "bucketName": {
+      "Value": {
+        "Ref": "S3Bucket"
+      }
+    }
+  }
 }

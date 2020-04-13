@@ -1,0 +1,33 @@
+{
+  "Resources" : {
+    "EC2Vpc" : {
+      "Type" : "AWS::EC2::VPC",
+      "Properties" : {
+        "CidrBlock" : "192.168.0.0/24"
+      }
+    },
+    "EC2Subnet" : {
+      "Type" : "AWS::EC2::Subnet",
+      "Properties" : {
+        "CidrBlock" : {
+          "Fn::Select" : [
+            0, {
+              "Fn::Cidr" : [
+                {
+                  "Fn::GetAtt" : [
+                    "EC2Vpc", "CidrBlock"
+                  ]
+                },
+                6,
+                5
+              ]
+            }
+          ]
+        },
+        "VpcId" : {
+          "Ref" : "EC2Vpc"
+        }
+      }
+    }
+  }
+}

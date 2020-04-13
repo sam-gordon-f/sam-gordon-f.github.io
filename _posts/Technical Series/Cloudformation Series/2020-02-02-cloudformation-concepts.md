@@ -15,23 +15,26 @@ nextPost:
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html\">AWS docs</a>"
 ---
-The Major concepts are fairly straight forward
 
-1) Cloudformation templates are written to describe infrastructure in the desired state
-  <br>
+The Major concepts are fairly straight forward, and they follow the actions below
+
+1) Cloudformation templates are written to describe infrastructure in the desired state. These can be written in JSON / YML, or any number of DSL's - official and otherwise
+  
 2) These templates are then fed to cloudformation with the `createStack` directive
-  <br>
-3) The service will attempt to create a stack containing the resource aforementioned
-  <br>
+  
+3) The service will attempt to create a stack containing the resource(s) aforementioned
+  
 4) Moving forwards, the following operations can be undertaken
-  <br>
-- deleteStack, which will attempt to remove all resources
-  <br>
-- updateStack, which will take an updated template and attempt to update all resources to match the new changes
-  <br>
-- createChangeSet, which will attempt to create a list of changes that would occur if an update was executed
-  <br>
-- executeChangeSet, which will attempt to update the stack, much like the `updateStack` operation
+  
+  - `deleteStack`, which will attempt to remove all resources
+    
+  - `updateStack`, which will take an updated template and attempt to update all resources to match the new changes
+  
+  - `createChangeSet`, which will attempt to create a list of changes that would occur if an update was executed
+  
+  - `executeChangeSet`, which will attempt to update the stack, much like the `updateStack` operation
+
+5) If an issue occurs with any of the above steps. The service will attempt to revert to the previous known state. This is why the service is so powerful !
 
 <img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts1.png" alt="drawing" style="width:100%;"/>
 

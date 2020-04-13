@@ -241,7 +241,9 @@ Fn::FindInMap:
 
 #### Conditions<a name="conditions"></a>
 
-A way of creating logic around property values, and/or cloudformation resource configuration. Mainly used for checking null values and helping your template work with them
+A way of creating logic around property values, and/or cloudformation resource configuration. Mainly used for checking null values and helping your template work with them.
+
+More information and examples at the [aws docs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html)
 
 ```json
 {

@@ -1,17 +1,9 @@
 {
-  "Resources": {
-    "S3Bucket": {
-      "Type": "AWS::S3::Bucket",
-      "Properties": {
-        "AccessControl": "Private"
-      }
-    }
-  },
-  "Outputs": {
-    "bucketName": {
-      "Value": {
-        "Ref": "S3Bucket"
-      }
-    }
+  "Fn::Transform" : {
+    "Name" : "<<macroName>>",
+    "Parameters" : {
+      "<<param1Key>>" : "<<param1Value>>",
+      "<<etc...>>" : "<<etc...>>"
+    } 
   }
 }

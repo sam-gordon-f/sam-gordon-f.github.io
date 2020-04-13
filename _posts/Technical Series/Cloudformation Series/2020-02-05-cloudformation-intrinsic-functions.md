@@ -565,7 +565,27 @@ The placeholders, and keys in the following map have to be indentical in case
 
 #### Fn::Transform <a name="transform"></a>
 
-A relatively new intrinsic function that allows you to invoke and take the returned fragment from a lambda function (custom or AWS managed), and embed in your template at the speciefied location.
+A relatively new intrinsic function that allows you to invoke and take the returned fragment from a lambda function (custom or AWS managed), and embed in your template at the specified location.
+
+```json
+{
+  "Fn::Transform" : {
+    "Name" : "<<macroName>>",
+    "Parameters" : {
+      "<<param1Key>>" : "<<param1Value>>",
+      "<<etc...>>" : "<<etc...>>"
+    }
+  }
+}
+
+```
+```yml
+!Transform
+Name: <<macroName>>
+Parameters:
+  <<param1Key>>: <<param1Value>>
+  <<etc...>>: <<etc...>>
+```
 
 ##### Usage <a name="transform-usage"></a>
 

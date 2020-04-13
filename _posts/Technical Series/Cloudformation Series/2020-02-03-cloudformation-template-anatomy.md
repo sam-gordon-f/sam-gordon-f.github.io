@@ -16,6 +16,8 @@ docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">AWS docs on cloudformation template components</a>"
 tips:
   - "<a href = \"https://github.com/awslabs/aws-cfn-template-flip\">cfn-flip</a> is super handy if examples arent in a format that you're used to working with. In the examples below, I've used both JSON and yml to save you the hassle"
+skill: 2
+
 ---
 
 1. [AWSTemplateFormatVersion](#aws-template-format-version)

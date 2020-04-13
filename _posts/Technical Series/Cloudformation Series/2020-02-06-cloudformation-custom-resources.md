@@ -14,6 +14,9 @@ nextPost:
   link: "/technical-series/cloudformation-series/cloudformation-macros"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html\">AWS docs on custom resources</a>"
+skill: 4
 ---
 
 Custom Resources are a way to define non-cloudformation standard template resources.
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html

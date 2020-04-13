@@ -35,13 +35,18 @@ layout: default
           <div class="card-body">
             {% if site.use_authors == true %}
             {% assign post_author = site.data.authors[page.author] %}
-              <div class="flex-vertical-center mb-4">
-                <figure class="avatar d-inline-block" style="align-items: center;">
-                  <img  src="../assets/{{ post_author.image }}" alt="...">
-                </figure>
-                <div class="ml-2">
-                  <p class="text-dark text-small mb-0">Written by <span class="text-primary">{{ post_author.name }}</span></p>
-                  <p class="text-dark text-small text-italic mb-0">{% include reading-time.html %}</p>
+              <div class="column col-12">
+                <div class = "col-6">
+                  <figure class="avatar d-inline-block" style="align-items: center;">
+                    <img  src="../assets/{{ post_author.image }}" alt="...">
+                  </figure>
+                  <div class="ml-2">
+                    <p class="text-dark text-small mb-0">Written by <span class="text-primary">{{ post_author.name }}</span></p>
+                    <p class="text-dark text-small text-italic mb-0">{% include reading-time.html %}</p>
+                  </div>
+                </div>
+                <div class = "col-6">
+                  {% include post-skill.html %}
                 </div>
               </div>
             {% else %}

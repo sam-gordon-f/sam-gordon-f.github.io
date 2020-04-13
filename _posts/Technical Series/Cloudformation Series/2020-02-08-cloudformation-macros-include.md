@@ -14,6 +14,7 @@ nextPost:
   link: "/technical-series/cloudformation-series/cloudformation-macros-serverless"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html\">AWS docs on cloudformation Transforms</a>"
+skill: 3
 ---
 
 The Cloudformation S3 Include Transform is an AWS managed transform that takes an S3 Key, finds the content, and merges with the template supplied.

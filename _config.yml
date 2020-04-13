@@ -87,3 +87,6 @@ sass:
   style:            :compressed
 
 paginate: 3
+
+markdown: kramdown
+highlighter: rouge

@@ -1,25 +1,25 @@
 <div class="container grid-xl">
   <div class="columns">
-    {% if page.prevPost %}
-      <div class = "column col-3 col-md-4 col-sm-12 col-xs-12">
+    <div class = "column col-3 col-md-4 col-sm-12 col-xs-12">
+      {% if page.prevPost %}
         <a
           style="height: auto; width:100%;"
           class="btn btn-success btn-lg btn-outline py-2 mt-4"
           href = "{{ site.baseurl }}{{page.prevPost.link}}">
             {{ page.prevPost.text }}
         </a>
-      </div>
-    {% endif %}
+      {% endif %}
+    </div>
     <div class = "column col-6 col-md-4 col-sm-12 col-xs-12"></div>
-    {% if page.nextPost %}
-      <div class="column col-3 col-md-4 col-sm-12 col-xs-12">
+    <div class="column col-3 col-md-4 col-sm-12 col-xs-12">
+      {% if page.nextPost %}
         <a
           style="height: auto; width:100%;"
           class="btn btn-success btn-lg btn-outline py-2 mt-4"
           href = "{{ site.baseurl }}{{page.nextPost.link}}">
             {{ page.nextPost.text }}
         </a>
-      </div>
-    {% endif %}
+      {% endif %}
+    </div>
   </div>
 </div>

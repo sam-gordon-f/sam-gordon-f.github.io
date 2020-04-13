@@ -12,17 +12,11 @@ prevPost:
 nextPost:
   text: "Parameters"
   link: "/technical-series/cloudformation-series/cloudformation-parameters"
+docs:
+  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">AWS docs on cloudformation template components</a>"
+tips:
+  - "<a href = \"https://github.com/awslabs/aws-cfn-template-flip\">cfn-flip</a> is super handy if examples arent in a format that you're used to working with. In the examples below, I've used both JSON and yml to save you the hassle"
 ---
-<div class="card official-docs">
-  <div class="card-body">
-    <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">AWS docs on cloudformation template components</a>
-  </div>
-</div>
-<div class="card tip">
-  <div class="card-body">
-    <a href = "https://github.com/awslabs/aws-cfn-template-flip">cfn-flip</a> is super handy if examples arent in a format that you're used to working with. In the examples below, I've used both JSON and yml to save you the hassle
-  </div>
-</div>
 
 1. [AWSTemplateFormatVersion](#aws-template-format-version)
 2. [Description](#description)
@@ -462,5 +456,3 @@ Outputs:
     Export:
       Name: export1
 ```
-
-{% include post-navigation.html %}

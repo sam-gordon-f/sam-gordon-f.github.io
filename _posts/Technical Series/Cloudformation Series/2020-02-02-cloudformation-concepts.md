@@ -12,14 +12,9 @@ prevPost:
 nextPost:
   text: "Template Anatomy"
   link: "/technical-series/cloudformation-series/cloudformation-template-anatomy"
+docs:
+  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html\">AWS docs</a>"
 ---
-
-<div class="card official-docs">
-  <div class="card-body">
-    <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html">AWS docs</a>
-  </div>
-</div>
-
 The Major concepts are fairly straight forward
 
 1) Cloudformation templates are written to describe infrastructure in the desired state
@@ -39,7 +34,5 @@ The Major concepts are fairly straight forward
 - executeChangeSet, which will attempt to update the stack, much like the `updateStack` operation
 
 <img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts1.png" alt="drawing" style="width:100%;"/>
-
-{% include post-navigation.html %}
 
  

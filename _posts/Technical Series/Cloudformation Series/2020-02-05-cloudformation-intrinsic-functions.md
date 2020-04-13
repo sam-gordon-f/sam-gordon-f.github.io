@@ -8,7 +8,7 @@ short-description: Cloudformation provided functions
 tags: [cloudformation, functions, yml, json, intrinsic]
 prevPost:
   text: "Parameters"
-  link: "/tecnical-series/cloudformation-series/cloudformation-parameters"
+  link: "/technical-series/cloudformation-series/cloudformation-parameters"
 nextPost:
   text: "Custom Resources"
   link: "/technical-series/cloudformation-series/cloudformation-custom-resources"
@@ -18,14 +18,32 @@ tip:
   - "If using YML - avoid the shorthand notation, as it doesnt convert well with tools like cfn-flip"
 ---
 
+These are the following functions cloudformation makes available, and a definition / example of what they perform and how
+
 1. [Base64](#base64)
   a. [Usage](#base64-usage)
 2. [Cidr](#cidr)
   a. [Usage](#cidr-usage)
 3. [FindInMap](#findinmap)
   a. [Usage](#findinmap-usage)
-
-These are the following functions cloudformation makes available, and a definition / example of what they perform and how
+4. [GetAtt](#getatt)
+  a. [Usage](#getatt-usage)
+4. [GetAZs](#getazs)
+  a. [Usage](#getazs-usage)
+4. [ImportValue](#importvalue)
+  a. [Usage](#importvalue-usage)
+4. [Join](#join)
+  a. [Usage](#join-usage)
+4. [Select](#select)
+  a. [Usage](#select-usage)
+4. [Split](#split)
+  a. [Usage](#split-usage)
+4. [Sub](#sub)
+  a. [Usage](#sub-usage)
+4. [Transform](#transform)
+  a. [Usage](#transform-usage)
+4. [Ref](#ref)
+  a. [Usage](#ref-usage)
 
 #### Fn::Base64 <a name="base64"></a>
 
@@ -171,13 +189,96 @@ Resources:
       VpcId: !Ref 'EC2Vpc'
 ```
 
-##### Fn::FindInMap <a name="findinmap"></a>
-##### Fn::GetAtt
-##### Fn::GetAZs
-##### Fn::ImportValue
-##### Fn::Join
-##### Fn::Select
-##### Fn::Split
-##### Fn::Sub
-##### Fn::Transform
-##### Ref
+#### Fn::FindInMap <a name="findinmap"></a>
+
+Used for referencing values from mapping constructs. This is generally seen when looking up config in templates.
+
+The below has a mapping that contains a property value that an S3 Bucket needs to reference
+
+```json
+{
+  "Fn::FindInMap" : [
+    "mapping1",
+    "mappingPropCategory1",
+    "mappingPropName"
+  ]
+}
+```
+```yml
+Fn::FindInMap" : [ "mapping1", "mappingPropCategory1", "mappingPropName"] }
+```
+
+##### Usage <a name="findinmap-usage"></a>
+
+```json
+{
+  "Mappings" : {
+    "mapping1" : {
+      "mappingPropCategory1" : {
+        "mappingPropName" : "Private"
+      }
+    }
+  },
+  "Resources" : {
+    "S3Bucket" : {
+      "Type" : "AWS::S3::Bucket",
+      "Properties" : {
+        "AccessControl" : {
+          "Fn::FindInMap": [
+            "mapping1",
+            "mappingPropCategory1",
+            "mappingPropName"
+          ]
+        }
+      }
+    }
+  }
+}
+```
+```yml
+Mappings:
+  mapping1:
+    mappingPropCategory1:
+      mappingPropName: Private
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: !FindInMap
+        - mapping1
+        - mappingPropCategory1
+        - mappingPropName
+```
+
+#### Fn::GetAtt <a name="getatt"></a>
+##### Usage <a name="getatt-usage"></a>
+
+#### Fn::GetAZs <a name="getazs"></a>
+##### Usage <a name="getazs-usage"></a>
+
+
+#### Fn::ImportValue <a name="importvalue"></a>
+##### Usage <a name="importvalue-usage"></a>
+
+
+#### Fn::Join <a name="join"></a>
+##### Usage <a name="join-usage"></a>
+
+
+#### Fn::Select <a name="select"></a>
+##### Usage <a name="select-usage"></a>
+
+
+#### Fn::Split <a name="split"></a>
+##### Usage <a name="split-usage"></a>
+
+
+#### Fn::Sub <a name="sub"></a>
+##### Usage <a name="sub-usage"></a>
+
+
+#### Fn::Transform <a name="transform"></a>
+##### Usage <a name="transform-usage"></a>
+
+#### Ref <a name="ref"></a>
+##### Usage <a name="ref-usage"></a>

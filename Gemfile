@@ -31,6 +31,3 @@ end
 gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 
 gem "jekyll-last-modified-at"
-
-gem "kramdown"
-gem "rouge"

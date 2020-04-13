@@ -1,25 +1,9 @@
 {
-  "Parameters": {
-    "url": {
-      "Type": "String",
-      "Default": "www.testDomain.com/part1/part2"
+  "Fn::Sub" : [
+    "www.${domain}.com/${pathPart}",
+    {
+      "domain": "testDomain",
+      "pathPart": "part1/part2"
     }
-  },
-  "Outputs": {
-    "outputDomainName": {
-      "Value": {
-        "Fn::Select": [
-          0,
-          {
-            "Fn::Split": [
-              "/",
-              {
-                "Ref": "url"
-              }
-            ]
-          }
-        ]
-      }
-    }
-  }
+  ]
 }

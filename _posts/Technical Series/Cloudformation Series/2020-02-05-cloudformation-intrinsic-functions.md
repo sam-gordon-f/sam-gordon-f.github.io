@@ -530,16 +530,42 @@ Outputs:
         - !Ref 'url'
 ```
 
-
 ---
 
 #### Fn::Sub <a name="sub"></a>
+
+Used for for substituting values in strings. This is seen quite a bit when formatting strings. Things like cloudwatch dashboards, etc...
+
+```json
+{
+  "Fn::Sub" : [
+    "${protocol}://${domain}/${pathPart}",
+    {
+      "protocol": "https",
+      "domain": "testDomain.com",
+      "pathPart": "part1/part2"
+    }
+  ]
+}
+```
+```yml
+!Sub
+- www.${domain}.com/${pathPart}
+- domain: testDomain
+  pathPart: part1/part2
+```
+
 ##### Usage <a name="sub-usage"></a>
+
+Refer to the above where we're building a domain name off `potentially` dynamic components.
+
+The placeholders, and keys in the following map have to be indentical in case
 
 ---
 
 #### Fn::Transform <a name="transform"></a>
-##### Usage <a name="transform-usage"></a>
+
+See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros">Here for more information on using this function for inline transforms</a>
 
 ---
 

@@ -6,9 +6,12 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Introduction to Cloudformation Series
 tags: [cloudformation, introduction]
+prevPost:
+  text: "Back"
+  link: "/technical-series/cloudformation-series/"
 nextPost:
-  name: "Return Home"
-  link: "technical-series/cloudformation-series"
+  text: "Concepts"
+  link: "/technical-series/cloudformation-series/cloudformation-concepts"
 ---
 
 Cloudformation is an incredibly powerful infrastructure templating service, and vital to at least understand in principal
@@ -21,17 +24,4 @@ testing next post link
 
 <img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/map.jpg" alt="drawing" style="width:100%;"/>
 
-<div class="container grid-xl">
-  <div class="columns">
-    <div class = "column col-3 col-md-4 col-sm-12 col-xs-12">
-      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-anatomy">Return Home</a>
-    </div>
-    <div class = "column col-6 col-md-4 col-sm-12 col-xs-12">
-      
-    </div>
-    <div class="column col-3 col-md-4 col-sm-12 col-xs-12">
-      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-concepts">Concepts</a>
-    </div>
-  </div>
-</div>
- 
+{% include post-navigation.html %}

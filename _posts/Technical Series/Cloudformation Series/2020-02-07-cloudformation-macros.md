@@ -23,8 +23,12 @@ Cloudformation Macros are a way to define lambda backed functionality to run aga
   <br>
 The Following are the two ways that you can reference in your templates
 
+1. [Header](#header)
+2. [Inline](#inline)
+
 ---
 
+<a name="header"></a>
 Example 1 - defined at heading level<br>
 In this example our macro would take the entire template, and could potentially return anything in exchange.
 `This is useful for auto-generating resources`
@@ -46,6 +50,7 @@ Transform: ["transformName1"]
 
 ---
 
+<a name="inline"></a>
 example 2 - defined at specific point<br>
 In this example we're expecting our macro to return a value for the property `AccessControl` inside our bucket.
 `This is useful for dynamic property values`

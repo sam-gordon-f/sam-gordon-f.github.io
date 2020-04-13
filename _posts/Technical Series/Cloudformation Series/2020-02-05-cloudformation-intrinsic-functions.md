@@ -565,6 +565,10 @@ The placeholders, and keys in the following map have to be indentical in case
 
 #### Fn::Transform <a name="transform"></a>
 
+A relatively new intrinsic function that allows you to invoke and take the returned fragment from a lambda function (custom or AWS managed), and embed in your template at the speciefied location.
+
+##### Usage <a name="transform-usage"></a>
+
 See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros#inline">here for more information on using this function for inline transforms</a>
 
 ---

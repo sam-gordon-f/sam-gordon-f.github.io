@@ -25,7 +25,7 @@ The referencer is using the macro in the header (see <a href = "{{ site.baseurl 
 
 template1 (definition)
 
-```json
+{% highlight json %}
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Description": "A description to help identify the purpose of the template",
@@ -40,9 +40,9 @@ template1 (definition)
     }
   }
 }
-```
+{% endhighlight %}
 
-```yml
+{% highlight yml %}
 ---
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "A description to help identify the purpose of the template"
@@ -53,7 +53,7 @@ Resources:
       Description: "my testing macro"
       FunctionName: "arn:aws:lambda:${Region}:${Account}:function:lambdaFunction1"
       Name: "cloudformationMacro"
-```
+{% endhighlight %}
 
 ---
 

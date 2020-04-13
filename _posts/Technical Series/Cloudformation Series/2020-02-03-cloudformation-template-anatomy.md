@@ -22,11 +22,18 @@ tips:
 2. [Description](#description)
 3. [Macros](#macros)
 4. [Parameters](#parameters)
+  a. [Referencing](#parameters-referencing)
 5. [Metadata](#metadata)
 6. [Mappings](#mappings)
+  a. [Referencing](#mappings-referencing)
 7. [Conditions](#conditions)
+  a. [Using at Property Level](#conditions-property-level)
+  b. [Using at Resource Level](#conditions-resource-level)
 8. [Resources](#resources)
-9. [Outputs / Exports](#outputs-exports)
+  a. [Referencing](#resources-referencing)
+  b. [Properties](#resources-properties)
+9. [Outputs](#outputs)
+  a. [Exports](#outputs-exports)
 10. [Full Examples](#full-examples)
 
 ---
@@ -35,8 +42,10 @@ tips:
 
 Identifies the structure and supported capabilities. [2010-09-09](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html) is currently the only version available
 
-```
-"AWSTemplateFormatVersion" : "2010-09-09"
+```json
+{
+  "AWSTemplateFormatVersion" : "2010-09-09"
+}
 ```  
 ```yml
 AWSTemplateFormatVersion: "2010-09-09"
@@ -48,8 +57,10 @@ AWSTemplateFormatVersion: "2010-09-09"
 
 Is used to help viewers identify the purpose of the template
 
-```
-"Description" : "A description to help identify the purpose of the template"
+```json
+{
+  "Description" : "A description to help identify the purpose of the template"
+}
 ```  
 ```yml
 Description: "A description to help identify the purpose of the template"
@@ -59,35 +70,28 @@ Description: "A description to help identify the purpose of the template"
 
 #### Macros<a name="macros"></a>
 
-Are a directive for cloudformation (at runtime) to take the entirety of whats supplied and run through one or more custom, or AWS managed transforms. These can be defined in the header (as shown) for full template transforms, or inline (more details later)
-  <br>
+Are a directive for cloudformation (at runtime) to take the entirety of whats supplied and run through one or more custom, or AWS managed transforms. These can be defined in the header (as shown) for full template transforms, or inline (more details later).
+
 In the below example, there are the following sample transforms defined.
 
-> transform1 - which is a custom user defined transform (actions not listed)
+> transform1 - which is a custom user defined transform (details [here]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-custom))
 
-> AWS::Serverless - which is an AWS defined transform for creating lambda functions (details [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html))
+> AWS::Serverless - which is an AWS defined transform for creating lambda functions (details [here]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-serverless))
 
-> AWS::Include - which is an AWS defined transform for pulling in cloudformation snippets from S3
+> AWS::Include - which is an AWS defined transform for pulling in cloudformation snippets from S3 (details [here]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-include))
 
-```
-"Transform" : [
-  "transform1",
-  "AWS::Serverless",
-  "AWS::Include"
-]
+```json
+{
+  "Transform" : [
+    "transform1",
+    "AWS::Serverless",
+    "AWS::Include"
+  ]
+}
 ```  
 ```yml
 Transform: ["transform", "AWS::Serverless", "AWS::Include"]
 ```
-
-<div class="card tip">
-  <div class="card-body">
-    These are covered in a lot more detail in the following two posts
-    <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-transform">transform</a>
-      <br>
-    <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros-include">includes</a>
-  </div>
-</div>
 
 ---
 
@@ -95,14 +99,16 @@ Transform: ["transform", "AWS::Serverless", "AWS::Include"]
 
 Are a way of creating dynamic inputs for your stacks. These are placeholder definitions for what the user/system can provide to cloudformation at runtime operationa
 
-```
+```json
+{
   "Parameters" : {
     "param1": {
       "Type": "String",
       "AllowedValues": ["first", "second", "third"],
       "Default": "first"
     }
-  },
+  }
+}
 ```  
 ```yml
 Parameters:
@@ -115,12 +121,13 @@ Parameters:
     Default: first  
 ```
 
-> How to reference parameters
+> How to reference parameters<a name="parameters-referencing"></a>
 
+```json
+{
+  "Ref" : "param1"
+}
 ```
-{ "Ref" : "param1" }
-```
-
 ```yml
 Ref: "param1"
 ```
@@ -137,12 +144,13 @@ Can be for storing custom information about your stack and/or some reserved dire
 
 > AWS::CloudFormation::Interface. Used to help prettify cloudformation operation interfaces (create / update)
 
-```
+```json
+{
   "Metadata" : {
     "Instances" : {"Description" : "Information about the instances"},
-    "Databases" : {"Description" : "Information about the databases"}",
-    "AWS::CloudFormation::Designer",
-    "AWS::CloudFormation::Init",
+    "Databases" : {"Description" : "Information about the databases"},
+    "AWS::CloudFormation::Designer": {},
+    "AWS::CloudFormation::Init": {},
     "AWS::CloudFormation::Interface": {
       "ParameterGroups": [{
         "Label": {
@@ -156,9 +164,9 @@ Can be for storing custom information about your stack and/or some reserved dire
         }
       }]
     }
-  },
+  }
+}
 ```
-
 ```yml
 Metadata:
   Instances:
@@ -185,14 +193,16 @@ Metadata:
 
 Ways of defining config for within templates. These can be dynamically referenced using intrinsic functions paired with 'Parameters'
 
-```
-"Mappings" : {
-  "mapping1" : {
-    "mappingPropCategory1" : {
-      "mappingPropName" : "mappingPropValue"
-    },
-    "mappingPropCategory2" : {
-      "mappingPropName" : "mappingPropValue2"
+```json
+{
+  "Mappings" : {
+    "mapping1" : {
+      "mappingPropCategory1" : {
+        "mappingPropName" : "mappingPropValue"
+      },
+      "mappingPropCategory2" : {
+        "mappingPropName" : "mappingPropValue2"
+      }
     }
   }
 }
@@ -207,12 +217,17 @@ Mappings:
       mappingPropName: mappingPropValue2
 ```
 
-> How to reference map variables
+> How to reference map variables<a name="mappings-referencing"></a>
 
+```json
+{
+  "Fn::FindInMap" : [
+    "mapping1",
+    "mappingPropCategory1",
+    "mappingPropName"
+  ]
+}
 ```
-{ "Fn::FindInMap" : [ "mapping1", "mappingPropCategory1", "mappingPropName"] }
-```
-
 ```yml
 Fn::FindInMap:
   - mapping1
@@ -226,13 +241,15 @@ Fn::FindInMap:
 
 A way of creating logic around property values, and/or cloudformation resource configuration. Mainly used for checking null values and helping your template work with them
 
-```
-"Conditions" : {
-  "condition1CheckParam1IsSetToSecond" : {
-    "Fn::Equals" : [
-      {"Ref" : "param1"},
-      "second"
-    ]
+```json
+{
+  "Conditions" : {
+    "condition1CheckParam1IsSetToSecond" : {
+      "Fn::Equals" : [
+        {"Ref" : "param1"},
+        "second"
+      ]
+    }
   }
 }
 ```  
@@ -243,19 +260,49 @@ Conditions:
     Fn::Equals: [!Ref param1, second]
 ```
 
-> How to use conditions
+> 1) How to use conditions for values (if condition true, return the text '1234', else null value)<a name="conditions-property-level"></a>
 
+```json
+{
+  "Fn::If" : [
+    "condition1CheckParam1IsSetToSecond",
+    "true",
+    {
+      "Ref": "AWS::NoValue"
+    }
+  ]
+}
 ```
-{ "Fn::FindInMap" : [ "mapping1", "mappingPropCategory1", "mappingPropName"] }
-```
-
 ```yml
-Fn::FindInMap:
-  - mapping1
-  - mappingPropCategory1
-  - mappingPropName
+Fn::If:
+  - condition1CheckParam1IsSetToSecond
+  - true
+  - Ref: "AWS::NoValue"
 ```
 
+> 2) How to use conditions for Resources (if condition true, create the resources, else do not create)<a name="conditions-resource-level"></a>
+
+```json
+{
+  "Resources" : {
+    "resource1": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "AccessControl": "Private"
+      },
+      "Condition": "condition1CheckParam1IsSetToSecond"
+    }
+  }
+}
+```
+```yml
+Resources:
+  resource1:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: "Private"
+    Condition: "condition1CheckParam1IsSetToSecond"
+```
 ---
 
 #### Resources<a name="resources"></a>
@@ -263,7 +310,8 @@ Fn::FindInMap:
 The contents(resources) to be contained within your stack. Typically each resource is denoted by one logical ID (what the template specifies as the JSON/YML key).
 See. [Cloudformation template/stack resources]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-resources)
 
-```
+```json
+{
   "Resources" : {
     "resource1": {
       "Type": "AWS::S3::Bucket",
@@ -272,8 +320,8 @@ See. [Cloudformation template/stack resources]({{ site.baseurl }}/technical-seri
       }
     }
   }
+}
 ```  
-
 ```yml
 Resources:
   resource1:
@@ -282,44 +330,51 @@ Resources:
       AccessControl: "Private"
 ```
 
-> How to reference resource properies
+> How to reference resource<a name="resources-reference"></a>
 
-```
-{ "Ref" : "resource1" }
+```json
+{
+  "Ref" : "resource1"
+}
 ```
 ```yml
 Ref: "param1"
 ```
 
-```
-{ "Fn::GetAtt" : ["resource1", "Arn"] }
+> How to reference resource properties<a name="resources-properties"></a>
+
+```json
+{
+  "Fn::GetAtt" : [
+    "resource1",
+    "Arn"
+  ]
+}
 ```
 ```yml
 Fn::GetAtt: ["param1", "Arn"]
 ```
 
-
-
 ---
 
-#### Outputs / Exports<a name="outputs-exports"></a>
+#### Outputs <a name="outputs"></a>
 
 A list of values that you wish to make available for vierers. These can also be exposed as exports (`must be unique keys`, and use the directive in the example above)
 
-```
-"Outputs" : {
-  "output1": {
-    "Description": "Here is the default value when referencing an S3 Bucket",
-    "Value": {
-      "Ref": "resource1"
-    },
-    "Name": "resource1LogicalId",
-    "Export": "export1"
+```json
+{
+  "Outputs" : {
+    "output1": {
+      "Description": "Here is the default value when referencing an S3 Bucket",
+      "Value": {
+        "Ref": "resource1"
+      },
+      "Name": "resource1LogicalId",
+      "Export": "export1"
+    }
   }
 }
-
 ```
-
 ```yml
 Outputs:
   output1:
@@ -330,12 +385,13 @@ Outputs:
       Name: export1
 ```
 
-> How to reference exports
+> How to reference exports<a name="outputs-exports"></a>
 
+```json
+{
+  "Fn::ImportValue" : "export1"
+}
 ```
-{ "Fn::ImportValue" : "export1" }
-```
-
 ```yml
 Fn::ImportValue: "export1"
 ```

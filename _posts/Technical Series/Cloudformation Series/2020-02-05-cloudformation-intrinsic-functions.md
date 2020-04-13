@@ -199,6 +199,12 @@ Resources:
 
 Used for referencing values from mapping constructs. This is generally seen when looking up config in templates.
 
+<div class="card tip">
+  <div class="card-body">
+    When using this function, keep in mind you can use a parameter in place of `mappingPropCategory1` (from example below). This means that your first level key could describe something that a user inputs. You'll see more examples of this later on
+  </div>
+</div>
+
 ```json
 {
   "Fn::FindInMap" : [

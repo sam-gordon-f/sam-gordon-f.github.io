@@ -6,6 +6,12 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Overview of Cloudformation Concepts
 tags: [cloudformation, concepts]
+prevPost:
+  text: "Intro"
+  link: "/technical-series/cloudformation-series/cloudformation-intro"
+nextPost:
+  text: "Template Anatomy"
+  link: "/technical-series/cloudformation-series/cloudformation-template-anatomy"
 ---
 
 <div class="card official-docs">
@@ -34,17 +40,6 @@ The Major concepts are fairly straight forward
 
 <img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts1.png" alt="drawing" style="width:100%;"/>
 
-<div class="container grid-xl">
-  <div class="columns">
-    <div class = "column col-3 col-md-4 col-sm-12 col-xs-12">
-      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intro">Intro</a>
-    </div>
-    <div class = "column col-6 col-md-4 col-sm-12 col-xs-12">
-      
-    </div>
-    <div class="column col-3 col-md-4 col-sm-12 col-xs-12">
-      <a style="height: auto; width:100%;" class="btn btn-success btn-lg btn-outline py-2 mt-4" href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-template-anatomy">Template Anatomy</a>
-    </div>
-  </div>
-</div>
+{% include post-navigation.html %}
+
  

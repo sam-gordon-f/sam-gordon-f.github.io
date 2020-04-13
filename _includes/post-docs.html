@@ -1,0 +1,9 @@
+{% if page.docs %}
+  {% for doc in page.docs %}
+    <div class="card official-docs">
+      <div class="card-body">
+        {{ doc }}
+      </div>
+    </div>
+  {% endfor %}
+{% endif %}

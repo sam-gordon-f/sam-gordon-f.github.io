@@ -8,7 +8,7 @@ short-description: A means to define non-cloudformation standard resources
 tags: [cloudformation, custom, resources]
 prevPost:
   text: "Resources"
-  link: "/cloudformation-series/cloudformation-resources"
+  link: "/technical-series/cloudformation-series/cloudformation-resources"
 nextPost:
   text: "Macros"
   link: "/technical-series/cloudformation-series/cloudformation-macros"

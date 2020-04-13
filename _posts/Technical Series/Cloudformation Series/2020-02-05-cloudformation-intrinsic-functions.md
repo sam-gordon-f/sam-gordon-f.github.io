@@ -277,7 +277,7 @@ Used for referencing attributes from other resources in the same template. This 
 }
 ```
 ```yml
-Fn::GetAtt" : [ "resource1", "<<propName>>"]
+Fn::GetAtt : [ "resource1", "<<propName>>"]
 ```
 
 ##### Usage <a name="getatt-usage"></a>
@@ -317,17 +317,130 @@ Outputs:
 ---
 
 #### Fn::GetAZs <a name="getazs"></a>
+
+Used for return a list of Availabilty zones for a region. This is generally seen for multi region resources like load balancers, RDS, etc...
+
+```json
+{
+  "Fn::GetAZs" : "<<region>>"
+}
+```
+```yml
+Fn::GetAZs : "<<region>>"
+```
+
 ##### Usage <a name="getazs-usage"></a>
+
+The below example uses this to determine an available AZ for a subnet
+
+```json
+{
+  "Resources": {
+    "EC2Subnet" : {
+      "Type" : "AWS::EC2::Subnet",
+      "Properties" : {
+        "VpcId" : {
+          "Ref" : "<<vpcId>>"   
+        },
+        "CidrBlock" : "10.0.0.0/24",
+        "AvailabilityZone" : {
+          "Fn::Select" : [
+            "0",
+            {
+              "Fn::GetAZs" : {
+                "Ref": "AWS::Region"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+```yml
+Resources:
+  EC2Subnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref '<<vpcId>>'
+      CidrBlock: 10.0.0.0/24
+      AvailabilityZone: !Select
+        - '0'
+        - !GetAZs
+          Ref: AWS::Region
+```
 
 ---
 
 #### Fn::ImportValue <a name="importvalue"></a>
+
+Used to reference a value that has been `exported` from another stack. This is generally seen when resources are separated into different stacks, but still have dependencies on one another
+
+```json
+{
+  "Fn::ImportValue" : "<<keyName>>"
+}
+```
+```yml
+Fn::ImportValue : "<<keyName>>"
+```
+
 ##### Usage <a name="importvalue-usage"></a>
+
+The below example has a stack which exports an s3 bucket domain name (key: `stack1-bucket1-domainName`), which is then referenced by a route 53 CName record
+
+```json
+{
+  "Resources": {
+    "Route53RecordSet": {
+      "Type" : "AWS::Route53::RecordSet",
+      "Properties" : {
+        "HostedZoneId" : "<<hostedZoneId>>",
+        "Name" : "testRecord",
+        "ResourceRecords" : [
+          {
+            "Fn::ImportValue": "stack1-bucket1-domainName"
+          }
+        ],
+        "TTL" : "300",
+        "Type" : "CNAME"
+      }
+    }
+  }
+}
+```
+```yml
+Resources:
+  Route53RecordSet:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: <<hostedZoneId>>
+      Name: testRecord
+      ResourceRecords:
+        - !ImportValue 'stack1-bucket1-domainName'
+      TTL: '300'
+      Type: CNAME
+```
 
 ---
 
 #### Fn::Join <a name="join"></a>
+
+Used to join an array of strings with a specific delimeter. This is seen absolutely everywhere and is super hand to keep on hand
+
+```json
+{
+  "Fn::Join" : [ ",", [ "<<string1>>", "etc..." ] ]
+}
+```
+```yml
+Fn::Join: [ ",", [ "<<string1>>", "etc..." ] ]
+```
+
 ##### Usage <a name="join-usage"></a>
+
+See [Base64 Usage](#base64-usage) for an example on joining strings for the userdata property
 
 ---
 

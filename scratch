@@ -1,18 +1,18 @@
 {
-  "Resources" : {
-    "SNSTopic": {
-      "Type" : "AWS::SNS::Topic"
-    }
-  },
-  "Outputs": {
-    "OutputSNSTopic": {
-      "Value": {
-        "Fn::GetAtt": [
-          "SNSTopic",
-          "TopicName"
-        ]
-      },
-      "Name": "SNSTopic"
+  "Resources": {
+    "Route53RecordSet": {
+      "Type" : "AWS::Route53::RecordSet",
+      "Properties" : {
+        "HostedZoneId" : "<<hostedZoneId>>",
+        "Name" : "testRecord",
+        "ResourceRecords" : [
+          {
+            "Fn::ImportValue": "stack1-bucket1-domainName"
+          }
+        ],
+        "TTL" : "300",
+        "Type" : "CNAME"
+      }
     }
   }
 }

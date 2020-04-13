@@ -1,17 +1,24 @@
 {
-  "Resources": {
-    "Route53RecordSet": {
-      "Type" : "AWS::Route53::RecordSet",
-      "Properties" : {
-        "HostedZoneId" : "<<hostedZoneId>>",
-        "Name" : "testRecord",
-        "ResourceRecords" : [
+  "Parameters": {
+    "url": {
+      "Type": "String",
+      "Default": "www.testDomain.com/part1/part2"
+    }
+  },
+  "Outputs": {
+    "outputDomainName": {
+      "Value": {
+        "Fn::Select": [
+          0,
           {
-            "Fn::ImportValue": "stack1-bucket1-domainName"
+            "Fn::Split": [
+              "/",
+              {
+                "Ref": "url"
+              }
+            ]
           }
-        ],
-        "TTL" : "300",
-        "Type" : "CNAME"
+        ]
       }
     }
   }

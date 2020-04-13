@@ -264,7 +264,7 @@ Used for referencing attributes from other resources in the same template. This 
 
 <div class="card tip">
   <div class="card-body">
-    When using this function you have to keep in mind the properties that the resource exposes, as not `every` value is accessible. You'll need to continually reference [the docs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) as this can be close to impossible to remember
+    When using this function you have to keep in mind the properties that the resource exposes, as not `every` value is accessible. You'll need to continually reference <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">the docs</a> as this can be close to impossible to remember all the supported outputs per resource
   </div>
 </div>
 
@@ -431,7 +431,10 @@ Used to join an array of strings with a specific delimeter. This is seen absolut
 
 ```json
 {
-  "Fn::Join" : [ ",", [ "<<string1>>", "etc..." ] ]
+  "Fn::Join" : [
+    ",",
+    [ "<<string1>>", "etc..." ]
+  ]
 }
 ```
 ```yml
@@ -445,12 +448,88 @@ See [Base64 Usage](#base64-usage) for an example on joining strings for the user
 ---
 
 #### Fn::Select <a name="select"></a>
+
+Used to return a specific index from a list. This is seen quite a bit when there are AZ's involved
+
+```json
+{
+  "Fn::Select" : [
+    0,
+    ["item1", "etc..."]
+  ]
+}
+```
+```yml
+Fn::Select: [ 0, ["item1", "etc..."] ]
+```
+
 ##### Usage <a name="select-usage"></a>
+
+See [GetAZs Usage](#getazs-usage), or [Split Usage](#split-usage) for examples on using this function
 
 ---
 
 #### Fn::Split <a name="split"></a>
+
+Used to split a list by a specified delimeter. This is seen quite a bit when there are URLs, or comma separated lists involved
+
+```json
+{
+  "Fn::Split" : [
+    ",",
+    "test1, test2, etc..."
+  ]
+}
+```
+```yml
+Fn::Split: [ ",", "test1, test2, etc..." ]
+```
+
 ##### Usage <a name="split-usage"></a>
+
+In below example, a URL is passed as a parameter and we only want the FQDN, not the path part. We've done this by splitting the string into an array, and then `selecting` the 0th index
+
+```json
+{
+  "Parameters": {
+    "url": {
+      "Type": "String",
+      "Default": "www.testDomain.com/part1/part2"
+    }
+  },
+  "Outputs": {
+    "outputDomainName": {
+      "Value": {
+        "Fn::Select": [
+          0,
+          {
+            "Fn::Split": [
+              "/",
+              {
+                "Ref": "url"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+```
+```yml
+Parameters:
+  url:
+    Type: String
+    Default: www.testDomain.com/part1/part2
+Outputs:
+  outputDomainName:
+    Value: !Select
+      - 0
+      - !Split
+        - /
+        - !Ref 'url'
+```
+
 
 ---
 

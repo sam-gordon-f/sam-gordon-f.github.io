@@ -383,8 +383,13 @@ Fn::GetAtt: ["param1", "Arn"]
 
 #### Outputs <a name="outputs"></a>
 
-A list of values that you wish to make available for viewers. These can also be exposed as exports
-(`must be unique keys`, and use the directive in the examples below)
+A list of values that you wish to make available for viewers. These can also be exposed as exports (as optionally shown below)
+
+<div class="card tip">
+  <div class="card-body">
+    When using exports. Each one must have a `region specific unique key`. So a good naming convention is to use the stack name (as show below)
+  </div>
+</div>
 
 ```json
 {
@@ -395,7 +400,14 @@ A list of values that you wish to make available for viewers. These can also be 
         "Ref": "resource1"
       },
       "Name": "resource1LogicalId",
-      "Export": "export1"
+      "Export": {
+        "Fn::Join": ["-", [
+          {
+            "Ref": "AWS::StackName"
+          },
+          "export1"
+        ]]
+      }
     }
   }
 }
@@ -403,25 +415,29 @@ A list of values that you wish to make available for viewers. These can also be 
 ```yml
 Outputs:
   output1:
-    Description: "Here is the default value when referencing an S3 Bucket (logicalId)"
-    Value: !Ref resource1
-    Name: "resource1LogicalId"
-    Export:
-      Name: export1
+    Description: Here is the default value when referencing an S3 Bucket
+    Value: !Ref 'resource1'
+    Name: resource1LogicalId
+    Export: !Join
+      - '-'
+      - - !Ref 'AWS::StackName'
+        - export1
 ```
 
 <a name="outputs-exports"></a>
 ##### Exports
 
+The below example is referening an export defined in the above example
+
 See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intrinsic-functions#importvalue">here</a> for more information on `ImportValue`</a>
 
 ```json
 {
-  "Fn::ImportValue" : "export1"
+  "Fn::ImportValue" : "<<stackName>>-export1"
 }
 ```
 ```yml
-Fn::ImportValue: "export1"
+Fn::ImportValue: "<<stackName>>-export1"
 ```
 
 ---

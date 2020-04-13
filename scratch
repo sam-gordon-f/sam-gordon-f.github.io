@@ -1,9 +1,19 @@
 {
-  "Fn::Transform" : {
-    "Name" : "<<macroName>>",
-    "Parameters" : {
-      "<<param1Key>>" : "<<param1Value>>",
-      "<<etc...>>" : "<<etc...>>"
-    } 
+  "Outputs" : {
+    "output1": {
+      "Description": "Here is the default value when referencing an S3 Bucket",
+      "Value": {
+        "Ref": "resource1"
+      },
+      "Name": "resource1LogicalId",
+      "Export": {
+        "Fn::Join": ["-", [
+          {
+            "Ref": "AWS::StackName"
+          },
+          "export1"
+        ]]
+      }
+    }
   }
 }

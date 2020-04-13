@@ -19,14 +19,16 @@ skill: 1
 
 The Major concepts are fairly straight forward, and they follow the actions below
 
-1) Cloudformation templates are written to describe infrastructure in the desired state. These can be written in JSON / YML, or any number of DSL's - official and otherwise
+1) Cloudformation templates are written to describe infrastructure in the desired state. These can be written in JSON / YML, or any number of DSL's ( `official and otherwise` )
   
 2) These templates are then fed to cloudformation with the `createStack` directive
   
 3) The service will attempt to create a stack containing the resource(s) aforementioned
   
-4) Moving forwards, the following operations can be undertaken
+4) Moving forwards, the following `operations` can be undertaken
   
+---
+
   a. `deleteStack`, which will attempt to remove all resources
     
   b. `updateStack`, which will take an updated template and attempt to update all resources to match the new changes
@@ -35,7 +37,9 @@ The Major concepts are fairly straight forward, and they follow the actions belo
   
   d. `executeChangeSet`, which will attempt to update the stack, much like the `updateStack` operation
 
-5) If an issue occurs with any of the above steps. The service will attempt to revert to the previous known state. This is why the service is so powerful !
+---
+
+5) If an issue occurs with any of the above steps. The service will attempt to revert to the `previous known state`. This is why the service is so powerful !
 
 <img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts1.png" alt="drawing" style="width:100%;"/>
 

@@ -229,7 +229,7 @@ Mappings:
 <a name="mappings-referencing"></a>
 ##### Referencing
 
-See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intrinsic-functions#findinmap">here</a> for more information interogating maps</a>
+See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intrinsic-functions#findinmap">intrinsic-functions</a> for more information interogating maps
 
 ```json
 {

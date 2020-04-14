@@ -27,18 +27,18 @@
   background-color: #a6cfe3;
 }
 
-.bar.1::before{
+.bar.one::before{
   width: calc(20% - 10px);
 }
-.bar.2::before{
+.bar.two::before{
   width: calc(40% - 10px);
 }
-.bar.3::before{
+.bar.three::before{
   width: calc(60% - 10px);
 }
-.bar.4::before{
+.bar.four::before{
   width: calc(80% - 10px);
 }
-.bar.5::before{
+.bar.five::before{
   width: calc(100% - 10px);
 }

@@ -16,7 +16,7 @@ docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html\">AWS docs on cloudformation Macros</a>"
 tips:
   - "Macros can be referenced in two ways in your template. They are both listed below"
-skill: 3
+skill: three
 ---
 
 Cloudformation Macros are a way to define lambda backed functionality to run against your cloudformation templates. They can be used to model all sorts of crazy scenarios, and remove the previous imposed limits.

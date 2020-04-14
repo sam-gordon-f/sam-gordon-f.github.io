@@ -14,7 +14,7 @@ nextPost:
   link: "/technical-series/cloudformation-series/cloudformation-template-anatomy"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html\">AWS docs on cloudformation key concepts</a>"
-skill: 1
+skill: one
 ---
 
 The Major concepts are fairly straight forward, and they follow the actions below

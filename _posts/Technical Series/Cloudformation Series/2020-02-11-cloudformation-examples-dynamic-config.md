@@ -4,7 +4,7 @@ title: Examples - Dynamic Config Store
 date: 2020-02-02 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
-short-description: create / reference a custom config store in your cloudformation
+short-description: create / reference a custom config store in your cloudformation templates / stacks
 tags: [cloudformation, lambda, macro, config]
 prevPost:
   text: "Macros - Custom"
@@ -23,7 +23,7 @@ skill: expert
 <a name = "javascript"></a>
 ##### Lambda code - nodejs (Advertises the custom config)
 
-The below has a javascript (nodeJS) function that looks up details (from a source of your choosing), and then returns a map to cloudformation
+The below has a javascript (nodeJS) function that looks up details (from a source of your choosing), and then returns a key map to cloudformation
 
 ```javascript
 // include the main SDK

@@ -19,7 +19,9 @@ tips:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html\">cfn-response</a> Is a great module (nodejs/python) for sending the lambda responses back to cloudformation (as the example will show)"
 ---
 
-Custom Resources are a way to define non-cloudformation standard resource definitions.
+Custom Resources are a way to define non-cloudformation standard resources. Think of them like a shell that invokes / contains the response from a lambda function
+
+<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/custom-resources.png" alt="drawing" style="width:100%;"/>
 
 For example - At the time of writing this cloudformation did not have support for enabling shieldAdvanced subscriptions in your account. The below are the required pieces to achieve it via custom resources
 

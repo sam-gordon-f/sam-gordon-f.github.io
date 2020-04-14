@@ -58,7 +58,7 @@ Used for encoding strings into Base64 encoding. This is generally seen when boot
 }
 ```
 ```yml
-Fn::Base64: "valueToEncode"
+!Base64: "valueToEncode"
 ```
 
 ##### Usage <a name="base64-usage"></a>

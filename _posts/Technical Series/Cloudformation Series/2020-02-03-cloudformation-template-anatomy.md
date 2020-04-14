@@ -135,7 +135,7 @@ Parameters:
 }
 ```
 ```yml
-Ref: "param1"
+!Ref 'param1'
 ```
 
 ---
@@ -241,10 +241,10 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 }
 ```
 ```yml
-Fn::FindInMap:
-  - mapping1
-  - mappingPropCategory1
-  - mappingPropName
+!FindInMap
+- mapping1
+- mappingPropCategory1
+- mappingPropName
 ```
 
 ---
@@ -271,7 +271,7 @@ More information and examples at the [aws docs](https://docs.aws.amazon.com/AWSC
 ```yml
 Conditions:
   condition1CheckParam1IsSetToSecond:
-    Fn::Equals: [!Ref param1, second]
+    !Equals: [!Ref param1, second]
 ```
 
 <a name="conditions-property-level"></a>
@@ -290,10 +290,10 @@ Conditions:
 }
 ```
 ```yml
-Fn::If:
-  - condition1CheckParam1IsSetToSecond
-  - true
-  - Ref: "AWS::NoValue"
+!If
+- condition1CheckParam1IsSetToSecond
+- 'true'
+- !Ref 'AWS::NoValue'
 ```
 <a name="conditions-resource-level"></a>
 ##### Conditions at resource level
@@ -359,7 +359,7 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 }
 ```
 ```yml
-Ref: "param1"
+!Ref 'resource1'
 ```
 
 <a name="resources-properties"></a>
@@ -376,7 +376,7 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 }
 ```
 ```yml
-Fn::GetAtt: ["param1", "Arn"]
+!GetAtt 'resource1.Arn'
 ```
 
 ---
@@ -437,7 +437,7 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 }
 ```
 ```yml
-Fn::ImportValue: "<<stackName>>-export1"
+!ImportValue '<<stackName>>-export1'
 ```
 
 ---
@@ -513,8 +513,8 @@ The full template examples are here (some properties omitted as their have depen
 
 ```yml
 ---
-AWSTemplateFormatVersion: "2010-09-09"
-Description: "A description to help identify the purpose of the template"
+AWSTemplateFormatVersion: '2010-09-09'
+Description: A description to help identify the purpose of the template
 Parameters:
   param1:
     Type: String
@@ -522,18 +522,17 @@ Parameters:
       - first
       - second
       - third
-    Default: first  
+    Default: first
 Metadata:
   AWS::CloudFormation::Interface:
     ParameterGroups:
-      -
-        Label:
-          default: "Custom Parameter Group1"
+      - Label:
+          default: Custom Parameter Group1
         Parameters:
           - param1
     ParameterLabels:
-      param1:
-        default: "Here is a custom description for param1"
+      - param1:
+          default: Here is a custom description for param1
 Mappings:
   mapping1:
     mappingPropCategory1:
@@ -541,18 +540,18 @@ Mappings:
     mappingPropCategory2:
       mappingPropName: mappingPropValue2
 Conditions:
-  condition1CheckParam1IsSetToSecond:
-    Fn::Equals: [!Ref param1, second]
+  condition1CheckParam1IsSetToSecond: !Equals
+    - !Ref 'param1'
+    - second
 Resources:
   resource1:
     Type: AWS::S3::Bucket
     Properties:
-      AccessControl: "Private"
+      AccessControl: Private
 Outputs:
   output1:
-    Description: "Here is the default value when referencing an S3 Bucket (logicalId)"
-    Value: !Ref resource1
-    Name: "resource1LogicalId"
-    Export:
-      Name: export1
+    Description: Here is the default value when referencing an S3 Bucket
+    Value: !Ref 'resource1'
+    Name: resource1LogicalId
+    Export: export1
 ```

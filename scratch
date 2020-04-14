@@ -1,13 +1,42 @@
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Description": "A description to help identify the purpose of the template",
-  "Transform": ["cloudformationMacro"],
   "Resources": {
-    "bucket1": {
-      "Type": "AWS::S3::Bucket",
+    "customConfig": {
+      "Type": "Custom::Config",
       "Properties": {
-        "AccessControl": "Private"
+        "Version": "1.0",
+        "ServiceToken": "<<ArnOfTheAboveFunction>>"
       }
+    }
+  },
+  "Outputs": {
+    "customConfigFirst": {
+      "Value": {
+        "Fn::GetAtt": [
+          "customConfig",
+          "first"
+        ]
+      },
+      "Name": "customConfigFirst"
+    },
+    "customConfigSecond": {
+      "Value": {
+        "Fn::GetAtt": [
+          "customConfig",
+          "second"
+        ]
+      },
+      "Name": "customConfigSecond"
+    },
+    "customConfigThird": {
+      "Value": {
+        "Fn::GetAtt": [
+          "customConfig",
+          "third"
+        ]
+      },
+      "Name": "customConfigThird"
     }
   }
 }

@@ -8,7 +8,7 @@ short-description: Resources contained within a cloudformation template/stack
 tags: [cloudformation, parameters, yml, json]
 prevPost:
   text: "Parameters"
-  link: "/cloudformation-series/cloudformation-parameters"
+  link: "/technical-series/cloudformation-series/cloudformation-parameters"
 nextPost:
   text: "Custom Resources"
   link: "/technical-series/cloudformation-series/cloudformation-custom-resources"

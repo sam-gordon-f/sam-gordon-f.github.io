@@ -54,11 +54,11 @@ Used for encoding strings into Base64 encoding. This is generally seen when boot
 
 ```json
 {
-  "Fn::Base64" : "valueToEncode"
+  "Fn::Base64" : "<<valueToEncode>>"
 }
 ```
 ```yml
-!Base64: "valueToEncode"
+!Base64 "<<valueToEncode>>"
 ```
 
 ##### Usage <a name="base64-usage"></a>
@@ -69,7 +69,7 @@ It does this by joining a list of commands into a string (no separators), then b
 ```json
 {
   "Resources": {
-    "MyInstance" : {
+    "EC2Instance" : {
       "Type" : "AWS::EC2::Instance",
       "Properties" : {
         "UserData" : {
@@ -92,20 +92,22 @@ It does this by joining a list of commands into a string (no separators), then b
 ```
 ```yml
 Resources:
-  MyInstance:
-    Type: "AWS::EC2::Instance"
+  EC2Instance:
+    Type: AWS::EC2::Instance
     Properties:
-      UserData:
-        Fn::Base64:
-          Fn::Join : ["", [
-            "#!/bin/bash -xe\n",
-            "yum install -y aws-cfn-bootstrap\n",
-            "/opt/aws/bin/cfn-init -v ",
-            "         --stack ", { "Ref" : "AWS::StackName" },
-            "         --resource <<resourceWhereMetaResides>> ",
-            "         --configsets Install ",
-            "         --region ", { "Ref" : "AWS::Region" }, "\n"  
-          ]]
+      UserData: !Base64
+        Fn::Join:
+          - ''
+          - - "#!/bin/bash -xe\n"
+            - "yum install -y aws-cfn-bootstrap\n"
+            - '/opt/aws/bin/cfn-init -v '
+            - '         --stack '
+            - !Ref 'AWS::StackName'
+            - '         --resource <<resourceWhereMetaResides>> '
+            - '         --configsets Install '
+            - '         --region '
+            - !Ref 'AWS::Region'
+            - "\n"
 ```
 
 ---
@@ -130,7 +132,7 @@ The below splits a `/24` block ( 8 subnet bits / 256 hosts ) into `6` individual
 }
 ```
 ```yml
-Fn::Cidr: [ "192.168.0.0/24", "6", "5" ]
+!Cidr [ "192.168.0.0/24", "6", "5" ]
 ```
 
 ##### Usage <a name="cidr-usage"></a>
@@ -216,7 +218,7 @@ Used for referencing values from mapping constructs. This is generally seen when
 }
 ```
 ```yml
-Fn::FindInMap" : [ "mapping1", "mappingPropCategory1", "mappingPropName"]
+!FindInMap [ "mapping1", "mappingPropCategory1", "mappingPropName"]
 ```
 
 ##### Usage <a name="findinmap-usage"></a>
@@ -284,7 +286,7 @@ Used for referencing attributes from other resources in the same template. This 
 }
 ```
 ```yml
-Fn::GetAtt : [ "resource1", "<<propName>>"]
+!GetAtt 'resource1.<<propName>>'
 ```
 
 ##### Usage <a name="getatt-usage"></a>
@@ -333,7 +335,7 @@ Used for return a list of Availabilty zones for a region. This is generally seen
 }
 ```
 ```yml
-Fn::GetAZs : "<<region>>"
+!GetAZs "<<region>>"
 ```
 
 ##### Usage <a name="getazs-usage"></a>
@@ -390,7 +392,7 @@ Used to reference a value that has been `exported` from another stack. This is g
 }
 ```
 ```yml
-Fn::ImportValue : "<<keyName>>"
+!ImportValue '<<keyName>>'
 ```
 
 ##### Usage <a name="importvalue-usage"></a>
@@ -445,7 +447,10 @@ Used to join an array of strings with a specific delimeter. This is seen absolut
 }
 ```
 ```yml
-Fn::Join: [ ",", [ "<<string1>>", "etc..." ] ]
+!Join
+- ','
+- - <<string1>>
+  - etc...
 ```
 
 ##### Usage <a name="join-usage"></a>
@@ -467,7 +472,10 @@ Used to return a specific index from a list. This is seen quite a bit when there
 }
 ```
 ```yml
-Fn::Select: [ 0, ["item1", "etc..."] ]
+!Select
+- 0
+- - item1
+  - etc...
 ```
 
 ##### Usage <a name="select-usage"></a>
@@ -489,7 +497,9 @@ Used to split a list by a specified delimeter. This is seen quite a bit when the
 }
 ```
 ```yml
-Fn::Split: [ ",", "test1, test2, etc..." ]
+!Split
+- ','
+- test1, test2, etc...
 ```
 
 ##### Usage <a name="split-usage"></a>

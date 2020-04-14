@@ -326,7 +326,7 @@ Resources:
 
 The contents(resources) to be contained within your stack. Typically each resource is denoted by one logical ID (what the template specifies as the JSON/YML key).
 
-See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-resources">here</a> for more information on resources</a>
+See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-resources">here</a> for more information on resources
 
 ```json
 {
@@ -351,7 +351,7 @@ Resources:
 <a name="resources-reference"></a>
 ##### Referencing
 
-See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intrinsic-functions#ref">here</a> for more information on `Ref`</a>
+See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intrinsic-functions#ref">here</a> for more information on `Ref`
 
 ```json
 {
@@ -365,7 +365,7 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 <a name="resources-properties"></a>
 ##### Properties
 
-See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intrinsic-functions#getatt">here</a> for more information on `GetAtt`</a>
+See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intrinsic-functions#getatt">here</a> for more information on `GetAtt`
 
 ```json
 {

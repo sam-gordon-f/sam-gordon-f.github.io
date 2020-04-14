@@ -14,7 +14,7 @@ nextPost:
   link: "/technical-series/cloudformation-series/cloudformation-macros-custom"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html\">AWS docs on cloudformation Transforms</a>"
-skill: four
+skill: intermediate
 ---
 
 The Cloudformation Serverless Macro is used for generating quick lambda stacks based on few details

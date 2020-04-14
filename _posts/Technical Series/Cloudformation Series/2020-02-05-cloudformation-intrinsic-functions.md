@@ -16,7 +16,7 @@ docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html\">AWS docs on cloudformation intrinsic functions</a>"
 tip:
   - "If using YML - avoid the shorthand notation, as it doesnt convert well with tools like cfn-flip"
-skill: two
+skill: novice
 ---
 
 These are the following functions cloudformation makes available, and a definition / example of what they perform and how

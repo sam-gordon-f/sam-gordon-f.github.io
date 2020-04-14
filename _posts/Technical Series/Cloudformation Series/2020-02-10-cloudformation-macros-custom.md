@@ -14,7 +14,7 @@ docs:
 tips:
   - "You must define the macro `beforehand` in another template/stack before trying to run"
   - "You can also use lambda alias's / versions when defining their ARNs in the macro below"
-skill: five
+skill: expert
 ---
 
 When defining your own custom macros, you need to create the lambda function / macro definition in advance.

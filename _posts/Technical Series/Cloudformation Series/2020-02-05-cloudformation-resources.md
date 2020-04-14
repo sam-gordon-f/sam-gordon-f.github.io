@@ -14,5 +14,5 @@ nextPost:
   link: "/technical-series/cloudformation-series/cloudformation-custom-resources"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">AWS docs on cloudformation resources</a>"
-skill: two
+skill: novice
 ---

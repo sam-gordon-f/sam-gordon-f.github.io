@@ -48,18 +48,18 @@
   background-color: #a6cfe3;
 }
 
-.bar.one::before{
+.bar.beginner::before{
   width: calc(20% - 10px);
 }
-.bar.two::before{
+.bar.novice::before{
   width: calc(40% - 10px);
 }
-.bar.three::before{
+.bar.intermediate::before{
   width: calc(60% - 10px);
 }
-.bar.four::before{
+.bar.proficient::before{
   width: calc(80% - 10px);
 }
-.bar.five::before{
+.bar.expert::before{
   width: calc(100% - 10px);
 }

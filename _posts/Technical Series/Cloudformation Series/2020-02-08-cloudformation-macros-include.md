@@ -21,9 +21,12 @@ The Cloudformation Include Transform is an AWS managed transform that takes an S
   <br><br>  
 In the below example, the main template (template2), includes a bucket defined in template1 are runtime
 
+1. [Template1 - template that is included](#template1)
+2. [Template2 - template which runs the include](#template2)
+
 ---
 
-template1 (file to include)
+##### template1 (template that is included) <a name = "template1"></a>
 
 ```json
 "S3Bucket1": {
@@ -44,7 +47,7 @@ S3Bucket1:
 
 ---
 
-template2 (transform template)
+##### template2 (template which runs the include) <a name = "template2"></a>
 
 ```json
 {

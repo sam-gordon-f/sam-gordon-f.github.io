@@ -27,9 +27,12 @@ The Cloudformation Serverless Transform is an AWS managed transform that takes a
   
 In the example below, the transform (template1), will create template2 when applied
 
+1. [Template1 - template that runs the transform](#template1)
+2. [Template2 - resultant template](#template2)
+
 ---
 
-template1 (file defining transform)
+##### template1 (template that runs the transform) <a name = "template1"></a>
 
 ```json
 {
@@ -64,7 +67,7 @@ Resources:
 
 ---
 
-template2 (resultant template)
+##### template2 (resultant template) <a name = "template2"></a>
 
 ```json
 {

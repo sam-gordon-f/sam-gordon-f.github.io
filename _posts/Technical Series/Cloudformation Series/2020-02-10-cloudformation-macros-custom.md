@@ -22,12 +22,14 @@ In the following two examples, there is already a lambda function created in the
 <br><br>
 The referencer is using the macro in the header (see <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros">here</a> for more details)
 
+1. [Template1 - template defines the macro](#template1)
+2. [Template2 - template that uses the custom macro](#template2)
+
 ---
 
-template1 (definition)
+##### template1 (template that defines the transform) <a name = "template1"></a>
 
-testing rouge 1
-{% highlight JSON %}
+```json
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Description": "A description to help identify the purpose of the template",
@@ -42,9 +44,8 @@ testing rouge 1
     }
   }
 }
-{% endhighlight %}
-
-{% highlight YAML %}
+```
+```yml
 ---
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "A description to help identify the purpose of the template"
@@ -55,23 +56,22 @@ Resources:
       Description: "my testing macro"
       FunctionName: "arn:aws:lambda:${Region}:${Account}:function:lambdaFunction1"
       Name: "cloudformationMacro"
-{% endhighlight %}
+```
 
 ---
 
-template2 (referencing)
+##### template2 (template that uses the custom macro) <a name = "template2"></a>
 
-{% highlight JSON %}
+```json
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Description": "A description to help identify the purpose of the template",
   "Transform": ["cloudformationMacro"]
 }
-{% endhighlight %}
-
-{% highlight YAML %}
+```
+```yml
 ---
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "A description to help identify the purpose of the template"
 Transform: ["cloudformationMacro"]
-{% endhighlight %}
+```

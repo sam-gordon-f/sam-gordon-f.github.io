@@ -35,11 +35,46 @@ The referencer is using the macro in the header (see <a href = "{{ site.baseurl 
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Description": "A description to help identify the purpose of the template",
   "Resources": {
+    "IAMRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "ManagedPolicyArns": ["arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"],
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [{
+            "Action": ["sts:AssumeRole"],
+            "Effect": "Allow",
+            "Principal": {
+              "Service": ["lambda.amazonaws.com"]
+            }
+          }]
+        }
+      }
+    },
+    "LambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Handler": "index.handler",
+        "Code": {
+          "S3Bucket": "testBucket",
+          "S3Key": "mySourceCode.zip"
+        },
+        "Role": {
+          "Fn::GetAtt": ["IAMRole", "Arn"]
+        },
+        "Runtime": "nodejs8.10"
+      }
+    },
     "cloudformationMacro": {
       "Type" : "AWS::CloudFormation::Macro",
       "Properties" : {
         "Description" : "my testing macro",
-        "FunctionName" : "arn:aws:lambda:${Region}:${Account}:function:lambdaFunction1",
+        "FunctionName" : {
+          "Fn::GetAtt": [
+            "LambdaFunction",
+            "Arn"
+          ]
+        },
         "Name" : "cloudformationMacro"
       }
     }
@@ -48,15 +83,38 @@ The referencer is using the macro in the header (see <a href = "{{ site.baseurl 
 ```
 ```yml
 ---
-AWSTemplateFormatVersion: "2010-09-09"
-Description: "A description to help identify the purpose of the template"
+AWSTemplateFormatVersion: '2010-09-09'
+Description: A description to help identify the purpose of the template
 Resources:
+  IAMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Action:
+              - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+  LambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Handler: index.handler
+      Code:
+        S3Bucket: testBucket
+        S3Key: mySourceCode.zip
+      Role: !GetAtt 'IAMRole.Arn'
+      Runtime: nodejs8.10
   cloudformationMacro:
     Type: AWS::CloudFormation::Macro
     Properties:
-      Description: "my testing macro"
-      FunctionName: "arn:aws:lambda:${Region}:${Account}:function:lambdaFunction1"
-      Name: "cloudformationMacro"
+      Description: my testing macro
+      FunctionName: !GetAtt 'LambdaFunction.Arn'
+      Name: cloudformationMacro
 ```
 
 ---

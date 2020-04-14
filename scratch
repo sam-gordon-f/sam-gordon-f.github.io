@@ -2,21 +2,7 @@
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Description": "A description to help identify the purpose of the template",
   "Resources": {
-    "ServerlessFunction": {
-      "Type": "AWS::Lambda::Function",
-      "Properties": {
-        "Handler": "index.handler",
-        "Code": {
-          "S3Bucket": "testBucket",
-          "S3Key": "mySourceCode.zip"
-        },
-        "Role": {
-          "Fn::GetAtt": ["FunctionNameRole", "Arn"]
-        },
-        "Runtime": "nodejs8.10"
-      }
-    },
-    "FunctionNameRole": {
+    "IAMRole": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "ManagedPolicyArns": ["arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"],
@@ -30,6 +16,33 @@
             }
           }]
         }
+      }
+    },
+    "LambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Handler": "index.handler",
+        "Code": {
+          "S3Bucket": "testBucket",
+          "S3Key": "mySourceCode.zip"
+        },
+        "Role": {
+          "Fn::GetAtt": ["IAMRole", "Arn"]
+        },
+        "Runtime": "nodejs8.10"
+      }
+    },
+    "cloudformationMacro": {
+      "Type" : "AWS::CloudFormation::Macro",
+      "Properties" : {
+        "Description" : "my testing macro",
+        "FunctionName" : {
+          "Fn::GetAtt": [
+            "LambdaFunction",
+            "Arn"
+          ]
+        },
+        "Name" : "cloudformationMacro"
       }
     }
   }

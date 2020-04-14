@@ -21,9 +21,12 @@ var rotateBrand = function(index) {
 $(document).ready(function() {
 
     // change the fancybox overlays so they dont clash
-  jQuery.extend(jQuery.fancybox.defaults, {
-    overlayColor: 'white'
-  });
+  // jQuery.extend(jQuery.fancybox.defaults, {
+  //   overlayColor: 'white'
+  // });
+
+  $.fancybox.defaults.overlayColor = 'red'
+  $.fancybox.defaults.overlayOpacity = "1";
 
     // rotate the main banner
   setTimeout(function() {

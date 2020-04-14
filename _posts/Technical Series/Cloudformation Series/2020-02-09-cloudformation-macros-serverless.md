@@ -71,6 +71,8 @@ Resources:
 <a name = "template2"></a>
 ##### template2 (resultant template)
 
+This is what cloudformation will actually process. This is hidden under the hood as its transformed at runtime - when the cloudformation operation is triggered
+
 ```json
 {
   "AWSTemplateFormatVersion" : "2010-09-09",

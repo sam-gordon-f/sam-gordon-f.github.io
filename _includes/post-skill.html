@@ -1,7 +1,9 @@
-<div>
-  {% if page.skill %}
-    <div>
-      <div class="bar {{ page.skill }}" data-skill="{{ page.skill }}"></div>
-    </div>
-  {% endif %}
+<div class="container grid-xl">
+  <div class="columns">
+    {% if page.skill %}
+      <div class = "column col-3 col-md-4 col-sm-12 col-xs-12">
+        <div class="bar {{ page.skill }}" data-skill="{{ page.skill }}"></div>
+      </div>
+    {% endif %}
+  </div>
 </div>

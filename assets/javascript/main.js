@@ -19,12 +19,18 @@ var rotateBrand = function(index) {
 }
 
 $(document).ready(function() {
-    
+
+    // change the fancybox overlays so they dont clash
+  jQuery.extend(jQuery.fancybox.defaults, {
+    overlayColor: 'white'
+  });
+
     // rotate the main banner
   setTimeout(function() {
     rotateBrand(0)
   }, 10000);
 
+    // create pretty back to top animations
   $(".btnBackToTop").click(function(){
       $("html, body").animate({ scrollTop: 0 }, 500);
       return false;

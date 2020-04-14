@@ -1,0 +1,12 @@
+<div>
+  <div class = "text-right">
+    <p class="text-dark text-small mb-0"><span class="text-primary">
+      {% assign words = content | number_of_words %}
+      {% if words < 300 %}
+          1 minute read
+      {% else %}
+          {{ words | divided_by:150 }} minute read
+      {% endif %}
+    </span></p>
+  </div>
+</div>

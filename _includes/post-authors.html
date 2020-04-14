@@ -1,3 +1,14 @@
+<div>
+  {% if site.use_authors == true %}
+  {% assign post_author = site.data.authors[page.author] %}
+    <div class = "text-right">
+      <p class="text-dark text-small mb-0">Written by <span class="text-primary">{{ post_author.name }}</span></p>
+      <p class="text-dark text-small text-italic mb-0">{% include reading-time.html %}</p>
+    </div>
+  {% endif %}
+</div>
+
+<!--
 {% if site.use_authors == true %}
 {% assign post_author = site.data.authors[page.author] %}
   <div class="container">
@@ -22,3 +33,4 @@
     <p class="text-dark text-small text-italic mb-0">{{ page.last_modified_at | date: '%B %d, %Y'  }} - {% include reading-time.html %}</p>
   </div>
 {% endif %}
+-->

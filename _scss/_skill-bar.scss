@@ -31,9 +31,9 @@
 }
 .bar::before{
   content: attr(data-skill);
-  background-color: #373842;;
+  background-color: #212529;
   display: inline-block;
-  padding: 5px 0 5px 10px;
+  padding: 5px 10px 5px 10px;
   border-radius: inherit;
   animation: load 2s 0s;
   -webkit-animation: load 2s 0s;

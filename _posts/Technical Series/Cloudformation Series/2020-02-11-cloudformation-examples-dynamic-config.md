@@ -9,7 +9,7 @@ tags: [cloudformation, lambda, macro, config]
 prevPost:
   text: "Macros - Custom"
   link: "/technical-series/cloudformation-series/cloudformation-macros-custom"
-prevPost:
+nextPost:
   text: "Examples - Identity Provider"
   link: "/technical-series/cloudformation-series/cloudformation-examples-identity-provider"
 skill: expert

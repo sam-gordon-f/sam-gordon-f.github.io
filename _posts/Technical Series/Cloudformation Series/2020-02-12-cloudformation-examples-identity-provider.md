@@ -8,7 +8,7 @@ short-description: create / reference an identity provider in cloudformation
 tags: [cloudformation, lambda, macro]
 prevPost:
   text: "Examples - Dynamic Config"
-  link: "/technical-series/cloudformation-series/cloudformation-examples-dynamic-confg"
+  link: "/technical-series/cloudformation-series/cloudformation-examples-dynamic-config"
 skill: expert
 ---
 

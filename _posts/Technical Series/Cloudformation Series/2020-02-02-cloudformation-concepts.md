@@ -41,6 +41,6 @@ The Major concepts are fairly straight forward, and they follow the actions belo
 
 5) If an issue occurs with any of the above steps. The service will attempt to revert to the `previous known state`. This is why the service is so powerful !
 
-<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts1.png" alt="drawing" style="width:100%;"/>
+<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/cloudformation-concepts.svg" alt="drawing" style="width:100%;"/>
 
  

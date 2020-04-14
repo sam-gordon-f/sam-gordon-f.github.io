@@ -1,16 +1,37 @@
+@keyframes load{
+  from {
+    width: 0%
+  }
+}
+@-webkit-keyframes load{
+  from {
+    width: 0%
+  }
+}
+@-moz-keyframes load{
+  from {
+    width: 0%
+  }
+}
+@-o-keyframes load{
+  from {
+    width: 0%
+  }
+}
+
 .bar{
-  background-color: #EEE;
+  background-color: white;
   padding: 2px;
-  border-radius: 15px;
+  border-radius: 5px;
   margin-bottom: 5px;
   font-size: 14px;
-  color: #FFF;
-  font-weight: bold;
+  color: white;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  font-weight:600;
 }
 .bar::before{
-  content:  attr(data-skill);
-  background-color: #f3b0ff;
+  content: attr(data-skill);
+  background-color: #373842;;
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;

@@ -1,48 +1,12 @@
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Description": "A description to help identify the purpose of the template",
+  "Transform": ["cloudformationMacro"],
   "Resources": {
-    "IAMRole": {
-      "Type": "AWS::IAM::Role",
+    "bucket1": {
+      "Type": "AWS::S3::Bucket",
       "Properties": {
-        "ManagedPolicyArns": ["arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"],
-        "AssumeRolePolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [{
-            "Action": ["sts:AssumeRole"],
-            "Effect": "Allow",
-            "Principal": {
-              "Service": ["lambda.amazonaws.com"]
-            }
-          }]
-        }
-      }
-    },
-    "LambdaFunction": {
-      "Type": "AWS::Lambda::Function",
-      "Properties": {
-        "Handler": "index.handler",
-        "Code": {
-          "S3Bucket": "testBucket",
-          "S3Key": "mySourceCode.zip"
-        },
-        "Role": {
-          "Fn::GetAtt": ["IAMRole", "Arn"]
-        },
-        "Runtime": "nodejs8.10"
-      }
-    },
-    "cloudformationMacro": {
-      "Type" : "AWS::CloudFormation::Macro",
-      "Properties" : {
-        "Description" : "my testing macro",
-        "FunctionName" : {
-          "Fn::GetAtt": [
-            "LambdaFunction",
-            "Arn"
-          ]
-        },
-        "Name" : "cloudformationMacro"
+        "AccessControl": "Private"
       }
     }
   }

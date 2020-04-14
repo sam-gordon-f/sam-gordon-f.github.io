@@ -22,8 +22,35 @@ In the following two examples, there is already a lambda function created in the
 <br><br>
 The referencer is using the macro in the header (see <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros">here</a> for more details)
 
-1. [Template1 - template defines the macro](#template1)
-2. [Template2 - template that uses the custom macro](#template2)
+1. [Lambda code (nodejs)](#javascript)
+2. [Template1 - template defines the macro](#template1)
+3. [Template2 - template that consumes the custom macro to create the additional bucket dynamically](#template2)
+
+---
+
+<a name = "javascript"></a>
+##### Lambda code (nodejs)
+
+```javascript
+exports.handler = (event, context, callback) => {
+  var fragment = event.fragment;
+
+  var s3Bucket = {
+    Type: "AWS::S3::Bucket",
+    Properties: {
+      AccessControl: "Private"
+    }
+  }
+
+  fragment.Resources["bucket2"] = s3Bucket;
+
+  callback(null, {
+    requestId: event.requestId,
+    status: "success",
+    fragment: fragment
+  });
+};
+```
 
 ---
 
@@ -120,18 +147,32 @@ Resources:
 ---
 
 <a name = "template2"></a>
-##### template2 (template that uses the custom macro)
+##### template2 (template that consumes the custom macro to create the additional bucket dynamically)
 
 ```json
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Description": "A description to help identify the purpose of the template",
-  "Transform": ["cloudformationMacro"]
+  "Transform": ["cloudformationMacro"],
+  "Resources": {
+    "bucket1": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "AccessControl": "Private"
+      }
+    }
+  }
 }
 ```
 ```yml
 ---
-AWSTemplateFormatVersion: "2010-09-09"
-Description: "A description to help identify the purpose of the template"
-Transform: ["cloudformationMacro"]
+AWSTemplateFormatVersion: '2010-09-09'
+Description: A description to help identify the purpose of the template
+Transform:
+  - cloudformationMacro
+Resources:
+  bucket1:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: Private
 ```

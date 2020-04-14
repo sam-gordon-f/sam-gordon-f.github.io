@@ -21,7 +21,9 @@ tips:
 
 Custom Resources are a way to define non-cloudformation standard resources. Think of them like a shell that invokes / contains the response from a lambda function
 
-<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/custom-resources.svg" alt="drawing" style="width:100%;"/>
+<a href="{{ site.baseurl }}/assets/images/technical-series/cloudformation/custom-resources.svg" data-fancybox data-caption="cloudformation-custom-resources">
+  <img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/custom-resources.svg" alt="drawing" style="width:100%;"/>
+</a>
 
 For example - At the time of writing this cloudformation did not have support for enabling shieldAdvanced subscriptions in your account. The below are the required pieces to achieve it via custom resources
 

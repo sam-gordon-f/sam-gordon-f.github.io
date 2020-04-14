@@ -7,7 +7,7 @@ author: samGordon
 short-description: Custom Macros for Cloudformation templates
 tags: [cloudformation, include, lambda, macro]
 prevPost:
-  text: "Macros"
+  text: "Macros - Serverless"
   link: "/technical-series/cloudformation-series/cloudformation-macros-serverless"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html\">AWS docs on cloudformation Transforms</a>"
@@ -27,7 +27,8 @@ The referencer is using the macro in the header (see <a href = "{{ site.baseurl 
 
 ---
 
-##### template1 (template that defines the transform) <a name = "template1"></a>
+<a name = "template1"></a>
+##### template1 (template that defines the transform)
 
 ```json
 {
@@ -60,7 +61,8 @@ Resources:
 
 ---
 
-##### template2 (template that uses the custom macro) <a name = "template2"></a>
+<a name = "template2"></a>
+##### template2 (template that uses the custom macro)
 
 ```json
 {

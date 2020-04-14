@@ -32,7 +32,8 @@ In the example below, the transform (template1), will create template2 when appl
 
 ---
 
-##### template1 (template that runs the transform) <a name = "template1"></a>
+<a name = "template1"></a>
+##### template1 (template that runs the transform)
 
 ```json
 {
@@ -67,7 +68,8 @@ Resources:
 
 ---
 
-##### template2 (resultant template) <a name = "template2"></a>
+<a name = "template2"></a>
+##### template2 (resultant template)
 
 ```json
 {

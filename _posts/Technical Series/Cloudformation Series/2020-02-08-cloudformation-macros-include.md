@@ -18,15 +18,16 @@ skill: intermediate
 ---
 
 The Cloudformation Include Transform is an AWS managed transform that takes an S3 Key, finds the content, and merges with the template supplied.
-  <br><br>  
-In the below example, the main template (template2), includes a bucket defined in template1 are runtime
+  
+In the below example, the main template (template2), includes a bucket defined in template1 are runtime.
 
 1. [Template1 - template that is included](#template1)
 2. [Template2 - template which runs the include](#template2)
 
 ---
 
-##### template1 (template that is included) <a name = "template1"></a>
+<a name = "template1"></a>
+##### template1 (template that is included)
 
 ```json
 "S3Bucket1": {
@@ -36,7 +37,6 @@ In the below example, the main template (template2), includes a bucket defined i
   }
 }
 ```
-
 ```yml
 ---
 S3Bucket1:
@@ -47,7 +47,8 @@ S3Bucket1:
 
 ---
 
-##### template2 (template which runs the include) <a name = "template2"></a>
+<a name = "template2"></a>
+##### template2 (template which runs the include)
 
 ```json
 {

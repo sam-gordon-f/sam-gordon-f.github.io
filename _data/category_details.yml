@@ -16,4 +16,4 @@ social-series:
 ### sub series
 cloudformation-series:
   name: Cloudformation Series
-  description: Social posts that arent to run through tech / concepts
+  description: Collection of progressive cloudformation posts

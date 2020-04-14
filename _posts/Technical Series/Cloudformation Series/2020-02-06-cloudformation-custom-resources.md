@@ -16,7 +16,7 @@ docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html\">AWS docs on custom resources</a>"
 skill: proficient
 tips:
-  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html\">cfn-flip</a> Is a great tool for sending the responses back to cloudformation (as the examples will show)"
+  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html\">cfn-response</a> Is a great module (nodejs/python) for sending the responses back to cloudformation (as the examples will show)"
 ---
 
 Custom Resources are a way to define non-cloudformation standard resource definitions.
@@ -25,6 +25,8 @@ For example - At the time of writing this cloudformation did not have support fo
 
 1. [Javascript](#javascript)
 2. [Cloudformation Template](#cloudformation)
+
+---
 
 #### Javascript <a name="javascript"></a>
 
@@ -146,22 +148,119 @@ exports.handler = (event, context, callback) => {
 }
 ```
 
+---
+
 #### Cloudformation <a name="cloudformation"></a>
 
-This is a custom cloudformation template that will invoke the above function as assign to a custom construct
+This is a custom cloudformation template that will invoke the above function as assign to a custom construct. It has a number of resources
+
+1. An IAM role for the lambda function to invoke with
+2. An IAM policy to attach to the aforementioned role
+3. A lambda function definition (custom resource javascript)
+4. A CustomResource to invoke and store state of the javascript invocation
 
 ```json
 {
   "Resources": {
-    "customShieldAdvancedSubscription": {
-      "Type": "Custom::shieldAdvancedSubscription",
+    "IAMRoleCustomResource": {
+      "Type": "AWS::IAM::Role",
       "Properties": {
-
+        "AssumeRolePolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+        "ManagedPolicyArns": ["arn:aws:iam::aws:policy/CloudWatchLogsFullAccess", "arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess"]
+      }
+    },
+    "IAMPolicyCustomResource": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "IAMPolicyCustomResource",
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [{
+            "Effect": "Allow",
+            "Action": ["shield:CreateSubscription", "shield:DeleteSubscription"],
+            "Resource": ["*"]
+          }]
+        },
+        "Roles": [{
+          "Ref": "IAMRoleCustomResource"
+        }]
+      }
+    },
+    "LambdaFunctionShieldAdvancedManage": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Handler": "index.handler",
+        "Runtime": "nodejs10.x",
+        "Code": {
+          "S3Bucket": "<<bucketNameToStoreAboveFunctionAsZip>>",
+          "S3Key": "<<bucketKeyToStoreAboveFunctionAsZip>>"
+        },
+        "Role": {
+          "Fn::GetAtt": ["IAMRoleCustomResource", "Arn"]
+        },
+        "Description": "custom resource lambda for managing AWS shield advanced subscriptions",
+        "MemorySize": 128,
+        "Timeout": 20,
+        "TracingConfig": {
+          "Mode": "Active"
+        }
+      },
+      "DependsOn": "IAMPolicyShieldAdvancedManage"
+    },
+    "customShieldAdvancedSubscription": {
+      "Type": "Custom::ShieldAdvancedManage",
+      "Properties": {
+        "Version": "1.0",
+        "ServiceToken": {
+          "Fn::GetAtt": ["LambdaFunctionShieldAdvancedManage", "Arn"]
+        }
       }
     }
   }
 }
 ```
 ```yml
-
+Resources:
+  IAMRoleCustomResource:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument: '{"Version":"2012-10-17","Statement":[{"Sid":"","Effect":"Allow","Principal":{"Service":"lambda.amazonaws.com"},"Action":"sts:AssumeRole"}]}'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/CloudWatchLogsFullAccess
+        - arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess
+  IAMPolicyCustomResource:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: IAMPolicyCustomResource
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - shield:CreateSubscription
+              - shield:DeleteSubscription
+            Resource:
+              - '*'
+      Roles:
+        - !Ref 'IAMRoleCustomResource'
+  LambdaFunctionShieldAdvancedManage:
+    Type: AWS::Lambda::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs10.x
+      Code:
+        S3Bucket: <<bucketNameToStoreAboveFunctionAsZip>>
+        S3Key: <<bucketKeyToStoreAboveFunctionAsZip>>
+      Role: !GetAtt 'IAMRoleCustomResource.Arn'
+      Description: custom resource lambda for managing AWS shield advanced subscriptions
+      MemorySize: 128
+      Timeout: 20
+      TracingConfig:
+        Mode: Active
+    DependsOn: IAMPolicyShieldAdvancedManage
+  customShieldAdvancedSubscription:
+    Type: Custom::ShieldAdvancedManage
+    Properties:
+      Version: '1.0'
+      ServiceToken: !GetAtt 'LambdaFunctionShieldAdvancedManage.Arn'
 ```

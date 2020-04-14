@@ -17,7 +17,7 @@ docs:
 skill: intermediate
 ---
 
-The Cloudformation S3 Include Transform is an AWS managed transform that takes an S3 Key, finds the content, and merges with the template supplied.
+The Cloudformation Include Transform is an AWS managed transform that takes an S3 Key, finds the content, and merges with the template supplied.
   <br><br>  
 In the below example, the main template (template2), includes a bucket defined in template1 are runtime
 

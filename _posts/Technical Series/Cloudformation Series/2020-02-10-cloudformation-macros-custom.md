@@ -9,6 +9,9 @@ tags: [cloudformation, include, lambda, macro]
 prevPost:
   text: "Macros - Serverless"
   link: "/technical-series/cloudformation-series/cloudformation-macros-serverless"
+nextPost:
+  text: "Examples - Dynamic Config"
+  link: "/technical-series/cloudformation-series/cloudformation-examples-dynamic-config"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html\">AWS docs on cloudformation Transforms</a>"
 tips:

@@ -5,10 +5,13 @@ date: 2020-02-02 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: create / reference a custom config store in your cloudformation
-tags: [cloudformation, lambda, macro]
+tags: [cloudformation, lambda, macro, config]
 prevPost:
   text: "Macros - Custom"
   link: "/technical-series/cloudformation-series/cloudformation-macros-custom"
+prevPost:
+  text: "Examples - Identity Provider"
+  link: "/technical-series/cloudformation-series/cloudformation-examples-identity-provider"
 skill: expert
 ---
 

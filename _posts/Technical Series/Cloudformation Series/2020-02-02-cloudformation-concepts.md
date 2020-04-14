@@ -17,7 +17,9 @@ docs:
 skill: beginner
 ---
 
-The Major concepts are fairly straight forward, and they follow the actions below
+The Major concepts are fairly straight forward, and they follow the model / actions below
+
+<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/cloudformation-concepts.svg" alt="drawing" style="width:100%;"/>
 
 1) Cloudformation templates are written to describe infrastructure in the desired state. These can be written in JSON / YML, or any number of DSL's ( `official and otherwise` )
   
@@ -40,7 +42,5 @@ The Major concepts are fairly straight forward, and they follow the actions belo
 ---
 
 5) If an issue occurs with any of the above steps. The service will attempt to revert to the `previous known state`. This is why the service is so powerful !
-
-<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/cloudformation-concepts.svg" alt="drawing" style="width:100%;"/>
 
  

@@ -22,14 +22,14 @@ In the following two examples, there is already a lambda function created in the
 <br><br>
 The referencer is using the macro in the header (see <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros">here</a> for more details)
 
-1. [Lambda code (nodejs)](#javascript)
+1. [Lambda code (nodejs) - Creates a dynamic bucket](#javascript)
 2. [Template1 - template defines the macro](#template1)
 3. [Template2 - template that consumes the custom macro to create the additional bucket dynamically](#template2)
 
 ---
 
 <a name = "javascript"></a>
-##### Lambda code (nodejs)
+##### Lambda code - nodejs (Creates a dynamic bucket)
 
 ```javascript
 exports.handler = (event, context, callback) => {

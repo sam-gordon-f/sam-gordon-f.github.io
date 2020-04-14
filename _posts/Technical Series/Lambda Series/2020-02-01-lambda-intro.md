@@ -6,4 +6,7 @@ category: technical-series
 author: samGordon
 short-description: Lambda Intro
 tags: [lambda, introduction]
+nextPost:
+  text: "Concepts"
+  link: "/technical-series/lambda-series/lambda-concepts"
 ---

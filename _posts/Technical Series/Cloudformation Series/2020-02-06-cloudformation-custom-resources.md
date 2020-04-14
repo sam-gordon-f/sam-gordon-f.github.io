@@ -16,14 +16,19 @@ docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html\">AWS docs on custom resources</a>"
 skill: proficient
 tips:
-  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html\"> Is a great tool for sending the responses back to cloudformation (as the examples will show)"
+  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html\">cfn-flip</a> Is a great tool for sending the responses back to cloudformation (as the examples will show)"
 ---
 
 Custom Resources are a way to define non-cloudformation standard resource definitions.
 
 For example - At the time of writing this cloudformation did not have support for enabling shieldAdvanced subscriptions in your account. The below are the required pieces to achieve it via custom resources
 
-##### CustomResource Javascript
+1. [Javascript](#javascript)
+2. [Cloudformation Template](#cloudformation)
+
+#### Javascript <a name="javascript"></a>
+
+This is a custom lambda function written in nodejs that will handle the subscription creation/deletion when invoked in the correct fashion (via a custom resource in this case)
 
 ```javascript
   // include the main SDK
@@ -140,8 +145,22 @@ exports.handler = (event, context, callback) => {
         });
 }
 ```
-```json
 
+#### Cloudformation <a name="cloudformation"></a>
+
+This is a custom cloudformation template that will invoke the above function as assign to a custom construct
+
+```json
+{
+  "Resources": {
+    "customShieldAdvancedSubscription": {
+      "Type": "Custom::shieldAdvancedSubscription",
+      "Properties": {
+
+      }
+    }
+  }
+}
 ```
 ```yml
 

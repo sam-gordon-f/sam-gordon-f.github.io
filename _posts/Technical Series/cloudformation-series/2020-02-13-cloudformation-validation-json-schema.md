@@ -12,6 +12,8 @@ prevPost:
 nextPost:
   text: "Validation - cfn-lint"
   link: "/technical-series/cloudformation-series/cloudformation-validate-cfn-lint"
+docs:
+  - "<a href = \"https://json-schema.org/\">json-schema</a> documentation"
 skill: intermediate
 ---
 
@@ -19,12 +21,13 @@ You can use JSON schemas to perform validation on your cloudformation templates.
 
 In the below example. There are three components
 
-> json-schema - AWS::S3::Bucket schema to check against
-> template1 - The cloudformation template to check
-> Rakefile - some ruby to check for you
+1. [JSON Schema for S3 Bucket](#json-schema)
+2. [Cloudformation Template](#cloudformation)
+3. [Sample code to validate (ruby)](#ruby-validate)
 
 ---
 
+<a name = "json-schema"></a>
 ##### json-schema (AWS::S3::Bucket)
 
 ```json
@@ -51,6 +54,9 @@ In the below example. There are three components
 }
 ```
 
+---
+
+<a name = "cloudformation"></a>
 ##### Template1 (cloudformation template to validate)
 
 ```json
@@ -66,7 +72,9 @@ In the below example. There are three components
 }
 ```
 
+---
 
+<a name = "ruby-validate"></a>
 ##### Sample Ruby project to check
 
 Gemfile

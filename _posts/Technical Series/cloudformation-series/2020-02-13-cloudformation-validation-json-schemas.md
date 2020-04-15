@@ -10,7 +10,7 @@ prevPost:
   text: "Examples - Non Supported"
   link: "/technical-series/cloudformation-series/cloudformation-examples-non-supported"
 nextPost:
-  text: "Custom Resources"
-  link: "/technical-series/cloudformation-series/cloudformation-custom-resources"
+  text: "Validation - cfn-lint"
+  link: "/technical-series/cloudformation-series/cloudformation-validate-cfn-lint"
 skill: intermediate
 ---

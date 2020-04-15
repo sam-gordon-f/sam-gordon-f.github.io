@@ -1,0 +1,9 @@
+---
+layout: category
+category: vpc-series
+title: VPC Series
+---
+
+{% for post in site.categories.vpc-series reversed %}
+  {% include article-card.html %}
+{% endfor %}

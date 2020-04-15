@@ -10,8 +10,8 @@ prevPost:
   text: "Macros - Custom"
   link: "/technical-series/cloudformation-series/cloudformation-macros-custom"
 nextPost:
-  text: "Examples - Identity Provider"
-  link: "/technical-series/cloudformation-series/cloudformation-examples-identity-provider"
+  text: "Examples - Non Supported Resource"
+  link: "/technical-series/cloudformation-series/cloudformation-examples-non-supported"
 skill: expert
 ---
 

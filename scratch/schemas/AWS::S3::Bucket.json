@@ -1,0 +1,21 @@
+{
+  "description": "AWS::S3::Bucket Schema",
+  "type": "object",
+  "properties": {
+    "Type": {
+      "type": "string"
+    },
+    "Properties": {
+      "type": "object",
+      "properties": {
+        "AccessControl": {
+          "type": "string",
+          "enum": ["Private", "LogDeliveryWrite"]
+        }
+      },
+      "required": [
+        "AccessControl"
+      ]
+    }
+  }
+}

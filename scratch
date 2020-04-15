@@ -1,42 +1,95 @@
 {
-  "AWSTemplateFormatVersion" : "2010-09-09",
-  "Description": "A description to help identify the purpose of the template",
   "Resources": {
-    "customConfig": {
-      "Type": "Custom::Config",
+    "IAMRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess",
+          "arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess"
+        ]
+      }
+    },
+    "IAMPolicy": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": {
+          "Fn::Join": ["-", ["example", "non", "supported", "resource"]]
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [{
+            "Effect": "Allow",
+            "Resource": ["*"],
+            "Action": [
+              "iam:UpdateSamlProvider",
+              "iam:CreateSamlProvider",
+              "iam:DeleteSamlProvider",
+              "iam:GetSamlProvider"
+            ]
+          }]
+        },
+        "Roles": [{
+          "Ref": "IAMRole"
+        }]
+      }
+    },
+    "LambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Handler": "index.handler",
+        "Runtime": "nodejs10.x",
+        "Code": {
+          "S3Bucket": "<<bucketNameForAboveLambdaZip>>",
+          "S3Key": "<<bucketkeyForAboveLambdaZip>>"
+        },
+        "Role": {
+          "Fn::GetAtt": ["IAMRole", "Arn"]
+        },
+        "Description": "custom resource lambda for managing idps",
+        "MemorySize": 128,
+        "Timeout": 20,
+        "TracingConfig": {
+          "Mode": "Active"
+        }
+      },
+      "DependsOn": ["IAMPolicy"]
+    },
+    "customResource": {
+      "Type": "Custom::IdentityProvider",
       "Properties": {
         "Version": "1.0",
-        "ServiceToken": "<<ArnOfTheAboveFunction>>"
+        "ServiceToken": {
+          "Fn::GetAtt": ["LambdaFunction", "Arn"]
+        },
+        "Name": "<<identityProviderName>>",
+        "MetadataUrl": "<<identityProviderMetaUrl>>",
+        "AccountId": {
+          "Ref": "AWS::AccountId"
+        }
       }
-    }
-  },
-  "Outputs": {
-    "customConfigFirst": {
-      "Value": {
-        "Fn::GetAtt": [
-          "customConfig",
-          "first"
-        ]
-      },
-      "Name": "customConfigFirst"
     },
-    "customConfigSecond": {
-      "Value": {
-        "Fn::GetAtt": [
-          "customConfig",
-          "second"
-        ]
-      },
-      "Name": "customConfigSecond"
-    },
-    "customConfigThird": {
-      "Value": {
-        "Fn::GetAtt": [
-          "customConfig",
-          "third"
-        ]
-      },
-      "Name": "customConfigThird"
+    "IAMRoleAssumeFromSAML": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Fn::Sub": [
+            "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"federated\",\"Effect\":\"Allow\",\"Principal\":{\"Federated\":\"arn:aws:iam::${accountId}:saml-provider/${IDPName}\"},\"Action\":\"sts:AssumeRoleWithSAML\",\"Condition\":{\"StringEquals\":{\"SAML:aud\":\"https://signin.aws.amazon.com/saml\"}}}]}",
+            {
+              "accountId": {
+                "Ref": "AWS::AccountId"
+              },
+              "IDPName": "federation"
+            }
+          ]
+        },
+        "RoleName": "AssumeFromSAML",
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/AdministratorAccess",
+          "arn:aws:iam::aws:policy/job-function/SupportUser"
+        ],
+        "MaxSessionDuration": 28800
+      }
     }
   }
 }

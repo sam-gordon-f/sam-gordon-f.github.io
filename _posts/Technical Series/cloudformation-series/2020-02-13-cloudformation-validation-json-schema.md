@@ -24,11 +24,14 @@ In the below example. There are three components
 1. [JSON Schema for S3 Bucket](#json-schema)
 2. [Cloudformation Template](#cloudformation)
 3. [Sample code to validate (ruby)](#ruby-validate)
+  a. [Gemfile](#ruby-validate-gemfile)
+  b. [Rakefile](#ruby-validate-rakefile)
+  c. [Usage](#ruby-validate-usage)
 
 ---
 
 <a name = "json-schema"></a>
-##### json-schema (AWS::S3::Bucket)
+#### json-schema (AWS::S3::Bucket)
 
 ```json
 {
@@ -57,7 +60,7 @@ In the below example. There are three components
 ---
 
 <a name = "cloudformation"></a>
-##### Template1 (cloudformation template to validate)
+#### Template1 (cloudformation template to validate)
 
 ```json
 {
@@ -75,15 +78,17 @@ In the below example. There are three components
 ---
 
 <a name = "ruby-validate"></a>
-##### Sample Ruby project to check
+#### Sample Ruby project to check
 
-Gemfile
+<a name = "ruby-validate-gemfile"></a>
+##### Gemfile
 ```ruby
 gem 'aws-sdk-cloudformation'
 gem 'json-schema'
 ```
 
-Rakefile
+<a name = "ruby-validate-rakefile"></a>
+##### Rakefile
 ```ruby
 require 'json'
 require 'json-schema'
@@ -133,7 +138,8 @@ namespace :template do
 end
 ```
 
-Usage
+<a name = "ruby-validate-usage"></a>
+##### Usage
 ```shell
 Rake template:validate
 ```

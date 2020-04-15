@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Validation - Json Schemas"
+title: "Validation - json-schema"
 date: 2020-02-03 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon

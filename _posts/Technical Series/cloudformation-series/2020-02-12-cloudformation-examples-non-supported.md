@@ -10,8 +10,8 @@ prevPost:
   text: "Examples - Dynamic Config"
   link: "/technical-series/cloudformation-series/cloudformation-examples-dynamic-config"
 nextPost:
-  text: "Validation - Json Schemas"
-  link: "/technical-series/cloudformation-series/cloudformation-validation-json-schemas"
+  text: "Validation - Json-schema"
+  link: "/technical-series/cloudformation-series/cloudformation-validation-json-schema"
 skill: expert
 ---
 

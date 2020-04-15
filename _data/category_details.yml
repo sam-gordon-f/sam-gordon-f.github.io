@@ -17,3 +17,7 @@ social-series:
 cloudformation-series:
   name: Cloudformation Series
   description: Collection of progressive cloudformation posts
+
+lambda-series:
+  name: Lambda Series
+  description: Collection of progressive lambda posts

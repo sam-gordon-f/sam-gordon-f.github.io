@@ -1,0 +1,9 @@
+---
+layout: category
+category: lambda-series
+title: Lambda Series
+---
+
+{% for post in site.categories.lambda-series reversed %}
+  {% include article-card.html %}
+{% endfor %}

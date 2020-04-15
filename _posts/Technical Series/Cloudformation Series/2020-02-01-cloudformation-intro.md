@@ -12,6 +12,7 @@ prevPost:
 nextPost:
   text: "Concepts"
   link: "/technical-series/cloudformation-series/cloudformation-concepts"
+skill: beginner
 ---
 
 Its easy to produce a result in any of the major cloud via the console / API's; however creating it in a repeatable and documented fashion is what everyone should be striving to do!
@@ -22,4 +23,6 @@ It allows you to define desired state of your solutions and progressively apply 
 
 Throughout this series, I'll be progressively exploring the concepts that make up the below
 
-<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/map.jpg" alt="drawing" style="width:100%;"/>
+<a href="{{ site.baseurl }}/assets/images/technical-series/cloudformation/map.jpg" data-fancybox data-caption="cloudformation-map">
+  <img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/map.jpg" alt="drawing" style="width:100%;"/>
+</a>

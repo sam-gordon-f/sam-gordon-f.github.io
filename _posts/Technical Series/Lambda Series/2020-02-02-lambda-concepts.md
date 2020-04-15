@@ -12,4 +12,5 @@ prevPost:
 nextPost:
   text: "Runtimes"
   link: "/technical-series/lambda-series/lambda-runtimes"
+skill: beginner
 ---

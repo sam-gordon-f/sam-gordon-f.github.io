@@ -12,4 +12,5 @@ prevPost:
 nextPost:
   text: "na"
   link: "/technical-series/lambda-series/lambda-na"
+skill: intermediate
 ---

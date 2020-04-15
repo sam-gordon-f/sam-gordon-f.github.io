@@ -16,3 +16,8 @@ docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">AWS docs on cloudformation resources</a>"
 skill: novice
 ---
+
+> retention policies
+> types
+> dependsOn
+> conditions

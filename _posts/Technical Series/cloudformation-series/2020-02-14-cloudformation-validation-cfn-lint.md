@@ -8,7 +8,7 @@ short-description: Resources contained within a cloudformation template/stack
 tags: [cloudformation, parameters, yml, json]
 prevPost:
   text: "Validation - Json Schemas"
-  link: "/technical-series/cloudformation-series/cloudformation-validation-json-schemas"
+  link: "/technical-series/cloudformation-series/cloudformation-validation-json-schema"
 nextPost:
   text: "na"
   link: "/technical-series/cloudformation-series/na"

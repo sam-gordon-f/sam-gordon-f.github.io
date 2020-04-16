@@ -1,0 +1,4 @@
+templates:
+- cloudformation.template
+append-rules:
+- rules/rule1.py

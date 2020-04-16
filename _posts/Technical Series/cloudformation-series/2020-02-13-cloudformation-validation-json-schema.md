@@ -11,13 +11,13 @@ prevPost:
   link: "/technical-series/cloudformation-series/cloudformation-examples-non-supported"
 nextPost:
   text: "Validation - cfn-lint"
-  link: "/technical-series/cloudformation-series/cloudformation-validate-cfn-lint"
+  link: "/technical-series/cloudformation-series/cloudformation-validation-cfn-lint"
 docs:
   - "<a href = \"https://json-schema.org/\">json-schema</a> documentation"
 skill: intermediate
 ---
 
-You can use JSON schemas to perform validation on your cloudformation templates. This provides a templated method for checking business logic confirmity
+You can use JSON schemas to perform validation on your cloudformation templates. This provides a `templated` method for checking business logic conformity
 
 In the below example. There are three components
 

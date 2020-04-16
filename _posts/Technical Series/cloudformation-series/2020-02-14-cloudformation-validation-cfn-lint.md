@@ -22,9 +22,9 @@ You can use cfn-lint to perform validation on your cloudformation templates. Thi
 In the below example. There are three components
 
 1. [Cloudformation Template](#cloudformation)
-2. [Sample code to validate (ruby)](#ruby-validate)
-  a. [Gemfile](#ruby-validate-gemfile)
-  c. [Usage](#cfn-lint-usage)
+2. [Sample custom validation rule (python)](#python-rule)
+3. [Sample .cfnlintrc file (config)](#python-lint-file)
+4. [Usage)](#usage)
 
 ---
 
@@ -44,9 +44,29 @@ In the below example. There are three components
 }
 ```
 
+<a name = "python-rule"></a>
+#### Sample custom validation rule (python)
+
+```python
+
+```
+
 ---
 
-<a name = "ruby-validate-usage"></a>
+<a name = "python-lint-file">
+#### Sample .cfnlintrc file (config)
+
+```yml
+templates:
+- cloudformation.template
+append-rules:
+- rules/rule1.py
+
+```
+
+---
+
+<a name = "usage"></a>
 ##### Usage
 ```shell
 cfn-lint template1.yaml

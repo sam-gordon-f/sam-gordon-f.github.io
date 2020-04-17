@@ -26,7 +26,7 @@ In the below example. There are four components. Each of these work together to 
 2. [Sample custom validation rule (python)](#python-rule)
 3. [Sample Spec file (*optional)](#cfn-sample-spec-file)
 4. [Usage](#usage)
-5. [Full Example](#full)
+5. [Full Example](#full-example)
 
 ---
 

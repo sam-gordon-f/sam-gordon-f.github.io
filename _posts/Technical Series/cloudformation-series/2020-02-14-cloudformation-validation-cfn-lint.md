@@ -15,11 +15,12 @@ nextPost:
 docs:
   - "<a href = \"https://github.com/aws-cloudformation/cfn-python-lint\">Github project for cfn-lint</a>"
 skill: proficient
+tmp: https://binx.io/blog/2018/07/07/aws-cloudformation-validation-in-cicd-pipelines/
 ---
 
 You can use cfn-lint to perform validation on your cloudformation templates. This provides a `programatic` method for checking business logic conformity
 
-In the below example. There are three components
+In the below example. There are four components. Each of these work together to prevent a user from creating a `Public` S3 Bucket (along with a whole heap of default checks)
 
 1. [Cloudformation Template](#cloudformation)
 2. [Sample custom validation rule (python)](#python-rule)

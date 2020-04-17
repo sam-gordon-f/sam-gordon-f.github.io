@@ -1,0 +1,14 @@
+{
+  "IncludeResourceTypes": [
+    "AWS::*"
+  ],
+  "ResourceTypes": {
+    "AWS::S3::Bucket": {
+      "Properties": {
+        "AccessControl": {
+          "Required": true
+        }
+      }
+    }
+  }
+}

@@ -22,6 +22,7 @@ title: A whimsical screenname
 description: Some Random thoughts / findings / knowledge bases from an experienced Cloud Engineer
 baseurl:
 url: https://sam-gordon-f.github.io # the base hostname AND PROTOCOL for your site, e.g. http://example.com
+github_url: https://github.com/sam-gordon-f
 permalink: /:categories/:title
 
 content_type: Knowledge Base #Define whether this is a knowledge base, help center, or something else

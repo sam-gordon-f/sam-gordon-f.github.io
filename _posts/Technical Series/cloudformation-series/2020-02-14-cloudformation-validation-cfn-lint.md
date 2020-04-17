@@ -24,8 +24,9 @@ In the below example. There are four components. Each of these work together to 
 
 1. [Cloudformation Template](#cloudformation)
 2. [Sample custom validation rule (python)](#python-rule)
-3. [Sample lint config file (yml)](#python-lint-file)
+3. [Sample Spec file (*optional)](#cfn-sample-spec-file)
 4. [Usage](#usage)
+5. [Full Example](#full)
 
 ---
 
@@ -37,6 +38,8 @@ The below is a file called `./cloudformation.template`
 
 ```json
 {
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description": "A description to help identify the purpose of the template",
   "Resources": {
     "S3Bucket": {
       "Type": "AWS::S3::Bucket",
@@ -86,15 +89,25 @@ class S3BucketsNotPublic(CloudFormationLintRule):
 
 ---
 
-<a name = "python-lint-file"></a>
-#### Sample lint config file (config)
+<a name = "cfn-sample-spec-file"></a>
+#### Sample Spec File (optional)
 
-The below is a falled called `./.cfnlintrc` (the `.` is important)
-(this is a specifically formatted cfn-lint config file)
+This forces the user to specify the property in the template and not rely on defaults.
+In this example its not required as the python rule should capture. However it could be an easy alternative for required properties (`not values`)
 
-```yml
-templates:
-- cloudformation.template
+```json
+{
+  "ResourceTypes": {
+    "AWS::S3::Bucket": {
+      "Properties": {
+        "AccessControl": {
+          "Required": false
+        }
+      }
+    }
+  }
+}
+
 ```
 
 ---
@@ -105,5 +118,22 @@ templates:
 Run from the same directory as where your template is stored
 
 ```shell
-cfn-lint --append-rules ./append-rules
+cfn-lint \
+  --template cloudformation.template \
+  --append-rules ./append-rules \
+  --info
+
+# with spec file (*optional)
+cfn-lint \
+  --template cloudformation.template \
+  --append-rules ./append-rules \
+  --override-specs ./override-spec/spec.json \
+  --info
 ```
+
+---
+
+<a name = "full-example"></a>
+#### Full Example
+
+<a href = "{{ site.github_url }}/examples/technical-series/cloudformation-series/cloudformation-validate-cfn-lint">available here</a>

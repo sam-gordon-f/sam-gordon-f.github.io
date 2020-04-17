@@ -1,4 +1,6 @@
 {
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description": "A description to help identify the purpose of the template",
   "Resources": {
     "S3Bucket": {
       "Type": "AWS::S3::Bucket",

@@ -1,7 +1,6 @@
 from cfnlint import CloudFormationLintRule
 from cfnlint import RuleMatch
 
-
 class S3BucketsNotPublic(CloudFormationLintRule):
   """Check if S3 Bucket is Not Public"""
   id = 'E9020'
@@ -9,12 +8,12 @@ class S3BucketsNotPublic(CloudFormationLintRule):
   
   def match(self, cfn):
     matches = list()
-    recordsets = cfn.get_resources(['AWS::S3::Bucket'])
-    for name, recordset in recordsets.items():
+    resources = cfn.get_resources(['AWS::S3::Bucket'])
+    for name, bucket in resources.items():
       path = ['Resources', name, 'Properties']
       full_path = ('/'.join(str(x) for x in path))
-      if isinstance(recordset, dict):
-        props = recordset.get('Properties')
+      if isinstance(bucket, dict):
+        props = bucket.get('Properties')
         if props:
           access_control = props.get('AccessControl')
           if access_control:

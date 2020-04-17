@@ -33,6 +33,7 @@ In the below example. There are four components. Each of these work together to 
 #### Template1 (cloudformation template to validate)
 
 The below is a file called `./cloudformation.template`
+(this is standard template that you want to validate)
 
 ```json
 {
@@ -51,11 +52,11 @@ The below is a file called `./cloudformation.template`
 #### Sample custom validation rule (python)
 
 The below is a file called `./append-rules/S3BucketsNotPublic.py`
+(this is a specifically formatted cfn-lint rule python file)
 
 ```python
 from cfnlint import CloudFormationLintRule
 from cfnlint import RuleMatch
-
 
 class S3BucketsNotPublic(CloudFormationLintRule):
   """Check if S3 Bucket is Not Public"""
@@ -64,12 +65,12 @@ class S3BucketsNotPublic(CloudFormationLintRule):
   
   def match(self, cfn):
     matches = list()
-    recordsets = cfn.get_resources(['AWS::S3::Bucket'])
-    for name, recordset in recordsets.items():
+    resources = cfn.get_resources(['AWS::S3::Bucket'])
+    for name, bucket in resources.items():
       path = ['Resources', name, 'Properties']
       full_path = ('/'.join(str(x) for x in path))
-      if isinstance(recordset, dict):
-        props = recordset.get('Properties')
+      if isinstance(bucket, dict):
+        props = bucket.get('Properties')
         if props:
           access_control = props.get('AccessControl')
           if access_control:
@@ -89,6 +90,7 @@ class S3BucketsNotPublic(CloudFormationLintRule):
 #### Sample lint config file (config)
 
 The below is a falled called `./.cfnlintrc` (the `.` is important)
+(this is a specifically formatted cfn-lint config file)
 
 ```yml
 templates:

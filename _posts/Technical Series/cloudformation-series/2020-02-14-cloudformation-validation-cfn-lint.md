@@ -14,7 +14,7 @@ nextPost:
   link: "/technical-series/cloudformation-series/na"
 docs:
   - "<a href = \"https://github.com/aws-cloudformation/cfn-python-lint\">Github project for cfn-lint</a>"
-skill: advanced
+skill: proficient
 ---
 
 You can use cfn-lint to perform validation on your cloudformation templates. This provides a `programatic` method for checking business logic conformity
@@ -24,7 +24,7 @@ In the below example. There are three components
 1. [Cloudformation Template](#cloudformation)
 2. [Sample custom validation rule (python)](#python-rule)
 3. [Sample .cfnlintrc file (config)](#python-lint-file)
-4. [Usage)](#usage)
+4. [Usage](#usage)
 
 ---
 
@@ -61,13 +61,12 @@ templates:
 - cloudformation.template
 append-rules:
 - rules/rule1.py
-
 ```
 
 ---
 
 <a name = "usage"></a>
-##### Usage
+##### Usage (from same directory as .cfnlintrc)
 ```shell
-cfn-lint template1.yaml
+cfn-lint --info
 ```

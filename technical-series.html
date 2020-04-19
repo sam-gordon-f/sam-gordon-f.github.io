@@ -6,7 +6,7 @@ title: Technical Series
 
 {% for cat in site.data.category_map %}
   <div class = "card">
-    comparing "{{site.category}}" to "{{ cat.category }}"
+    comparing "{{page.category}}" to "{{ cat.category }}"
 
   {% if site.category == cat.category %}
     categories match

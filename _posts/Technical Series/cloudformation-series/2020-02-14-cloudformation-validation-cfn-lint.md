@@ -136,4 +136,4 @@ cfn-lint \
 <a name = "full-example"></a>
 #### Full Example
 
-<a href = "{{ site.github_url }}/examples/technical-series/cloudformation-series/cloudformation-validate-cfn-lint">available here</a>
+<a href = "https://github.com/sam-gordon-f/sam-gordon-f.github.io/tree/master/examples/technical-series/cloudformation-series/cloudformation-validate-cfn-lint">available here</a>

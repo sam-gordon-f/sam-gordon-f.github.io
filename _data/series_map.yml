@@ -1,0 +1,25 @@
+# This file defines all series "categories"
+
+- name: "Technical Series"
+  category: technical-series
+  description: Technical Posts with examples / samples
+  children:
+    - name: "Cloudformation Series"
+      category: cloudformation-series
+      description: Collection of progressive cloudformation posts
+
+    - name: "Lambda Series"
+      category: lambda-series
+      description: Collection of progressive lambda posts
+
+    - name: "VPC Series"
+      category: vpc-series
+      description: Collection of progressive VPC posts
+
+- name: "Conceptual Series"
+  category: conceptual-series
+  description: Conceptual posts with rundowns / media
+
+- name: "Social Series"
+  category: social-series
+  description: Social posts that arent to run through tech / concepts

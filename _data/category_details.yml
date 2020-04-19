@@ -30,10 +30,10 @@ lambda-series:
   name: Lambda Series
   description: Collection of progressive lambda posts
   link: /technical-series/lambda-series
-  image: /assets/images/aws-icons/SVG Dark/Management & Governance/AWS-CloudFormation.svg
+  image: /assets/images/aws-icons/SVG Dark/Compute/AWS-Lambda.svg
 
 vpc-series:
   name: VPC Series
   description: Collection of progressive VPC posts
   link: /technical-series/vpc-series
-  image: /assets/images/aws-icons/SVG Dark/Management & Governance/AWS-CloudFormation.svg
+  image: /assets/images/aws-icons/SVG Dark/Compute/AWS-EC2.svg

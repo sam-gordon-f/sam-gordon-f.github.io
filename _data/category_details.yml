@@ -3,37 +3,31 @@
 ### main series
 technical-series:
   name: Technical Series
-  link: /technical-series
   description: Technical Posts with examples / samples
   image:
 
 conceptual-series:
   name: Conceptual Series
-  link: /conceptual-series
   description: Conceptual posts with rundowns / media
   image:
 
 social-series:
   name: Social Series
-  link: /social-series
   description: Social posts that arent to run through tech / concepts
   image:
 
 ### sub series
 technical-series/cloudformation-series:
   name: Cloudformation Series
-  link: /technical-series/cloudformation-series
   description: Collection of progressive cloudformation posts
   image: /assets/images/aws-icons/SVG Dark/Management & Governance/AWS-Cloudformation.svg
 
 technical-series/lambda-series:
   name: Lambda Series
-  link: /technical-series/lambda-series
   description: Collection of progressive lambda posts
   image: /assets/images/aws-icons/SVG Dark/Management & Governance/AWS-Cloudformation.svg
 
 technical-series/vpc-series:
   name: VPC Series
-  link: /technical-series/vpc-series
   description: Collection of progressive VPC posts
   image: /assets/images/aws-icons/SVG Dark/Management & Governance/AWS-Cloudformation.svg

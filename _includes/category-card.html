@@ -1,5 +1,5 @@
 <div class="column col-12">
-  <a href="{{ site.baseurl}}{{category.link}}">
+  <a href="{{ site.url }}{{ category.link }}">
     <div class="card card-link my-1" itemprop="blogPosts" itemscope="" itemtype="http://schema.org/BlogPosting">
       <div class="card-body">
         <div class="columns col-x-align">
@@ -8,8 +8,8 @@
             <p class="m-0 text-dark">{{ category.description }}</p>
           </div>
           {% if category.image} %}
-            <div class="column col col-sm-12">
-              <img src = "{{ site.baseurl }}{{ category.image }}">
+            <div class="column col col-sm-12 text-right">
+              <img src = "{{ site.url }}{{ category.image }}">
             </div>
           {% endif %}
         </div>

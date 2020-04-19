@@ -7,4 +7,6 @@
     - category: vpc-series
 
 - category: conceptual-series
+  children:
 - category: social-series
+  children: 

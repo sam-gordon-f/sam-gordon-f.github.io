@@ -2,9 +2,9 @@
 
 - category: technical-series
   children:
-    - category: technical-series/cloudformation-series
-    - category: technical-series/lambda-series
-    - category: technical-series/vpc-series
+    - category: cloudformation-series
+    - category: lambda-series
+    - category: vpc-series
 
 - category: conceptual-series
   children:

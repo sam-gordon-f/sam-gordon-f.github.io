@@ -20,19 +20,19 @@ social-series:
   image:
 
 ### sub series
-technical-series/cloudformation-series:
+cloudformation-series:
   name: Cloudformation Series
   description: Collection of progressive cloudformation posts
   link: /technical-series/cloudformation-series
   image: /assets/images/aws-icons/SVG Dark/Management & Governance/AWS-Cloudformation.svg
 
-technical-series/lambda-series:
+lambda-series:
   name: Lambda Series
   description: Collection of progressive lambda posts
   link: /technical-series/lambda-series
   image: /assets/images/aws-icons/SVG Dark/Management & Governance/AWS-Cloudformation.svg
 
-technical-series/vpc-series:
+vpc-series:
   name: VPC Series
   description: Collection of progressive VPC posts
   link: /technical-series/vpc-series

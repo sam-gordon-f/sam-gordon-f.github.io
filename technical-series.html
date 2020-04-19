@@ -5,10 +5,13 @@ title: Technical Series
 ---
 
 {% for cat in site.data.category_map %}
-  <div>{{ cat.category }}</div>
+  <div class = "card">
+    {{ cat.category }}
+
   {% if site.category == cat.category %}
     categories match
   {% else %}
     categories do not match
   {% endif %}
+  </div>
 {% endfor %}

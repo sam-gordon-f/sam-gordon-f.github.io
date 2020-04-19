@@ -7,7 +7,7 @@ title: Technical Series
 {% for c1 in site.data.category_map %}
   {% if page.category == c1.category %}
     {% for c2 in c1.children %}
-      {% assign category = site.categories[c2.category] %}
+      {% assign category = site.data.category_details[c2.category] %}
       {% include category-card.html %}
     {% endfor %}
   {% endif %}

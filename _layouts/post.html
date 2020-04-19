@@ -17,9 +17,11 @@ layout: default
           {% for path in page-path-parts %}
             {% if path != "" %}
               {% assign c = site.data.category_details[path] %}
-              <li class="breadcrumb-item">
-                <a href="{{ site.url }}/{{ c.link }}">{{ c.name }}</a>
-              </li>
+              {% if c %}
+                <li class="breadcrumb-item">
+                  <a href="{{ site.url }}/{{ c.link }}">{{ c.name }}</a>
+                </li>
+              {% endif %}
             {% endif %}
           {% endfor %}
           <li class="breadcrumb-item">

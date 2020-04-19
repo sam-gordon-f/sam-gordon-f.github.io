@@ -17,17 +17,17 @@ social-series:
   description: Social posts that arent to run through tech / concepts
 
 ### sub series
-cloudformation-series:
+technical-series/cloudformation-series:
   name: Cloudformation Series
-  link: /cloudformation-series
+  link: /technical-series/cloudformation-series
   description: Collection of progressive cloudformation posts
 
-lambda-series:
+technical-series/lambda-series:
   name: Lambda Series
-  link: /lambda-series
+  link: /technical-series/lambda-series
   description: Collection of progressive lambda posts
 
-vpc-series:
+technical-series/vpc-series:
   name: VPC Series
-  link: /vpc-series
+  link: /technical-series/vpc-series
   description: Collection of progressive VPC posts

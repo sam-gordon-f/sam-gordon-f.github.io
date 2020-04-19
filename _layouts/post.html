@@ -11,19 +11,17 @@ layout: default
       <div class="column col-12">
         <ul class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="{{ site.url }}{{ site.baseurl }}">{{ site.content_type }} Home</a>
+            <a href="{{ site.url }}{{ site.baseurl }}">{{site.content_type}} Home</a>
           </li>
-          {% if page.category.first %}
-            {% for category in page.category %}
+          {% assign page-path-parts = page.url | split: '/' %}
+          {% for path in page-path-parts %}
+            {% if path != "" %}
+              {% assign c = site.data.category_details[path] %}
               <li class="breadcrumb-item">
-                <a href="{{ site.url }}/{{ category }}">{{ site.data.category_details[category].name }}</a>
+                <a href="{{ site.url }}/{{ c.link }}">{{ c.name }}</a>
               </li>
-            {% endfor %}
-          {% else %}
-            <li class="breadcrumb-item">
-              <a href="../{{ page.category }}">{{ site.data.category_details[page.category].name }}</a>
-            </li>
-          {% endif %}
+            {% endif %}
+          {% endfor %}
           <li class="breadcrumb-item">
             <a href="#">{{ page.title }}</a>
           </li>

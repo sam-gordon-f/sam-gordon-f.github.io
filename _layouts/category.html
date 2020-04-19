@@ -6,6 +6,9 @@ layout: default
 {% assign page_category = site.data.category_details[page.category] %}
 
 <div class="container-full">
+  page.category: {{page.category}}
+  page_category: {{page_category}}
+
   <div class="container grid-xl">
     <div class="mt-12 show-md"></div>
     <div class="mt-8"></div>
@@ -15,9 +18,12 @@ layout: default
           <li class="breadcrumb-item">
             <a href="{{ site.url }}{{ site.baseurl }}">{{site.content_type}} Home</a>
           </li>
-          <li class="breadcrumb-item">
-            <a href="#">{{ page_category.name }}</a>
-          </li>
+          {% assign path-parts = page.category | split: '/' %}
+          {% for path in path-parts %}
+            <li class="breadcrumb-item">
+              <a href="#">{{ path }}</a>
+            </li>
+          {% endfor %}
         </ul>
         <h2 class="text-light text-bold">{{ page_category.name }}</h2>
         <p class="text-light mb-2">{{ page_category.description }}</p>

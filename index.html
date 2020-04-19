@@ -9,13 +9,13 @@ title: Home
       <div class="column col-12 text-center">
         <h6 class="text-secondary">{{ site.content_type }} Series</h6>
       </div>
-      {% for series in site.data.category_map %}
-      {% assign category = site.categories[series.category] %}
+      {% for cat in site.data.category_map %}
+      {% assign category = site.categories[series.cat] %}
         <div class="column col-4 col-md-6 col-sm-12">
           <a href="{{ site.baseurl }}/{{ series.category | slugify }}">
             <div class="card card-link">
               <div class="card-body text-center my-6">
-                <h5 class="text-bold">{{ site.data.category_details[series.category].name }}</h5>
+                <h5 class="text-bold">{{ site.data.category_details[cat.category].name }}</h5>
                 <p class="m-0">{{ category | size }} article(s)</p>
               </div>
             </div>

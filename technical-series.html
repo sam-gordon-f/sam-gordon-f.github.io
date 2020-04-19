@@ -4,6 +4,6 @@ category: technical-series
 title: Technical Series
 ---
 
-{% for post in site.categories.technical-series reversed %}
-  {% include article-card.html %}
+{% for category in site.data.category-map %}
+  {% include category-card.html %}
 {% endfor %}

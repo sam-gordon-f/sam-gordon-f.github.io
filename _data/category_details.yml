@@ -3,25 +3,31 @@
 ### main series
 technical-series:
   name: Technical Series
+  link: /technical-series
   description: Technical Posts with examples / samples
 
 conceptual-series:
   name: Conceptual Series
+  link: /conceptual-series
   description: Conceptual posts with rundowns / media
 
 social-series:
   name: Social Series
+  link: /social-series
   description: Social posts that arent to run through tech / concepts
 
 ### sub series
 cloudformation-series:
   name: Cloudformation Series
+  link: /cloudformation-series
   description: Collection of progressive cloudformation posts
 
 lambda-series:
   name: Lambda Series
+  link: /lambda-series
   description: Collection of progressive lambda posts
 
 vpc-series:
   name: VPC Series
+  link: /vpc-series
   description: Collection of progressive VPC posts

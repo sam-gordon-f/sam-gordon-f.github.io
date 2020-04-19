@@ -4,9 +4,9 @@ category: technical-series
 title: Technical Series
 ---
 
-{% for cat in site.data.category_map %}
-  {% if page.category == cat.category %}
-  {% assign category = site.data.category_details[cat.category] %}
+{% for c in site.data.category_map %}
+  {% if page.category == c.category %}
+  {% assign category = site.data.category_details[c.category] %}
     {% include category-card.html %}
   {% endif %}
 {% endfor %}

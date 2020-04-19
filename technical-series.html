@@ -5,6 +5,7 @@ title: Technical Series
 ---
 
 {% for cat in site.data.category_map %}
+  <div>{{ cat.category }}</div>
   {% if site.category == cat.category %}
     categories match
   {% else %}

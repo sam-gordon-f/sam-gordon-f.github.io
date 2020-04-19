@@ -1,17 +1,10 @@
 ---
 layout: category
-category: technical-series
 title: Technical Series
 ---
 
 {% for cat in site.data.category_map %}
-  <div class = "card">
-    comparing "{{page.category}}" to "{{ cat.category }}"
-
-  {% if site.category == cat.category %}
-    categories match
-  {% else %}
-    categories do not match
+  {% if page.category == cat.category %}
+    {% include category-card.html %}
   {% endif %}
-  </div>
 {% endfor %}

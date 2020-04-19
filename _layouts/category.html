@@ -17,9 +17,11 @@ layout: default
           </li>
           {% assign page-path-parts = page.url | split: '/' %}
           {% for path in page-path-parts %}
-            <li class="breadcrumb-item">
-              <a href="#">{{ path }}</a>
-            </li>
+            {% if path != "" %}
+              <li class="breadcrumb-item">
+                <a href="#">{{ path }}</a>
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
         <h2 class="text-light text-bold">{{ page_category.name }}</h2>

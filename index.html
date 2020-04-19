@@ -15,7 +15,7 @@ title: Home
           <a href="{{ site.baseurl }}/{{ series.category | slugify }}">
             <div class="card card-link">
               <div class="card-body text-center my-6">
-                <h5 class="text-bold">{{ series.name }}</h5>
+                <h5 class="text-bold">{{ site.data.category_details[series.category].name }}</h5>
                 <p class="m-0">{{ category | size }} article(s)</p>
               </div>
             </div>

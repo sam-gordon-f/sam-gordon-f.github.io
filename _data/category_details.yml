@@ -21,3 +21,7 @@ cloudformation-series:
 lambda-series:
   name: Lambda Series
   description: Collection of progressive lambda posts
+
+vpc-series:
+  name: VPC Series
+  description: Collection of progressive VPC posts

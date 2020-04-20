@@ -8,5 +8,9 @@
 
 - category: conceptual-series
   children:
+    - category: iam-series
+    - category: dns-series
+    - category: kms-series
+
 - category: social-series
   children:

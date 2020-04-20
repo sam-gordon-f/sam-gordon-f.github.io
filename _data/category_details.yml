@@ -19,7 +19,8 @@ social-series:
   link: /social-series
   image:
 
-### sub series
+### technical - sub series
+
 cloudformation-series:
   name: Cloudformation Series
   description: Collecti on of progressive cloudformation posts
@@ -37,3 +38,23 @@ vpc-series:
   description: Collection of progressive VPC posts
   link: /technical-series/vpc-series
   image: /assets/images/aws-icons/SVG Dark/Compute/Amazon-EC2.svg
+
+### conceptual - sub series
+
+dns-series:
+  name: DNS Series
+  description: Collecti on of progressive DNS related posts
+  link: /conceptual-series/dns-series
+  image: /assets/images/aws-icons/SVG Dark/Network & Content Delivery/AWS-Route-53.svg
+
+iam-series:
+  name: Lambda Series
+  description: Collection of progressive lambda posts
+  link: /technical-series/lambda-series
+  image: /assets/images/aws-icons/SVG Dark/Security, Identity, & Compliance/AWS-Identity-and-Access-Management_IAM.svg
+
+kms-series:
+  name: VPC Series
+  description: Collection of progressive VPC posts
+  link: /technical-series/vpc-series
+  image:

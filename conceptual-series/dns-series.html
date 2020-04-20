@@ -1,0 +1,9 @@
+---
+layout: category
+category: dns-series
+title: DNS Series
+---
+
+{% for post in site.categories.dns-series reversed %}
+  {% include post-card.html %}
+{% endfor %}

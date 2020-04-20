@@ -4,6 +4,11 @@ category: conceptual-series
 title: Conceptual Series
 ---
 
-{% for post in site.categories.conceptual-series reversed %}
-  {% include post-card.html %}
+{% for c1 in site.data.category_map %}
+  {% if page.category == c1.category %}
+    {% for c2 in c1.children %}
+      {% assign category = site.data.category_details[c2.category] %}
+      {% include category-card.html %}
+    {% endfor %}
+  {% endif %}
 {% endfor %}

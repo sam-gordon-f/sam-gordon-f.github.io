@@ -23,19 +23,19 @@ social-series:
 
 cloudformation-series:
   name: Cloudformation Series
-  description: Collecti on of progressive cloudformation posts
+  description: Collection of progressive posts to introduce you to infrastructure automation in AWS
   link: /technical-series/cloudformation-series
   image: /assets/images/aws-icons/SVG Dark/Management & Governance/AWS-CloudFormation.svg
 
 lambda-series:
   name: Lambda Series
-  description: Collection of progressive lambda posts
+  description: Collection of progressive posts to introduce you to building anything / everything Serverless
   link: /technical-series/lambda-series
   image: /assets/images/aws-icons/SVG Dark/Compute/AWS-Lambda.svg
 
 vpc-series:
   name: VPC Series
-  description: Collection of progressive VPC posts
+  description: Collection of progressive VPC posts to introduce how to Network in AWS
   link: /technical-series/vpc-series
   image: /assets/images/aws-icons/SVG Dark/Compute/Amazon-EC2.svg
 

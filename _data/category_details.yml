@@ -50,11 +50,11 @@ dns-series:
 iam-series:
   name: IAM Series
   description: Collection of progressive IAM posts
-  link: /technical-series/lambda-series
+  link: /technical-series/iam-series
   image: /assets/images/aws-icons/SVG Dark/Security, Identity, & Compliance/AWS-Identity-and-Access-Management_IAM.svg
 
 kms-series:
   name: KMS Series
   description: Collection of progressive KMS posts
-  link: /technical-series/vpc-series
+  link: /technical-series/kms-series
   image: /assets/images/aws-icons/SVG Dark/Security, Identity, & Compliance/AWS-Key-Management-Service.svg

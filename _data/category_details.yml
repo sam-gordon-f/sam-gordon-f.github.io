@@ -45,7 +45,7 @@ dns-series:
   name: DNS Series
   description: Collection of progressive DNS related posts
   link: /conceptual-series/dns-series
-  image: /assets/images/aws-icons/SVG Dark/Networking & Content Delivery/AWS-Route-53.svg
+  image: /assets/images/aws-icons/SVG Dark/Networking & Content Delivery/Amazon-Route-53.svg
 
 iam-series:
   name: IAM Series

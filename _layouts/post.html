@@ -28,7 +28,12 @@ layout: default
             <a href="#">{{ page.title }}</a>
           </li>
         </ul>
-        <h2 class="text-light text-bold">{{ page.title }}</h2>
+        <h2 class="text-light text-bold">
+          {% assign category = site.data.category_details[page.category] %}
+            <img src = "{{ category.image }}" style = "height:30px; max-width:50px;">
+          {% endif %}
+          {{ page.title }}
+        </h2>
         <p class="text-light mb-0">{{ page.short-description }}</p>
       </div>
       <div class="column col-12">

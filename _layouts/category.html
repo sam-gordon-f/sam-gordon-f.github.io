@@ -26,7 +26,9 @@ layout: default
           {% endfor %}
         </ul>
         <h2 class="text-light text-bold">
-          <img src = "{{ category.image }}" style = "height:30px; max-width:50px;">
+          {% if category.image %}
+            <img src = "{{ category.image }}" style = "height:30px; max-width:50px;">
+          {% endif %}
           {{ category.name }}
         </h2>
         <p class="text-light mb-2">{{ category.description }}</p>

@@ -43,18 +43,18 @@ vpc-series:
 
 dns-series:
   name: DNS Series
-  description: Collecti on of progressive DNS related posts
+  description: Collection of progressive DNS related posts
   link: /conceptual-series/dns-series
-  image: /assets/images/aws-icons/SVG Dark/Network & Content Delivery/AWS-Route-53.svg
+  image: /assets/images/aws-icons/SVG Dark/Networking & Content Delivery/AWS-Route-53.svg
 
 iam-series:
-  name: Lambda Series
-  description: Collection of progressive lambda posts
+  name: IAM Series
+  description: Collection of progressive IAM posts
   link: /technical-series/lambda-series
   image: /assets/images/aws-icons/SVG Dark/Security, Identity, & Compliance/AWS-Identity-and-Access-Management_IAM.svg
 
 kms-series:
-  name: VPC Series
-  description: Collection of progressive VPC posts
+  name: KMS Series
+  description: Collection of progressive KMS posts
   link: /technical-series/vpc-series
-  image:
+  image: /assets/images/aws-icons/SVG Dark/Security, Identity, & Compliance/AWS-Key-Management-Service.svg

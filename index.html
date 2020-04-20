@@ -24,6 +24,10 @@ title: Home
         </div>
       {% endfor %}
       <div class = "column col-12">
+        {% assign post = site.posts.last %}
+        {% include post-card.html %}
+      </div>
+      <div class = "column col-12">
         <div class = "card card-link text-center">
           <a id = "linkShowHideBlogMap">show / hide blog map</a>
         </div>

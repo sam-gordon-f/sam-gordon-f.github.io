@@ -8,7 +8,7 @@ short-description: Lambda Intro
 tags: [lambda, introduction]
 prevPost:
   text: "Lambda Series"
-  link: "/lambda-series"
+  link: "/technical-series/lambda-series"
 nextPost:
   text: "Concepts"
   link: "/technical-series/lambda-series/lambda-concepts"

@@ -10,7 +10,7 @@ prevPost:
   text: "Intro"
   link: "/technical-series/lambda-series/lambda-concepts"
 nextPost:
-  text: "Runtimes"
+  text: "Debugging"
   link: "/technical-series/lambda-series/lambda-debugging"
 skill: beginner
 ---

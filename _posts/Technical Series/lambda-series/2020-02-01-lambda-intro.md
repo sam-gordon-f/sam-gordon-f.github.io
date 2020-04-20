@@ -12,6 +12,7 @@ prevPost:
 nextPost:
   text: "Concepts"
   link: "/technical-series/lambda-series/lambda-concepts"
+skill: beginner
 ---
 
 In todays computing world, there are countless problems / solutions being modelled with compute (virtual or physical). But some of unifying requirements are to keep your solutions cheap, simple, and on-demand!

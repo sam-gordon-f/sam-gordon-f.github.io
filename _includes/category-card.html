@@ -3,12 +3,12 @@
     <div class="card card-link my-1" itemprop="blogPosts" itemscope="" itemtype="http://schema.org/BlogPosting">
       <div class="card-body">
         <div class="columns col-x-align">
-          <div class="column col col-sm-12">
+          <div class="column col-md-8 col-sm-12">
             <h5 class="text-semibold m-0">{{ category.name }}</h5>
             <p class="m-0 text-dark">{{ category.description }}</p>
           </div>
           {% if category.image} %}
-            <div class="column col col-sm-12 text-right">
+            <div class="column col-md-4 col-sm-12 text-right">
               <img src = "{{ category.image }}" style = "height:50px; max-width:50px;">
             </div>
           {% endif %}

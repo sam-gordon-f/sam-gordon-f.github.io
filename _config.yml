@@ -49,6 +49,11 @@ help_two_content: Feel free to reach out!
 help_two_button: LinkedIn
 help_two_link: https://www.linkedin.com/in/sam-gordon-10b42985/
 
+help_three_title: RSS Feed
+help_three_content: In case you want notifications
+help_three_button: RSS
+help_three_link: https://sam-gordon-f.github.io/feed.xml
+
 # Build settings
 theme: minima
 plugins:

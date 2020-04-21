@@ -32,18 +32,14 @@ The Major concepts are fairly straight forward, and they follow the model / acti
 3) The service will attempt to create a stack containing the resource(s) aforementioned
   
 4) Moving forwards, the following `operations` can be undertaken
-  
----
 
-  a. `deleteStack`, which will attempt to remove all resources
+  > `deleteStack`, which will attempt to remove all resources
     
-  b. `updateStack`, which will take an updated template and attempt to update all resources to match the new changes
+  > `updateStack`, which will take an updated template and attempt to update all resources to match the new changes
   
-  c. `createChangeSet`, which will attempt to create a list of changes that would occur if an update was executed
+  > `createChangeSet`, which will attempt to create a list of changes that would occur if an update was executed
   
-  d. `executeChangeSet`, which will attempt to update the stack, much like the `updateStack` operation
-
----
+  > `executeChangeSet`, which will attempt to update the stack, much like the `updateStack` operation
 
 5) If an issue occurs with any of the above steps. The service will attempt to revert to the `previous known state`. This is why the service is so powerful !
 

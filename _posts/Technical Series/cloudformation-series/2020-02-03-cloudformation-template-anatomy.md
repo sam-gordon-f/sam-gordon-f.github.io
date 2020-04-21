@@ -20,23 +20,27 @@ skill: novice
 
 ---
 
+Below are each of the major components that make up a cloudformation template.
+
 1. [AWSTemplateFormatVersion](#aws-template-format-version)
 2. [Description](#description)
-3. [Macros](#macros)
+3. [Macros (transforms)](#macros) <span style = "color:orange">* </span>
 4. [Parameters](#parameters)
   a. [Referencing](#parameters-referencing)
-5. [Metadata](#metadata)
-6. [Mappings](#mappings)
+5. [Metadata](#metadata) <span style = "color:orange">* </span>
+6. [Mappings](#mappings) <span style = "color:orange">* </span>
   a. [Referencing](#mappings-referencing)
-7. [Conditions](#conditions)
+7. [Conditions](#conditions) <span style = "color:orange">* </span>
   a. [Using at Property Level](#conditions-property-level)
   b. [Using at Resource Level](#conditions-resource-level)
 8. [Resources](#resources)
   a. [Referencing](#resources-referencing)
   b. [Properties](#resources-properties)
-9. [Outputs](#outputs)
+9. [Outputs](#outputs) <span style = "color:orange">* </span>
   a. [Exports](#outputs-exports)
 10. [Full Examples](#full-examples)
+
+<span style = "color:orange">* optional</span>
 
 ---
 
@@ -70,7 +74,7 @@ Description: "A description to help identify the purpose of the template"
 
 ---
 
-#### Macros<a name="macros"></a>
+#### Macros<a name="macros"></a> <span style = "color:orange">* </span>
 
 Are a directive for cloudformation (at runtime) to take the entirety of whats supplied and run through one or more custom, or AWS managed transforms. These can be defined in the header (as shown) for full template transforms, or inline (more details later).
 
@@ -140,7 +144,7 @@ Parameters:
 
 ---
 
-#### Metadata<a name="metadata"></a>
+#### Metadata<a name="metadata"></a> <span style = "color:orange">* </span>
 
 Can be for storing custom information about your stack and/or some reserved directives. 3 sections described below
 
@@ -198,7 +202,7 @@ Metadata:
 
 ---
 
-#### Mappings<a name="mappings"></a>
+#### Mappings<a name="mappings"></a> <span style = "color:orange">* </span>
 
 Ways of defining config for within templates. These can be dynamically referenced using intrinsic functions paired with 'Parameters'
 
@@ -249,7 +253,7 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 
 ---
 
-#### Conditions<a name="conditions"></a>
+#### Conditions<a name="conditions"></a> <span style = "color:orange">* </span>
 
 A way of creating logic around property values, and/or cloudformation resource configuration. Mainly used for checking null values and helping your template work with them.
 
@@ -381,8 +385,8 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 
 ---
 
-#### Outputs <a name="outputs"></a>
-
+#### Outputs <a name="outputs"></a> <span style = "color:orange">* </span>
+ 
 A list of values that you wish to make available for viewers. These can also be exposed as exports (as optionally shown below)
 
 <div class="card tip">

@@ -22,6 +22,8 @@ The Major concepts are fairly straight forward, and they follow the model / acti
 1. [Actions](#actions)
 2. [Diagram](#diagram)
 
+---
+
 <a name = "actions"></a>
 1) Cloudformation templates are written to describe infrastructure in the desired state. These can be written in JSON / YML, or any number of DSL's ( `official and otherwise` )
   

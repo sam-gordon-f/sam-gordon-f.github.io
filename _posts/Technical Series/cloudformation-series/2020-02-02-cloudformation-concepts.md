@@ -19,6 +19,10 @@ skill: beginner
 
 The Major concepts are fairly straight forward, and they follow the model / actions below
 
+1. [Actions](#actions)
+2. [Diagram](#diagram)
+
+<a name = "actions"></a>
 1) Cloudformation templates are written to describe infrastructure in the desired state. These can be written in JSON / YML, or any number of DSL's ( `official and otherwise` )
   
 2) These templates are then fed to cloudformation with the `createStack` directive
@@ -40,6 +44,8 @@ The Major concepts are fairly straight forward, and they follow the model / acti
 ---
 
 5) If an issue occurs with any of the above steps. The service will attempt to revert to the `previous known state`. This is why the service is so powerful !
+
+<a name = "diagram"></a>
 
 <a href="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts.svg" data-fancybox data-caption="cloudformation-concepts">
 	<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts.svg" alt="drawing" style="width:100%;"/>

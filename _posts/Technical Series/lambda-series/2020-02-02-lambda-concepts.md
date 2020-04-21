@@ -51,15 +51,14 @@ The Major components are fairly straight forward, and they follow the basics / i
 <div class="card tip">
   <div class="card-body">
     Both VPC and tracing options require your role to have some additional actions specified.<br>
-    > For X-ray, you use the managed policy `AWSXRayDaemonWriteAccess` or reverse engineer the actions to add yourself<br>
-    > For VPC, you should  use the managed policy `AWSLambdaVPCAccessExecutionRole` or add the following<br><br>
+    - For X-ray, you use the managed policy `AWSXRayDaemonWriteAccess` or reverse engineer the actions to add yourself<br>
+    - For VPC, you should  use the managed policy `AWSLambdaVPCAccessExecutionRole` or add the following<br>
   </div>
 </div>
 
 ---
 
 <a name = "diagram"></a>
-
 <a href="{{ site.baseurl }}/assets/images/technical-series/lambda/concepts.svg" data-fancybox data-caption="lambda-concepts">
 	<img src="{{ site.baseurl }}/assets/images/technical-series/lambda/concepts.svg" alt="drawing" style="width:100%;"/>
 </a>

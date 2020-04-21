@@ -46,18 +46,13 @@ The Major components are fairly straight forward, and they follow the basics / i
   > b. `Tracing`, whether or not to create xray traces on invocation <br>
   > c. `Triggers`, which services are going to invoke (each service behaves differently; more later)<br>
   > d. `Concurrency` the desired maximum concurrent invocations of the function<br>
-  > d. `Weighting`, Balancing between 2 versions (canary style)
+  > d. `Weighting`, Balancing between 2 versions (canary releases)
 
 <div class="card tip">
   <div class="card-body">
-    Both VPC and tracing options require your role to have some additional actions specified.
-    > For X-ray, you need to use the managed policy `AWSXRayDaemonWriteAccess` or reverse engineer the actions to add yourself<br>
-    > For VPC, you need to use the managed policy `AWSLambdaVPCAccessExecutionRole` or add the following<br>
-  
-    - ec2:CreateNetworkInterface<br>
-    - ec2:DescribeNetworkInterfaces<br>
-    - ec2:DeleteNetworkInterface
-  
+    Both VPC and tracing options require your role to have some additional actions specified.<br>
+    > For X-ray, you use the managed policy `AWSXRayDaemonWriteAccess` or reverse engineer the actions to add yourself<br>
+    > For VPC, you should  use the managed policy `AWSLambdaVPCAccessExecutionRole` or add the following<br><br>
   </div>
 </div>
 

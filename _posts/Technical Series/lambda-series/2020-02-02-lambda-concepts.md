@@ -27,18 +27,39 @@ The Major components are fairly straight forward, and they follow the basics / i
 <a name = "basics"></a>
 1) Packages are written / uploaded to a virtual construct called a `function`
 
-2) These `functions` are assigned a variety of properties
+2) These `functions` are assigned a variety of basic properties
   
-  > a. Runtime<br>
-  > b. Timeouts<br>
-  > c. Memory<br>
-  > d. Role to assume<br>
+  > a. `Runtime`, the chosen language your code is to be written in<br>
+  > b. `Timeout`, the desired maximum time you want the code running (has restrictions)<br>
+  > c. `Memory`, the desired amount of memory to allocated to each running invocation<br>
+  > d. `Role`, the desired role (and permissions) that you want your function to be able to execute<br>
+
+<div class="card tip">
+  <div class="card-body">
+    Increasing memory allocated doesnt always decrease invocation time; Choosing a relevant language, and understanding the problem / logic thats being run is the best way to tweak
+  </div>
+</div>
 
 3) Additional items such as the below can be added
   
-  > a. VPC to operate in
-  > b. Tracing (Xray integration)
-  > c. Triggers (and permissions)
+  > a. `VPC`, the desired vpc and subnets to create your ENI's in<br>
+  > b. `Tracing`, whether or not to create xray traces on invocation <br>
+  > c. `Triggers`, which services are going to invoke (each service behaves differently; more later)<br>
+  > d. `Concurrency` the desired maximum concurrent invocations of the function<br>
+  > d. `Weighting`, Balancing between 2 versions (canary style)
+
+<div class="card tip">
+  <div class="card-body">
+    Both VPC and tracing options require your role to have some additional actions specified.
+    > For X-ray, you need to use the managed policy `AWSXRayDaemonWriteAccess` or reverse engineer the actions to add yourself<br>
+    > For VPC, you need to use the managed policy `AWSLambdaVPCAccessExecutionRole` or add the following<br>
+  
+    - ec2:CreateNetworkInterface<br>
+    - ec2:DescribeNetworkInterfaces<br>
+    - ec2:DeleteNetworkInterface
+  
+  </div>
+</div>
 
 ---
 

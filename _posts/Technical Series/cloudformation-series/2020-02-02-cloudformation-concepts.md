@@ -40,6 +40,8 @@ The Major concepts are fairly straight forward, and they follow the model / acti
 
 5) If an issue occurs with any of the above steps. The service will attempt to revert to the `previous known state`. This is why the service is so powerful !
 
+---
+
 <a name = "diagram"></a>
 
 <a href="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts.svg" data-fancybox data-caption="cloudformation-concepts">

@@ -25,26 +25,28 @@ These are the following functions cloudformation makes available, and a definiti
   a. [Usage](#base64-usage)
 2. [Cidr](#cidr)
   a. [Usage](#cidr-usage)
-3. [FindInMap](#findinmap)
+3. [FindInMap](#findinmap) <span style = "color:orange">* </span>
   a. [Usage](#findinmap-usage)
-4. [GetAtt](#getatt)
+4. [GetAtt](#getatt) <span style = "color:orange">* </span>
   a. [Usage](#getatt-usage)
 5. [GetAZs](#getazs)
   a. [Usage](#getazs-usage)
 6. [ImportValue](#importvalue)
   a. [Usage](#importvalue-usage)
-7. [Join](#join)
+7. [Join](#join) <span style = "color:orange">* </span>
   a. [Usage](#join-usage)
-8. [Select](#select)
+8. [Select](#select) <span style = "color:orange">* </span>
   a. [Usage](#select-usage)
 9. [Split](#split)
   a. [Usage](#split-usage)
-10. [Sub](#sub)
+10. [Sub](#sub) <span style = "color:orange">* </span>
   a. [Usage](#sub-usage)
 11. [Transform](#transform)
   a. [Usage](#transform-usage)
-12. [Ref](#ref)
+12. [Ref](#ref) <span style = "color:orange">** </span>
   a. [Usage](#ref-usage)
+
+<span style = "color:orange">* important functions to take note of as you'll use them almost religiously</span>
 
 ---
 

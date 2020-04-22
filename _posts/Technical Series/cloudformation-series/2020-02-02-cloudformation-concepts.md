@@ -29,6 +29,12 @@ The Major concepts are fairly straight forward, and they follow the model / acti
   
 2) These templates are then fed to cloudformation with the `createStack` directive
   
+<div class="card tip">
+  <div class="card-body">
+    You could also use the `createChangeSet` directive to give an indication on what the template will create before running
+  </div>
+</div>
+
 3) The service will attempt to create a stack containing the resource(s) aforementioned
   
 4) Moving forwards, the following `operations` can be undertaken

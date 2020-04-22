@@ -12,8 +12,6 @@ prevPost:
 nextPost:
   text: "Parameters (extended)"
   link: "/technical-series/cloudformation-series/cloudformation-parameters-extended"
-docs:
-  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html\">AWS docs on cloudformation parameters</a>"
 skill: novice
 ---
 
@@ -35,72 +33,196 @@ When using parameters with your template, you're effectively creating placeholde
   </div>
 </div>
 
-AllowedPattern
-A regular expression that represents the patterns to allow for String types.
+The below is a progress way that you can use properties to build up your experience / validation when using properties
 
-Required: No
+##### Type (only required property)
 
-AllowedValues
-An array containing the list of values allowed for the parameter.
+The value must be a string (can be used for pretty much any basic input value. See [Parameter Types (basic)](#types) for what basic types are supported)
 
-Required: No
+```json
+{
+  "Parameters": {
+    "param1": {
+      "Type":"String"
+    }
+  }
+}
+```
 
-ConstraintDescription
-A string that explains a constraint when the constraint is violated. For example, without a constraint description, a parameter that has an allowed pattern of [A-Za-z0-9]+ displays the following error message when the user specifies an invalid value:
+##### AllowedPattern (non-required)
 
-Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+
+<div class="card tips">
+  <div class="card-body">
+    Please keep in mind that these use a java interpreter, so you must use java syntax
+  </div>
+</div>
 
-By adding a constraint description, such as must only contain letters (uppercase and lowercase) and numbers, you can display the following customized error message:
+The below tests for the string "test123"
+```json
+{
+  "Parameters": {
+    "param1": {
+      "Type":"String",
+      "AllowedPattern": "^[a-z]+[0-9]{3}$"
+    }
+  }
+}
+```
 
-Malformed input-Parameter MyParameter must only contain uppercase and lowercase letters and numbers
+##### MaxLength
 
-Required: No
+The max number of characters a user can specify
 
-Default
-A value of the appropriate type for the template to use if no value is specified when a stack is created. If you define constraints for the parameter, you must specify a value that adheres to those constraints.
+```json
+{
+  "Parameters": {
+    "param1": {
+      "Type":"String",
+      "AllowedPattern": "^[a-z]+[0-9]{3}$",
+      "MaxLength": 7
+    }
+  }
+}
+```
 
-Required: No
+##### MinLength
 
-Description
-A string of up to 4000 characters that describes the parameter.
+The min number of characters a user can specify
 
-Required: No
+```json
+{
+  "Parameters": {
+    "param1": {
+      "Type":"String",
+      "AllowedPattern": "^[a-z]+[0-9]{3}$",
+      "MinLength": 7
+    }
+  }
+}
+```
 
-MaxLength
-An integer value that determines the largest number of characters you want to allow for String types.
+##### AllowedValues (non-required)
 
-Required: No
+The below allows only the numbders [1,2,3,4,5] as inputs
 
-MaxValue
-A numeric value that determines the largest numeric value you want to allow for Number types.
+```json
+{
+  "Parameters": {
+    "param1": {
+      "Type":"Number",
+      "AllowedValues": [1,2,3,4,5]
+    }
+  }
+}
+```
 
-Required: No
+##### ConstraintDescription (non-required)
 
-MinLength
-An integer value that determines the smallest number of characters you want to allow for String types.
+Used for custom error messages when an input violation occurs
 
-Required: No
+```json
+{
+  "Parameters": {
+    "param1": {
+      "Type":"Number",
+      "AllowedValues": [1,2,3,4,5],
+      "ConstraintDescription": "Only the numbers 1 - 5 are allowed"
+    }
+  }
+}
+```
 
-MinValue
-A numeric value that determines the smallest numeric value you want to allow for Number types.
+##### Default (non-required)
 
-Required: No
+If nothing supplied, use this value
 
-NoEcho
-Whether to mask the parameter value to prevent it from being displayed in the console, command line tools, or API. If you set the NoEcho attribute to true, CloudFormation returns the parameter value masked as asterisks (*****) for any calls that describe the stack or stack events.
+```json
+{
+  "Parameters": {
+    "param1": {
+      "Type":"Number",
+      "AllowedValues": [1,2,3,4,5],
+      "ConstraintDescription": "Only the numbers 1 - 5 are allowed",
+      "Default": 1
+    }
+  }
+}
+```
 
-Important
-Rather than embedding sensitive information directly in your AWS CloudFormation templates, we recommend you use dynamic parameters in the stack template to reference sensitive information that is stored and managed outside of CloudFormation, such as in the AWS Systems Manager Parameter Store or AWS Secrets Manager.
+##### Description (non-required)
 
-For more information, see the Do Not Embed Credentials in Your Templates best practice.
+A label to help the user understand what the input represents
 
-Required: No
+```json
+{
+  "Parameters": {
+    "param1": {
+      "Type":"Number",
+      "AllowedValues": [1,2,3,4,5],
+      "ConstraintDescription": "Only the numbers 1 - 5 are allowed",
+      "Default": 1,
+      "Description": "How many instances do you require"
+    }
+  }
+}
+```
 
-Type
-The data type for the parameter (DataType).
+##### MaxValue
 
-Required: Yes
+What is the `highest` number a user can specify
 
+```json
+{
+  "Parameters": {
+    "param1": {
+      "Type":"Number",
+      "AllowedValues": [1,2,3,4,5],
+      "ConstraintDescription": "Only the numbers 1 - 5 are allowed",
+      "Default": 1,
+      "Description": "How many instances do you require",
+      "MaxValue": 5
+    }
+  }
+}
+```
+
+##### MinValue
+
+What is the `lowest` number a user can specify
+
+```json
+{
+  "Parameters": {
+    "param1": {
+      "Type":"Number",
+      "AllowedValues": [1,2,3,4,5],
+      "ConstraintDescription": "Only the numbers 1 - 5 are allowed",
+      "Default": 1,
+      "Description": "How many instances do you require",
+      "MaxValue": 5,
+      "MinValue": 1
+    }
+  }
+}
+```
+
+##### NoEcho
+
+A way to hide (mask ***** ) a value that has been provided. This prevents cloudformation from returning the value to the user via console/api/cli. Great for sensative information ! (not that its recommended you ever pass secrets via params in this fashion)
+
+```json
+{
+  "Parameters": {
+    "param1": {
+      "Type":"String",
+      "Description": "Database admin password",
+      "NoEcho": "true"
+    }
+  }
+}
+```
+
+---
 
 <a name = "types"></a>
 #### Parameter Types

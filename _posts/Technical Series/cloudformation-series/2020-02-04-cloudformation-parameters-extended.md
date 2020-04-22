@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Parameters"
+title: "Parameters (extended)"
 date: 2020-02-03 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
@@ -15,5 +15,5 @@ nextPost:
   tips:
     - "AWS special params cannot be used for optional parameters"
     - "AWS special params may not be useful for when systems specify values, as they're more for user assistance"
-skill: novice
+skill: intermediate
 ---

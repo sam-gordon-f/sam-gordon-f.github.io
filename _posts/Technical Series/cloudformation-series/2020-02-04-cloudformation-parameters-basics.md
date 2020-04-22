@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Parameters"
+title: "Parameters (basics)"
 date: 2020-02-03 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon

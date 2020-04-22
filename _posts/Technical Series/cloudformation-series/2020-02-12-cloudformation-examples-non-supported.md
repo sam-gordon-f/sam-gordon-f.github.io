@@ -33,10 +33,10 @@ var CFN_RESPONSE = require('cfn-response');
 var IAM = new AWS.IAM();
 var HTTPS = require('https');
 
-const timerCreate = 5000;
-const timerUpdate = 5000;
-const timerDelete = 5000;
+  // retry delay
+const timer = 5000;
 
+  // function to get metadata from identity platform
 var getMetadataFromUrl = function(params) {
   return new Promise(
     function (resolve, reject) {
@@ -58,6 +58,7 @@ var getMetadataFromUrl = function(params) {
   )
 }
 
+  // placeholder function for checking params
 var validateParams = function(params) {
   return new Promise(
     function (resolve, reject) {
@@ -68,6 +69,7 @@ var validateParams = function(params) {
   );
 }
 
+  // waiter loop to make sure that the provider is created successfully
 var createLoop = function(IDP, resolve, reject) {
   setTimeout(function() {
       
@@ -80,9 +82,10 @@ var createLoop = function(IDP, resolve, reject) {
         createLoop(IDP, resolve, reject)
       }        
     })
-  }, timerCreate);
+  }, timer);
 }
-
+  
+  // waiter loop to make sure that the provider is deleted successfully
 var deleteLoop = function(IDP, resolve, reject) {
   setTimeout(function() {
     IAM.getSAMLProvider({
@@ -96,11 +99,11 @@ var deleteLoop = function(IDP, resolve, reject) {
           reject(err)
       } else
         deleteLoop(IDP, resolve, reject)
-      }
-    )
-  }, timerDelete);
+    })
+  }, timer);
 }
 
+  // handler for create events
 var createIDP = function(params) {
   return new Promise(
     function (resolve, reject) {
@@ -122,8 +125,7 @@ var createIDP = function(params) {
                 reject({error:err});
 
             } else
-              createLoop(
-                {
+              createLoop({
                   name: params.ResourceProperties.Name,
                   arn: data.SAMLProviderArn
                 },
@@ -136,6 +138,7 @@ var createIDP = function(params) {
   )
 }
 
+  // handler for delete events
 var deleteIDP = function(params) {
   return new Promise(
     function (resolve, reject) {
@@ -158,26 +161,27 @@ var deleteIDP = function(params) {
   )
 }
 
+  // handler for update events
 var updateIDP = function(params) {
   return new Promise(
-      function (resolve, reject) {
-        getMetadataFromUrl({
-          metadataUrl: params.ResourceProperties.MetadataUrl
-        }).
-          then(function(resp) {
-            IAM.updateSAMLProvider({
-              SAMLProviderArn: params.PhysicalResourceId,
-              SAMLMetadataDocument: resp
-            }, function(err, data) {
-                if (err)
-                  reject({error:err});
-                else
-                  resolve({
-                    arn: params.PhysicalResourceId,
-                    name: params.ResourceProperties.Name
-                  });
-            });
-          })
+    function (resolve, reject) {
+      getMetadataFromUrl({
+        metadataUrl: params.ResourceProperties.MetadataUrl
+      }).
+        then(function(resp) {
+          IAM.updateSAMLProvider({
+            SAMLProviderArn: params.PhysicalResourceId,
+            SAMLMetadataDocument: resp
+          }, function(err, data) {
+              if (err)
+                reject({error:err});
+              else
+                resolve({
+                  arn: params.PhysicalResourceId,
+                  name: params.ResourceProperties.Name
+                });
+          });
+        })
     }
   )
 }

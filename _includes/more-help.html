@@ -1,24 +1,15 @@
-{% if site.help_one_title == null %}
-{% else %}
 <div class="column col-4 col-sm-12 p-8 mb-8 col-mx-auto">
-  <h5>{{ site.help_one_title }}</h5>
-  <p>{{ site.help_one_content }}</p>
-  <a href="{{ site.help_one_link }}">{{ site.help_one_button }} <i class='uil uil-arrow-right arrow-hover'></i></a>
+  <h5>Content Issues</h5>
+  <p>If you have any issues / contributions</p>
+  <a href="{{ site.github_url }}/issues">GitHub <i class='uil uil-arrow-right arrow-hover'></i></a>
 </div>
-{% endif %}
-{% if site.help_two_title == null %}
-{% else %}
 <div class="column col-4 col-sm-12 p-8 mb-8 col-mx-auto">
-  <h5>{{ site.help_two_title }}</h5>
-  <p>{{ site.help_two_content }}</p>
-  <a href="{{ site.help_two_link }}" target="_blank">{{ site.help_two_button}} <i class='uil uil-arrow-right arrow-hover'></i></a>
+  <h5>Linked In</h5>
+  <p>Feel free to reach out!</p>
+  <a href="{{ site.linkedin_page }}" target="_blank">LinkedIn <i class='uil uil-arrow-right arrow-hover'></i></a>
 </div>
-{% endif %}
-{% if site.help_three_title == null %}
-{% else %}
 <div class="column col-4 col-sm-12 p-8 mb-8 col-mx-auto">
-  <h5>{{ site.help_three_title }}</h5>
-  <p>{{ site.help_three_content }}</p>
-  <a href="{{ site.help_three_link }}" target="_blank">{{ site.help_three_button}} <i class='uil uil-arrow-right arrow-hover'></i></a>
+  <h5>Notifications / Updates</h5>
+  <p>In case you want notifications</p>
+  <a href="{{ site.url }}/feed.xml" target="_blank">RSS <i class='uil uil-arrow-right arrow-hover'></i></a>
 </div>
-{% endif %}

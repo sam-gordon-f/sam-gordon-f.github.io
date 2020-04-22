@@ -26,22 +26,6 @@ full_name: Sam Gordon
 linkedin_page: https://www.linkedin.com/in/sam-gordon-10b42985/
 instagram_username:
 
-# More Help
-help_one_title: Content Issues
-help_one_content: If you have any issues / contributions
-help_one_button: Github
-help_one_link: https://github.com/sam-gordon-f/sam-gordon-f.github.io/issues
-
-help_two_title: Linked In
-help_two_content: Feel free to reach out!
-help_two_button: LinkedIn
-help_two_link: https://www.linkedin.com/in/sam-gordon-10b42985/
-
-help_three_title: Notifications / Updates
-help_three_content: In case you want notifications
-help_three_button: RSS
-help_three_link: https://sam-gordon-f.github.io/feed.xml
-
 # Build settings
 theme: minima
 plugins:

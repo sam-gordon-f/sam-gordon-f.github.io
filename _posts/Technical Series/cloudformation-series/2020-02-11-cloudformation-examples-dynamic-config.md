@@ -15,7 +15,8 @@ nextPost:
 skill: expert
 ---
 
-The below example is made up of two components
+The below example creates a custom resource that can be used for interrogating information from within your stacks.
+Its made up of two main components
 
 1. [Lambda code (nodejs) - Advertises the config](#javascript)
 2. [Template1 - template that creates / references the custom config](#template1)
@@ -25,7 +26,7 @@ The below example is made up of two components
 <a name = "javascript"></a>
 ##### Lambda code - nodejs (Advertises the custom config)
 
-The below has a javascript (nodeJS) function that looks up details (from a source of your choosing), and then returns a key map to cloudformation
+The below is a javascript (nodeJS) function that looks up details (from a source of your choosing), and then returns a key map to Cloudformation
 
 ```javascript
 // include the main SDK

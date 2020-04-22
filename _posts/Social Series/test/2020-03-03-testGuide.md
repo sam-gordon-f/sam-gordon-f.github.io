@@ -34,10 +34,8 @@ short-description: guide test
       }
     };
 
-    $(document).ready(function(){
-      $('#btnGuide').on('click', function(){
-        $.aSimpleTour(tour);
-      });
+    $('#btnGuide').on('click', function(){
+      $.aSimpleTour(tour);
     });
   })  	
 </script>

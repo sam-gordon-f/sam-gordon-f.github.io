@@ -7,8 +7,8 @@ author: samGordon
 short-description: Cloudformation provided functions
 tags: [cloudformation, functions, yml, json, intrinsic]
 prevPost:
-  text: "Parameters"
-  link: "/technical-series/cloudformation-series/cloudformation-parameters"
+  text: "Parameters (dynamic)"
+  link: "/technical-series/cloudformation-series/cloudformation-parameters-dynamic"
 nextPost:
   text: "Custom Resources"
   link: "/technical-series/cloudformation-series/cloudformation-custom-resources"

@@ -28,5 +28,7 @@ When using parameters with your template, you're effectively creating placeholde
 <a name = "properties"></a>
 #### Parameter Properties
 
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#parameters-section-structure-properties
+
 <a name = "types"></a>
 #### Parameter Types

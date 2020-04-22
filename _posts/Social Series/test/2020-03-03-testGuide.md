@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Overview
+title: Guide test
 date: 2020-01-01 08:44:38
 category: social-series
 author: samGordon
-short-description: Brief summary of what to expect in the social series
+short-description: guide test
 ---
 <script type = "text/javascript">
   $(document).ready(function() {

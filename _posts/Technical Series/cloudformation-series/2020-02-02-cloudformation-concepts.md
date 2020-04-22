@@ -56,6 +56,7 @@ All of your infrastructure will have been created. Moving forwards, the followin
 
 The service will attempt to revert to the `previous known state`. This is why the service is so powerful !
 
+<br>
 ---
 
 <a name = "diagram"></a>

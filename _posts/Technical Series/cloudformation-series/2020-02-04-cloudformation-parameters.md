@@ -19,3 +19,22 @@ tips:
   - "AWS special params may not be useful for when systems specify values, as they're more for user assistance"
 skill: novice
 ---
+
+Cloudformation parameters are split into two major types
+
+1. [Primitive parameters](#primitive)
+2. [AWS-Specific parameters](#aws-specific)
+3. [Supported Properties](#properties)
+
+
+---
+
+<a name = "primitive"></a>
+
+---
+
+<a name = "aws-specific"></a>
+
+---
+
+<a name = "properties"></a>

@@ -7,7 +7,7 @@ author: samGordon
 short-description: information on available lamnda runtimes
 tags: [lambda, runtime]
 prevPost:
-  text: "Intro"
+  text: "Concepts"
   link: "/technical-series/lambda-series/lambda-concepts"
 nextPost:
   text: "Debugging"

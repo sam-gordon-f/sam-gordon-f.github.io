@@ -39,6 +39,7 @@ This gives Cloudformation the command to create a stack to house the resources r
     You could also use the `createChangeSet` directive to give an indication on what the template will create before running
   </div>
 </div>
+<br>
   
 ##### 3) After your stack stabilises
 

@@ -20,7 +20,7 @@ When using parameters with your template, you're effectively creating placeholde
 1. [Parameter Properties](#properties)
 2. [Parameter Types (basic)](#types)
 3. [Parameter Types (special types)]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-parameters-extended)
-4. [Parameter Types (dynamic reference)]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-parameters-dynamic)
+4. [Dynamic reference (lookup values rather than supplying them)]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-parameters-dynamic)
 
 ---
 

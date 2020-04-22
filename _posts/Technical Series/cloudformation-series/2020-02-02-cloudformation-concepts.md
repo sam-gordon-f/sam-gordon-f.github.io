@@ -7,7 +7,7 @@ author: samGordon
 short-description: Overview of Cloudformation Concepts
 tags: [cloudformation, concepts]
 prevPost:
-  text: "Intro"
+  text: "Introduction"
   link: "/technical-series/cloudformation-series/cloudformation-intro"
 nextPost:
   text: "Template Anatomy"
@@ -27,13 +27,12 @@ The Major concepts are fairly straight forward, and they follow the model / acti
 <a name = "actions"></a>
 ##### 1) Write Cloudformation templates
 
-These reflect the desired state of your infrastructure in the desired state.<br>
-These can be written in JSON / YML, or any number of DSL's ( `official and otherwise` )
+These reflect the desired state of your infrastructure, and can be written in JSON / YML, or any number of DSLs (domain specific language)
   
 <br>
 ##### 2) Execute `createStack` action alongside your template
 
-This gives cloudformation the command to create a stack to house the resources reflected in your template
+This gives Cloudformation the command to create a stack to house the resources reflected in your template
   
 <div class="card tip">
   <div class="card-body">
@@ -41,7 +40,6 @@ This gives cloudformation the command to create a stack to house the resources r
   </div>
 </div>
   
-<br>
 ##### 3) After your stack stabilises
 
 All of your infrastructure will have been created. Moving forwards, the following `operations` can be undertaken

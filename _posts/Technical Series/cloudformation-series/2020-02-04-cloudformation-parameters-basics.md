@@ -14,27 +14,19 @@ nextPost:
   link: "/technical-series/cloudformation-series/cloudformation-intrinsic-functions"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html\">AWS docs on cloudformation parameters</a>"
-tips:
-  - "AWS special params cannot be used for optional parameters"
-  - "AWS special params may not be useful for when systems specify values, as they're more for user assistance"
 skill: novice
 ---
 
-Cloudformation parameters are split into two major types
+When using parameters with your template, you're effectively creating placeholders for a user / service to provide the details when an operation is performed (`createStack` / `updateStack`)
 
-1. [Primitive parameters](#primitive)
-2. [AWS-Specific parameters](#aws-specific)
-3. [Supported Properties](#properties)
-
-
----
-
-<a name = "primitive"></a>
-
----
-
-<a name = "aws-specific"></a>
+1. [Parameter Properties](#properties)
+2. [Parameter Types (basic)](#types)
+3. [Parameter Types (special types)]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-parameters-extended)
 
 ---
 
 <a name = "properties"></a>
+#### Parameter Properties
+
+<a name = "types"></a>
+#### Parameter Types

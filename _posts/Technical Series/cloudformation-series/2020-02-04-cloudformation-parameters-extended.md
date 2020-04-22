@@ -8,7 +8,7 @@ short-description: Cloudformation template/stack Parameters
 tags: [cloudformation, parameters, yml, json]
 prevPost:
   text: "Template anatomy"
-  link: "/technical-series/cloudformation-series/cloudformation-template-anatomy"
+  link: "/technical-series/cloudformation-series/cloudformation-parameters-basic"
 nextPost:
   text: "Intrinsic Functions"
   link: "/technical-series/cloudformation-series/cloudformation-intrinsic-functions"

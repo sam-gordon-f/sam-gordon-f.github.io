@@ -11,7 +11,7 @@ prevPost:
   link: "/technical-series/cloudformation-series/cloudformation-template-anatomy"
 nextPost:
   text: "Intrinsic Functions"
-  link: "/technical-series/cloudformation-series/cloudformation-intrinsic-functions"
+  link: "/technical-series/cloudformation-series/cloudformation-parameters-extended"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html\">AWS docs on cloudformation parameters</a>"
 skill: novice

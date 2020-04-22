@@ -303,7 +303,7 @@ an IAM Role which references this for the trust policy (allowing login from the 
               "accountId": {
                 "Ref": "AWS::AccountId"
               },
-              "IDPName": "federation"
+              "IDPName": "<<identityProviderName>>"
             }
           ]
         },

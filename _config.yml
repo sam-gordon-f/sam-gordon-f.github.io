@@ -30,8 +30,8 @@ instagram_username:
 nav_item_one: Github
 nav_item_one_link: https://github.com/sam-gordon-f
 
-nav_item_two:
-nav_item_two_link:
+nav_item_two: Edit this page
+nav_item_two_link: {{site.github_url_raw}}{{page.path}}
 
 nav_item_three: #
 nav_item_three_link: #

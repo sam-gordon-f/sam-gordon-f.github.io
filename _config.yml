@@ -26,19 +26,6 @@ full_name: Sam Gordon
 linkedin_page: https://www.linkedin.com/in/sam-gordon-10b42985/
 instagram_username:
 
-# Navivation
-nav_item_one: Github
-nav_item_one_link: https://github.com/sam-gordon-f
-
-nav_item_two: Edit this page
-nav_item_two_link: {{site.github_url_raw}}{{page.path}}
-
-nav_item_three: #
-nav_item_three_link: #
-
-nav_button: Return Home
-nav_button_link: https://sam-gordon-f.github.io
-
 # More Help
 help_one_title: Content Issues
 help_one_content: If you have any issues / contributions

@@ -45,7 +45,7 @@ short-description: guide test
   })  	
 </script>
 
-<button id = "btnGuide">start guide test<button>
+<input type = "button" value = "start guide" id = "btnGuide">
 
 <div id = "divGuideStep1" style = "display:none;">
   Some testing content

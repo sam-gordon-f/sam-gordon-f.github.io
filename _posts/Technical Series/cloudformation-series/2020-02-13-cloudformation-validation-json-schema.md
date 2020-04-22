@@ -12,8 +12,6 @@ prevPost:
 nextPost:
   text: "Validation - cfn-lint"
   link: "/technical-series/cloudformation-series/cloudformation-validation-cfn-lint"
-docs:
-  - "<a href = \"https://json-schema.org/\">json-schema</a> documentation"
 skill: intermediate
 ---
 
@@ -32,6 +30,8 @@ In the below example. There are three components
 
 <a name = "json-schema"></a>
 #### json-schema (AWS::S3::Bucket)
+
+More information about json-schemas <a href = \"https://json-schema.org/\">here</a> 
 
 ```json
 {

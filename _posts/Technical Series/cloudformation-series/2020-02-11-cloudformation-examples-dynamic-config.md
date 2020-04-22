@@ -15,6 +15,8 @@ nextPost:
 skill: expert
 ---
 
+The below example is made up of two components
+
 1. [Lambda code (nodejs) - Advertises the config](#javascript)
 2. [Template1 - template that creates / references the custom config](#template1)
 

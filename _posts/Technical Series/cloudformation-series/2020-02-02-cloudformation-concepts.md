@@ -30,6 +30,7 @@ The Major concepts are fairly straight forward, and they follow the model / acti
 These reflect the desired state of your infrastructure in the desired state.<br>
 These can be written in JSON / YML, or any number of DSL's ( `official and otherwise` )
   
+<br>
 ##### 2) Execute `createStack` action alongside your template
 
 This gives cloudformation the command to create a stack to house the resources reflected in your template
@@ -40,6 +41,7 @@ This gives cloudformation the command to create a stack to house the resources r
   </div>
 </div>
   
+<br>
 ##### 3) After your stack stabilises
 
 All of your infrastructure will have been created. Moving forwards, the following `operations` can be undertaken
@@ -49,6 +51,7 @@ All of your infrastructure will have been created. Moving forwards, the followin
   > c. `createChangeSet`, which will attempt to create a list of changes that would occur if an update was executed<br>
   > d. `executeChangeSet`, which will attempt to update the stack, much like the `updateStack` operation
 
+<br>
 ##### 4) If an issue occurs with any of the above steps
 
 The service will attempt to revert to the `previous known state`. This is why the service is so powerful !

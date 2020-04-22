@@ -15,21 +15,198 @@ nextPost:
 skill: expert
 ---
 
+The below example creates a custom resource that manages the lifecycle of a non-cloudformation supported resource (identity provider)
+
 1. [Lambda code (nodejs) - Manages the identity provider](#javascript)
 2. [Template1 - template that creates / references the identity provider](#template1)
 
 ---
 
 <a name = "javascript"></a>
-##### Lambda code - nodejs (Advertises the custom config)
+##### Lambda code - nodejs (manages the lifecycle for the identity provider)
 
 ```javascript
+var AWS = require('aws-sdk')
+AWS.config.region = process.env.AWS_REGION;
+
+var CFN_RESPONSE = require('cfn-response');
+var IAM = new AWS.IAM();
+var HTTPS = require('https');
+
+const timerCreate = 5000;
+const timerUpdate = 5000;
+const timerDelete = 5000;
+
+var getMetadataFromUrl = function(params) {
+  return new Promise(
+    function (resolve, reject) {
+      HTTPS.get(`${params.metadataUrl}`, (resp) => {
+        let data = '';
+
+        resp.on('data', (chunk) => {
+          data += chunk;
+        });
+
+        resp.on('end', () => {
+          resolve(data)
+        });
+
+      }).on("error", (err) => {
+        reject(err)
+      });
+    }
+  )
+}
+
+var validateParams = function(params) {
+  return new Promise(
+    function (resolve, reject) {
+      resolve({
+        status: true
+      });
+    }
+  );
+}
+
+var createLoop = function(IDP, resolve, reject) {
+  setTimeout(function() {
+      
+    IAM.getSAMLProvider({
+      SAMLProviderArn: IDP.arn
+    }, function(err, data) {
+      if(!err)
+        resolve(IDP)
+      else {
+        createLoop(IDP, resolve, reject)
+      }        
+    })
+  }, timerCreate);
+}
+
+var deleteLoop = function(IDP, resolve, reject) {
+  setTimeout(function() {
+    IAM.getSAMLProvider({
+      SAMLProviderArn: IDP.arn
+    }, function(err, data) {
+      if(err) {
+        console.log(`deleteLoop - ${err}`)
+        if(err["NoSuchEntity"] === undefined)
+          resolve(IDP)
+        else
+          reject(err)
+      } else
+        deleteLoop(IDP, resolve, reject)
+      }
+    )
+  }, timerDelete);
+}
+
+var createIDP = function(params) {
+  return new Promise(
+    function (resolve, reject) {
+      getMetadataFromUrl({
+        metadataUrl: params.ResourceProperties.MetadataUrl
+      }).
+        then(function(resp) {
+          IAM.createSAMLProvider({
+            Name: params.ResourceProperties.Name,
+            SAMLMetadataDocument: resp
+          }, function(err, data) {
+            if (err) {
+              if(err.code == 'EntityAlreadyExists')
+                resolve({
+                  name: params.ResourceProperties.Name,
+                  arn: `arn:aws:iam::${params.ResourceProperties.AccountId}:saml-provider/${params.ResourceProperties.Name}`
+                })
+              else
+                reject({error:err});
+
+            } else
+              createLoop(
+                {
+                  name: params.ResourceProperties.Name,
+                  arn: data.SAMLProviderArn
+                },
+                resolve,
+                reject
+              );
+          });
+        })
+    }
+  )
+}
+
+var deleteIDP = function(params) {
+  return new Promise(
+    function (resolve, reject) {
+      IAM.deleteSAMLProvider({
+        SAMLProviderArn: params.PhysicalResourceId
+      }, function(err, data) {
+        if (err)
+          reject(err);
+        else
+          deleteLoop(
+            {
+              arn: params.PhysicalResourceId,
+              name: params.ResourceProperties.Name
+            },
+            resolve,
+            reject
+          );
+      });
+    }
+  )
+}
+
+var updateIDP = function(params) {
+  return new Promise(
+      function (resolve, reject) {
+        getMetadataFromUrl({
+          metadataUrl: params.ResourceProperties.MetadataUrl
+        }).
+          then(function(resp) {
+            IAM.updateSAMLProvider({
+              SAMLProviderArn: params.PhysicalResourceId,
+              SAMLMetadataDocument: resp
+            }, function(err, data) {
+                if (err)
+                  reject({error:err});
+                else
+                  resolve({
+                    arn: params.PhysicalResourceId,
+                    name: params.ResourceProperties.Name
+                  });
+            });
+          })
+    }
+  )
+}
+
 exports.handler = (event, context, callback) => {
-  var fragment = event.fragment;
+  validateParams(event).
+    then(function(resp) {
+      switch(event.RequestType) {
+        case 'Create': {
+          return createIDP(event);
+        }
+        case 'Update': {
+          return updateIDP(event);
+        }
+        case 'Delete': {
+          return deleteIDP(event);
+        }
+      }
+    }).
+    then(function(resp) {
+      console.log(`success: ${JSON.stringify(resp)}`);
+      CFN_RESPONSE.send(event, context, CFN_RESPONSE.SUCCESS, resp);
+    }).
+    catch(function(err) {
+      console.log(`error: ${JSON.stringify(err.error)}`);
+      CFN_RESPONSE.send(event, context, CFN_RESPONSE.FAILED, err);
+    });
+}
 
-
-    // This entry is coming
-};
 ```
 
 ---

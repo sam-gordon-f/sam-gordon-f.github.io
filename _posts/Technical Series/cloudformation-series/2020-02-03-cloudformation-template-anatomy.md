@@ -6,12 +6,6 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Cloudformation template dissection / anatomy
 tags: [cloudformation, anatomy]
-prevPost:
-  text: "Concepts"
-  link: "/technical-series/cloudformation-series/cloudformation-concepts"
-nextPost:
-  text: "Parameters"
-  link: "/technical-series/cloudformation-series/cloudformation-parameters-basic"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html\">AWS docs on cloudformation template components</a>"
 tips:

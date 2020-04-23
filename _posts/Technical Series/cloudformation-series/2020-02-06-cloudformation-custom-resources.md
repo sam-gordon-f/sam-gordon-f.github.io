@@ -6,12 +6,6 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: A means to define non-cloudformation standard resources
 tags: [cloudformation, custom, resources, nodejs]
-prevPost:
-  text: "Resources"
-  link: "/technical-series/cloudformation-series/cloudformation-resources"
-nextPost:
-  text: "Macros"
-  link: "/technical-series/cloudformation-series/cloudformation-macros"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html\">AWS docs on custom resources</a>"
 skill: proficient

@@ -6,12 +6,6 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Cloudformation template/stack Parameters
 tags: [cloudformation, parameters, yml, json]
-prevPost:
-  text: "Template anatomy"
-  link: "/technical-series/cloudformation-series/cloudformation-template-anatomy"
-nextPost:
-  text: "Parameters (extended)"
-  link: "/technical-series/cloudformation-series/cloudformation-parameters-extended"
 skill: novice
 ---
 

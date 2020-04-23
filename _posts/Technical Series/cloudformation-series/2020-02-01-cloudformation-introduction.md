@@ -6,12 +6,6 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Introduction to Cloudformation Series
 tags: [cloudformation, introduction]
-prevPost:
-  text: "Cloudformation Series"
-  link: "/cloudformation-series"
-nextPost:
-  text: "Concepts"
-  link: "/technical-series/cloudformation-series/cloudformation-concepts"
 skill: beginner
 ---
 

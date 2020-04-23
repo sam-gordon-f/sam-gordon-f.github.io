@@ -6,11 +6,5 @@ category: [technical-series, vpc-series]
 author: samGordon
 short-description: VPC Concepts
 tags: [vpc, concepts]
-prevPost:
-  text: "Intro"
-  link: "/technical-series/vpc-series/vpc-intro"
-nextPost:
-  text: "na"
-  link: "/technical-series/vpc-series/na"
 skill: beginner
 ---

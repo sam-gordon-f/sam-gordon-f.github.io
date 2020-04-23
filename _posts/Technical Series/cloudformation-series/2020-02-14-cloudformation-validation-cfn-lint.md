@@ -6,12 +6,6 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Resources contained within a cloudformation template/stack
 tags: [cloudformation, parameters, yml, json]
-prevPost:
-  text: "Validation - Json Schemas"
-  link: "/technical-series/cloudformation-series/cloudformation-validation-json-schema"
-nextPost:
-  text: "na"
-  link: "/technical-series/cloudformation-series/na"
 docs:
   - "<a href = \"https://github.com/aws-cloudformation/cfn-python-lint\">Github project for cfn-lint</a>"
 skill: proficient

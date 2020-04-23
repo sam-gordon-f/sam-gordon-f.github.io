@@ -6,12 +6,6 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Quick serverless functions with minimal config
 tags: [cloudformation, include, lambda, macro]
-prevPost:
-  text: "Macros - Include"
-  link: "/technical-series/cloudformation-series/cloudformation-macros-include"
-nextPost:
-  text: "Macros - Custom"
-  link: "/technical-series/cloudformation-series/cloudformation-macros-custom"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html\">AWS docs on cloudformation Serverless Resource Types</a>"
 skill: intermediate

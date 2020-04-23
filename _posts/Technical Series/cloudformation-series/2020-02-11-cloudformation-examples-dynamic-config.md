@@ -6,12 +6,6 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: create / reference a custom config store in your cloudformation templates / stacks
 tags: [cloudformation, lambda, macro, config]
-prevPost:
-  text: "Macros - Custom"
-  link: "/technical-series/cloudformation-series/cloudformation-macros-custom"
-nextPost:
-  text: "Examples - Non Supported Resource"
-  link: "/technical-series/cloudformation-series/cloudformation-examples-non-supported"
 skill: expert
 ---
 

@@ -6,12 +6,6 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: S3 File Inclusions for Cloudformation templates
 tags: [cloudformation, include, lambda, macro]
-prevPost:
-  text: "Macros"
-  link: "/technical-series/cloudformation-series/cloudformation-macros"
-nextPost:
-  text: "Macros - Serverless"
-  link: "/technical-series/cloudformation-series/cloudformation-macros-serverless"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html\">AWS docs on cloudformation Transforms</a>"
 skill: intermediate

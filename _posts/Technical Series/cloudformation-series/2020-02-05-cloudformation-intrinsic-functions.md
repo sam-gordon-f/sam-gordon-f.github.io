@@ -6,12 +6,6 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Cloudformation provided functions
 tags: [cloudformation, functions, yml, json, intrinsic]
-prevPost:
-  text: "Parameters (dynamic)"
-  link: "/technical-series/cloudformation-series/cloudformation-parameters-dynamic"
-nextPost:
-  text: "Custom Resources"
-  link: "/technical-series/cloudformation-series/cloudformation-custom-resources"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html\">AWS docs on cloudformation intrinsic functions</a>"
 tip:

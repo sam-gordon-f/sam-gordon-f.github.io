@@ -6,12 +6,6 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Overview of Cloudformation Concepts
 tags: [cloudformation, concepts]
-prevPost:
-  text: "Introduction"
-  link: "/technical-series/cloudformation-series/cloudformation-intro"
-nextPost:
-  text: "Template Anatomy"
-  link: "/technical-series/cloudformation-series/cloudformation-template-anatomy"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html\">AWS docs on cloudformation key concepts</a>"
 skill: beginner
@@ -39,7 +33,7 @@ This gives Cloudformation the command to create a stack to house the resources r
     You could also use the `createChangeSet` directive to give an indication on what the template will create before running
   </div>
 </div>
-<br> 
+<br>
   
 ##### 3) After your stack stabilises
 

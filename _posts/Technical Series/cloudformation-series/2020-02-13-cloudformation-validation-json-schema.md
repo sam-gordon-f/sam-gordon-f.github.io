@@ -6,12 +6,6 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Resources contained within a cloudformation template/stack
 tags: [cloudformation, parameters, yml, json]
-prevPost:
-  text: "Examples - Non Supported"
-  link: "/technical-series/cloudformation-series/cloudformation-examples-non-supported"
-nextPost:
-  text: "Validation - cfn-lint"
-  link: "/technical-series/cloudformation-series/cloudformation-validation-cfn-lint"
 skill: intermediate
 ---
 
@@ -31,7 +25,7 @@ In the below example. There are three components
 <a name = "json-schema"></a>
 #### json-schema (AWS::S3::Bucket)
 
-More information about json-schemas <a href = \"https://json-schema.org/\">here</a> 
+More information about json-schemas <a href = \"https://json-schema.org/\">here</a>
 
 ```json
 {

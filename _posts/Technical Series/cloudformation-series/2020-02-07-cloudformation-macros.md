@@ -6,12 +6,6 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Transforms for cloudformation templates
 tags: [cloudformation, transform, lambda, macro]
-prevPost:
-  text: "Custom Resources"
-  link: "/technical-series/cloudformation-series/cloudformation-custom-resources"
-nextPost:
-  text: "Macros - Include"
-  link: "/technical-series/cloudformation-series/cloudformation-macros-include"
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html\">AWS docs on cloudformation Macros</a>"
 tips:

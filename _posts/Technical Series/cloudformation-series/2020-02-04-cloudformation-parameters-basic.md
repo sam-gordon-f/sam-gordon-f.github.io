@@ -234,7 +234,7 @@ Below are the basic param types
 
 ```
 # input value
-test123
+> test123
 
 # when referenced
 "test123"
@@ -244,7 +244,7 @@ test123
 
 ```
 # input value
-123
+> 123
 
 # when referenced
 "123"
@@ -253,7 +253,7 @@ test123
 ##### List<Number>
 ```
 # input value
-1,2,3
+> 1,2,3
 
 # when referenced
 ["1", "2", "3"]
@@ -262,7 +262,7 @@ test123
 ##### CommaDelimitedList
 ```
 # input value
-"test123", "test321"
+> "test123", "test321"
 
 # when referenced
 ["test123", "test321"]

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Concepts"
-date: 2020-02-01 08:44:38
+date: 2020-02-02 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Overview of Cloudformation Concepts

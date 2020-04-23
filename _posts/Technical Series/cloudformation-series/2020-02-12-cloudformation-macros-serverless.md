@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Macro - Serverless
-date: 2020-02-02 08:44:38
+date: 2020-02-12 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Quick serverless functions with minimal config

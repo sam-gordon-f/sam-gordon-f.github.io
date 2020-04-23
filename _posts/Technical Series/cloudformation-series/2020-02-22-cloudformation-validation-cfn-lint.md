@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Validation - cfn-lint"
-date: 2020-02-03 08:44:38
+date: 2020-02-22 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Resources contained within a cloudformation template/stack

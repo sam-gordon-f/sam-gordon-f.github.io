@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Template Anatomy"
-date: 2020-02-02 08:44:38
+date: 2020-02-03 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Cloudformation template dissection / anatomy

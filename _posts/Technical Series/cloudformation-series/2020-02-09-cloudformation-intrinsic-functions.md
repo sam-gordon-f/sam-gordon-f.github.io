@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Intrinsic Functions"
-date: 2020-02-03 08:44:38
+date: 2020-02-09 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Cloudformation provided functions

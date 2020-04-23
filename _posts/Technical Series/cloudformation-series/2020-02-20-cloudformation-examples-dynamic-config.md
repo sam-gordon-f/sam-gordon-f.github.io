@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Examples - Dynamic Config Store
-date: 2020-02-02 08:44:38
+date: 2020-02-20 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: create / reference a custom config store in your cloudformation templates / stacks

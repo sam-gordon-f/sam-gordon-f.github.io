@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Macros
-date: 2020-02-02 08:44:38
+date: 2020-02-10 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Transforms for cloudformation templates

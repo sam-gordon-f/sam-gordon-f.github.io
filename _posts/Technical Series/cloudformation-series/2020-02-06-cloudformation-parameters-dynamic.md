@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Parameters (dynamic reference)"
-date: 2020-02-03 08:44:38
+date: 2020-02-06 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Cloudformation template/stack Parameters

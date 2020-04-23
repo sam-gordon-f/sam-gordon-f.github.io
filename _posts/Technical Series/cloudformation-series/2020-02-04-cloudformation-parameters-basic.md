@@ -222,7 +222,7 @@ A way to hide (mask ***** ) a value that has been provided. This prevents cloudf
 <a name = "types"></a>
 #### Parameter Types
 
-Below are the basic paramaters `Type(s)` ( See [Type](#properties-type) )
+Below are the basic paramaters types ( See [Type](#properties-type) )
 
 <div class="card tip">
   <div class="card-body">

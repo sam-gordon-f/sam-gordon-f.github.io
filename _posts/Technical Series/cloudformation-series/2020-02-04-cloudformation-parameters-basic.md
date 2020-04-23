@@ -29,6 +29,7 @@ When using parameters with your template, you're effectively creating placeholde
 
 The below is a progress way that you can use properties to build up your experience / validation when using properties
 
+<a name = "properties-type"></a>
 ##### Type (only required property)
 
 The value must be a string (can be used for pretty much any basic input value. See [Parameter Types (basic)](#types) for what basic types are supported)
@@ -221,14 +222,13 @@ A way to hide (mask ***** ) a value that has been provided. This prevents cloudf
 <a name = "types"></a>
 #### Parameter Types
 
-Below are the basic param types
+Below are the basic paramaters `Type(s)` ( See [Type](#properties-type) )
 
-<div class="card tips">
+<div class="card tip">
   <div class="card-body">
     Please note that Intrinsic functions convert params to strings when used
   </div>
 </div>
-  <br>
 
 ##### String
 

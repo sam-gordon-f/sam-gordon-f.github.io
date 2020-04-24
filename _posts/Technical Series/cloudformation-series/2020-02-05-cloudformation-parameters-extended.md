@@ -11,11 +11,11 @@ skill: intermediate
 
 When using parameters with your template, you're effectively creating placeholders for a user / service to provide the details when an operation is performed (`createStack` / `updateStack`)
 
-1. [AWS Special Parameters](#aws-params)
-  a. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)
-  b. [AWS::EC2::Image::Id](#aws-params-image-id)
-  c. [AWS::EC2::Instance::Id](#aws-params-instance-id)
-  d. [AWS::EC2::KeyPair::KeyName](#aws-params-keypair-name)
+1. [AWS Special Parameters](#aws-params)<br>
+  a. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)<br>
+  b. [AWS::EC2::Image::Id](#aws-params-image-id)<br>
+  c. [AWS::EC2::Instance::Id](#aws-params-instance-id)<br>
+  d. [AWS::EC2::KeyPair::KeyName](#aws-params-keypair-name)<br>
 2. [SSM Parameters (systems manager)](#ssm-params)
 
 ---

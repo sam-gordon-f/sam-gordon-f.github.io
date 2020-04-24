@@ -53,7 +53,7 @@ The value must be a string (can be used for pretty much any basic input value. S
 </div>
 <div class="card tip">
   <div class="card-body">
-    Make sure to escape `\` (backslash characters) too
+    Make sure to escape `\\` (backslash characters)
   </div>
 </div>
 

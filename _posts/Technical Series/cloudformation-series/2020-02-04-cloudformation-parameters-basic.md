@@ -27,10 +27,10 @@ When using parameters with your template, you're effectively creating placeholde
   </div>
 </div>
 
-The below is a progress way that you can use properties to build up your experience / validation when using properties
+Below I've listed the properties in a progressive way that shows how you can combine them to control your inputs
 
 <a name = "properties-type"></a>
-##### Type (only required property)
+##### Type ( required )
 
 The value must be a string (can be used for pretty much any basic input value. See [Parameter Types (basic)](#types) for what basic types are supported)
 
@@ -46,9 +46,9 @@ The value must be a string (can be used for pretty much any basic input value. S
 
 ##### AllowedPattern (non-required)
 
-<div class="card tips">
+<div class="card tip">
   <div class="card-body">
-    Please keep in mind that these use a java interpreter, so you must use java syntax
+    Please keep in mind that these use a java interpreter, so you must use <a href = "https://www.freeformatter.com/java-regex-tester.html">java syntax</a>
   </div>
 </div>
 
@@ -66,7 +66,7 @@ The below tests for the string "test123"
 
 ##### MaxLength
 
-The max number of characters a user can specify
+The max number of characters a user can specify. The below checks for a max of 7 characters
 
 ```json
 {
@@ -82,7 +82,7 @@ The max number of characters a user can specify
 
 ##### MinLength
 
-The min number of characters a user can specify
+The min number of characters a user can specify. The below checks for a min of 7 characters
 
 ```json
 {
@@ -90,6 +90,7 @@ The min number of characters a user can specify
     "param1": {
       "Type":"String",
       "AllowedPattern": "^[a-z]+[0-9]{3}$",
+      "MaxLength": 7,
       "MinLength": 7
     }
   }
@@ -113,7 +114,7 @@ The below allows only the numbders [1,2,3,4,5] as inputs
 
 ##### ConstraintDescription (non-required)
 
-Used for custom error messages when an input violation occurs
+Used for custom error messages when an input violation occurs. The below presents a custom message that shows the user how to correctly enter a value
 
 ```json
 {
@@ -129,7 +130,7 @@ Used for custom error messages when an input violation occurs
 
 ##### Default (non-required)
 
-If nothing supplied, use this value
+If nothing supplied, use this value. The below gives a default of `1`
 
 ```json
 {
@@ -146,7 +147,7 @@ If nothing supplied, use this value
 
 ##### Description (non-required)
 
-A label to help the user understand what the input represents
+A label to help the user understand what the input represents.
 
 ```json
 {
@@ -164,7 +165,7 @@ A label to help the user understand what the input represents
 
 ##### MaxValue
 
-What is the `highest` number a user can specify
+What is the `highest` number a user can specify. The below checks for inputs greater than 5
 
 ```json
 {
@@ -183,7 +184,7 @@ What is the `highest` number a user can specify
 
 ##### MinValue
 
-What is the `lowest` number a user can specify
+What is the `lowest` number a user can specify. The below checks for inputs lower than 1
 
 ```json
 {

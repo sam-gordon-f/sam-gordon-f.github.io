@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Parameters (basics)"
+title: "Parameters - basics"
 date: 2020-02-04 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
@@ -51,6 +51,12 @@ The value must be a string (can be used for pretty much any basic input value. S
     Please keep in mind that these use a java interpreter, so you must use <a href = "https://www.freeformatter.com/java-regex-tester.html">java syntax</a>
   </div>
 </div>
+<div class="card tip">
+  <div class="card-body">
+    Make sure to escape `\` (backslash characters) too
+  </div>
+</div>
+
 
 The below tests for the string "test123"
 ```json

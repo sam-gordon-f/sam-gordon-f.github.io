@@ -47,13 +47,13 @@ All of your infrastructure will have been created. Moving forwards, the followin
 <br>
 ##### 4) If an issue occurs with any of the above steps
 
-The service will attempt to revert to the `previous known state`. This is why the service is so powerful !
+The service will attempt to revert to the `previous known state`. This is one of the key reasons why the service is so powerful !
 
-<br>
 ---
 
-<a name = "diagram"></a>
+The below shows how each template can be instantiated as a stack, and then in turn, those stacks contain resources
 
+<a name = "diagram"></a>
 <a href="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts.svg" data-fancybox data-caption="cloudformation-concepts">
 	<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts.svg" alt="drawing" style="width:100%;"/>
 </a>

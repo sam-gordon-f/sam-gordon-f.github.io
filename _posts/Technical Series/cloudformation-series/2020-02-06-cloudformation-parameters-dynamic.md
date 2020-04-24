@@ -1,13 +1,10 @@
 ---
 layout: post
-title: "Parameters (dynamic reference)"
+title: "Parameters - dynamic"
 date: 2020-02-06 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
-short-description: Cloudformation template/stack Parameters
+short-description: Dynamic in template replacements
 tags: [cloudformation, parameters, yml, json]
-tips:
-  - "AWS special params cannot be used for optional parameters"
-  - "AWS special params may not be useful for when systems specify values, as they're more for user assistance"
 skill: intermediate
 ---

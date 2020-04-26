@@ -42,8 +42,10 @@ Below are a list of special lookup params, and examples on where they're useful 
 17. [List\<AWS::EC2::VPC::Id\>](#aws-params-list-vpc-id)
 18. [AWS::Route53::HostedZone::Id](#aws-params-hosted-zone-id)
 19. [List\<AWS::Route53::HostedZone::Id\>](#aws-params-list-hosted-zone-id)
+
 #### SSM Paramaters
-20. [SSM Parameters (systems manager)](#ssm-params)
+
+1. [SSM Parameters (systems manager)](#ssm-params)
 
 ---
 

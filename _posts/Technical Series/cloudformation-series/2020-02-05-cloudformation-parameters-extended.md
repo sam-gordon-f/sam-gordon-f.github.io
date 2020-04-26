@@ -16,6 +16,8 @@ a. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)
 b. [AWS::EC2::Image::Id](#aws-params-image-id)
 c. [AWS::EC2::Instance::Id](#aws-params-instance-id)
 d. [AWS::EC2::KeyPair::KeyName](#aws-params-keypair-name)
+d. [AWS::EC2::SecurityGroup::GroupName](#aws-params-security-group-name)
+
 2. [SSM Parameters (systems manager)](#ssm-params)
 
 ---

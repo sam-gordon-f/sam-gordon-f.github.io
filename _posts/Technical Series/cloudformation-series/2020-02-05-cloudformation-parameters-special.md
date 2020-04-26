@@ -1,15 +1,13 @@
 ---
 layout: post
-title: "Parameters - extended"
+title: "Parameters - Special"
 date: 2020-02-05 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
-short-description: Cloudformation template/stack Parameters
+short-description: Cloudformation Special lookup parameters
 tags: [cloudformation, parameters, yml, json]
 skill: intermediate
 ---
-
-Below are a list of special lookup params, and examples on where they're useful and can be used
 
 <div class="card tip">
   <div class="card-body">
@@ -22,6 +20,8 @@ Below are a list of special lookup params, and examples on where they're useful 
   </div>
 </div>
   <br>
+
+Below are a list of special lookup params, and examples on where they're useful and can be used
 
 1. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)
 2. [List\<AWS::EC2::AvailabilityZone::Name\>](#aws-params-list-availability-zone-name)
@@ -170,10 +170,8 @@ Below are a list of special lookup params, and examples on where they're useful 
 <a name = "aws-params-list-instance-id"></a>
 ##### List\<AWS::EC2::Instance::Id\>
 
-```json
-{
-
-}
+```
+# No example provided
 ```
 
 <a name = "aws-params-keypair-name"></a>
@@ -225,10 +223,8 @@ Below are a list of special lookup params, and examples on where they're useful 
 <a name = "aws-params-list-security-group-name"></a>
 ##### List\<AWS::EC2::SecurityGroup::GroupName\>
 
-```json
-{
-  
-}
+```
+# no example provided
 ```
 
 <a name = "aws-params-security-group-id"></a>
@@ -257,8 +253,8 @@ Below are a list of special lookup params, and examples on where they're useful 
 <a name = "aws-params-list-security-group-id"></a>
 ##### List\<AWS::EC2::SecurityGroup::Id\>
 
-```json
-
+```
+# no example provided
 ```
 
 <a name = "aws-params-subnet-id"></a>
@@ -288,49 +284,117 @@ Below are a list of special lookup params, and examples on where they're useful 
 ##### List\<AWS::EC2::Subnet::Id\>
 
 ```json
-
+{
+  "Parameters": {
+    "ListEC2Subnet": {
+      "Type": "List<AWS::EC2::Subnet::Id>"
+    }
+  },
+  "Resources": {
+    "ElasticLoadBalancingLoadBalancer": {
+      "Type" : "AWS::ElasticLoadBalancing::LoadBalancer",
+      "Properties" : {
+        "Subnets" : {
+          "Ref": "ListEC2Subnet"
+        }
+      }
+    }
+  }
+}
 ```
 
 <a name = "aws-params-volume-id"></a>
 ##### AWS::EC2::Volume::Id
 
 ```json
-
+{
+  "Parameters": {
+    "EC2VolumeId": {
+      "Type": "AWS::EC2::Volume::Id"
+    }
+  },
+  "Resources": {
+    "EC2Instance": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "Volumes": [
+          {
+            "Volume": {
+              "Ref": "EC2VolumeId"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
 ```
 
 <a name = "aws-params-list-volume-id"></a>
 ##### List\<AWS::EC2::Volume::Id\>
 
-```json
-
+```
+# no example provided
 ```
 
 <a name = "aws-params-vpc-id"></a>
 ##### AWS::EC2::VPC::Id
 
 ```json
-
+{
+  "Parameters": {
+    "EC2VPCId": {
+      "Type": "AWS::EC2::VPC::Id"
+    }
+  },
+  "Resources": {
+    "EC2Subnet": {
+      "Type" : "AWS::EC2::Subnet",
+      "Properties" : {
+        "VpcId" : {
+          "Ref": "EC2VPCId"
+        }
+      }
+    }
+  }
+}
 ```
 
 <a name = "aws-params-list-vpc-id"></a>
 ##### List\<AWS::EC2::VPC::Id\>
 
-```json
-
+```
+# no example provided
 ```
 
 <a name = "aws-params-hosted-zone-id"></a>
 ##### AWS::Route53::HostedZone::Id
 
 ```json
-
+{
+  "Parameters": {
+    "Route53HostedZoneId": {
+      "Type": "AWS::Route53::HostedZone::Id"
+    }
+  },
+  "Resources": {
+    "Route53RecordSet": {
+      "Type" : "AWS::Route53::RecordSet",
+      "Properties" : {
+        "HostedZoneId" : {
+          "Ref": "Route53RecordSet"
+        }
+      }
+    }
+  }
+}
 ````
 
 <a name = "aws-params-list-hosted-zone-id"></a>
 ##### List\<AWS::Route53::HostedZone::Id\>
 
-```json
-
+```
+# no example provided
 ```
 
 ---

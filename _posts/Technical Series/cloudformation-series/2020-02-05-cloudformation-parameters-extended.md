@@ -24,8 +24,7 @@ Below are a list of special lookup params, and examples on where they're useful 
   <br>
 
 1. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)
-2. [List<AWS::EC2::AvailabilityZone::Name>](#aws-params-hosted-zone-id)
-
+2. [List<AWS::EC2::AvailabilityZone::Name>](#aws-params-list-availability-zone-name)
 2. [AWS::EC2::Image::Id](#aws-params-image-id)
 3. [AWS::EC2::Instance::Id](#aws-params-instance-id)
 4. [AWS::EC2::KeyPair::KeyName](#aws-params-keypair-name)
@@ -65,7 +64,7 @@ Below are a list of special lookup params, and examples on where they're useful 
 ```
 
 <a name = "aws-params-list-availability-zone-name"></a>
-##### List\<AWS::EC2::AvailabilityZone::Name>
+##### List<AWS::EC2::AvailabilityZone::Name>
 
 ```json
 {

@@ -21,12 +21,22 @@ Below are a list of special lookup params, and examples on where they're useful 
     AWS special params may not be useful for when systems specify values, as they're more for user assistance and validation
   </div>
 </div>
+  <br>
 
 1. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)
+2. [List<AWS::EC2::AvailabilityZone::Name>](#aws-params-hosted-zone-id)
+
 2. [AWS::EC2::Image::Id](#aws-params-image-id)
 3. [AWS::EC2::Instance::Id](#aws-params-instance-id)
 4. [AWS::EC2::KeyPair::KeyName](#aws-params-keypair-name)
 5. [AWS::EC2::SecurityGroup::GroupName](#aws-params-security-group-name)
+6. [AWS::EC2::SecurityGroup::Id](#aws-params-security-group-id)
+7. [AWS::EC2::Subnet::Id](#aws-params-subnet-id)
+8. [AWS::EC2::Volume::Id](#aws-params-volume-id)
+9. [AWS::EC2::VPC::Id](#aws-params-vpc-id)
+10. [AWS::Route53::HostedZone::Id](#aws-params-hosted-zone-id)
+
+
 6. [SSM Parameters (systems manager)](#ssm-params)
 
 ---
@@ -51,6 +61,15 @@ Below are a list of special lookup params, and examples on where they're useful 
       }
     }
   }
+}
+```
+
+<a name = "aws-params-list-availability-zone-name"></a>
+##### List\<AWS::EC2::AvailabilityZone::Name>
+
+```json
+{
+  
 }
 ```
 
@@ -123,6 +142,7 @@ Below are a list of special lookup params, and examples on where they're useful 
 }
 ```
 
+<a name = "aws-params-security-group-name"></a>
 ##### AWS::EC2::SecurityGroup::GroupName
 
 ```json
@@ -145,6 +165,7 @@ Below are a list of special lookup params, and examples on where they're useful 
 }
 ```
 
+<a name = "aws-params-security-group-id"></a>
 ##### AWS::EC2::SecurityGroup::Id
 
 ```json
@@ -167,6 +188,7 @@ Below are a list of special lookup params, and examples on where they're useful 
 }
 ```
 
+<a name = "aws-params-subnet-name"></a>
 ##### AWS::EC2::Subnet::Id
 
 ```json
@@ -189,12 +211,15 @@ Below are a list of special lookup params, and examples on where they're useful 
 }
 ```
 
+<a name = "aws-params-volume-id"></a>
 ##### AWS::EC2::Volume::Id
 An Amazon EBS volume ID, such as vol-3cdd3f56.
 
+<a name = "aws-params-vpc-id"></a>
 ##### AWS::EC2::VPC::Id
 A VPC ID, such as vpc-a123baa3.
 
+<a name = "aws-params-hosted-zone-id"></a>
 ##### AWS::Route53::HostedZone::Id
 An Amazon Route 53 hosted zone ID, such as Z23YXV4OVPL04A.
 

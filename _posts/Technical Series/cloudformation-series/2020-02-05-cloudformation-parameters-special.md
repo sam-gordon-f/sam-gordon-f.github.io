@@ -19,7 +19,6 @@ skill: intermediate
     AWS special params may not be useful for when systems specify values, as they're more for user assistance and validation
   </div>
 </div>
-  <br>
 
 Below are a list of special lookup params, and examples on where they're useful and can be used
 

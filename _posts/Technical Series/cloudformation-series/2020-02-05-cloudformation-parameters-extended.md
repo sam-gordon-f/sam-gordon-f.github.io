@@ -25,18 +25,24 @@ Below are a list of special lookup params, and examples on where they're useful 
 
 1. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)
 2. [List\<AWS::EC2::AvailabilityZone::Name\>](#aws-params-list-availability-zone-name)
-2. [AWS::EC2::Image::Id](#aws-params-image-id)
-3. [AWS::EC2::Instance::Id](#aws-params-instance-id)
-4. [AWS::EC2::KeyPair::KeyName](#aws-params-keypair-name)
-5. [AWS::EC2::SecurityGroup::GroupName](#aws-params-security-group-name)
-6. [AWS::EC2::SecurityGroup::Id](#aws-params-security-group-id)
-7. [AWS::EC2::Subnet::Id](#aws-params-subnet-id)
-8. [AWS::EC2::Volume::Id](#aws-params-volume-id)
-9. [AWS::EC2::VPC::Id](#aws-params-vpc-id)
-10. [AWS::Route53::HostedZone::Id](#aws-params-hosted-zone-id)
-
-
-6. [SSM Parameters (systems manager)](#ssm-params)
+3. [AWS::EC2::Image::Id](#aws-params-image-id)
+4. [List\<AWS::EC2::Image::Id\>](#aws-params-list-image-id)
+5. [AWS::EC2::Instance::Id](#aws-params-instance-id)
+6. [List\<AWS::EC2::Instance::Id\>](#aws-params-list-instance-id)
+7. [AWS::EC2::KeyPair::KeyName](#aws-params-keypair-name)
+8. [AWS::EC2::SecurityGroup::GroupName](#aws-params-security-group-name)
+9. [List\<AWS::EC2::SecurityGroup::GroupName\>](#aws-params-list-security-group-name)
+10. [AWS::EC2::SecurityGroup::Id](#aws-params-security-group-id)
+11. [List\<AWS::EC2::SecurityGroup::Id\>](#aws-params-list-security-group-id)
+12. [AWS::EC2::Subnet::Id](#aws-params-subnet-id)
+13. [List\<AWS::EC2::Subnet::Id\>](#aws-params-list-subnet-id)
+14. [AWS::EC2::Volume::Id](#aws-params-volume-id)
+15. [List\<AWS::EC2::Volume::Id\>](#aws-params-list-volume-id)
+16. [AWS::EC2::VPC::Id](#aws-params-vpc-id)
+17. [List\<AWS::EC2::VPC::Id\>](#aws-params-list-vpc-id)
+18. [AWS::Route53::HostedZone::Id](#aws-params-hosted-zone-id)
+19. [List\<AWS::Route53::HostedZone::Id\>](#aws-params-list-hosted-zone-id)
+20. [SSM Parameters (systems manager)](#ssm-params)
 
 ---
 
@@ -64,11 +70,25 @@ Below are a list of special lookup params, and examples on where they're useful 
 ```
 
 <a name = "aws-params-list-availability-zone-name"></a>
-##### List<AWS::EC2::AvailabilityZone::Name>
+##### List\<AWS::EC2::AvailabilityZone::Name\>
 
 ```json
 {
-  
+  "Parameters": {
+    "ListEC2InstanceAvailabilityZone": {
+      "Type": "List<AWS::EC2::AvailabilityZone::Name>"
+    }
+  },
+  "Resources": {
+    "ElasticLoadBalancingLoadBalancer": {
+      "Type" : "AWS::ElasticLoadBalancing::LoadBalancer",
+      "Properties" : {
+        "AvailabilityZones" : {
+          "Ref": "ListEC2InstanceAvailabilityZone"
+        }
+      }
+    }
+  }
 }
 ```
 
@@ -88,6 +108,35 @@ Below are a list of special lookup params, and examples on where they're useful 
       "Properties": {
         "ImageId": {
           "Ref": "EC2ImageId"
+        }
+      }
+    }
+  }
+}
+```
+
+<a name = "aws-params-list-image-id"></a>
+##### List<AWS::EC2::Image::Id>
+
+```json
+{
+  "Parameters": {
+    "ListEC2ImageId": {
+      "Type": "List<AWS::EC2::Image::Id>"
+    }
+  },
+  "Resources": {
+    "ConfigConfigRule": {
+      "Type" : "AWS::Config::ConfigRule",
+      "Properties" : {
+        "InputParameters": {
+          "amiIds": {
+            "Ref": "ListEC2ImageId"
+          }
+        },
+        "Source": {
+          "Owner": "AWS",
+          "SourceIdentifier": "APPROVED_AMIS_BY_ID"
         }
       }
     }
@@ -115,6 +164,15 @@ Below are a list of special lookup params, and examples on where they're useful 
       }
     }
   }
+}
+```
+
+<a name = "aws-params-list-instance-id"></a>
+##### List\<AWS::EC2::Instance::Id\>
+
+```json
+{
+
 }
 ```
 
@@ -164,6 +222,15 @@ Below are a list of special lookup params, and examples on where they're useful 
 }
 ```
 
+<a name = "aws-params-list-security-group-name"></a>
+##### List\<AWS::EC2::SecurityGroup::GroupName\>
+
+```json
+{
+  
+}
+```
+
 <a name = "aws-params-security-group-id"></a>
 ##### AWS::EC2::SecurityGroup::Id
 
@@ -187,7 +254,14 @@ Below are a list of special lookup params, and examples on where they're useful 
 }
 ```
 
-<a name = "aws-params-subnet-name"></a>
+<a name = "aws-params-list-security-group-id"></a>
+##### List\<AWS::EC2::SecurityGroup::Id\>
+
+```json
+
+```
+
+<a name = "aws-params-subnet-id"></a>
 ##### AWS::EC2::Subnet::Id
 
 ```json
@@ -210,44 +284,54 @@ Below are a list of special lookup params, and examples on where they're useful 
 }
 ```
 
+<a name = "aws-params-list-subnet-id"></a>
+##### List\<AWS::EC2::Subnet::Id\>
+
+```json
+
+```
+
 <a name = "aws-params-volume-id"></a>
 ##### AWS::EC2::Volume::Id
-An Amazon EBS volume ID, such as vol-3cdd3f56.
+
+```json
+
+```
+
+<a name = "aws-params-list-volume-id"></a>
+##### List\<AWS::EC2::Volume::Id\>
+
+```json
+
+```
 
 <a name = "aws-params-vpc-id"></a>
 ##### AWS::EC2::VPC::Id
-A VPC ID, such as vpc-a123baa3.
+
+```json
+
+```
+
+<a name = "aws-params-list-vpc-id"></a>
+##### List\<AWS::EC2::VPC::Id\>
+
+```json
+
+```
 
 <a name = "aws-params-hosted-zone-id"></a>
 ##### AWS::Route53::HostedZone::Id
-An Amazon Route 53 hosted zone ID, such as Z23YXV4OVPL04A.
 
-##### List<AWS::EC2::AvailabilityZone::Name>
-An array of Availability Zones for a region, such as us-west-2a, us-west-2b.
+```json
 
-##### List<AWS::EC2::Image::Id>
-An array of Amazon EC2 image IDs, such as ami-0ff8a91507f77f867, ami-0a584ac55a7631c0c. Note that the AWS CloudFormation console doesn't show a drop-down list of values for this parameter type.
+````
 
-##### List<AWS::EC2::Instance::Id>
-An array of Amazon EC2 instance IDs, such as i-1e731a32, i-1e731a34.
+<a name = "aws-params-list-hosted-zone-id"></a>
+##### List\<AWS::Route53::HostedZone::Id\>
 
-##### List<AWS::EC2::SecurityGroup::GroupName>
-An array of EC2-Classic or default VPC security group names, such as my-sg-abc, my-sg-def.
+```json
 
-##### List<AWS::EC2::SecurityGroup::Id>
-An array of security group IDs, such as sg-a123fd85, sg-b456fd85.
-
-##### List<AWS::EC2::Subnet::Id>
-An array of subnet IDs, such as subnet-123a351e, subnet-456b351e.
-
-##### List<AWS::EC2::Volume::Id>
-An array of Amazon EBS volume IDs, such as vol-3cdd3f56, vol-4cdd3f56.
-
-#####List<AWS::EC2::VPC::Id>
-An array of VPC IDs, such as vpc-a123baa3, vpc-b456baa3.
-
-##### List<AWS::Route53::HostedZone::Id>
-An array of Amazon Route 53 hosted zone IDs, such as Z23YXV4OVPL04A, Z23YXV4OVPL04B.
+```
 
 ---
 

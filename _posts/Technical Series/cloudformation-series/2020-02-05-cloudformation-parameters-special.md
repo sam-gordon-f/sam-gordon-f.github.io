@@ -22,6 +22,7 @@ skill: intermediate
 
 Below are a list of special lookup params, and examples on where they're useful and can be used
 
+#### Special Parameters
 1. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)
 2. [List\<AWS::EC2::AvailabilityZone::Name\>](#aws-params-list-availability-zone-name)
 3. [AWS::EC2::Image::Id](#aws-params-image-id)
@@ -41,6 +42,7 @@ Below are a list of special lookup params, and examples on where they're useful 
 17. [List\<AWS::EC2::VPC::Id\>](#aws-params-list-vpc-id)
 18. [AWS::Route53::HostedZone::Id](#aws-params-hosted-zone-id)
 19. [List\<AWS::Route53::HostedZone::Id\>](#aws-params-list-hosted-zone-id)
+#### SSM Paramaters
 20. [SSM Parameters (systems manager)](#ssm-params)
 
 ---
@@ -401,23 +403,18 @@ Below are a list of special lookup params, and examples on where they're useful 
 <a name = "ssm-params"></a>
 #### SSM Parameters (systems manager)
 
-AWS::SSM::Parameter::Name
-The name of a Systems Manager parameter key.
+##### AWS::SSM::Parameter::Name
 
-Use this parameter when you want to pass the parameter key. For example, you can use this type to validate that the parameter exists.
+##### AWS::SSM::Parameter::Value<String>
 
-AWS::SSM::Parameter::Value<String>
-A Systems Manager parameter whose value is a string. This corresponds to the String parameter type in Parameter Store.
+##### AWS::SSM::Parameter::Value<List<String>> or AWS::SSM::Parameter::Value<CommaDelimitedList>
 
-AWS::SSM::Parameter::Value<List<String>> or AWS::SSM::Parameter::Value<CommaDelimitedList>
-A Systems Manager parameter whose value is a list of strings. This corresponds to the StringList parameter type in Parameter Store.
-
-AWS::SSM::Parameter::Value<AWS-specific parameter type>
+##### AWS::SSM::Parameter::Value<AWS-specific parameter type>
 A Systems Manager parameter whose value is an AWS-specific parameter type. For example, the following specifies the AWS::EC2::KeyPair::KeyName type:
 
-AWS::SSM::Parameter::Value<AWS::EC2::KeyPair::KeyPairName>
+##### AWS::SSM::Parameter::Value<AWS::EC2::KeyPair::KeyPairName>
 
-AWS::SSM::Parameter::Value<List<AWS-specific parameter type>>
+##### AWS::SSM::Parameter::Value<List<AWS-specific parameter type>>
 A Systems Manager parameter whose value is a list of AWS-specific parameter types. For example, the following specifies a list of AWS::EC2::KeyPair::KeyName types:
 
 AWS::SSM::Parameter::Value<List<AWS::EC2::KeyPair::KeyPairName>>

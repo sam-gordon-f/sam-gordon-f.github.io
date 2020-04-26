@@ -9,22 +9,6 @@ tags: [cloudformation, parameters, yml, json]
 skill: intermediate
 ---
 
-When using parameters with your template, you're effectively creating placeholders for a user / service to provide the details when an operation is performed (`createStack` / `updateStack`)
-
-1. [AWS Special Parameters](#aws-params)
-a. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)
-b. [AWS::EC2::Image::Id](#aws-params-image-id)
-c. [AWS::EC2::Instance::Id](#aws-params-instance-id)
-d. [AWS::EC2::KeyPair::KeyName](#aws-params-keypair-name)
-d. [AWS::EC2::SecurityGroup::GroupName](#aws-params-security-group-name)
-
-2. [SSM Parameters (systems manager)](#ssm-params)
-
----
-
-<a name = "aws-params"></a>
-#### AWS Special Parameters
-
 Below are a list of special lookup params, and examples on where they're useful and can be used
 
 <div class="card tip">
@@ -37,6 +21,15 @@ Below are a list of special lookup params, and examples on where they're useful 
     AWS special params may not be useful for when systems specify values, as they're more for user assistance and validation
   </div>
 </div>
+
+1. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)
+2. [AWS::EC2::Image::Id](#aws-params-image-id)
+3. [AWS::EC2::Instance::Id](#aws-params-instance-id)
+4. [AWS::EC2::KeyPair::KeyName](#aws-params-keypair-name)
+5. [AWS::EC2::SecurityGroup::GroupName](#aws-params-security-group-name)
+6. [SSM Parameters (systems manager)](#ssm-params)
+
+---
 
 <a name = "aws-params-availability-zone-name"></a>
 ##### AWS::EC2::AvailabilityZone::Name
@@ -131,13 +124,70 @@ Below are a list of special lookup params, and examples on where they're useful 
 ```
 
 ##### AWS::EC2::SecurityGroup::GroupName
-An EC2-Classic or default VPC security group name, such as my-sg-abc.
+
+```json
+{
+  "Parameters": {
+    "EC2SecurityGroupName": {
+      "Type": "AWS::EC2::SecurityGroup::GroupName"
+    }
+  },
+  "Resources": {
+    "EC2SecurityGroupIngress": {
+      "Type" : "AWS::EC2::SecurityGroupIngress",
+      "Properties" : {
+        "GroupName" : {
+          "Ref": "EC2SecurityGroupName"
+        }
+      }
+    }
+  }
+}
+```
 
 ##### AWS::EC2::SecurityGroup::Id
-A security group ID, such as sg-a123fd85.
+
+```json
+{
+  "Parameters": {
+    "EC2SecurityGroupId": {
+      "Type": "AWS::EC2::SecurityGroup::Id"
+    }
+  },
+  "Resources": {
+    "EC2SecurityGroupIngress": {
+      "Type" : "AWS::EC2::SecurityGroupIngress",
+      "Properties" : {
+        "GroupId" : {
+          "Ref": "EC2SecurityGroupId"
+        }
+      }
+    }
+  }
+}
+```
 
 ##### AWS::EC2::Subnet::Id
-A subnet ID, such as subnet-123a351e.
+
+```json
+{
+  "Parameters": {
+    "EC2SubnetId": {
+      "Type": "AWS::EC2::Subnet::Id"
+    }
+  },
+  "Resources": {
+    "EC2SubnetRouteTableAssociation": {
+      "Type" : "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties" : {
+        "SubnetId" : {
+          "Ref": "EC2SubnetId"
+        }
+      }
+    }
+  }
+}
+```
 
 ##### AWS::EC2::Volume::Id
 An Amazon EBS volume ID, such as vol-3cdd3f56.
@@ -200,8 +250,3 @@ AWS::SSM::Parameter::Value<List<AWS-specific parameter type>>
 A Systems Manager parameter whose value is a list of AWS-specific parameter types. For example, the following specifies a list of AWS::EC2::KeyPair::KeyName types:
 
 AWS::SSM::Parameter::Value<List<AWS::EC2::KeyPair::KeyPairName>>
-
----
-
-<a name = "secrets-manager-params"></a>
-#### Secrets Manager Parameters

@@ -368,6 +368,13 @@ Below are a list of special lookup params, and examples on where they're useful 
 
 SSM Parameters are interesting, because you're essentially providing a reference to a value thats stored inside the `parameter store` feature of systems manager. These are resolved at the time of the cloudformation operation (create / update)
 
+<div class="card tip">
+  <div class="card-body">
+    Macros and transforms can use these values, which can add a whole heap of creative solutions
+  </div>
+</div>
+
+
 For example I could have a parameter with the key
 
 ```

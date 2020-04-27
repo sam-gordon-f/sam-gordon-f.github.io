@@ -405,17 +405,15 @@ Below are a list of special lookup params, and examples on where they're useful 
 <a name = "ssm-params"></a>
 #### SSM Parameters (systems manager)
 
-##### AWS::SSM::Parameter::Name
+SSM Parameters are interesting, because you're essentially providing a reference to a value thats stored inside the parameter store feature of systems manager.
 
-##### AWS::SSM::Parameter::Value<String>
+For example I could have a parameter with the key
 
-##### AWS::SSM::Parameter::Value<List<String>> or AWS::SSM::Parameter::Value<CommaDelimitedList>
+```
+/development/applicationA/propertyN
+```
+which could contain a value of
 
-##### AWS::SSM::Parameter::Value<AWS-specific parameter type>
-
-##### AWS::SSM::Parameter::Value<AWS::EC2::KeyPair::KeyPairName>
-
-##### AWS::SSM::Parameter::Value<List<AWS-specific parameter type>>
-A Systems Manager parameter whose value is a list of AWS-specific parameter types. For example, the following specifies a list of AWS::EC2::KeyPair::KeyName types:
-
-AWS::SSM::Parameter::Value<List<AWS::EC2::KeyPair::KeyPairName>>
+```
+# "https://integrationServiceA.com"
+```

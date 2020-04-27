@@ -9,12 +9,28 @@ tags: [cloudformation, parameters, yml, json]
 skill: novice
 ---
 
-When using parameters with your template, you're effectively creating placeholders for a user / service to provide the details when an operation is performed (`createStack` / `updateStack`)
+When using parameters with your template, you're effectively creating placeholders for a user / service to provide the details when an operation is performed (`createStack` / `updateStack`).
 
-1. [Parameter Properties](#properties)
-2. [Parameter Types (basic)](#types)
-3. [Parameter Types (special types)]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-parameters-extended)
-4. [Dynamic reference (lookup values rather than supplying them)]({{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-parameters-dynamic)
+Below is a list of all the properties you can assign to these placeholders, and their different input types
+
+#### Parameter Properties
+1. [Type](#properties-type)
+2. [AllowedPattern](#properties-allowed-pattern)
+3. [MaxLength](#properties-max-length)
+4. [MinLength](#properties-min-length)
+5. [AllowedValues](#properties-allowed-values)
+6. [ConstraintDescription](#properties-constraint-description)
+7. [Default](#properties-default)
+8. [Description](#properties-description)
+9. [MaxValue](#properties-max-value)
+10. [MinValue](#properties-min-value)
+11. [NoEcho](#properties-no-echo)
+
+#### Parameter Types
+1. [String](#type-string)
+2. [Number](#type-number)
+3. [List](#type-list)
+4. [CommaDelimitedList](#type-comma-delimited-list)
 
 ---
 
@@ -44,7 +60,8 @@ The value must be a string (can be used for pretty much any basic input value. S
 }
 ```
 
-##### AllowedPattern (non-required)
+<a name = "properties-allowed-pattern"></a>
+##### AllowedPattern
 
 <div class="card tip">
   <div class="card-body">
@@ -70,6 +87,7 @@ The below tests for the string "test123"
 }
 ```
 
+<a name = "properties-max-length"></a>
 ##### MaxLength
 
 The max number of characters a user can specify. The below checks for a max of 7 characters
@@ -86,6 +104,7 @@ The max number of characters a user can specify. The below checks for a max of 7
 }
 ```
 
+<a name = "properties-min-length"></a>
 ##### MinLength
 
 The min number of characters a user can specify. The below checks for a min of 7 characters
@@ -103,7 +122,8 @@ The min number of characters a user can specify. The below checks for a min of 7
 }
 ```
 
-##### AllowedValues (non-required)
+<a name = "properties-allowed-values"></a>
+##### AllowedValues
 
 The below allows only the numbders [1,2,3,4,5] as inputs
 
@@ -118,7 +138,8 @@ The below allows only the numbders [1,2,3,4,5] as inputs
 }
 ```
 
-##### ConstraintDescription (non-required)
+<a name = "properties-constraint-description"></a>
+##### ConstraintDescription
 
 Used for custom error messages when an input violation occurs. The below presents a custom message that shows the user how to correctly enter a value
 
@@ -134,7 +155,8 @@ Used for custom error messages when an input violation occurs. The below present
 }
 ```
 
-##### Default (non-required)
+<a name = "properties-default"></a>
+##### Default
 
 If nothing supplied, use this value. The below gives a default of `1`
 
@@ -151,7 +173,8 @@ If nothing supplied, use this value. The below gives a default of `1`
 }
 ```
 
-##### Description (non-required)
+<a name = "properties-description"></a>
+##### Description
 
 A label to help the user understand what the input represents.
 
@@ -169,6 +192,7 @@ A label to help the user understand what the input represents.
 }
 ```
 
+<a name = "properties-max-value"></a>
 ##### MaxValue
 
 What is the `highest` number a user can specify. The below checks for inputs greater than 5
@@ -188,6 +212,7 @@ What is the `highest` number a user can specify. The below checks for inputs gre
 }
 ```
 
+<a name = "properties-min-value"></a>
 ##### MinValue
 
 What is the `lowest` number a user can specify. The below checks for inputs lower than 1
@@ -208,6 +233,7 @@ What is the `lowest` number a user can specify. The below checks for inputs lowe
 }
 ```
 
+<a name = "properties-no-echo"></a>
 ##### NoEcho
 
 A way to hide (mask ***** ) a value that has been provided. This prevents cloudformation from returning the value to the user via console/api/cli. Great for sensative information ! (not that its recommended you ever pass secrets via params in this fashion)
@@ -237,6 +263,7 @@ Below are the basic paramaters types ( See [Type](#properties-type) )
   </div>
 </div>
 
+<a name = "type-string"></a>
 ##### String
 
 ```
@@ -247,6 +274,7 @@ Below are the basic paramaters types ( See [Type](#properties-type) )
 "test123"
 ```
 
+<a name = "type-number"></a>
 ##### Number
 
 ```
@@ -257,6 +285,7 @@ Below are the basic paramaters types ( See [Type](#properties-type) )
 "123"
 ```
 
+<a name = "type-list"></a>
 ##### List<Number>
 ```
 # input value
@@ -266,6 +295,7 @@ Below are the basic paramaters types ( See [Type](#properties-type) )
 ["1", "2", "3"]
 ```
 
+<a name = "type-comma-delimited-list"></a>
 ##### CommaDelimitedList
 ```
 # input value

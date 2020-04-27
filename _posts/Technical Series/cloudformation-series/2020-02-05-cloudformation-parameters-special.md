@@ -44,7 +44,7 @@ Below are a list of special lookup params, and examples on where they're useful 
 19. [List\<AWS::Route53::HostedZone::Id\>](#aws-params-list-hosted-zone-id)
 
 #### SSM Paramaters
-
+  
 1. [SSM Parameters (systems manager)](#ssm-params)
 
 ---

@@ -7,18 +7,10 @@ author: samGordon
 short-description: Cloudformation Special lookup parameters
 tags: [cloudformation, parameters, yml, json]
 skill: intermediate
+tips:
+  - "AWS special params cannot be used for optional parameters"
+  - "AWS special params may not be useful for when systems specify values, as they're more for user assistance and validation"
 ---
-
-<div class="card tip">
-  <div class="card-body">
-    AWS special params cannot be used for optional parameters
-  </div>
-</div>
-<div class="card tip">
-  <div class="card-body">
-    AWS special params may not be useful for when systems specify values, as they're more for user assistance and validation
-  </div>
-</div>
 
 Below are a list of special lookup params, and examples on where they're useful and can be used
 
@@ -459,6 +451,6 @@ which cloudformation would resolve to the following
 
 <div class="card official-docs">
   <div class="card-body">
-    For a full list of supported data types, check <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types"> here
+    For a full list of supported data types, check <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types">here</a>
   </div>
 </div>

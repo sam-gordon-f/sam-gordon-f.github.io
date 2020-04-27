@@ -24,28 +24,19 @@ Below are a list of special lookup params, and examples on where they're useful 
 
 #### Special Parameters
 1. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)
-2. [List\<AWS::EC2::AvailabilityZone::Name\>](#aws-params-list-availability-zone-name)
 3. [AWS::EC2::Image::Id](#aws-params-image-id)
-4. [List\<AWS::EC2::Image::Id\>](#aws-params-list-image-id)
 5. [AWS::EC2::Instance::Id](#aws-params-instance-id)
-6. [List\<AWS::EC2::Instance::Id\>](#aws-params-list-instance-id)
 7. [AWS::EC2::KeyPair::KeyName](#aws-params-keypair-name)
 8. [AWS::EC2::SecurityGroup::GroupName](#aws-params-security-group-name)
-9. [List\<AWS::EC2::SecurityGroup::GroupName\>](#aws-params-list-security-group-name)
 10. [AWS::EC2::SecurityGroup::Id](#aws-params-security-group-id)
-11. [List\<AWS::EC2::SecurityGroup::Id\>](#aws-params-list-security-group-id)
 12. [AWS::EC2::Subnet::Id](#aws-params-subnet-id)
-13. [List\<AWS::EC2::Subnet::Id\>](#aws-params-list-subnet-id)
 14. [AWS::EC2::Volume::Id](#aws-params-volume-id)
-15. [List\<AWS::EC2::Volume::Id\>](#aws-params-list-volume-id)
 16. [AWS::EC2::VPC::Id](#aws-params-vpc-id)
-17. [List\<AWS::EC2::VPC::Id\>](#aws-params-list-vpc-id)
 18. [AWS::Route53::HostedZone::Id](#aws-params-hosted-zone-id)
-19. [List\<AWS::Route53::HostedZone::Id\>](#aws-params-list-hosted-zone-id)
 
 #### SSM Paramaters
   
-1. [SSM Parameters (systems manager)](#ssm-params)
+1. [Overview](#ssm-params)
 
 ---
 
@@ -57,6 +48,9 @@ Below are a list of special lookup params, and examples on where they're useful 
   "Parameters": {
     "EC2InstanceAvailabilityZone": {
       "Type": "AWS::EC2::AvailabilityZone::Name"
+    },
+    "ListEC2InstanceAvailabilityZone": {
+      "Type": "List<AWS::EC2::AvailabilityZone::Name>"
     }
   },
   "Resources": {
@@ -67,22 +61,7 @@ Below are a list of special lookup params, and examples on where they're useful 
           "Ref": "EC2InstanceAvailabilityZone"
         }
       }
-    }
-  }
-}
-```
-
-<a name = "aws-params-list-availability-zone-name"></a>
-##### List\<AWS::EC2::AvailabilityZone::Name\>
-
-```json
-{
-  "Parameters": {
-    "ListEC2InstanceAvailabilityZone": {
-      "Type": "List<AWS::EC2::AvailabilityZone::Name>"
-    }
-  },
-  "Resources": {
+    },
     "ElasticLoadBalancingLoadBalancer": {
       "Type" : "AWS::ElasticLoadBalancing::LoadBalancer",
       "Properties" : {
@@ -103,6 +82,9 @@ Below are a list of special lookup params, and examples on where they're useful 
   "Parameters": {
     "EC2ImageId": {
       "Type": "AWS::EC2::Image::Id"
+    },
+    "ListEC2ImageId": {
+      "Type": "List<AWS::EC2::Image::Id>"
     }
   },
   "Resources": {
@@ -113,22 +95,7 @@ Below are a list of special lookup params, and examples on where they're useful 
           "Ref": "EC2ImageId"
         }
       }
-    }
-  }
-}
-```
-
-<a name = "aws-params-list-image-id"></a>
-##### List\<AWS::EC2::Image::Id\>
-
-```json
-{
-  "Parameters": {
-    "ListEC2ImageId": {
-      "Type": "List<AWS::EC2::Image::Id>"
-    }
-  },
-  "Resources": {
+    },
     "ConfigConfigRule": {
       "Type" : "AWS::Config::ConfigRule",
       "Properties" : {
@@ -155,6 +122,9 @@ Below are a list of special lookup params, and examples on where they're useful 
   "Parameters": {
     "EC2InstanceId": {
       "Type": "AWS::EC2::Instance::Id"
+    },
+    "ListEC2InstanceId": {
+      "Type": "List<AWS::EC2::Instance::Id>"
     }
   },
   "Resources": {
@@ -165,16 +135,21 @@ Below are a list of special lookup params, and examples on where they're useful 
           "Ref": "EC2InstanceId"
         }
       }
+    },
+    "LambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties" : {
+        "Environment" : {
+          "Variables": {
+            "InstanceIds": {
+              "Ref": "ListEC2InstanceId"
+            }
+          }
+        }
+      }
     }
   }
 }
-```
-
-<a name = "aws-params-list-instance-id"></a>
-##### List\<AWS::EC2::Instance::Id\>
-
-```
-# No example provided
 ```
 
 <a name = "aws-params-keypair-name"></a>
@@ -208,26 +183,30 @@ Below are a list of special lookup params, and examples on where they're useful 
   "Parameters": {
     "EC2SecurityGroupName": {
       "Type": "AWS::EC2::SecurityGroup::GroupName"
+    },
+    "ListEC2SecurityGroupName": {
+      "Type": "List<AWS::EC2::SecurityGroup::GroupName>"
     }
   },
   "Resources": {
-    "EC2SecurityGroupIngress": {
+    "EC2SecurityGroupIngress1": {
       "Type" : "AWS::EC2::SecurityGroupIngress",
       "Properties" : {
         "GroupName" : {
           "Ref": "EC2SecurityGroupName"
         }
       }
+    },
+    "EC2SecurityGroupIngress2": {
+      "Type" : "AWS::EC2::SecurityGroupIngress",
+      "Properties" : {
+        "GroupName" : {
+          "Fn::Select": [2, "ListEC2SecurityGroupName"]
+        }
+      }
     }
   }
 }
-```
-
-<a name = "aws-params-list-security-group-name"></a>
-##### List\<AWS::EC2::SecurityGroup::GroupName\>
-
-```
-# no example provided
 ```
 
 <a name = "aws-params-security-group-id"></a>
@@ -238,26 +217,30 @@ Below are a list of special lookup params, and examples on where they're useful 
   "Parameters": {
     "EC2SecurityGroupId": {
       "Type": "AWS::EC2::SecurityGroup::Id"
+    },
+    "ListEC2SecurityGroupId": {
+      "Type": "List<AWS::EC2::SecurityGroup::Id>"
     }
   },
   "Resources": {
-    "EC2SecurityGroupIngress": {
+    "EC2SecurityGroupIngress1": {
       "Type" : "AWS::EC2::SecurityGroupIngress",
       "Properties" : {
         "GroupId" : {
           "Ref": "EC2SecurityGroupId"
         }
       }
+    },
+    "EC2SecurityGroupIngress2": {
+      "Type" : "AWS::EC2::SecurityGroupIngress",
+      "Properties" : {
+        "GroupName" : {
+          "Fn::Select": [1, "ListEC2SecurityGroupId"]
+        }
+      }
     }
   }
 }
-```
-
-<a name = "aws-params-list-security-group-id"></a>
-##### List\<AWS::EC2::SecurityGroup::Id\>
-
-```
-# no example provided
 ```
 
 <a name = "aws-params-subnet-id"></a>
@@ -268,6 +251,9 @@ Below are a list of special lookup params, and examples on where they're useful 
   "Parameters": {
     "EC2SubnetId": {
       "Type": "AWS::EC2::Subnet::Id"
+    },
+    "ListEC2SubnetId": {
+      "Type": "List<AWS::EC2::Subnet::Id>"
     }
   },
   "Resources": {
@@ -278,27 +264,12 @@ Below are a list of special lookup params, and examples on where they're useful 
           "Ref": "EC2SubnetId"
         }
       }
-    }
-  }
-}
-```
-
-<a name = "aws-params-list-subnet-id"></a>
-##### List\<AWS::EC2::Subnet::Id\>
-
-```json
-{
-  "Parameters": {
-    "ListEC2Subnet": {
-      "Type": "List<AWS::EC2::Subnet::Id>"
-    }
-  },
-  "Resources": {
+    },
     "ElasticLoadBalancingLoadBalancer": {
       "Type" : "AWS::ElasticLoadBalancing::LoadBalancer",
       "Properties" : {
         "Subnets" : {
-          "Ref": "ListEC2Subnet"
+          "Ref": "ListEC2SubnetId"
         }
       }
     }
@@ -314,6 +285,9 @@ Below are a list of special lookup params, and examples on where they're useful 
   "Parameters": {
     "EC2VolumeId": {
       "Type": "AWS::EC2::Volume::Id"
+    },
+    "ListEC2VolumeId": {
+      "Type": "List<AWS::EC2::Volume::Id>"
     }
   },
   "Resources": {
@@ -333,13 +307,6 @@ Below are a list of special lookup params, and examples on where they're useful 
 }
 ```
 
-<a name = "aws-params-list-volume-id"></a>
-##### List\<AWS::EC2::Volume::Id\>
-
-```
-# no example provided
-```
-
 <a name = "aws-params-vpc-id"></a>
 ##### AWS::EC2::VPC::Id
 
@@ -348,6 +315,9 @@ Below are a list of special lookup params, and examples on where they're useful 
   "Parameters": {
     "EC2VPCId": {
       "Type": "AWS::EC2::VPC::Id"
+    },
+    "ListEC2VPCId": {
+      "Type": "List<AWS::EC2::VPC::Id>"
     }
   },
   "Resources": {
@@ -363,13 +333,6 @@ Below are a list of special lookup params, and examples on where they're useful 
 }
 ```
 
-<a name = "aws-params-list-vpc-id"></a>
-##### List\<AWS::EC2::VPC::Id\>
-
-```
-# no example provided
-```
-
 <a name = "aws-params-hosted-zone-id"></a>
 ##### AWS::Route53::HostedZone::Id
 
@@ -378,6 +341,9 @@ Below are a list of special lookup params, and examples on where they're useful 
   "Parameters": {
     "Route53HostedZoneId": {
       "Type": "AWS::Route53::HostedZone::Id"
+    },
+    "ListRoute53HostedZoneId": {
+      "Type": "List<AWS::Route53::HostedZone::Id>"
     }
   },
   "Resources": {

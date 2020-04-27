@@ -119,7 +119,7 @@ Below are a list of special lookup params, and examples on where they're useful 
 ```
 
 <a name = "aws-params-list-image-id"></a>
-##### List<AWS::EC2::Image::Id>
+##### List\<AWS::EC2::Image::Id\>
 
 ```json
 {
@@ -412,7 +412,6 @@ Below are a list of special lookup params, and examples on where they're useful 
 ##### AWS::SSM::Parameter::Value<List<String>> or AWS::SSM::Parameter::Value<CommaDelimitedList>
 
 ##### AWS::SSM::Parameter::Value<AWS-specific parameter type>
-A Systems Manager parameter whose value is an AWS-specific parameter type. For example, the following specifies the AWS::EC2::KeyPair::KeyName type:
 
 ##### AWS::SSM::Parameter::Value<AWS::EC2::KeyPair::KeyPairName>
 

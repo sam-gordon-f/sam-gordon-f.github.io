@@ -38,7 +38,7 @@ Below are a list of special lookup params, and examples on where they're useful 
 
 #### SSM Paramaters
   
-1. [Overview](#ssm-params)
+1. [Overview and examples](#ssm-params)
 
 ---
 
@@ -456,3 +456,9 @@ which cloudformation would resolve to the following
   }
 }
 ```
+
+<div class="card official-docs">
+  <div class="card-body">
+    For a full list of supported data types, check <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types"> here
+  </div>
+</div>

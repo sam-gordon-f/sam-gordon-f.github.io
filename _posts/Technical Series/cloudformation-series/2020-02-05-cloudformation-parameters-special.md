@@ -34,7 +34,7 @@ Below are a list of special lookup params, and examples on where they're useful 
 16. [AWS::EC2::VPC::Id](#aws-params-vpc-id)<span style = "color:orange">* </span>
 18. [AWS::Route53::HostedZone::Id](#aws-params-hosted-zone-id)<span style = "color:orange">* </span>
 
-(<span style = "color:orange">* </span> list support)
+(<span style = "color:orange">* </span> has support `generic` lists `list<paramType>>`)
 
 #### SSM Paramaters
   

@@ -23,16 +23,18 @@ skill: intermediate
 Below are a list of special lookup params, and examples on where they're useful and can be used
 
 #### Special Parameters
-1. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)
-3. [AWS::EC2::Image::Id](#aws-params-image-id)
-5. [AWS::EC2::Instance::Id](#aws-params-instance-id)
+1. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)<span style = "color:orange">* </span>
+3. [AWS::EC2::Image::Id](#aws-params-image-id)<span style = "color:orange">* </span>
+5. [AWS::EC2::Instance::Id](#aws-params-instance-id)<span style = "color:orange">* </span>
 7. [AWS::EC2::KeyPair::KeyName](#aws-params-keypair-name)
-8. [AWS::EC2::SecurityGroup::GroupName](#aws-params-security-group-name)
-10. [AWS::EC2::SecurityGroup::Id](#aws-params-security-group-id)
-12. [AWS::EC2::Subnet::Id](#aws-params-subnet-id)
-14. [AWS::EC2::Volume::Id](#aws-params-volume-id)
-16. [AWS::EC2::VPC::Id](#aws-params-vpc-id)
-18. [AWS::Route53::HostedZone::Id](#aws-params-hosted-zone-id)
+8. [AWS::EC2::SecurityGroup::GroupName](#aws-params-security-group-name)<span style = "color:orange">* </span>
+10. [AWS::EC2::SecurityGroup::Id](#aws-params-security-group-id)<span style = "color:orange">* </span>
+12. [AWS::EC2::Subnet::Id](#aws-params-subnet-id)<span style = "color:orange">* </span>
+14. [AWS::EC2::Volume::Id](#aws-params-volume-id)<span style = "color:orange">* </span>
+16. [AWS::EC2::VPC::Id](#aws-params-vpc-id)<span style = "color:orange">* </span>
+18. [AWS::Route53::HostedZone::Id](#aws-params-hosted-zone-id)<span style = "color:orange">* </span>
+
+(<span style = "color:orange">* </span> list support)
 
 #### SSM Paramaters
   
@@ -358,13 +360,6 @@ Below are a list of special lookup params, and examples on where they're useful 
   }
 }
 ````
-
-<a name = "aws-params-list-hosted-zone-id"></a>
-##### List\<AWS::Route53::HostedZone::Id\>
-
-```
-# no example provided
-```
 
 ---
 

@@ -262,7 +262,10 @@ Resources:
 
 ---
 
-The below is logically how the pieces fit and reference each other 
+<a name = "diagram"></a>
+#### Logical pieces
+
+The below is logically how the pieces fit and reference each other
 
 <a href="{{ site.baseurl }}/assets/images/technical-series/cloudformation/custom-resources.svg" data-fancybox data-caption="cloudformation-custom-resources">
   <img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/custom-resources.svg" alt="drawing" style="width:100%;"/>

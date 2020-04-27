@@ -374,9 +374,13 @@ SSM Parameters are interesting, because you're essentially providing a reference
   </div>
 </div>
 
-For example I could have a parameter (type: `String`)<br>
-with the key: `/development/applicationA/propertyN`<br>
-with the value `https://integrationServiceA.com`<br>
+For example I could have a parameter with the following details stored
+
+- type: `String`
+- key: `/development/applicationA/propertyN`
+- value `https://integrationServiceA.com`
+
+<br>
 which can be referenced via
 
 ```json

@@ -366,7 +366,9 @@ Below are a list of special lookup params, and examples on where they're useful 
 <a name = "ssm-params"></a>
 #### SSM Parameters (systems manager)
 
-SSM Parameters are interesting, because you're essentially providing a reference to a value thats stored inside the `parameter store` feature of systems manager. These are resolved at the time of the cloudformation operation (create / update)
+SSM Parameters are interesting, because you're essentially providing a reference to a value thats stored inside the `parameter store` feature of systems manager. These are resolved at the time of the cloudformation operation (create / update).
+
+The data types of these params are very similar (almost identical) to the data types supported via cloudformation
 
 <div class="card tip">
   <div class="card-body">
@@ -374,11 +376,17 @@ SSM Parameters are interesting, because you're essentially providing a reference
   </div>
 </div>
 
-For example I could have a parameter with the following details stored
+For example I could have several parameters with the following details stored
 
+paramA<br>
 - type: `String`
-- key: `/development/applicationA/propertyN`
-- value `https://integrationServiceA.com`
+- key: `/development/applicationA/paramA`
+- value: `https://integrationServiceA.com`
+
+paramB<br>
+- type: `List<String>`
+- key: `/development/applicationA/paramB`
+- value: `abc,def,ghi`
 
 <br>
 which can be referenced via
@@ -386,9 +394,13 @@ which can be referenced via
 ```json
 {
   "Parameters": {
-    "SSMParameter": {
+    "SSMParameterA": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/development/applicationA/propertyA"
+    },
+    "SSMParameterB": {
       "Type": "AWS::SSM::Parameter::Value<List<String>>",
-      "Default": "/development/applicationA/propertyN"
+      "Default": "/development/applicationA/propertyB"
     }
   },
   "Resources": {
@@ -397,7 +409,10 @@ which can be referenced via
       "Properties": {
         "Environment": {
           "Variables": {
-            "propertyN": {
+            "propertyA": {
+              "Ref": "SSMParameter"
+            },
+            "propertyB": {
               "Ref": "SSMParameter"
             }
           }
@@ -406,5 +421,38 @@ which can be referenced via
     }
   }
 }
+```
 
+which cloudformation would resolve to the following
+
+```json
+{
+  "Parameters": {
+    "SSMParameterA": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/development/applicationA/propertyA"
+    },
+    "SSMParameterB": {
+      "Type": "AWS::SSM::Parameter::Value<List<String>>",
+      "Default": "/development/applicationA/propertyB"
+    }
+  },
+  "Resources": {
+    "LambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Environment": {
+          "Variables": {
+            "propertyA": "https://integrationServiceA.com",
+            "propertyB": [
+              "abc",
+              "def",
+              "ghi"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
 ```

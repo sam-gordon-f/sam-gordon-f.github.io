@@ -366,15 +366,44 @@ Below are a list of special lookup params, and examples on where they're useful 
 <a name = "ssm-params"></a>
 #### SSM Parameters (systems manager)
 
-SSM Parameters are interesting, because you're essentially providing a reference to a value thats stored inside the parameter store feature of systems manager.
+SSM Parameters are interesting, because you're essentially providing a reference to a value thats stored inside the `parameter store` feature of systems manager. These are resolved at the time of the cloudformation operation (create / update)
 
 For example I could have a parameter with the key
 
 ```
 /development/applicationA/propertyN
 ```
+
 which could contain a value of
 
 ```
 # "https://integrationServiceA.com"
+```
+
+you can then reference using the following
+
+```json
+{
+  "Parameters": {
+    "SSMParameter": {
+      "Type": "AWS::SSM::Parameter::Value<List<String>>",
+      "Default": "/development/applicationA/propertyN"
+    }
+  },
+  "Resources": {
+    "LambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Environment": {
+          "Variables": {
+            "propertyN": {
+              "Ref": "SSMParameter"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 ```

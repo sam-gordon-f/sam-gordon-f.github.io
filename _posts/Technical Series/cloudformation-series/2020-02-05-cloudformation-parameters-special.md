@@ -34,7 +34,7 @@ Below are a list of special lookup params, and examples on where they're useful 
 16. [AWS::EC2::VPC::Id](#aws-params-vpc-id)<span style = "color:orange">* </span>
 18. [AWS::Route53::HostedZone::Id](#aws-params-hosted-zone-id)<span style = "color:orange">* </span>
 
-(<span style = "color:orange">* </span> has support `generic` lists `list<paramType>>`)
+(<span style = "color:orange">* </span> has support for generic lists `list<paramType>>`)
 
 #### SSM Paramaters
   
@@ -374,20 +374,10 @@ SSM Parameters are interesting, because you're essentially providing a reference
   </div>
 </div>
 
-
-For example I could have a parameter with the key
-
-```
-/development/applicationA/propertyN
-```
-
-which could contain a value of
-
-```
-# "https://integrationServiceA.com"
-```
-
-you can then reference using the following
+For example I could have a parameter (type: `String`)<br>
+with the key: `/development/applicationA/propertyN`<br>
+with the value `https://integrationServiceA.com`<br>
+which can be referenced via
 
 ```json
 {

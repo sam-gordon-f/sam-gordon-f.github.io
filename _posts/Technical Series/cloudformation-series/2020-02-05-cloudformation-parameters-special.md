@@ -368,7 +368,7 @@ The data types of these params are very similar (almost identical) to the data t
   </div>
 </div>
 
-For example I could have two parameters defined with the following
+For example I could have two parameters defined by the following
 
 ```json
 {
@@ -393,7 +393,6 @@ For example I could have two parameters defined with the following
 }
 ```
 
-<br>
 which can be referenced in another template/stack via
 
 ```json
@@ -428,7 +427,7 @@ which can be referenced in another template/stack via
 }
 ```
 
-which cloudformation would resolve to the following
+which cloudformation would resolve to the following during an operation (create/update)
 
 ```json
 {
@@ -464,6 +463,6 @@ which cloudformation would resolve to the following
 
 <div class="card official-docs">
   <div class="card-body">
-    For a full list of supported data types, check <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types">here</a>
+    For a full list of supported SSM data types, check <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types">here</a>
   </div>
 </div>

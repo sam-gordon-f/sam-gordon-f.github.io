@@ -368,24 +368,33 @@ The data types of these params are very similar (almost identical) to the data t
   </div>
 </div>
 
-For example I could have several parameters with the following details stored
+For example I could have two parameters defined with the following
 
-```
-#paramA
-type = `String`
-key = `/development/applicationA/paramA`
-value = `https://integrationServiceA.com`
-```
-
-```
-#paramB
-type = `List<String>`
-key = `/development/applicationA/paramB`
-value = `abc,def,ghi`
+```json
+{
+  "Resources": {
+    "paramA": {
+      "Type": "AWS::SSM::Parameter",
+      "Properties": {
+        "Name": "/development/applicationA/paramA",
+        "Type": "String",
+        "Value": "https://integrationServiceA.com"
+      }
+    },
+    "paramB": {
+      "Type": "AWS::SSM::Parameter",
+      "Properties": {
+        "Name": "/development/applicationA/paramB",
+        "Type": "StringList",
+        "Value": "abc,def,ghi"
+      }
+    }
+  }
+}
 ```
 
 <br>
-which can be referenced via
+which can be referenced in another template/stack via
 
 ```json
 {

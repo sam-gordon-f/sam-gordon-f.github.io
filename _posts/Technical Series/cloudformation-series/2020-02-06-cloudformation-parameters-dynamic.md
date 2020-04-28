@@ -48,7 +48,7 @@ then i can use `resolves` instead to look them up.
       "Properties": {
         "Environment": {
           "Variables": {
-            "propertyA": "{{resolve:paramA:1}}"
+            "propertyA": "\{\{resolve:paramA:1\}\}"
           }
         }
       }

@@ -5,12 +5,12 @@
     - category: cloudformation-series
     - category: lambda-series
     - category: vpc-series
-
-- category: conceptual-series
-  children:
     - category: iam-series
     - category: dns-series
     - category: kms-series
+
+- category: examples
+  children:
 
 - category: social-series
   children:

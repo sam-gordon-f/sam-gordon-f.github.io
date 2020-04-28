@@ -16,8 +16,8 @@ Dynamic Resolves are a way of having cloudformation `lookup` values when your te
 
 The source (service) for the value can currently be from
 
-> ssm: Systems Manager Parameter Store plaintext parameter.
-> ssm-secure: Systems Manager Parameter Store secure string parameter.
+> ssm: Systems Manager Parameter Store plaintext parameter.<br>
+> ssm-secure: Systems Manager Parameter Store secure string parameter.<br>
 > secretsmanager: AWS Secrets Manager secret.
 
 For example, if i have the following ssm parameter defined (similar to the previous example)

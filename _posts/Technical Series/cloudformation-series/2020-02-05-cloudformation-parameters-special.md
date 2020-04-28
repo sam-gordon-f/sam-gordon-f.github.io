@@ -370,15 +370,19 @@ The data types of these params are very similar (almost identical) to the data t
 
 For example I could have several parameters with the following details stored
 
-paramA<br>
-- type: `String`
-- key: `/development/applicationA/paramA`
-- value: `https://integrationServiceA.com`
+```
+#paramA
+type = `String`
+key = `/development/applicationA/paramA`
+value = `https://integrationServiceA.com`
+```
 
-paramB<br>
-- type: `List<String>`
-- key: `/development/applicationA/paramB`
-- value: `abc,def,ghi`
+```
+#paramB
+type = `List<String>`
+key = `/development/applicationA/paramB`
+value = `abc,def,ghi`
+```
 
 <br>
 which can be referenced via

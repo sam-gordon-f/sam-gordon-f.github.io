@@ -1,0 +1,9 @@
+---
+layout: category
+category: examples
+title: Examples
+---
+
+{% for post in site.categories.examples reversed %}
+  {% include post-card.html %}
+{% endfor %}

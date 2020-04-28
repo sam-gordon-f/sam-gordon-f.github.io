@@ -7,10 +7,10 @@ technical-series:
   link: /technical-series
   image:
 
-conceptual-series:
-  name: Conceptual Series
-  description: Conceptual posts with rundowns / media
-  link: /conceptual-series
+examples:
+  name: Examples
+  description: Examples of Solutions to problems
+  link: /examples
   image:
 
 social-series:

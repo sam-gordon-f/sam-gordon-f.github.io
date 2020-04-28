@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Examples - Non Supported Resource
-date: 2020-02-21 08:44:38
+date: 2020-09-02 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: create / reference an identity provider in cloudformation

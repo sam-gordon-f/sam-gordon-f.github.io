@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Examples - Non Supported Resource
+title: Cloudformation Non Supported Resource
 date: 2020-09-02 08:44:38
-category: [technical-series, cloudformation-series]
+category: [examples]
 author: samGordon
 short-description: create / reference an identity provider in cloudformation
 tags: [cloudformation, lambda, macro]

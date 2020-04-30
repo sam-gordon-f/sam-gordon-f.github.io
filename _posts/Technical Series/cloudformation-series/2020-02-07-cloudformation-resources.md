@@ -11,13 +11,15 @@ docs:
 skill: novice
 ---
 
-Every resource inside your cloudformation templates / stacks is structured with the below
+Every resource inside your cloudformation templates / stacks supports and in some cases, requires the following directives
 
 1. [Type](#type)
 2. [Properties](#properties)
-3. [Retention Policies](#retention-policies)
-4. [Conditions](#conditions)
-5. [DependsOn](#depends-on)
+3. [Retention Policies](#retention-policies) <span style = "color:orange">* </span>
+4. [Conditions](#conditions) <span style = "color:orange">* </span>
+5. [DependsOn](#depends-on) <span style = "color:orange">* </span>
+
+<span style = "color:orange">* optional</span>
 
 ---
 
@@ -41,6 +43,7 @@ Refer to the docs above as your bible for what properties are supported against 
 #### Retention Policies
 
 These are directives for what to do when certain operations are executed on a stack.
+
 For example- The below keeps an S3 bucket if a `stackDelete` operation is run
 
 ```json

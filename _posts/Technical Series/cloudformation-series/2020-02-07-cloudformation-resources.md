@@ -19,7 +19,7 @@ Every resource inside your cloudformation templates / stacks supports and in som
 4. [Conditions](#conditions) <span style = "color:orange">* </span>
 5. [DependsOn](#depends-on) <span style = "color:orange">* </span>
 
-<span style = "color:orange">* optional</span>
+<span style = "color:orange">* </span> optional 
 
 ---
 
@@ -106,6 +106,8 @@ For example- The below only creates a bucket if `param1` == true
 ```
 
 This allows you to create stacks that dynamically create based on user input.
+
+---
 
 <a name = "depends-on"></a>
 #### DependsOn

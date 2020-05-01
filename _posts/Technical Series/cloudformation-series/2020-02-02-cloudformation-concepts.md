@@ -58,9 +58,14 @@ The service will attempt to revert to the `previous known state`. This is one of
 
 ---
 
-<a name = "diagram"></a>
-The below shows how each template can be instantiated as a stack, and then in turn, those stacks contain resources
 <br>
+<a name = "diagram"></a>
+
+The below diagram shows the below cardinality
+
+- Each template can creates one stack (with potentially nested children stacks)
+- Each stack contains one or more resources
+- Each stack can have many changesets lined up
 
 <a href="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts.svg" data-fancybox data-caption="cloudformation-concepts">
 	<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts.svg" alt="drawing" style="width:100%;"/>

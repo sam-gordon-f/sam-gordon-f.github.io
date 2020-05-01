@@ -15,7 +15,7 @@ In the below example. These are the areas that make up a solution
 
 1. [Initial](#initial)
 2. [Template (typescript)](#template)
-3. [Conversion](#conversion)
+3. [Conversion / Deployment](#conversion-deployment)
 4. [Result](#result)
 
 ---
@@ -72,8 +72,10 @@ new CloudformationDslCdkStack(app, 'CloudformationDslCdkStack');
 app.run();
 ```
 
-<a name = "conversion"></a>
-#### Conversion
+---
+
+<a name = "conversion-deployment"></a>
+#### Conversion / Deployment
 
 From the directory you create your rake file, run the below
 

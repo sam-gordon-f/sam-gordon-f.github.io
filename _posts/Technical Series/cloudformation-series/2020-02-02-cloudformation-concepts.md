@@ -13,17 +13,22 @@ skill: beginner
 
 The Major concepts are fairly straight forward, and they follow the model / actions below
 
-1. [Actions](#actions)
-2. [Diagram](#diagram)
+1. [Write Templates](#write-template)
+2. [Run Create](#create)
+3. [Wait and run next operation](#wait)
+4. [Error](#next-operation)
+
+[Diagram](#diagram)
 
 ---
 
-<a name = "actions"></a>
+<a name = "write-template"></a>
 ##### 1) Write Cloudformation templates
 
 These reflect the desired state of your infrastructure, and can be written in JSON / YML, or any number of DSLs (domain specific language)
   
 <br>
+<a name = "create"></a>
 ##### 2) Execute `createStack` action alongside your template
 
 This gives Cloudformation the command to create a stack to house the resources reflected in your template
@@ -35,6 +40,7 @@ This gives Cloudformation the command to create a stack to house the resources r
 </div>
 <br>
   
+<a name = "wait"></a>
 ##### 3) After your stack stabilises
 
 All of your infrastructure will have been created. Moving forwards, the following `operations` can be undertaken
@@ -45,15 +51,17 @@ All of your infrastructure will have been created. Moving forwards, the followin
   > d. `executeChangeSet`, which will attempt to update the stack, much like the `updateStack` operation
 
 <br>
+<a name = "error"></a>
 ##### 4) If an issue occurs with any of the above steps
 
 The service will attempt to revert to the `previous known state`. This is one of the key reasons why the service is so powerful !
 
 ---
 
-The below shows how each template can be instantiated as a stack, and then in turn, those stacks contain resources
-
 <a name = "diagram"></a>
+The below shows how each template can be instantiated as a stack, and then in turn, those stacks contain resources
+<br>
+
 <a href="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts.svg" data-fancybox data-caption="cloudformation-concepts">
 	<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts.svg" alt="drawing" style="width:100%;"/>
 </a>

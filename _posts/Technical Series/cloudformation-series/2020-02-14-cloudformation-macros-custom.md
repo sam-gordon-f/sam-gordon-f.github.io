@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Macro - Custom
-date: 2020-02-13 08:44:38
+date: 2020-02-14 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Custom Macros for Cloudformation templates

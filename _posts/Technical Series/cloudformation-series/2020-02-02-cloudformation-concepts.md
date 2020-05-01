@@ -13,12 +13,14 @@ skill: beginner
 
 The Major concepts are fairly straight forward, and they follow the model / actions below
 
+##### Typical lifecycle
+
 1. [Write Templates](#write-template)
 2. [Run Create](#create)
 3. [Wait and run next operation](#wait)
 4. [Error](#next-operation)
 
-[Diagram](#diagram)
+[Diagram of cardinality](#diagram)
 
 ---
 
@@ -55,7 +57,6 @@ All of your infrastructure will have been created. Moving forwards, the followin
 ##### 4) If an issue occurs with any of the above steps
 
 The service will attempt to revert to the `previous known state`. This is one of the key reasons why the service is so powerful !
-
 <br>
 
 ---
@@ -65,7 +66,7 @@ The below diagram shows the below cardinality
 
 - Each template can creates one stack (with potentially nested children stacks)
 - Each stack contains one or more resources
-- Each stack can have many changesets lined up
+- Each stack can have zero or many changesets
 
 <a href="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts.svg" data-fancybox data-caption="cloudformation-concepts">
 	<img src="{{ site.baseurl }}/assets/images/technical-series/cloudformation/concepts.svg" alt="drawing" style="width:100%;"/>

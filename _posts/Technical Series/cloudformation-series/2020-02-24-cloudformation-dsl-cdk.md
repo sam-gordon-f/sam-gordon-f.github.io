@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "DSL - CDK"
-date: 2020-02-23 08:44:38
+date: 2020-02-24 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
-short-description: model your templates in AWS supported languages
+short-description: model your templates in an AWS supported DSL (domain-specific language)
 tags: [cloudformation, cdk]
 skill: proficient
 ---

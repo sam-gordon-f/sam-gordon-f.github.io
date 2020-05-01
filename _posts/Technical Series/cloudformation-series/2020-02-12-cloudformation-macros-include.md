@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Macro - Include
-date: 2020-02-11 08:44:38
+date: 2020-02-12 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: S3 File Inclusions for Cloudformation templates

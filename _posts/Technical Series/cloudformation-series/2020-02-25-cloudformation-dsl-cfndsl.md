@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "DSL - CFNDSL"
-date: 2020-02-23 08:44:38
+date: 2020-02-25 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
-short-description: model your templates in a ruby DSL
+short-description: model your templates in a ruby DSL (domain-specific language)
 tags: [cloudformation, parameters, ruby, json, dsl]
 skill: proficient
 ---

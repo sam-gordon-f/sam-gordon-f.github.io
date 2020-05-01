@@ -13,16 +13,34 @@ Templates can be generated using a range of different languages. One such aws su
 
 In the below example. These are the areas that make up a solution
 
-1. [Template (typescript)](#template)
-2. [Conversion](#conversion)
-3. [Result](#result)
+1. [Initial](#initial)
+2. [Template (typescript)](#template)
+3. [Conversion](#conversion)
+4. [Result](#result)
+
+---
+
+<a name = "initial"></a>
+#### Initial
+
+You'll need to install the framework. Refer to <a href = "https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html">this</a> for pre-reqs
+
+```
+# install
+npm install -g aws-cdk
+
+# init project (typescript)
+cdk init --language typescript
+```
 
 ---
 
 <a name = "template"></a>
 #### Template
 
-The below creates an S3::Bucket, and an IAM role/policies that would grant a lambda function assuming access
+Location :: `<<folderName>>/bin/<<projectName>>.ts`
+
+The below sample creates an S3::Bucket, and an IAM role/policies that would grant a lambda function assuming access
 
 ```typescript
 #!/usr/bin/env node
@@ -60,11 +78,6 @@ app.run();
 From the directory you create your rake file, run the below
 
 ```
-# create a cdk app
-cdk init app --language=typescript
-
-# edit /bin/<<foldername>>.ts with the code above
-
 # convert typescript to js
 npm run build
 

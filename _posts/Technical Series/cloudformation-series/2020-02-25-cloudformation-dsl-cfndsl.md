@@ -127,7 +127,7 @@ namespace :template do
           extras
         ).to_json
 
-        cf_template_new = File.new("#{((File.basename(f).gsub! 'rb', 'json'))}", 'w')
+        cf_template_new = File.new("#{ENV['projectPath']}/#{((File.basename(f).gsub! 'rb', 'json'))}", 'w')
         cf_template_new.puts(json)
         cf_template_new.close
 
@@ -145,8 +145,13 @@ end
 <a name = "usage"></a>
 #### Usage
 
+From the directory you create your rake file, run the below
+
 ```
+# default
 rake template:convert
+# specifying directory where templates could reside
+rake template:convert projectPath="/somedirectory"
 ```
 
 ---
@@ -154,7 +159,7 @@ rake template:convert
 <a name = "result"></a>
 #### Result
 
-Sample output from the above steps
+Sample output from the above template / config
 
 ```json
 {

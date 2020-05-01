@@ -27,7 +27,7 @@ namespace :template do
           extras
         ).to_json
 
-        cf_template_new = File.new("#{((File.basename(f).gsub! 'rb', 'json'))}", 'w')
+        cf_template_new = File.new("#{ENV['projectPath']}/#{((File.basename(f).gsub! 'rb', 'json'))}", 'w')
         cf_template_new.puts(json)
         cf_template_new.close
 

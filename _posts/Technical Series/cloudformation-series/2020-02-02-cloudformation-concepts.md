@@ -56,11 +56,11 @@ All of your infrastructure will have been created. Moving forwards, the followin
 
 The service will attempt to revert to the `previous known state`. This is one of the key reasons why the service is so powerful !
 
+<br>
+
 ---
 
-<br>
 <a name = "diagram"></a>
-
 The below diagram shows the below cardinality
 
 - Each template can creates one stack (with potentially nested children stacks)

@@ -16,7 +16,8 @@ In the below example. These are the areas that make up a solution
 1. [Template](#template)
 2. [Config](#config)
 3. [Conversion](#conversion)
-4. [Result](#result)
+4. [Usage](#usage)
+5. [Result](#result)
 
 ---
 
@@ -97,7 +98,55 @@ bucket_count: 3
 Sample ruby rake file to merge some config, and convert the result to json
 
 ```ruby
+require 'json'
+require 'json-schema'
+require 'cfndsl'
 
+  # default project path to check
+if ENV['projectPath'] == '' || ENV['projectPath'].nil?
+  ENV['projectPath'] = './'
+end
+
+namespace :template do
+  desc('convert cfndsl cloudformation template to json')
+  task :convert do
+    begin
+      files = []
+      Dir["#{ENV['projectPath']}/*.rb"].each do |template|
+        files << template.to_s
+      end
+
+      extras = []
+      Dir["#{ENV['projectPath']}/*.yml"].each do |extraConfigFile|
+        extras << [:yaml, extraConfigFile]
+      end
+
+      files.each do |f|
+        json = CfnDsl.eval_file_with_extras(
+          f,
+          extras
+        ).to_json
+
+        cf_template_new = File.new("#{((File.basename(f).gsub! 'rb', 'json'))}", 'w')
+        cf_template_new.puts(json)
+        cf_template_new.close
+
+        puts "converted #{f} to json"
+      end
+    rescue Exception => e
+      abort "error: #{e}"
+    end
+  end
+end
+```
+
+---
+
+<a name = "usage"></a>
+#### Usage
+
+```
+rake template:convert
 ```
 
 ---

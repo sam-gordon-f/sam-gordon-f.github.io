@@ -1,0 +1,3 @@
+{
+    "app": "node bin/cloudformation-dsl-cdk.js"
+}

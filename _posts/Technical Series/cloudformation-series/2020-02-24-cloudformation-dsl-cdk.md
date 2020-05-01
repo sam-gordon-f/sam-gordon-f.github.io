@@ -1,138 +1,173 @@
 ---
 layout: post
-title: "Validation - json-schema"
+title: "DSL - CDK"
 date: 2020-02-23 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
-short-description: Resources contained within a cloudformation template/stack
-tags: [cloudformation, parameters, yml, json]
-skill: intermediate
+short-description: model your templates in AWS supported languages
+tags: [cloudformation, cdk]
+skill: proficient
 ---
 
-You can use JSON schemas to perform validation on your cloudformation templates. This provides a `templated` method for checking business logic conformity
+Templates can be generated using a range of different languages. One such aws supported project is cdk
 
-In the below example. There are three components
+In the below example. These are the areas that make up a solution
 
-1. [JSON Schema for S3 Bucket](#json-schema)
-2. [Cloudformation Template](#cloudformation)
-3. [Sample code to validate (ruby)](#ruby-validate)
-  a. [Gemfile](#ruby-validate-gemfile)
-  b. [Rakefile](#ruby-validate-rakefile)
-  c. [Usage](#ruby-validate-usage)
+1. [Template (typescript)](#template)
+2. [Conversion](#conversion)
+3. [Result](#result)
 
 ---
 
-<a name = "json-schema"></a>
-#### json-schema (AWS::S3::Bucket)
+<a name = "template"></a>
+#### Template
 
-More information about json-schemas <a href = \"https://json-schema.org/\">here</a>
+The below creates an S3::Bucket, and an IAM role/policies that would grant a lambda function assuming access
 
-```json
-{
-  "description": "AWS::S3::Bucket Schema",
-  "type": "object",
-  "properties": {
-    "Type": {
-      "type": "string"
-    },
-    "Properties": {
-      "type": "object",
-      "properties": {
-        "AccessControl": {
-          "type": "string",
-          "enum": ["Private", "LogDeliveryWrite"]
-        }
-      },
-      "required": [
-        "AccessControl"
-      ]
-    }
+```typescript
+#!/usr/bin/env node
+import s3 = require('@aws-cdk/aws-s3');
+import iam = require('@aws-cdk/aws-iam');
+import cdk = require('@aws-cdk/cdk');
+
+class CloudformationDslCdkStack extends cdk.Stack {
+  constructor(parent: cdk.App, name: string, props?: cdk.StackProps) {
+    super(parent, name, props);
+
+    const s3Bucket = new s3.Bucket(this, 'S3Bucket', {});
+
+    const iamRole = new iam.Role(this, 'IAMRole', {
+      assumedBy: new iam.ServicePrincipal('lambda.amazonaws.com')
+    });
+    
+    iamRole.addToPolicy(new iam.PolicyStatement()
+          .addResource(s3Bucket.arnForObjects('*'))
+          .addResource(s3Bucket.bucketArn)
+          .addActions('s3:*'));
   }
 }
+
+const app = new cdk.App();
+
+new CloudformationDslCdkStack(app, 'CloudformationDslCdkStack');
+
+app.run();
+```
+
+<a name = "conversion"></a>
+#### Conversion
+
+From the directory you create your rake file, run the below
+
+```
+# create a cdk app
+cdk init app --language=typescript
+
+# edit /bin/<<foldername>>.ts with the code above
+
+# convert typescript to js
+npm run build
+
+# convert js to yml
+cdk synth
+
+# convert js to json
+cdk synth -j
+
+# deploy
+cdk deploy
+
+# check changes locally with remote stack
+cdk diff
 ```
 
 ---
 
-<a name = "cloudformation"></a>
-#### Template1 (cloudformation template to validate)
+<a name = "result"></a>
+#### Result
+
+Sample output from the above template / config
 
 ```json
 {
   "Resources": {
-    "S3Bucket": {
+    "S3Bucket07682993": {
       "Type": "AWS::S3::Bucket",
+      "Metadata": {
+        "aws:cdk:path": "CloudformationDslCdkStack/S3Bucket/Resource"
+      }
+    },
+    "IAMRole24D9329E": {
+      "Type": "AWS::IAM::Role",
       "Properties": {
-        "AccessControl": "Private"
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "CloudformationDslCdkStack/IAMRole/Resource"
+      }
+    },
+    "IAMRoleDefaultPolicy0600C170": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:*",
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "S3Bucket07682993",
+                          "Arn"
+                        ]
+                      },
+                      "/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::GetAtt": [
+                    "S3Bucket07682993",
+                    "Arn"
+                  ]
+                }
+              ]
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "IAMRoleDefaultPolicy0600C170",
+        "Roles": [
+          {
+            "Ref": "IAMRole24D9329E"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "CloudformationDslCdkStack/IAMRole/DefaultPolicy/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Modules": "@aws-cdk/aws-codepipeline-api=0.18.1,@aws-cdk/aws-events=0.18.1,@aws-cdk/aws-iam=0.18.1,@aws-cdk/aws-kms=0.18.1,@aws-cdk/aws-s3=0.18.1,@aws-cdk/aws-s3-notifications=0.18.1,@aws-cdk/cdk=0.18.1,@aws-cdk/cx-api=0.18.1,cloudformation-dsl-cdk=0.1.0"
       }
     }
   }
 }
-```
-
----
-
-<a name = "ruby-validate"></a>
-#### Sample Ruby project to check
-
-<a name = "ruby-validate-gemfile"></a>
-##### Gemfile
-```ruby
-gem 'json-schema'
-```
-
-<a name = "ruby-validate-rakefile"></a>
-##### Rakefile
-```ruby
-require 'json'
-require 'json-schema'
-require 'aws-sdk-cloudformation'
-
-  # default folder for where your schemas reside
-if ENV['schemaPath'] == '' || ENV['schemaPath'].nil?
-  ENV['schemaPath'] = './schemas'
-end
-
-  # default project path to check
-if ENV['projectPath'] == '' || ENV['projectPath'].nil?
-  ENV['projectPath'] = './'
-end
-
-namespace :template do
-  desc('validate cloudformation template against schemas')
-  task validate: do
-    begin
-        # iterate over all files in directory
-      Dir["#{ENV['projectPath']}/*.json"].each do |f|
-
-          # parse template into map object
-        cf_template = JSON.parse(File.read(f))
-          # iterate over resources
-        cf_template['Resources'].each do |cf_obj|
-          next unless File.file?("#{ENV['schemaPath']}/#{cf_obj[1]['Type']}.json")
-          begin
-              # run json validator
-            JSON::Validator.validate!(File.read("#{ENV['schemaPath']}/#{cf_obj[1]['Type']}.json"), cf_obj[1])
-            puts "#{cf_obj[1]['Type']}: valid"
-
-              # if validation fails
-          rescue JSON::Schema::ValidationError => e
-            message = "#{cf_obj[1]['Type']}: invalid #{e}"
-            abort message
-          end
-        end
-        puts "#{f}: valid"
-      end
-
-      # general exception
-    rescue Exception => e
-      abort "general error: #{e}"
-    end
-  end
-end
-```
-
-<a name = "ruby-validate-usage"></a>
-##### Usage
-```shell
-Rake template:validate
 ```

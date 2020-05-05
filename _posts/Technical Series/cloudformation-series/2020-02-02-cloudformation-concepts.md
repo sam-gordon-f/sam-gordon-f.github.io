@@ -14,10 +14,10 @@ skill: beginner
 The Major concepts are fairly straight forward, and they follow the model / actions below
 
 ##### Typical lifecycle
-
+---
 1. [Write Templates](#write-template)
 2. [Create Stacks](#create)
-3. [Perform next operation](#next)
+3. [Next Steps](#next)
 4. [Error](#next-operation)
 
 [Diagram of cardinality](#diagram)
@@ -43,9 +43,9 @@ This gives Cloudformation the command to create a stack to house the resources r
 <br>
   
 <a name = "next"></a>
-##### 3) After your stack stabilises
+##### 3) Next Steps
 
-All of your infrastructure will have been created. Moving forwards, the following `operations` can be undertaken
+After the stack(s) stabilizes, all of your infrastructure will have been created. Moving forwards, the following `operations` can be undertaken
 
   > a. `deleteStack`, which will attempt to remove all resources<br>
   > b. `updateStack`, which will take an updated template and attempt to update all resources to match the new changes<br>

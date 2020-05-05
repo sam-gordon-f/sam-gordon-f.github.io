@@ -14,7 +14,7 @@ docs:
 The Major components are fairly straight forward, and they follow the basics / image below
 
 ##### Typical Lifecycle
-
+---
 1. [Anaylse Scenario](#analyse)
 2. [Create Function](#create)
 3. [Test / Tweak](#test-tweak)
@@ -27,8 +27,8 @@ The Major components are fairly straight forward, and they follow the basics / i
 ##### Analyse
 
 So this is a step that seems to be missed more and more as Serverless functions have gained popularity.
-While lambda is a fantastic, cheap, and easy solution; Its not always the best fit ffor all problems.
-(If the below boxes are checked, its probably a good choice however)
+While lambda is a fantastic, cheap, and easy solution; Its not always the best fit for all problems.
+(However If the below boxes are checked, its probably a good choice)
 
 <input type = "checkbox" id = "check1" name = "check1"> <label for = "check1">Your solution can be stateless</label><br>
 <input type = "checkbox" id = "check2" name = "check2"> <label for = "check2">Your solution is event driven</label><br>
@@ -39,7 +39,7 @@ While lambda is a fantastic, cheap, and easy solution; Its not always the best f
   <div class="card-body">
     * While lambda supports custom runtimes; its much easier, and performs better if you stick to the native list
       <br>
-    ** While lambda can definitely run inside a VPC (and fairly well !), it introduces a number of questions about your environments (available IP's, etc...)
+    ** While lambda can definitely run inside a VPC (and fairly well !), it introduces a number of questions about your environments (available IP's, resource IOPs, etc...)
   </div>
 </div>
 
@@ -50,10 +50,11 @@ While lambda is a fantastic, cheap, and easy solution; Its not always the best f
 
 You'll need to either edit inside the console, or create some automation to create a deployment packages. Once done, you'll need to assign the following properties
   
-  > a. `Runtime`, the chosen language your code is to be written in<br>
-  > b. `Timeout`, the desired maximum time you want the code running (has restrictions)<br>
-  > c. `Memory`, the desired amount of memory to allocated to each running invocation<br>
-  > d. `Role`, the desired role (and permissions) that you want your function to be able to execute<br>
+  > a. `Runtime`, chosen code language<br>
+  > b. `Timeout`, duration before timeout<br>
+  > c. `Memory`, memory allocated to invocation<br>
+  > d. `Role`, what permissions your function has inside AWS<br>
+  > e. `Handler`, code entry point<br>
 
 Additional items such as the below can be added
   
@@ -76,8 +77,8 @@ Additional items such as the below can be added
 <a name = "test-tweak"></a>
 ##### Test / Tweak
 
-Once the above is done, you'll need to review performance and tweak as you observe the behaviour. This can be done using a variety of tools that we'll discuss later
-<br>
+Once the above is done, you'll need to review performance and tweak as you observe the behaviour. This can be done using a variety of tools that we'll discuss later.
+  <br>
 
 ---
 

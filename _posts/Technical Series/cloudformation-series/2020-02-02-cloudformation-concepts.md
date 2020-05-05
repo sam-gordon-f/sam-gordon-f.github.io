@@ -16,8 +16,8 @@ The Major concepts are fairly straight forward, and they follow the model / acti
 ##### Typical lifecycle
 
 1. [Write Templates](#write-template)
-2. [Run Create](#create)
-3. [Wait and run next operation](#wait)
+2. [Create Stacks](#create)
+3. [Perform next operation](#next)
 4. [Error](#next-operation)
 
 [Diagram of cardinality](#diagram)
@@ -42,7 +42,7 @@ This gives Cloudformation the command to create a stack to house the resources r
 </div>
 <br>
   
-<a name = "wait"></a>
+<a name = "next"></a>
 ##### 3) After your stack stabilises
 
 All of your infrastructure will have been created. Moving forwards, the following `operations` can be undertaken

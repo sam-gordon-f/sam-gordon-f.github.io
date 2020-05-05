@@ -13,22 +13,49 @@ docs:
 
 The Major components are fairly straight forward, and they follow the basics / image below
 
-1. [Basics](#actions)
-2. [Diagram](#diagram)
+##### Typical Lifecycle
+
+1. [Anaylse Scenario](#analyse)
+2. [Create / Upload](#create-upload)
+3. [Test / Tweak](#test-tweak)
+
+[Diagram of concepts](#diagram)
 
 ---
 
-<a name = "basics"></a>
-1) Deployment packages are uploaded to a virtual construct called a `Function`
+<a name = "analyse"></a>
+##### Analyse
 
-2) These `Functions` have the following basic properties
+So this is a step that seems to be missed more and more as Serverless functions have gained popularity.
+While lambda is a fantastic, cheap, and easy solution; Its not always the best fit ffor all problems.
+(If the below boxes are checked, its probably a good choice however)
+
+<input type = "checkbox" id = "check1" name = "check1"> <label for = "check1">Your solution can be stateless</label>
+<input type = "checkbox" id = "check2" name = "check2"> <label for = "check1">Your solution is event driven</label>
+<input type = "checkbox" id = "check3" name = "check3"> <label for = "check1">Your solution can be written in the supported runtimes</label> *
+<input type = "checkbox" id = "check3" name = "check3"> <label for = "check1">Your solution doesnt need to run in a network</label> **
+
+<div class="card tip">
+  <div class="card-body">
+    * While lambda supports custom runtimes; its much easier, and performs better if you stick to the native list
+      <br>
+    ** While lambda can definitely run inside a VPC (and fairly well !), it introduces a number of questions about your environments (available IP's, etc...)
+  </div>
+</div>
+
+---
+
+<a name = "create-upload"></a>
+##### Create
+
+You'll need to either edit inside the console, or create some automation to create a deployment packages. Once done, you'll need to assign the following properties
   
   > a. `Runtime`, the chosen language your code is to be written in<br>
   > b. `Timeout`, the desired maximum time you want the code running (has restrictions)<br>
   > c. `Memory`, the desired amount of memory to allocated to each running invocation<br>
   > d. `Role`, the desired role (and permissions) that you want your function to be able to execute<br>
 
-3) Additional items such as the below can be added
+Additional items such as the below can be added
   
   > a. `VPC`, to run your function next to your private resources such as RDS instances<br>
   > b. `Tracing`, whether or not to create xray traces on invocation <br>
@@ -43,6 +70,14 @@ The Major components are fairly straight forward, and they follow the basics / i
     - For VPC, you should  use the managed policy `AWSLambdaVPCAccessExecutionRole` or add the following<br>
   </div>
 </div>
+
+---
+
+<a name = "test-tweak"></a>
+##### Test / Tweak
+
+Once the above is done, you'll need to review performance and tweak as you observe the behaviour. This can be done using a variety of tools that we'll discuss later
+<br>
 
 ---
 

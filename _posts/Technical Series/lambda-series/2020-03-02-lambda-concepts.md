@@ -19,25 +19,18 @@ The Major components are fairly straight forward, and they follow the basics / i
 ---
 
 <a name = "basics"></a>
-1) Packages are written / uploaded to a virtual construct called a `function`
+1) Deployment packages are uploaded to a virtual construct called a `Function`
 
-2) These `functions` are assigned a variety of basic properties
+2) These `Functions` have the following basic properties
   
   > a. `Runtime`, the chosen language your code is to be written in<br>
   > b. `Timeout`, the desired maximum time you want the code running (has restrictions)<br>
   > c. `Memory`, the desired amount of memory to allocated to each running invocation<br>
   > d. `Role`, the desired role (and permissions) that you want your function to be able to execute<br>
 
-<div class="card tip">
-  <div class="card-body">
-    Increasing memory allocated doesnt always decrease invocation time; Choosing a relevant language, and understanding the problem / logic thats being run is the best way to tweak
-  </div>
-</div>
-<br>
-
 3) Additional items such as the below can be added
   
-  > a. `VPC`, the desired vpc and subnets to create your ENI's in<br>
+  > a. `VPC`, to run your function next to your private resources such as RDS instances<br>
   > b. `Tracing`, whether or not to create xray traces on invocation <br>
   > c. `Triggers`, which services are going to invoke (each service behaves differently; more later)<br>
   > d. `Concurrency` the desired maximum concurrent invocations of the function<br>
@@ -50,11 +43,12 @@ The Major components are fairly straight forward, and they follow the basics / i
     - For VPC, you should  use the managed policy `AWSLambdaVPCAccessExecutionRole` or add the following<br>
   </div>
 </div>
-<br>
 
 ---
 
 <a name = "diagram"></a>
+The below shows the relationship between the major resources that come together to make a lambda function work
+
 <a href="{{ site.baseurl }}/assets/images/technical-series/lambda/concepts.svg" data-fancybox data-caption="lambda-concepts">
 	<img src="{{ site.baseurl }}/assets/images/technical-series/lambda/concepts.svg" alt="drawing" style="width:100%;"/>
 </a>

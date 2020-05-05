@@ -16,7 +16,7 @@ The Major components are fairly straight forward, and they follow the basics / i
 ##### Typical Lifecycle
 
 1. [Anaylse Scenario](#analyse)
-2. [Create / Upload](#create-upload)
+2. [Create Function](#create)
 3. [Test / Tweak](#test-tweak)
 
 [Diagram of concepts](#diagram)
@@ -30,10 +30,10 @@ So this is a step that seems to be missed more and more as Serverless functions 
 While lambda is a fantastic, cheap, and easy solution; Its not always the best fit ffor all problems.
 (If the below boxes are checked, its probably a good choice however)
 
-<input type = "checkbox" id = "check1" name = "check1"> <label for = "check1">Your solution can be stateless</label>
-<input type = "checkbox" id = "check2" name = "check2"> <label for = "check1">Your solution is event driven</label>
-<input type = "checkbox" id = "check3" name = "check3"> <label for = "check1">Your solution can be written in the supported runtimes</label> *
-<input type = "checkbox" id = "check3" name = "check3"> <label for = "check1">Your solution doesnt need to run in a network</label> **
+<input type = "checkbox" id = "check1" name = "check1"> <label for = "check1">Your solution can be stateless</label><br>
+<input type = "checkbox" id = "check2" name = "check2"> <label for = "check2">Your solution is event driven</label><br>
+<input type = "checkbox" id = "check3" name = "check3"> <label for = "check3">Your solution can be written in the supported runtimes</label> * <br>
+<input type = "checkbox" id = "check4" name = "check4"> <label for = "check4">Your solution doesnt need to run in a network</label> ** <br>
 
 <div class="card tip">
   <div class="card-body">
@@ -45,8 +45,8 @@ While lambda is a fantastic, cheap, and easy solution; Its not always the best f
 
 ---
 
-<a name = "create-upload"></a>
-##### Create
+<a name = "create"></a>
+##### Create Function
 
 You'll need to either edit inside the console, or create some automation to create a deployment packages. Once done, you'll need to assign the following properties
   

@@ -10,9 +10,26 @@ skill: intermediate
 ---
 
 Seeing as the main goal of writing cloudformation templates is for re-usability.
-AWS released a catalog for hosting your templates across either a single, or fleet of AWS accounts
+AWS released a catalog for hosting your templates across either a single, or fleet of AWS accounts.
 
-1. Definining products (templates)
-1. Definining portfolios (logical collection of templates)
-3. Sharing products (template sharing)
-4. Deploying products (stacks)
+Below is some definition around how to achieve an almost 'app' store experience for users inside your environments
+
+##### Service Catalog Concepts
+1. [Definining products](#products)
+1. [Definining portfolios](#portfolios)
+3. [Sharing products](#sharing)
+4. [Deploying products](#deployments)
+
+---
+
+<a name = "products"></a>
+##### 1) Products
+
+<a name = "portfolios"></a>
+##### 2) Porfolios
+
+<a name = "sharing"></a>
+##### 3) Sharing
+
+<a name = "deployments"></a>
+##### 4) Deployments

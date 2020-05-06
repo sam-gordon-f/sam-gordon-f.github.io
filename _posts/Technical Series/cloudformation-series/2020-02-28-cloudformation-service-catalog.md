@@ -128,7 +128,7 @@ Its time to define who, and where we can deploy the product. There are 3 section
 <a name = "sharing-permissions-a"></a>
 ##### 4a) Creating Shares
 
-<div class="card tips">
+<div class="card tip">
   <div class="card-body">
     Cloudformation doesnt currently support OU id sharing (groups of accounts).
     But this is something thats on the roadmap, and will allow you to streamline this process (can be done via custom resources)
@@ -171,7 +171,7 @@ Its necessary to accept the handshake made from the previous step
 <a name = "sharing-permissions-c"></a>
 ##### 4c) Assigning Permissions
 
-<div class="card tips">
+<div class="card tip">
   <div class="card-body">
     This step is super important, as by default nobody can deploy a product (this includes account administrators), and its easily overlooked
   </div>
@@ -200,7 +200,7 @@ Its necessary to accept the handshake made from the previous step
 
 Products can be deployed via the console, API's or cloudformation (see below). This allows for a self service experience that can be customised, and integrated with pipelines, workflows, and business processes
 
-<div class="card tips">
+<div class="card tip">
   <div class="card-body">
     One great feature is the ability to provision via stacksets - This allows for a simple and easy way to create product bundles to deploy across fleets of accounts
   </div>

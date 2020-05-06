@@ -23,7 +23,7 @@ The Following are the two ways that you can reference in your templates
 <a name="header"></a>
 ##### 1) Header
 
-Defined at heading level of your template.
+Defined at heading level of your template. This gives the entire template to cloudformation, and allows for full fragment replacements
 
 In this example our macro would take the entire template, and could potentially return anything in exchange.
 `This is useful for auto-generating resources`
@@ -48,7 +48,7 @@ Transform: ["transformName1"]
 <a name="inline"></a>
 ##### 2) Inline
 
-Defined at a specific part of your template.
+Defined at a specific part of your template. This means that the expecting return fragment has to fit where its placed
 
 In this example we're expecting our macro to return a value for the property `AccessControl` inside our bucket.
 This is useful for dynamic property values, or even creating blocks on the fly

@@ -1,5 +1,7 @@
 {
-  "Parameters": {
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description": "A description to help identify the purpose of the template",
+  "Parameters" : {
     "param1": {
       "Type": "String",
       "AllowedValues": ["true", "false"],
@@ -7,6 +9,34 @@
     },
     "param2": {
       "Type": "String"
+    }
+  },
+  "Metadata" : {
+    "AWS::CloudFormation::Interface": {
+      "ParameterGroups": [{
+        "Label": {
+          "default": "Custom Parameter Group1"
+        },
+        "Parameters": ["param1", "param2"]
+      }],
+      "ParameterLabels": [{
+        "param1": {
+          "default": "Here is a custom description for param1"
+        },
+        "param2": {
+          "default": "Here is a custom description for param2"
+        }
+      }]
+    }
+  },
+  "Mappings" : {
+    "mapping1" : {
+      "mappingPropCategory1" : {
+        "mappingPropName" : "mappingPropValue"
+      },
+      "mappingPropCategory2" : {
+        "mappingPropName" : "mappingPropValue2"
+      }
     }
   },
   "Conditions" : {
@@ -17,15 +47,47 @@
         },
         "true"
       ]
+    },
+    "conditionParam2NotEmpty" : {
+      "Fn::Not": {
+        "Fn::Equals" : [
+          {
+            "Ref" : "param2"
+          },
+          ""
+        ]
+      }
     }
   },
   "Resources" : {
     "resource1": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "AccessControl": "Private"
+        "BucketName": {
+          "Fn::If" : [
+            "conditionParam2NotEmpty",
+            {
+              "Ref": "param2"
+            },
+            {
+              "Ref": "AWS::NoValue"
+            }
+          ]
+        }
       },
-      "Condition": "conditionCreateBucket"
+      "Conditions": [
+        "conditionCreateBucket"
+      ]
+    }
+  },
+  "Outputs" : {
+    "output1": {
+      "Description": "Here is the default value when referencing an S3 Bucket",
+      "Value": {
+        "Ref": "resource1"
+      },
+      "Name": "resource1LogicalId",
+      "Export": "export1"
     }
   }
 }

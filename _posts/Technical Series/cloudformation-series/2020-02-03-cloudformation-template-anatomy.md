@@ -438,7 +438,7 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: Private
-    Condition: conditionCreateBucket
+    Condition: conditionCreateBucket  
 ```
 
 <br>
@@ -514,6 +514,11 @@ A list of values that you wish to make available for viewers. These can also be 
 
 ```json
 {
+  "Resources": {
+    "resource1": {
+      "Type": "AWS::S3::Bucket"
+    }
+  },
   "Outputs" : {
     "output1": {
       "Description": "Here is the default value when referencing an S3 Bucket",
@@ -534,6 +539,9 @@ A list of values that you wish to make available for viewers. These can also be 
 }
 ```
 ```yml
+Resources:
+  resource1:
+    Type: "AWS::S3::Bucket"
 Outputs:
   output1:
     Description: Here is the default value when referencing an S3 Bucket
@@ -576,8 +584,11 @@ The full template examples are here (some properties omitted as their have depen
   "Parameters" : {
     "param1": {
       "Type": "String",
-      "AllowedValues": ["first", "second", "third"],
-      "Default": "first"
+      "AllowedValues": ["true", "false"],
+      "Default": "true"
+    },
+    "param2": {
+      "Type": "String"
     }
   },
   "Metadata" : {
@@ -586,11 +597,14 @@ The full template examples are here (some properties omitted as their have depen
         "Label": {
           "default": "Custom Parameter Group1"
         },
-        "Parameters": ["param1"]
+        "Parameters": ["param1", "param2"]
       }],
       "ParameterLabels": [{
         "param1": {
           "default": "Here is a custom description for param1"
+        },
+        "param2": {
+          "default": "Here is a custom description for param2"
         }
       }]
     }
@@ -606,29 +620,44 @@ The full template examples are here (some properties omitted as their have depen
     }
   },
   "Conditions" : {
-    "condition1CheckParam1IsSetToSecond" : {
+    "conditionCreateBucket" : {
       "Fn::Equals" : [
-        {"Ref" : "param1"},
-        "second"
+        {
+          "Ref" : "param1"
+        },
+        "true"
       ]
+    },
+    "conditionParam2NotEmpty" : {
+      "Fn::Not": {
+        "Fn::Equals" : [
+          {
+            "Ref" : "param2"
+          },
+          ""
+        ]
+      }
     }
   },
   "Resources" : {
-    "S3Bucket": {
+    "resource1": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
         "BucketName": {
           "Fn::If" : [
-            "conditionParam1NotEmpty",
+            "conditionParam2NotEmpty",
             {
-              "Ref": "param1"
+              "Ref": "param2"
             },
             {
               "Ref": "AWS::NoValue"
             }
           ]
         }
-      }
+      },
+      "Conditions": [
+        "conditionCreateBucket"
+      ]
     }
   },
   "Outputs" : {
@@ -652,10 +681,11 @@ Parameters:
   param1:
     Type: String
     AllowedValues:
-      - first
-      - second
-      - third
-    Default: first
+      - 'true'
+      - 'false'
+    Default: 'true'
+  param2:
+    Type: String
 Metadata:
   AWS::CloudFormation::Interface:
     ParameterGroups:
@@ -663,9 +693,12 @@ Metadata:
           default: Custom Parameter Group1
         Parameters:
           - param1
+          - param2
     ParameterLabels:
       - param1:
           default: Here is a custom description for param1
+        param2:
+          default: Here is a custom description for param2
 Mappings:
   mapping1:
     mappingPropCategory1:
@@ -673,14 +706,23 @@ Mappings:
     mappingPropCategory2:
       mappingPropName: mappingPropValue2
 Conditions:
-  condition1CheckParam1IsSetToSecond: !Equals
+  conditionCreateBucket: !Equals
     - !Ref 'param1'
-    - second
+    - 'true'
+  conditionParam2NotEmpty: !Not
+    Fn::Equals:
+      - !Ref 'param2'
+      - ''
 Resources:
   resource1:
     Type: AWS::S3::Bucket
     Properties:
-      AccessControl: Private
+      BucketName: !If
+        - conditionParam2NotEmpty
+        - !Ref 'param2'
+        - !Ref 'AWS::NoValue'
+    Conditions:
+      - conditionCreateBucket
 Outputs:
   output1:
     Description: Here is the default value when referencing an S3 Bucket

@@ -44,6 +44,8 @@ Below are the different basic parameters data types ( See [Type](#properties-typ
   </div>
 </div>
 
+<br>
+
 <a name = "type-string"></a>
 ##### 1) String
 
@@ -54,6 +56,8 @@ Below are the different basic parameters data types ( See [Type](#properties-typ
 # when referenced
 "test123"
 ```
+
+<br>
 
 <a name = "type-number"></a>
 ##### 2) Number
@@ -66,6 +70,8 @@ Below are the different basic parameters data types ( See [Type](#properties-typ
 "123"
 ```
 
+<br>
+
 <a name = "type-list"></a>
 ##### 3) List<Number>
 ```
@@ -75,6 +81,8 @@ Below are the different basic parameters data types ( See [Type](#properties-typ
 # when referenced
 ["1", "2", "3"]
 ```
+
+<br>
 
 <a name = "type-comma-delimited-list"></a>
 ##### 4) CommaDelimitedList
@@ -102,6 +110,8 @@ The below is listed in a progressive fashion that shows how you can combine them
   </div>
 </div>
 
+<br>
+
 <a name = "properties-type"></a>
 ##### 1) Type ( required )
 
@@ -116,6 +126,8 @@ The value must be a string (can be used for pretty much any basic input value. S
   }
 }
 ```
+
+<br>
 
 <a name = "properties-allowed-pattern"></a>
 ##### 2) AllowedPattern
@@ -144,6 +156,8 @@ The below tests for the string "test123"
 }
 ```
 
+<br>
+
 <a name = "properties-max-length"></a>
 ##### 3) MaxLength
 
@@ -160,6 +174,8 @@ The max number of characters a user can specify. The below checks for a max of 7
   }
 }
 ```
+
+<br>
 
 <a name = "properties-min-length"></a>
 ##### 4) MinLength
@@ -179,6 +195,8 @@ The min number of characters a user can specify. The below checks for a min of 7
 }
 ```
 
+<br>
+
 <a name = "properties-allowed-values"></a>
 ##### 5) AllowedValues
 
@@ -194,6 +212,8 @@ The below allows only the numbders [1,2,3,4,5] as inputs
   }
 }
 ```
+
+<br>
 
 <a name = "properties-constraint-description"></a>
 ##### 6) ConstraintDescription
@@ -211,6 +231,8 @@ Used for custom error messages when an input violation occurs. The below present
   }
 }
 ```
+
+<br>
 
 <a name = "properties-default"></a>
 ##### 7) Default
@@ -230,6 +252,8 @@ If nothing supplied, use this value. The below gives a default of `1`
 }
 ```
 
+<br>
+
 <a name = "properties-description"></a>
 ##### 8) Description
 
@@ -248,6 +272,8 @@ A label to help the user understand what the input represents.
   }
 }
 ```
+
+<br>
 
 <a name = "properties-max-value"></a>
 ##### 9) MaxValue
@@ -269,6 +295,8 @@ What is the `highest` number a user can specify. The below checks for inputs gre
 }
 ```
 
+<br>
+
 <a name = "properties-min-value"></a>
 ##### 10) MinValue
 
@@ -289,6 +317,8 @@ What is the `lowest` number a user can specify. The below checks for inputs lowe
   }
 }
 ```
+
+<br>
 
 <a name = "properties-no-echo"></a>
 ##### 11) NoEcho

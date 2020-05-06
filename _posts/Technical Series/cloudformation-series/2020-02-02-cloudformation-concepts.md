@@ -24,8 +24,6 @@ The Major concepts are fairly straight forward, and they follow the model / acti
 
 ---
 
-<br>
-
 <a name = "write-template"></a>
 ##### 1) Write Cloudformation templates
 

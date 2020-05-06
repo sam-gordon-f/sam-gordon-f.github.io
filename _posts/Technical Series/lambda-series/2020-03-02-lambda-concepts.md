@@ -23,8 +23,6 @@ The Major components are fairly straight forward, and they follow the basics / i
 
 ---
 
-<br>
-
 <a name = "analyse"></a>
 ##### 1) Analyse
 

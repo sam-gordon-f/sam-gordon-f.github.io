@@ -148,10 +148,10 @@ You'll also need a role that lives in the target account(s)
 
 Now that we have all the pieces. The steps are
 
-> a. navigate to cloudformation
-> b. select stacksets
-> c. select create
-> d. specify account list
-> e. specify deployment role (step 2)
-> f. specify target role (step 3)
-> g. execute
+> a. navigate to cloudformation<br>
+> b. select stacksets<br>
+> c. select create<br>
+> d. specify account list<br>
+> e. specify deployment role (step 2)<br>
+> f. specify target role (step 3)<br>
+> g. execute<br>

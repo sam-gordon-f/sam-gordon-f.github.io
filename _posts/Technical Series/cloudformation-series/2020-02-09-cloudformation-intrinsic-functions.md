@@ -44,7 +44,8 @@ These are the following functions cloudformation makes available, and a definiti
 
 ---
 
-#### Fn::Base64 <a name="base64"></a>
+<a name="base64"></a>
+#### 1) Fn::Base64
 
 Used for encoding strings into Base64 encoding. This is generally seen when bootstrapping ec2 instances in the `UserData` property
 
@@ -57,7 +58,8 @@ Used for encoding strings into Base64 encoding. This is generally seen when boot
 !Base64 "<<valueToEncode>>"
 ```
 
-##### Usage <a name="base64-usage"></a>
+<a name="base64-usage"></a>
+##### 1a) Usage
 
 The below installs the cfn-init package to allow bootstrap from some metadata in the same template.
 It does this by joining a list of commands into a string (no separators), then base64 encoding the string as the template requires.
@@ -108,7 +110,8 @@ Resources:
 
 <br>
 
-#### Fn::Cidr <a name="cidr"></a>
+<a name="cidr"></a>
+#### 2) Fn::Cidr
 
 Used for auto generating CIDR blocks. This is generally seen when splitting a VPC CIDR into Subnet CIDR's.
 
@@ -131,7 +134,8 @@ The below splits a `/24` block ( 8 subnet bits / 256 hosts ) into `6` individual
 !Cidr [ "192.168.0.0/24", "6", "5" ]
 ```
 
-##### Usage <a name="cidr-usage"></a>
+<a name="cidr-usage"></a>
+##### 2a) Usage
 
 The example below is similar to the above, except it
 1. Creates a VPC
@@ -194,7 +198,8 @@ Resources:
 
 <br>
 
-#### Fn::FindInMap <a name="findinmap"></a>
+<a name="findinmap"></a>
+#### 3) Fn::FindInMap
 
 Used for referencing values from mapping constructs. This is generally seen when looking up config in templates.
 
@@ -217,7 +222,8 @@ Used for referencing values from mapping constructs. This is generally seen when
 !FindInMap [ "mapping1", "mappingPropCategory1", "mappingPropName"]
 ```
 
-##### Usage <a name="findinmap-usage"></a>
+<a name="findinmap-usage"></a>
+##### 3a) Usage
 
 The below has a mapping that contains a property value that an S3 Bucket needs to reference
 
@@ -263,7 +269,8 @@ Resources:
 
 <br>
 
-#### Fn::GetAtt <a name="getatt"></a>
+<a name="getatt"></a>
+#### 4) Fn::GetAtt
 
 Used for referencing attributes from other resources in the same template. This is generally seen when resources have a dependency on a value from another resource.
 
@@ -285,7 +292,8 @@ Used for referencing attributes from other resources in the same template. This 
 !GetAtt 'resource1.<<propName>>'
 ```
 
-##### Usage <a name="getatt-usage"></a>
+<a name="getatt-usage"></a>
+##### 4a) Usage
 
 The below has an SNS Topic (not named), and an output that looks up the AWS-allocated name to present to a viewer
 
@@ -321,7 +329,8 @@ Outputs:
 
 <br>
 
-#### Fn::GetAZs <a name="getazs"></a>
+<a name="getazs"></a>
+#### 5) Fn::GetAZs
 
 Used for return a list of Availabilty zones for a region. This is generally seen for multi region resources like load balancers, RDS, etc...
 
@@ -334,7 +343,8 @@ Used for return a list of Availabilty zones for a region. This is generally seen
 !GetAZs "<<region>>"
 ```
 
-##### Usage <a name="getazs-usage"></a>
+<a name="getazs-usage"></a>
+##### 5a) Usage
 
 The below example uses this to determine an available AZ for a subnet
 
@@ -378,7 +388,8 @@ Resources:
 
 <br>
 
-#### Fn::ImportValue <a name="importvalue"></a>
+<a name="importvalue"></a>
+#### 6) Fn::ImportValue
 
 Used to reference a value that has been `exported` from another stack. This is generally seen when resources are separated into different stacks, but still have dependencies on one another
 
@@ -391,7 +402,8 @@ Used to reference a value that has been `exported` from another stack. This is g
 !ImportValue '<<keyName>>'
 ```
 
-##### Usage <a name="importvalue-usage"></a>
+<a name="importvalue-usage"></a>
+##### 6a) Usage
 
 The below example has a stack which exports an s3 bucket domain name (key: `stack1-bucket1-domainName`), which is then referenced by a route 53 CName record
 
@@ -430,7 +442,8 @@ Resources:
 
 <br>
 
-#### Fn::Join <a name="join"></a>
+<a name="join"></a>
+#### 7) Fn::Join
 
 Used to join an array of strings with a specific delimeter. This is seen absolutely everywhere and is super hand to keep on hand
 
@@ -449,13 +462,15 @@ Used to join an array of strings with a specific delimeter. This is seen absolut
   - etc...
 ```
 
-##### Usage <a name="join-usage"></a>
+<a name="join-usage"></a>
+##### 7a) Usage
 
 See [Base64 Usage](#base64-usage) for an example on joining strings for the userdata property
 
 <br>
 
-#### Fn::Select <a name="select"></a>
+<a name="select"></a>
+#### 8) Fn::Select
 
 Used to return a specific index from a list. This is seen quite a bit when there are AZ's involved
 
@@ -474,13 +489,15 @@ Used to return a specific index from a list. This is seen quite a bit when there
   - etc...
 ```
 
-##### Usage <a name="select-usage"></a>
+<a name="select-usage"></a>
+##### 8a) Usage
 
 See [GetAZs Usage](#getazs-usage), or [Split Usage](#split-usage) for examples on using this function
 
 <br>
 
-#### Fn::Split <a name="split"></a>
+<a name="split"></a>
+#### 9) Fn::Split
 
 Used to split a list by a specified delimeter. This is seen quite a bit when there are URLs, or comma separated lists involved
 
@@ -498,7 +515,8 @@ Used to split a list by a specified delimeter. This is seen quite a bit when the
 - test1, test2, etc...
 ```
 
-##### Usage <a name="split-usage"></a>
+<a name="split-usage"></a>
+##### 9a) Usage
 
 In below example, a URL is passed as a parameter and we only want the FQDN, not the path part. We've done this by splitting the string into an array, and then `selecting` the 0th index
 
@@ -545,7 +563,8 @@ Outputs:
 
 <br>
 
-#### Fn::Sub <a name="sub"></a>
+<a name="sub"></a>
+#### 10) Fn::Sub
 
 Used for for substituting values in strings. This is seen quite a bit when formatting strings. Things like cloudwatch dashboards, etc...
 
@@ -568,7 +587,8 @@ Used for for substituting values in strings. This is seen quite a bit when forma
   pathPart: part1/part2
 ```
 
-##### Usage <a name="sub-usage"></a>
+<a name="sub-usage"></a>
+##### 10a) Usage
 
 Refer to the above where we're building a domain name off `potentially` dynamic components.
 
@@ -576,7 +596,8 @@ The placeholders, and keys in the following map have to be indentical in case
 
 <br>
 
-#### Fn::Transform <a name="transform"></a>
+<a name="transform"></a>
+#### 11) Fn::Transform
 
 A relatively new intrinsic function that allows you to invoke and take the returned fragment from a lambda function (custom or AWS managed), and embed in your template at the specified location.
 
@@ -600,19 +621,21 @@ Parameters:
   <<etc...>>: <<etc...>>
 ```
 
-##### Usage <a name="transform-usage"></a>
+<a name="transform-usage"></a>
+##### 11a) Usage
 
 See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros#inline">here for more information on using this function for inline transforms</a>
 
 <br>
 
-#### Ref <a name="ref"></a>
+<a name="ref"></a>
+#### 12) Ref
 
-The most useful function to learn. When used against a parameter, it returns a value; and when used against a resource, it returns the default return property
+The most useful function to learn. When used against a parameter, it returns a value; and when used against a resource, it returns the `default` return property
 
 <div class="card tip">
   <div class="card-body">
-    When using this function you have to keep in mind the properties that the resource exposes, as not `every` resource is the same. You'll need to continually reference <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">the docs</a> as this can be close to impossible to remember all the supported outputs per resource
+    When using this function you have to keep in mind the properties that the resource exposes, as not `every` resource is the same. You'll need to continually reference <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">the docs</a> as this can be close to impossible to remember all the default returns per resource
   </div>
 </div>
 
@@ -625,7 +648,8 @@ The most useful function to learn. When used against a parameter, it returns a v
 !Ref 'resourceLogicalId'
 ```
 
-##### Usage <a name="ref-usage"></a>
+<a name="ref-usage"></a>
+##### 12a) Usage
 
 The below returns a bucket name to an output
 

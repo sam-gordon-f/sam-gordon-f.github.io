@@ -87,7 +87,8 @@ This is super handy for when you resource that in turn store data (S3, RDS, Elas
 <a name = "conditions"></a>
 #### 4) Conditions
 
-Conditions are a way to determine which resources are / are not created based on parameters that you pass
+Conditions are a way to determine which resources are / are not created based on parameters that you pass.
+This allows you to create resources, and change properties dynamically based on user input.
 
 For example- The below only creates a bucket if `param1` == true
 
@@ -125,8 +126,6 @@ For example- The below only creates a bucket if `param1` == true
 }
 ```
 
-This allows you to create stacks that dynamically create based on user input.
-
 <br>
 
 <a name = "depends-on"></a>
@@ -135,7 +134,10 @@ This allows you to create stacks that dynamically create based on user input.
 This is a directive to chain the order of creation for your resources. Somewhat superfluious as `Ref` tends to do it for you.
 However there are a number of situations that will have you scratching your head for ages if you dont learn to factor this in
 
-For example- The below defines a lambda function that will run in a VPC, and the permissions it requires to operate in such a fashion
+For example- The below defines a lambda function that will run in a VPC, and the permissions it requires to operate in such a fashion.
+
+However the lambda function `will not` successfully create until is has permissions to create eni's.
+So we're explicitly telling the function to wait until the permissions are attached to the role its to use
 
 ```json
 {
@@ -207,6 +209,3 @@ For example- The below defines a lambda function that will run in a VPC, and the
   }
 }
 ```
-
-In the above, the lambda function `will not` successfully create until is has permissions to create eni's.
-So we're explicitly telling the function to wait until the permissions are attached to the role its to use

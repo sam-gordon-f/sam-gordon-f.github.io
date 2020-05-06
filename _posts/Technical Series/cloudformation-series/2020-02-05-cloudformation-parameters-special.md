@@ -31,12 +31,12 @@ The below are some examples on how and the kinds of situations where they can be
 (<span style = "color:orange">* </span> has support for generic lists `list<paramType>>`)
 
 #### SSM Paramaters
-1. [Overview and examples](#ssm-params)
+[Overview and examples](#ssm-params)
 
 ---
 
 <a name = "aws-params-availability-zone-name"></a>
-##### AWS::EC2::AvailabilityZone::Name
+##### 1) AWS::EC2::AvailabilityZone::Name
 
 ```json
 {
@@ -72,7 +72,7 @@ The below are some examples on how and the kinds of situations where they can be
 <br>
 
 <a name = "aws-params-image-id"></a>
-##### AWS::EC2::Image::Id
+##### 2) AWS::EC2::Image::Id
 
 ```json
 {
@@ -114,7 +114,7 @@ The below are some examples on how and the kinds of situations where they can be
 <br>
 
 <a name = "aws-params-instance-id"></a>
-##### AWS::EC2::Instance::Id
+##### 3) AWS::EC2::Instance::Id
 
 ```json
 {
@@ -154,7 +154,7 @@ The below are some examples on how and the kinds of situations where they can be
 <br>
 
 <a name = "aws-params-keypair-name"></a>
-##### AWS::EC2::KeyPair::KeyName
+##### 4) AWS::EC2::KeyPair::KeyName
 
 ```json
 {
@@ -179,7 +179,7 @@ The below are some examples on how and the kinds of situations where they can be
 <br>
 
 <a name = "aws-params-security-group-name"></a>
-##### AWS::EC2::SecurityGroup::GroupName
+##### 5) AWS::EC2::SecurityGroup::GroupName
 
 ```json
 {
@@ -215,7 +215,7 @@ The below are some examples on how and the kinds of situations where they can be
 <br>
 
 <a name = "aws-params-security-group-id"></a>
-##### AWS::EC2::SecurityGroup::Id
+##### 6) AWS::EC2::SecurityGroup::Id
 
 ```json
 {
@@ -251,7 +251,7 @@ The below are some examples on how and the kinds of situations where they can be
 <br>
 
 <a name = "aws-params-subnet-id"></a>
-##### AWS::EC2::Subnet::Id
+##### 7) AWS::EC2::Subnet::Id
 
 ```json
 {
@@ -287,7 +287,7 @@ The below are some examples on how and the kinds of situations where they can be
 <br>
 
 <a name = "aws-params-volume-id"></a>
-##### AWS::EC2::Volume::Id
+##### 8) AWS::EC2::Volume::Id
 
 ```json
 {
@@ -319,7 +319,7 @@ The below are some examples on how and the kinds of situations where they can be
 <br>
 
 <a name = "aws-params-vpc-id"></a>
-##### AWS::EC2::VPC::Id
+##### 9) AWS::EC2::VPC::Id
 
 ```json
 {
@@ -347,7 +347,7 @@ The below are some examples on how and the kinds of situations where they can be
 <br>
 
 <a name = "aws-params-hosted-zone-id"></a>
-##### AWS::Route53::HostedZone::Id
+##### 10) AWS::Route53::HostedZone::Id
 
 ```json
 {

@@ -39,7 +39,7 @@ All templates will have a combination of the below
 
 ---
 
-#### AWSTemplateFormatVersion<a name="aws-template-format-version"></a>
+#### 1) AWSTemplateFormatVersion<a name="aws-template-format-version"></a>
 
 Identifies the structure and supported capabilities. [2010-09-09](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html) is currently the only version available
 
@@ -52,9 +52,9 @@ Identifies the structure and supported capabilities. [2010-09-09](https://docs.a
 AWSTemplateFormatVersion: "2010-09-09"
 ```  
 
----
+<br>
 
-#### Description<a name="description"></a>
+#### 2) Description<a name="description"></a>
 
 Is used to help viewers identify the purpose of the template
 
@@ -67,9 +67,9 @@ Is used to help viewers identify the purpose of the template
 Description: "A description to help identify the purpose of the template"
 ```
 
----
+<br>
 
-#### Macros<a name="macros"></a> <span style = "color:orange">* </span>
+#### 3) Macros<a name="macros"></a> <span style = "color:orange">* </span>
 
 Are a directive for cloudformation (at runtime) to take the entirety of whats supplied and run through one or more custom, or AWS managed transforms. These can be defined in the header (as shown) for full template transforms, or inline (more details later).
 
@@ -97,9 +97,9 @@ which is an AWS defined transform for pulling in cloudformation snippets from S3
 Transform: ["transform", "AWS::Serverless", "AWS::Include"]
 ```
 
----
+<br>
 
-#### Parameters<a name="parameters"></a>
+#### 4) Parameters<a name="parameters"></a>
 
 Are a way of creating dynamic inputs for your stacks. These are placeholder definitions for what the user/system can provide to cloudformation at runtime operationa
 
@@ -126,7 +126,7 @@ Parameters:
 ```
 
 <a name="parameters-referencing"></a>
-##### Referencing
+##### 4a) Referencing
 
 ```json
 {
@@ -137,9 +137,9 @@ Parameters:
 !Ref 'param1'
 ```
 
----
+<br>
 
-#### Metadata<a name="metadata"></a> <span style = "color:orange">* </span>
+#### 5) Metadata<a name="metadata"></a> <span style = "color:orange">* </span>
 
 Can be for storing custom information about your stack and/or some reserved directives. 3 sections described below
 
@@ -195,9 +195,9 @@ Metadata:
         default: "Here is a custom description for param1"
 ```
 
----
+<br>
 
-#### Mappings<a name="mappings"></a> <span style = "color:orange">* </span>
+#### 6) Mappings<a name="mappings"></a> <span style = "color:orange">* </span>
 
 Ways of defining config for within templates. These can be dynamically referenced using intrinsic functions paired with 'Parameters'
 
@@ -226,7 +226,7 @@ Mappings:
 ```
 
 <a name="mappings-referencing"></a>
-##### Referencing
+##### 6a) Referencing
 
 See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intrinsic-functions#findinmap">intrinsic-functions</a> for more information interogating maps
 
@@ -246,82 +246,169 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 - mappingPropName
 ```
 
----
+<br>
 
-#### Conditions<a name="conditions"></a> <span style = "color:orange">* </span>
+#### 7) Conditions<a name="conditions"></a> <span style = "color:orange">* </span>
 
 A way of creating logic around property values, and/or cloudformation resource configuration. Mainly used for checking null values and helping your template work with them.
 
 More information and examples at the [aws docs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html)
 
+(The below chains two intrinsic functions together to define a condition to check if the value entered is not empty
+
 ```json
 {
+  "Parameters": {
+    "param1": {
+      "Type": "String"
+    }
+  },
   "Conditions" : {
-    "condition1CheckParam1IsSetToSecond" : {
-      "Fn::Equals" : [
-        {"Ref" : "param1"},
-        "second"
-      ]
+    "conditionParam1NotEmpty" : {
+      "Fn::Not": {
+        "Fn::Equals" : [
+          {
+            "Ref" : "param1"
+          },
+          ""
+        ]
+      }
     }
   }
 }
 ```  
 
 ```yml
+Parameters:
+  param1:
+    Type: String
 Conditions:
-  condition1CheckParam1IsSetToSecond:
-    !Equals: [!Ref param1, second]
+  conditionParam1NotEmpty: !Not
+    Fn::Equals:
+      - !Ref 'param1'
+      - ''
 ```
 
 <a name="conditions-property-level"></a>
-##### Conditions at property level
-(if condition true, return the text '1234', else null value)
+##### 7a) Using conditions at property level
+
+If the condition (`conditionParam1NotEmpty`) is "true", assign the bucketName property to the value of the user input, else return null (auto assigns)
 
 ```json
 {
-  "Fn::If" : [
-    "condition1CheckParam1IsSetToSecond",
-    "true",
-    {
-      "Ref": "AWS::NoValue"
+  "Parameters": {
+    "param1": {
+      "Type": "String"
     }
-  ]
+  },
+  "Conditions" : {
+    "conditionParam1NotEmpty" : {
+      "Fn::Not": {
+        "Fn::Equals" : [
+          {
+            "Ref" : "param1"
+          },
+          ""
+        ]
+      }
+    }
+  },
+  "Resources": {
+    "S3Bucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": {
+          "Fn::If" : [
+            "conditionParam1NotEmpty",
+            {
+              "Ref": "param1"
+            },
+            {
+              "Ref": "AWS::NoValue"
+            }
+          ]
+        }
+      }
+    }
+  }
 }
 ```
 ```yml
-!If
-- condition1CheckParam1IsSetToSecond
-- 'true'
-- !Ref 'AWS::NoValue'
+Parameters:
+  param1:
+    Type: String
+Conditions:
+  conditionParam1NotEmpty: !Not
+    Fn::Equals:
+      - !Ref 'param1'
+      - ''
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !If
+        - conditionParam1NotEmpty
+        - !Ref 'param1'
+        - !Ref 'AWS::NoValue'
 ```
 <a name="conditions-resource-level"></a>
-##### Conditions at resource level
-(if condition true, create the resources, else do not create)
+##### 7b) Conditions at resource level
+
+If the condition (`conditionCreateBucket`) is "true", then create the S3::Bucket, else, do not create
 
 ```json
 {
+  "Parameters": {
+    "paramBucketCheck": {
+      "Type": "String",
+      "AllowedValues": ["true", "false"],
+      "Default": "true"
+    }
+  },
+  "Conditions" : {
+    "conditionCreateBucket" : {
+      "Fn::Equals" : [
+        {
+          "Ref" : "paramBucketCheck"
+        },
+        "true"
+      ]
+    }
+  },
   "Resources" : {
     "resource1": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
         "AccessControl": "Private"
       },
-      "Condition": "condition1CheckParam1IsSetToSecond"
+      "Condition": "conditionCreateBucket"
     }
   }
 }
 ```
 ```yml
+Parameters:
+  paramBucketCheck:
+    Type: String
+    AllowedValues:
+      - 'true'
+      - 'false'
+    Default: 'true'
+Conditions:
+  conditionCreateBucket: !Equals
+    - !Ref 'paramBucketCheck'
+    - 'true'
 Resources:
   resource1:
     Type: AWS::S3::Bucket
     Properties:
-      AccessControl: "Private"
-    Condition: "condition1CheckParam1IsSetToSecond"
+      AccessControl: Private
+    Condition: conditionCreateBucket
 ```
----
 
-#### Resources<a name="resources"></a>
+<br>
+
+#### 8) Resources<a name="resources"></a>
 
 The contents(resources) to be contained within your stack. Typically each resource is denoted by one logical ID (what the template specifies as the JSON/YML key).
 
@@ -348,7 +435,7 @@ Resources:
 ```
 
 <a name="resources-reference"></a>
-##### Referencing
+##### 8a) Referencing `default` return property
 
 See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intrinsic-functions#ref">here</a> for more information on `Ref`
 
@@ -362,7 +449,7 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 ```
 
 <a name="resources-properties"></a>
-##### Properties
+##### 8b) Referencing `different` property
 
 See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-intrinsic-functions#getatt">here</a> for more information on `GetAtt`
 
@@ -378,9 +465,9 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 !GetAtt 'resource1.Arn'
 ```
 
----
+<br>
 
-#### Outputs <a name="outputs"></a> <span style = "color:orange">* </span>
+#### 9) Outputs <a name="outputs"></a> <span style = "color:orange">* </span>
  
 A list of values that you wish to make available for viewers. These can also be exposed as exports (as optionally shown below)
 
@@ -424,7 +511,7 @@ Outputs:
 ```
 
 <a name="outputs-exports"></a>
-##### Exports
+##### 9a) Exports
 
 The below example is referening an export defined in the above example
 

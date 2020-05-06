@@ -7,9 +7,6 @@ author: samGordon
 short-description: Dynamic value resolution in stacks
 tags: [cloudformation, parameters, yml, json]
 skill: intermediate
-docs:
-  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html
-\">AWS docs on dynamc resolves here</a>"
 ---
 
 Resolves are a way of having cloudformation `lookup` values when your template is run through a create or update operation.
@@ -27,6 +24,7 @@ In the example below, I'll show how you can create a value, and then subsequentl
 
 1. [Create the parameter (templateA)](#template-a)
 2. [Resolve the parameter (templateB)](#template-b)
+3. [Effective outcome](#outcome)
 
 ---
 
@@ -63,7 +61,29 @@ In this template, theres a resolve directive which triggers cloudformation to lo
       "Properties": {
         "Environment": {
           "Variables": {
-            "propertyA": "{{resolve:paramA:1}}"
+            "propertyA": "\{\{resolve:paramA:1\}\}"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+<a name = "outcome"></a>
+##### 3) Outcome
+
+The below is what cloudformation would receive after the resolution occurs
+
+```json
+{
+  "Resources": {
+    "LambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Environment": {
+          "Variables": {
+            "propertyA": "https://integrationServiceA.com"
           }
         }
       }

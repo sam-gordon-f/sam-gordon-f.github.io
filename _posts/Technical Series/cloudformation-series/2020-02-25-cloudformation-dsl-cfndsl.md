@@ -10,8 +10,7 @@ skill: proficient
 ---
 
 Templates can be generated using a range of different languages. One such open source project is cfndsl (ruby)
-
-In the below example. These are the areas that make up a solution
+These are the areas that make up a solution
 
 1. [Template](#template)
 2. [Config](#config)
@@ -24,7 +23,7 @@ In the below example. These are the areas that make up a solution
 <a name = "template"></a>
 #### 1) Template
 
-The below creates 'n' S3::Bucket(s) (with versioning), and Policies allowing another account to access
+The below example creates 'n' S3::Bucket(s) (with versioning), and Policies allowing another account to access
 This is based on whats inside a config file thats merged at conversion time
 
 ```ruby

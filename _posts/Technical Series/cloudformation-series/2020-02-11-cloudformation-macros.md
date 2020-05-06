@@ -54,9 +54,7 @@ Transform: ["transformName1"]
 Defined at a specific part of your template.
 
 In this example we're expecting our macro to return a value for the property `AccessControl` inside our bucket.
-`This is useful for dynamic property values`
-
-See
+This is useful for dynamic property values, or even creating blocks on the fly
 
 ```json
 {

@@ -436,7 +436,7 @@ If the condition (`conditionCreateBucket`) is "true", then create the S3::Bucket
 }
 ```
 ```yml
-AWSTemplateFormatVersion: "2010-09-09",
+AWSTemplateFormatVersion: "2010-09-09"
 Parameters:
   param1:
     Type: String

@@ -143,15 +143,15 @@ You'll also need a role that lives in the target account(s)
 
 <br>
 
-<a name = "deployments"></a>
-##### 4) Deploymemnt
+<a name = "deployment"></a>
+##### 4) Deployment
 
 Now that we have all the pieces. The steps are
 
-> navigate to cloudformation
-> select stacksets
-> select create
-> specify account list
-> specify deployment role (step 2)
-> specify target role (step 3)
-> select run
+> a. navigate to cloudformation
+> b. select stacksets
+> c. select create
+> d. specify account list
+> e. specify deployment role (step 2)
+> f. specify target role (step 3)
+> g. execute

@@ -14,7 +14,6 @@ docs:
 Most Lambda functions follow the below pattern
 
 ##### Typical Lifecycle
----
 1. [Anaylse Scenario](#analyse)
 2. [Create Function](#create)
 3. [Test / Tweak](#test-tweak)

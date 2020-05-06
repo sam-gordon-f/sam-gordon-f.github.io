@@ -11,8 +11,9 @@ docs:
 skill: novice
 ---
 
-Every resource inside your cloudformation templates / stacks supports and in some cases, requires the following directives
+Every logical resource inside your cloudformation template supports, and in some cases requires the following
 
+##### Resource Blocks
 1. [Type](#type)
 2. [Properties](#properties)
 3. [Retention Policies](#retention-policies) <span style = "color:orange">* </span>
@@ -24,7 +25,7 @@ Every resource inside your cloudformation templates / stacks supports and in som
 ---
 
 <a name = "type"></a>
-#### Type
+#### 1) Type
 
 Each resource has a `Type`, this declares to cloudformation what you're intending on creating alongside what properties are supported.
 Refer to the docs above as your bible for what resources are supported
@@ -32,7 +33,7 @@ Refer to the docs above as your bible for what resources are supported
 ---
 
 <a name = "properties"></a>
-#### Properties
+#### 2) Properties
 
 As every resource type in AWS is completely different, there are a myriad of properties supported.
 Refer to the docs above as your bible for what properties are supported against each resource type
@@ -40,7 +41,7 @@ Refer to the docs above as your bible for what properties are supported against 
 ---
 
 <a name = "retention-policies"></a>
-#### Retention Policies
+#### 3) Retention Policies
 
 These are directives for what to do when certain operations are executed on a stack.
 
@@ -65,7 +66,7 @@ This is super handy for when you resource that in turn store data (S3, RDS, Elas
 ---
 
 <a name = "conditions"></a>
-#### Conditions
+#### 4) Conditions
 
 Conditions are a way to determine which resources are / are not created based on parameters that you pass
 
@@ -110,7 +111,7 @@ This allows you to create stacks that dynamically create based on user input.
 ---
 
 <a name = "depends-on"></a>
-#### DependsOn
+#### 5) DependsOn
 
 This is a directive to chain the order of creation for your resources. Somewhat superfluious as `Ref` tends to do it for you.
 However there are a number of situations that will have you scratching your head for ages if you dont learn to factor this in

@@ -24,6 +24,8 @@ The Major concepts are fairly straight forward, and they follow the model / acti
 
 ---
 
+<br>
+
 <a name = "write-template"></a>
 ##### 1) Write Cloudformation templates
 
@@ -59,6 +61,7 @@ After the stack(s) stabilizes, all of your infrastructure will have been created
 ##### 4) Errors
 
 If there are any errors with the above, the service will attempt to revert to the `previous known state`. This is one of the key reasons why the service is so powerful !
+
 <br>
 
 ---

@@ -23,6 +23,8 @@ The Major components are fairly straight forward, and they follow the basics / i
 
 ---
 
+<br>
+
 <a name = "analyse"></a>
 ##### 1) Analyse
 
@@ -78,7 +80,8 @@ Additional items such as the below can be added
 ##### 3) Test / Tweak
 
 Once the above is done, you'll need to review performance and tweak as you observe the behaviour. This can be done using a variety of tools that we'll discuss later.
-  <br>
+  
+<br>
 
 ---
 

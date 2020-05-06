@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Parameters - dynamic"
+title: "Parameters - Resolve"
 date: 2020-02-06 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
-short-description: Dynamic in template replacements
+short-description: Dynamic value resolution in stacks
 tags: [cloudformation, parameters, yml, json]
 skill: intermediate
 docs:

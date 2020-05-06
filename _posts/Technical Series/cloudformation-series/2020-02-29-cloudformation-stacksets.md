@@ -151,15 +151,15 @@ Now that we have all the pieces. We can use the API's / CLI to put them all toge
 ```shell
 # this creates the stackset container
 aws cloudformation create-stack-set \
-  --stack-set-name=backdoor \
+  --stack-set-name="backdoor" \
   --template-body=file://cloudformation.template \
-  --capabilities=CAPABILITY_NAMED_IAM \
-  --administration-role-arn=arn:aws:iam::123456789123:role/Stackset \
-  --execution-role-name=Stackset
+  --capabilities="CAPABILITY_NAMED_IAM" \
+  --administration-role-arn="arn:aws:iam::123456789123:role/Stackset" \
+  --execution-role-name="Stackset"
 
 # this adds the accounts that you wish to deploy to
 aws cloudformation create-stack-instances \
-  --stack-set-name backdoor \
+  --stack-set-name "backdoor" \
   --accounts "987654321987" \
   --regions "ap-southeast-2"
 ```

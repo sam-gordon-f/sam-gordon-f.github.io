@@ -14,7 +14,6 @@ skill: beginner
 Most Cloudformation stacks follow the below pattern
 
 ##### Typical Lifecycle
----
 1. [Write Templates](#write-template)
 2. [Create Stacks](#create)
 3. [Next Steps](#next)

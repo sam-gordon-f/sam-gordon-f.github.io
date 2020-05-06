@@ -17,8 +17,6 @@ skill: novice
 All templates will have a combination of the below
 
 ##### Template Blocks
----
-
 1. [AWSTemplateFormatVersion](#aws-template-format-version)
 2. [Description](#description)
 3. [Macros (transforms)](#macros) <span style = "color:orange">* </span>

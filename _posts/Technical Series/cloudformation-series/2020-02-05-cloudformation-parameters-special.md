@@ -69,6 +69,8 @@ The below are some examples on how and the kinds of situations where they can be
 }
 ```
 
+<br>
+
 <a name = "aws-params-image-id"></a>
 ##### AWS::EC2::Image::Id
 
@@ -109,6 +111,8 @@ The below are some examples on how and the kinds of situations where they can be
 }
 ```
 
+<br>
+
 <a name = "aws-params-instance-id"></a>
 ##### AWS::EC2::Instance::Id
 
@@ -147,6 +151,8 @@ The below are some examples on how and the kinds of situations where they can be
 }
 ```
 
+<br>
+
 <a name = "aws-params-keypair-name"></a>
 ##### AWS::EC2::KeyPair::KeyName
 
@@ -169,6 +175,8 @@ The below are some examples on how and the kinds of situations where they can be
   }
 }
 ```
+
+<br>
 
 <a name = "aws-params-security-group-name"></a>
 ##### AWS::EC2::SecurityGroup::GroupName
@@ -204,6 +212,8 @@ The below are some examples on how and the kinds of situations where they can be
 }
 ```
 
+<br>
+
 <a name = "aws-params-security-group-id"></a>
 ##### AWS::EC2::SecurityGroup::Id
 
@@ -237,6 +247,8 @@ The below are some examples on how and the kinds of situations where they can be
   }
 }
 ```
+
+<br>
 
 <a name = "aws-params-subnet-id"></a>
 ##### AWS::EC2::Subnet::Id
@@ -272,6 +284,8 @@ The below are some examples on how and the kinds of situations where they can be
 }
 ```
 
+<br>
+
 <a name = "aws-params-volume-id"></a>
 ##### AWS::EC2::Volume::Id
 
@@ -302,6 +316,8 @@ The below are some examples on how and the kinds of situations where they can be
 }
 ```
 
+<br>
+
 <a name = "aws-params-vpc-id"></a>
 ##### AWS::EC2::VPC::Id
 
@@ -327,6 +343,8 @@ The below are some examples on how and the kinds of situations where they can be
   }
 }
 ```
+
+<br>
 
 <a name = "aws-params-hosted-zone-id"></a>
 ##### AWS::Route53::HostedZone::Id
@@ -428,7 +446,7 @@ which can be referenced in another template/stack via
 }
 ```
 
-which cloudformation would resolve to the following during an operation (create/update)
+and then finally, cloudformation would resolve to the following during an operation (create/update)
 
 ```json
 {

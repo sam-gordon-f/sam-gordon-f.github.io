@@ -8,14 +8,11 @@ short-description: Transforms for cloudformation templates
 tags: [cloudformation, transform, lambda, macro]
 docs:
   - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html\">AWS docs on cloudformation Macros</a>"
-tips:
-  - "Macros can be referenced in two ways in your template. They are both listed below"
 skill: intermediate
 ---
 
 Cloudformation Macros are a way to define lambda backed functionality to run against your cloudformation templates. They can be used to model all sorts of crazy scenarios, and remove the previous imposed limits.
-  <br>
-  <br>
+
 The Following are the two ways that you can reference in your templates
 
 1. [Header](#header)

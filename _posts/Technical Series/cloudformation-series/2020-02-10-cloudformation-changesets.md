@@ -7,4 +7,6 @@ author: samGordon
 short-description: Creating infrastructure delta reports
 tags: [cloudformation, functions, yml, json, intrinsic]
 skill: novice
+docs:
+  - "<a href = \"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html\">AWS docs on {{ page.title }} </a>"
 ---

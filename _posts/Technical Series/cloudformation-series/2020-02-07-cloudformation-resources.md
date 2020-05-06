@@ -30,6 +30,14 @@ Every logical resource inside your cloudformation template supports, and in some
 Each resource has a `Type`, this declares to cloudformation what you're intending on creating alongside what properties are supported.
 Refer to the docs above as your bible for what resources are supported
 
+```json
+{
+  "Resources": {
+    "Type": "AWS::Apigateway::Resource"
+  }
+}
+```
+
 <br>
 
 <a name = "properties"></a>
@@ -37,6 +45,17 @@ Refer to the docs above as your bible for what resources are supported
 
 As every resource type in AWS is completely different, there are a myriad of properties supported.
 Refer to the docs above as your bible for what properties are supported against each resource type
+
+```json
+{
+  "Resources": {
+    "Type": "AWS::Apigateway::Resource",
+    "Properties": {
+      "PathPart": "/test"
+    }
+  }
+}
+```
 
 <br>
 

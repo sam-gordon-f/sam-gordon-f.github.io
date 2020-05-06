@@ -106,7 +106,7 @@ Resources:
             - "\n"
 ```
 
----
+<br>
 
 #### Fn::Cidr <a name="cidr"></a>
 
@@ -192,7 +192,7 @@ Resources:
       VpcId: !Ref 'EC2Vpc'
 ```
 
----
+<br>
 
 #### Fn::FindInMap <a name="findinmap"></a>
 
@@ -261,7 +261,7 @@ Resources:
         - mappingPropName
 ```
 
----
+<br>
 
 #### Fn::GetAtt <a name="getatt"></a>
 
@@ -319,7 +319,7 @@ Outputs:
     Name: SNSTopic
 ```
 
----
+<br>
 
 #### Fn::GetAZs <a name="getazs"></a>
 
@@ -376,7 +376,7 @@ Resources:
           Ref: AWS::Region
 ```
 
----
+<br>
 
 #### Fn::ImportValue <a name="importvalue"></a>
 
@@ -428,7 +428,7 @@ Resources:
       Type: CNAME
 ```
 
----
+<br>
 
 #### Fn::Join <a name="join"></a>
 
@@ -453,7 +453,7 @@ Used to join an array of strings with a specific delimeter. This is seen absolut
 
 See [Base64 Usage](#base64-usage) for an example on joining strings for the userdata property
 
----
+<br>
 
 #### Fn::Select <a name="select"></a>
 
@@ -478,7 +478,7 @@ Used to return a specific index from a list. This is seen quite a bit when there
 
 See [GetAZs Usage](#getazs-usage), or [Split Usage](#split-usage) for examples on using this function
 
----
+<br>
 
 #### Fn::Split <a name="split"></a>
 
@@ -543,7 +543,7 @@ Outputs:
         - !Ref 'url'
 ```
 
----
+<br>
 
 #### Fn::Sub <a name="sub"></a>
 
@@ -574,7 +574,7 @@ Refer to the above where we're building a domain name off `potentially` dynamic 
 
 The placeholders, and keys in the following map have to be indentical in case
 
----
+<br>
 
 #### Fn::Transform <a name="transform"></a>
 
@@ -604,7 +604,7 @@ Parameters:
 
 See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudformation-macros#inline">here for more information on using this function for inline transforms</a>
 
----
+<br>
 
 #### Ref <a name="ref"></a>
 

@@ -23,7 +23,7 @@ For example - At the time of writing this cloudformation did not have support fo
 
 ---
 
-#### Javascript <a name="javascript"></a>
+#### 1) Javascript <a name="javascript"></a>
 
 This is a custom lambda function written in nodejs that will handle the subscription creation/deletion when invoked in the correct fashion (via a custom resource in this case)
 
@@ -143,9 +143,9 @@ exports.handler = (event, context, callback) => {
 }
 ```
 
----
+<br>
 
-#### Cloudformation <a name="cloudformation"></a>
+#### 2) Cloudformation <a name="cloudformation"></a>
 
 This is a custom cloudformation template that will invoke the above function as assign to a custom construct. It has a number of resources
 
@@ -260,10 +260,10 @@ Resources:
       ServiceToken: !GetAtt 'LambdaFunctionShieldAdvancedManage.Arn'
 ```
 
----
+<br>
 
 <a name = "diagram"></a>
-#### Logical pieces
+#### 3) Logical Pieces
 
 The below is logically how the pieces fit and reference each other
 

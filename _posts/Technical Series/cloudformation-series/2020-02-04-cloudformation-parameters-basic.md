@@ -86,6 +86,7 @@ Below are the different basic parameters data types ( See [Type](#properties-typ
 ["test123", "test321"]
 ```
 
+<br>
 ---
 
 <a name = "properties"></a>

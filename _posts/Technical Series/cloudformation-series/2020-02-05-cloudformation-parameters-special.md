@@ -12,7 +12,8 @@ tips:
   - "AWS special params may not be useful for when systems specify values, as they're more for user assistance and validation"
 ---
 
-Below are a list of special lookup params, and examples on where they're useful and can be used
+Special parameters when entered, can lookup a value of a resource inside your account.
+This can help with cross referencing resources that may reside in another stack, or that have been created via a different process.
 
 #### Special Parameters
 1. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)<span style = "color:orange">* </span>
@@ -29,7 +30,6 @@ Below are a list of special lookup params, and examples on where they're useful 
 (<span style = "color:orange">* </span> has support for generic lists `list<paramType>>`)
 
 #### SSM Paramaters
-  
 1. [Overview and examples](#ssm-params)
 
 ---

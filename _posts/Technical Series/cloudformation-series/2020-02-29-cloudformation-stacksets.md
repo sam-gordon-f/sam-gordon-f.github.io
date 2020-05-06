@@ -146,12 +146,26 @@ You'll also need a role that lives in the target account(s)
 <a name = "deployment"></a>
 ##### 4) Deployment
 
-Now that we have all the pieces. The steps are
+Now that we have all the pieces. We can use the API's / CLI to put them all together
 
-> a. navigate to cloudformation<br>
-> b. select stacksets<br>
-> c. select create<br>
-> d. specify account list<br>
-> e. specify deployment role (step 2)<br>
-> f. specify target role (step 3)<br>
-> g. execute<br>
+```shell
+# this creates the stackset container
+aws cloudformation create-stack-set \
+  --stack-set-name=backdoor \
+  --template-body=file://cloudformation.template \
+  --capabilities=CAPABILITY_NAMED_IAM \
+  --administration-role-arn=arn:aws:iam::123456789123:role/Stackset \
+  --execution-role-name=Stackset
+
+# this adds the accounts that you wish to deploy to
+aws cloudformation create-stack-instances \
+  --stack-set-name backdoor \
+  --accounts "987654321987" \
+  --regions "ap-southeast-2"
+```
+
+<div class="card tip">
+  <div class="card-body">
+    This is only a basic example - There are a number of other properties that you can use to control things like ordering, target accounts / OU's, etc...
+  </div>
+</div>

@@ -4,7 +4,7 @@ title: "Introduction"
 date: 2020-02-01 08:44:38
 category: [technical-series, cloudformation-series]
 author: samGordon
-short-description: Introduction to Cloudformation Series
+short-description: What this series covers
 tags: [cloudformation, introduction]
 skill: beginner
 ---

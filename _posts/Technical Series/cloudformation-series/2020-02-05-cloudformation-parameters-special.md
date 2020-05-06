@@ -12,8 +12,9 @@ tips:
   - "AWS special params may not be useful for when systems specify values, as they're more for user assistance and validation"
 ---
 
-Special parameters when entered, can lookup a value of a resource inside your account.
-This can help with cross referencing resources that may reside in another stack, or that have been created via a different process.
+Special parameters when supplied (during create or update operations), can lookup a value of a resource inside your account. This can help with cross referencing resources that may reside in another stack, or that have been created via a different process.
+
+The below are some examples on how and the kinds of situations where they can be used
 
 #### Special Parameters
 1. [AWS::EC2::AvailabilityZone::Name](#aws-params-availability-zone-name)<span style = "color:orange">* </span>

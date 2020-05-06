@@ -25,7 +25,7 @@ In the below example. There are three components
 <a name = "json-schema"></a>
 #### 1) json-schema (AWS::S3::Bucket)
 
-More information about json-schemas <a href = \"https://json-schema.org/\">here</a>
+More information about json-schemas <a href = "https://json-schema.org/">here</a>
 
 ```json
 {

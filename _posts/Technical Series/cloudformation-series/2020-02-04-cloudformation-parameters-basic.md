@@ -36,8 +36,7 @@ They can be customised in a number of ways to help guide and control which value
 <a name = "types"></a>
 #### Parameter Basic Data Types
 
-Below are the basic parameters types ( See [Type](#properties-type) ).
-This is essentially the format that the data is in
+Below are the different basic parameters data types ( See [Type](#properties-type) ).
 
 <div class="card tip">
   <div class="card-body">
@@ -46,7 +45,7 @@ This is essentially the format that the data is in
 </div>
 
 <a name = "type-string"></a>
-##### String
+##### 1) String
 
 ```
 # input value
@@ -57,7 +56,7 @@ This is essentially the format that the data is in
 ```
 
 <a name = "type-number"></a>
-##### Number
+##### 2) Number
 
 ```
 # input value
@@ -68,7 +67,7 @@ This is essentially the format that the data is in
 ```
 
 <a name = "type-list"></a>
-##### List<Number>
+##### 3) List<Number>
 ```
 # input value
 > 1,2,3
@@ -78,7 +77,7 @@ This is essentially the format that the data is in
 ```
 
 <a name = "type-comma-delimited-list"></a>
-##### CommaDelimitedList
+##### 4) CommaDelimitedList
 ```
 # input value
 > "test123", "test321"
@@ -102,7 +101,7 @@ The below is listed in a progressive fashion that shows how you can combine them
 </div>
 
 <a name = "properties-type"></a>
-##### Type ( required )
+##### 1) Type ( required )
 
 The value must be a string (can be used for pretty much any basic input value. See [Parameter Types (basic)](#types) for what basic types are supported)
 
@@ -117,7 +116,7 @@ The value must be a string (can be used for pretty much any basic input value. S
 ```
 
 <a name = "properties-allowed-pattern"></a>
-##### AllowedPattern
+##### 2) AllowedPattern
 
 <div class="card tip">
   <div class="card-body">
@@ -144,7 +143,7 @@ The below tests for the string "test123"
 ```
 
 <a name = "properties-max-length"></a>
-##### MaxLength
+##### 3) MaxLength
 
 The max number of characters a user can specify. The below checks for a max of 7 characters
 
@@ -161,7 +160,7 @@ The max number of characters a user can specify. The below checks for a max of 7
 ```
 
 <a name = "properties-min-length"></a>
-##### MinLength
+##### 4) MinLength
 
 The min number of characters a user can specify. The below checks for a min of 7 characters
 
@@ -179,7 +178,7 @@ The min number of characters a user can specify. The below checks for a min of 7
 ```
 
 <a name = "properties-allowed-values"></a>
-##### AllowedValues
+##### 5) AllowedValues
 
 The below allows only the numbders [1,2,3,4,5] as inputs
 
@@ -195,7 +194,7 @@ The below allows only the numbders [1,2,3,4,5] as inputs
 ```
 
 <a name = "properties-constraint-description"></a>
-##### ConstraintDescription
+##### 6) ConstraintDescription
 
 Used for custom error messages when an input violation occurs. The below presents a custom message that shows the user how to correctly enter a value
 
@@ -212,7 +211,7 @@ Used for custom error messages when an input violation occurs. The below present
 ```
 
 <a name = "properties-default"></a>
-##### Default
+##### 7) Default
 
 If nothing supplied, use this value. The below gives a default of `1`
 
@@ -230,7 +229,7 @@ If nothing supplied, use this value. The below gives a default of `1`
 ```
 
 <a name = "properties-description"></a>
-##### Description
+##### 8) Description
 
 A label to help the user understand what the input represents.
 
@@ -249,7 +248,7 @@ A label to help the user understand what the input represents.
 ```
 
 <a name = "properties-max-value"></a>
-##### MaxValue
+##### 9) MaxValue
 
 What is the `highest` number a user can specify. The below checks for inputs greater than 5
 
@@ -269,7 +268,7 @@ What is the `highest` number a user can specify. The below checks for inputs gre
 ```
 
 <a name = "properties-min-value"></a>
-##### MinValue
+##### 10) MinValue
 
 What is the `lowest` number a user can specify. The below checks for inputs lower than 1
 
@@ -290,7 +289,7 @@ What is the `lowest` number a user can specify. The below checks for inputs lowe
 ```
 
 <a name = "properties-no-echo"></a>
-##### NoEcho
+##### 11) NoEcho
 
 A way to hide (mask ***** ) a value that has been provided. This prevents cloudformation from returning the value to the user via console/api/cli. Great for sensative information ! (not that its recommended you ever pass secrets via params in this fashion)
 

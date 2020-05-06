@@ -30,7 +30,7 @@ The below names a role (backdoor) and allows a specified account (via parameter)
   "Parameters": {
     "accountIdBreakglass": {
       "Type": "String",
-      "Default": "123456789123"
+      "Default": "555555555555"
     }
   },
   "Resources": {
@@ -56,8 +56,7 @@ The below names a role (backdoor) and allows a specified account (via parameter)
         "ManagedPolicyArns": [
           "arn:aws:iam::aws:policy/AdministratorAccess",  
           "arn:aws:iam::aws:policy/job-function/SupportUser"
-        ],
-        "Path": "/stackset/"
+        ]
       }
     }
   }
@@ -67,18 +66,13 @@ The below names a role (backdoor) and allows a specified account (via parameter)
 <br>
 
 <a name = "permissions-parent"></a>
-###### 2) Permissions (Deployment Account)
+##### 2) Permissions (Deployment Account - 123456789123)
 
-When you run the stackset you need to specify a role to use similar to the below
+When you run the stackset you'll need to specify a role to use in the deployment account (similar to below)
+This role is the principal cloudformation uses to communicate with the child account(s)
 
 ```json
 {
-  "Parameters": {
-    "accountIdBreakglass": {
-      "Type": "String",
-      "Default": "123456789123"
-    }
-  },
   "Resources": {
     "IAMRole": {
       "Type": "AWS::IAM::Role",
@@ -86,24 +80,22 @@ When you run the stackset you need to specify a role to use similar to the below
         "AssumeRolePolicyDocument": {
           "Version": "2012-10-17",
           "Statement":[{
-            "Sid":"breakglass",
+            "Sid":"stackset",
             "Effect":"Allow",
             "Principal":{
               "AWS":[
                 {
-                  "Ref": "accountIdBreakglass"
+                  "Ref": "AWS::AccountId"
                 }
               ]
             },
             "Action":"sts:AssumeRole"
           }]
         },
-        "RoleName": "Backdoor",
+        "RoleName": "Stackset",
         "ManagedPolicyArns": [
-          "arn:aws:iam::aws:policy/AdministratorAccess",  
-          "arn:aws:iam::aws:policy/job-function/SupportUser"
-        ],
-        "Path": "/stackset/"
+          "arn:aws:iam::aws:policy/AdministratorAccess"
+        ]
       }
     }
   }
@@ -114,4 +106,36 @@ When you run the stackset you need to specify a role to use similar to the below
 <br>
 
 <a name = "permissions-child"></a>
-###### 3) Permissions (Child Account)
+##### 3) Permissions (Child Account - 987654321987)
+
+You'll also need to specify a role that lives in the target account (in this example, named Stackset)
+This role trusts the role in the deployment account to execute operations
+
+```json
+{
+  "Resources": {
+    "IAMRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement":[{
+            "Sid":"stackset",
+            "Effect":"Allow",
+            "Principal":{
+              "AWS":[
+                "arn:aws:iam::123456789123:role/Stackset"
+              ]
+            },
+            "Action":"sts:AssumeRole"
+          }]
+        },
+        "RoleName": "Stackset",
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/AdministratorAccess"
+        ]
+      }
+    }
+  }
+}
+```

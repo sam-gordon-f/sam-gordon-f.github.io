@@ -14,7 +14,7 @@ skill: novice
 
 ---
 
-All templates will have a combination of the below
+When writing a template, they're constructed using the following main directives. Keeping in mind that only a couple of them are mandatory
 
 ##### Template Blocks
 1. [AWSTemplateFormatVersion](#aws-template-format-version)
@@ -61,10 +61,12 @@ Is used to help viewers identify the purpose of the template
 
 ```json
 {
+  "AWSTemplateFormatVersion" : "2010-09-09",
   "Description" : "A description to help identify the purpose of the template"
 }
 ```  
 ```yml
+AWSTemplateFormatVersion: "2010-09-09"
 Description: "A description to help identify the purpose of the template"
 ```
 
@@ -87,6 +89,8 @@ which is an AWS defined transform for pulling in cloudformation snippets from S3
 
 ```json
 {
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description" : "A description to help identify the purpose of the template"
   "Transform" : [
     "transform1",
     "AWS::Serverless",
@@ -95,6 +99,8 @@ which is an AWS defined transform for pulling in cloudformation snippets from S3
 }
 ```  
 ```yml
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "A description to help identify the purpose of the template"
 Transform: ["transform", "AWS::Serverless", "AWS::Include"]
 ```
 
@@ -106,6 +112,7 @@ Are a way of creating dynamic inputs for your stacks. These are placeholder defi
 
 ```json
 {
+  "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters" : {
     "param1": {
       "Type": "String",
@@ -119,6 +126,7 @@ Are a way of creating dynamic inputs for your stacks. These are placeholder defi
 }
 ```  
 ```yml
+AWSTemplateFormatVersion: "2010-09-09"
 Parameters:
   param1:
     Type: String
@@ -159,6 +167,7 @@ Used to help prettify cloudformation/service catalog operation interfaces (creat
 
 ```json
 {
+  "AWSTemplateFormatVersion": "2010-09-09",
   "Metadata" : {
     "Instances" : {"Description" : "Information about the instances"},
     "Databases" : {"Description" : "Information about the databases"},
@@ -184,6 +193,7 @@ Used to help prettify cloudformation/service catalog operation interfaces (creat
 }
 ```
 ```yml
+AWSTemplateFormatVersion: "2010-09-09"
 Metadata:
   Instances:
     Description: "Information about the instances"
@@ -211,6 +221,7 @@ Ways of defining config for within templates. These can be dynamically reference
 
 ```json
 {
+  "AWSTemplateFormatVersion": "2010-09-09",
   "Mappings" : {
     "mapping1" : {
       "mappingPropCategory1" : {
@@ -225,6 +236,7 @@ Ways of defining config for within templates. These can be dynamically reference
 ```  
 
 ```yml
+AWSTemplateFormatVersion: "2010-09-09"
 Mappings:
   mapping1:
     mappingPropCategory1:
@@ -266,6 +278,7 @@ More information and examples at the [aws docs](https://docs.aws.amazon.com/AWSC
 
 ```json
 {
+  "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters": {
     "param1": {
       "Type": "String",
@@ -292,6 +305,7 @@ More information and examples at the [aws docs](https://docs.aws.amazon.com/AWSC
 ```  
 
 ```yml
+AWSTemplateFormatVersion: "2010-09-09"
 Parameters:
   param1:
     Type: String
@@ -315,6 +329,7 @@ If the condition (`conditionParam1NotEmpty`) is "true", assign the bucketName pr
 
 ```json
 {
+  "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters": {
     "param1": {
       "Type": "String",
@@ -358,6 +373,7 @@ If the condition (`conditionParam1NotEmpty`) is "true", assign the bucketName pr
 }
 ```
 ```yml
+AWSTemplateFormatVersion: "2010-09-09"
 Parameters:
   param1:
     Type: String
@@ -388,6 +404,7 @@ If the condition (`conditionCreateBucket`) is "true", then create the S3::Bucket
 
 ```json
 {
+  "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters": {
     "param1": {
       "Type": "String",
@@ -420,6 +437,7 @@ If the condition (`conditionCreateBucket`) is "true", then create the S3::Bucket
 }
 ```
 ```yml
+AWSTemplateFormatVersion: "2010-09-09",
 Parameters:
   param1:
     Type: String
@@ -451,6 +469,7 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 
 ```json
 {
+  "AWSTemplateFormatVersion": "2010-09-09",
   "Resources" : {
     "resource1": {
       "Type": "AWS::S3::Bucket",
@@ -462,6 +481,7 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 }
 ```  
 ```yml
+AWSTemplateFormatVersion: "2010-09-09"
 Resources:
   resource1:
     Type: AWS::S3::Bucket
@@ -514,6 +534,7 @@ A list of values that you wish to make available for viewers. These can also be 
 
 ```json
 {
+  "AWSTemplateFormatVersion": "2010-09-09",
   "Resources": {
     "resource1": {
       "Type": "AWS::S3::Bucket"
@@ -539,6 +560,7 @@ A list of values that you wish to make available for viewers. These can also be 
 }
 ```
 ```yml
+AWSTemplateFormatVersion: "2010-09-09",
 Resources:
   resource1:
     Type: "AWS::S3::Bucket"

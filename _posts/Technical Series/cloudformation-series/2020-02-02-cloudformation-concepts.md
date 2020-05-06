@@ -19,7 +19,7 @@ Most Cloudformation stacks follow the below pattern
 3. [Next Steps](#next)
 4. [Error](#next-operation)
 
-[Diagram of cardinality](#diagram)
+[Diagram of concept cardinality](#diagram)
 
 ---
 
@@ -33,7 +33,7 @@ These are blueprints that reflect the desired state of your infrastructure, and 
 <a name = "create"></a>
 ##### 2) Execute `createStack` action alongside your template
 
-This is where we take our blueprints, and create a stack that houses the resources described
+This is where we take our blueprints, and create a stack that houses the infrastructure described
   
 <div class="card tip">
   <div class="card-body">
@@ -64,9 +64,9 @@ If there are any errors with the above, the service will attempt to revert to th
 ---
 
 <a name = "diagram"></a>
-##### Diagram
+##### Concept Cardinality Diagram
 
-The below diagram shows the below cardinality
+The below diagram shows
 
 - Each template can creates one stack (with potentially nested children stacks)
 - Each stack contains one or more resources

@@ -14,16 +14,17 @@ This is super useful for creating baselines, or control how your fleet of enviro
 
 Say for example I wanted a backdoor role in a number of accounts. I could use the below example
 
-1) [Template](#template)
-2) [Permissions - Deployment Account](#permissions-parent)
-2) [Permissions - Child Account](#permissions-child)
+1. [Template](#template)
+2. [Permissions - Deployment Account](#permissions-parent)
+3. [Permissions - Child Account](#permissions-child)
+4. [Deployment](#deployment)
 
 ---
 
 <a name = "template"></a>
 ##### 1) Template
 
-The below names a role (backdoor) and allows a specified account (via parameter), access to assume
+The below names a role (backdoor) and allows a specified backdoor account access to assume.
 
 ```json
 {
@@ -68,8 +69,8 @@ The below names a role (backdoor) and allows a specified account (via parameter)
 <a name = "permissions-parent"></a>
 ##### 2) Permissions (Deployment Account - 123456789123)
 
-When you run the stackset you'll need to specify a role to use in the deployment account (similar to below)
-This role is the principal cloudformation uses to communicate with the child account(s)
+When you run the stackset you'll need to specify a role to use.
+(This is the principal cloudformation assmues and uses to communicate with the child accounts)
 
 ```json
 {
@@ -108,8 +109,8 @@ This role is the principal cloudformation uses to communicate with the child acc
 <a name = "permissions-child"></a>
 ##### 3) Permissions (Child Account - 987654321987)
 
-You'll also need to specify a role that lives in the target account (in this example, named Stackset)
-This role trusts the role in the deployment account to execute operations
+You'll also need a role that lives in the target account(s)
+(This is the role that the deployment account assumes in order to create resources)
 
 ```json
 {
@@ -139,3 +140,18 @@ This role trusts the role in the deployment account to execute operations
   }
 }
 ```
+
+<br>
+
+<a name = "deployments"></a>
+##### 4) Deploymemnt
+
+Now that we have all the pieces. The steps are
+
+> navigate to cloudformation
+> select stacksets
+> select create
+> specify account list
+> specify deployment role (step 2)
+> specify target role (step 3)
+> select run

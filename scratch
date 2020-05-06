@@ -1,0 +1,31 @@
+{
+  "Parameters": {
+    "param1": {
+      "Type": "String",
+      "AllowedValues": ["true", "false"],
+      "Default": "true"
+    },
+    "param2": {
+      "Type": "String"
+    }
+  },
+  "Conditions" : {
+    "conditionCreateBucket" : {
+      "Fn::Equals" : [
+        {
+          "Ref" : "param1"
+        },
+        "true"
+      ]
+    }
+  },
+  "Resources" : {
+    "resource1": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "AccessControl": "Private"
+      },
+      "Condition": "conditionCreateBucket"
+    }
+  }
+}

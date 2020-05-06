@@ -33,7 +33,8 @@ All templates will have a combination of the below
   b. [Properties](#resources-properties)
 9. [Outputs](#outputs) <span style = "color:orange">* </span>
   a. [Exports](#outputs-exports)
-10. [Full Examples](#full-examples)
+
+[Full Examples](#full-examples)
 
 <span style = "color:orange">* optional</span>
 
@@ -108,8 +109,11 @@ Are a way of creating dynamic inputs for your stacks. These are placeholder defi
   "Parameters" : {
     "param1": {
       "Type": "String",
-      "AllowedValues": ["first", "second", "third"],
-      "Default": "first"
+      "AllowedValues": ["true", "false"],
+      "Default": "true"
+    },
+    "param2": {
+      "Type": "String"
     }
   }
 }
@@ -119,10 +123,11 @@ Parameters:
   param1:
     Type: String
     AllowedValues:
-      - first
-      - second
-      - third
-    Default: first  
+      - "true"
+      - "false"
+    Default: "true"
+  param2:
+    Type: String
 ```
 
 <a name="parameters-referencing"></a>
@@ -164,11 +169,14 @@ Used to help prettify cloudformation/service catalog operation interfaces (creat
         "Label": {
           "default": "Custom Parameter Group1"
         },
-        "Parameters": ["param1"]
+        "Parameters": ["param1", "param2"]
       }],
       "ParameterLabels": [{
         "param1": {
           "default": "Here is a custom description for param1"
+        },
+        "param2": {
+          "default": "Here is a custom description for param2"
         }
       }]
     }
@@ -254,21 +262,26 @@ A way of creating logic around property values, and/or cloudformation resource c
 
 More information and examples at the [aws docs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html)
 
-(The below chains two intrinsic functions together to define a condition to check if the value entered is not empty
+(The below chains two intrinsic functions together to define a condition to check if the value entered in `param2` is not empty)
 
 ```json
 {
   "Parameters": {
     "param1": {
+      "Type": "String",
+      "AllowedValues": ["true", "false"],
+      "Default": "true"
+    },
+    "param2": {
       "Type": "String"
     }
   },
   "Conditions" : {
-    "conditionParam1NotEmpty" : {
+    "conditionParam2NotEmpty" : {
       "Fn::Not": {
         "Fn::Equals" : [
           {
-            "Ref" : "param1"
+            "Ref" : "param2"
           },
           ""
         ]
@@ -282,10 +295,16 @@ More information and examples at the [aws docs](https://docs.aws.amazon.com/AWSC
 Parameters:
   param1:
     Type: String
+    AllowedValues:
+      - "true"
+      - "false"
+    Default: "true"
+  param2:
+    Type: String
 Conditions:
-  conditionParam1NotEmpty: !Not
+  conditionParam2NotEmpty: !Not
     Fn::Equals:
-      - !Ref 'param1'
+      - !Ref 'param2'
       - ''
 ```
 
@@ -298,15 +317,20 @@ If the condition (`conditionParam1NotEmpty`) is "true", assign the bucketName pr
 {
   "Parameters": {
     "param1": {
+      "Type": "String",
+      "AllowedValues": ["true", "false"],
+      "Default": "true"
+    },
+    "param2": {
       "Type": "String"
     }
   },
   "Conditions" : {
-    "conditionParam1NotEmpty" : {
+    "conditionParam2NotEmpty" : {
       "Fn::Not": {
         "Fn::Equals" : [
           {
-            "Ref" : "param1"
+            "Ref" : "param2"
           },
           ""
         ]
@@ -319,9 +343,9 @@ If the condition (`conditionParam1NotEmpty`) is "true", assign the bucketName pr
       "Properties": {
         "BucketName": {
           "Fn::If" : [
-            "conditionParam1NotEmpty",
+            "conditionParam2NotEmpty",
             {
-              "Ref": "param1"
+              "Ref": "param2"
             },
             {
               "Ref": "AWS::NoValue"
@@ -337,18 +361,24 @@ If the condition (`conditionParam1NotEmpty`) is "true", assign the bucketName pr
 Parameters:
   param1:
     Type: String
+    AllowedValues:
+      - 'true'
+      - 'false'
+    Default: 'true'
+  param2:
+    Type: String
 Conditions:
-  conditionParam1NotEmpty: !Not
+  conditionParam2NotEmpty: !Not
     Fn::Equals:
-      - !Ref 'param1'
+      - !Ref 'param2'
       - ''
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !If
-        - conditionParam1NotEmpty
-        - !Ref 'param1'
+        - conditionParam2NotEmpty
+        - !Ref 'param2'
         - !Ref 'AWS::NoValue'
 ```
 <a name="conditions-resource-level"></a>
@@ -359,17 +389,20 @@ If the condition (`conditionCreateBucket`) is "true", then create the S3::Bucket
 ```json
 {
   "Parameters": {
-    "paramBucketCheck": {
+    "param1": {
       "Type": "String",
       "AllowedValues": ["true", "false"],
       "Default": "true"
+    },
+    "param2": {
+      "Type": "String"
     }
   },
   "Conditions" : {
     "conditionCreateBucket" : {
       "Fn::Equals" : [
         {
-          "Ref" : "paramBucketCheck"
+          "Ref" : "param1"
         },
         "true"
       ]
@@ -388,15 +421,17 @@ If the condition (`conditionCreateBucket`) is "true", then create the S3::Bucket
 ```
 ```yml
 Parameters:
-  paramBucketCheck:
+  param1:
     Type: String
     AllowedValues:
       - 'true'
       - 'false'
     Default: 'true'
+  param2:
+    Type: String
 Conditions:
   conditionCreateBucket: !Equals
-    - !Ref 'paramBucketCheck'
+    - !Ref 'param1'
     - 'true'
 Resources:
   resource1:
@@ -526,6 +561,8 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 !ImportValue '<<stackName>>-export1'
 ```
 
+<br>
+
 ---
 
 #### Full Examples<a name="full-examples"></a>
@@ -577,10 +614,20 @@ The full template examples are here (some properties omitted as their have depen
     }
   },
   "Resources" : {
-    "resource1": {
+    "S3Bucket": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "AccessControl": "Private"
+        "BucketName": {
+          "Fn::If" : [
+            "conditionParam1NotEmpty",
+            {
+              "Ref": "param1"
+            },
+            {
+              "Ref": "AWS::NoValue"
+            }
+          ]
+        }
       }
     }
   },

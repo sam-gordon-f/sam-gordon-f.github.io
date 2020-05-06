@@ -9,9 +9,14 @@ tags: [cloudformation, parameters, yml, json]
 skill: novice
 ---
 
-When using parameters with your template, you're effectively creating placeholders for a user / service to provide the details when an operation is performed (`createStack` / `updateStack`).
+Parameters are effectively placeholders for a user or service to provide details when a create/update operation is performed.
+They can be customised in a number of ways to help guide and control which values can be used
 
-Below is a list of all the properties you can assign to these placeholders, and their different input types
+#### Parameter Basic Data Types
+1. [String](#type-string)
+2. [Number](#type-number)
+3. [List](#type-list)
+4. [CommaDelimitedList](#type-comma-delimited-list)
 
 #### Parameter Properties
 1. [Type](#properties-type)
@@ -26,24 +31,75 @@ Below is a list of all the properties you can assign to these placeholders, and 
 10. [MinValue](#properties-min-value)
 11. [NoEcho](#properties-no-echo)
 
-#### Parameter Types
-1. [String](#type-string)
-2. [Number](#type-number)
-3. [List](#type-list)
-4. [CommaDelimitedList](#type-comma-delimited-list)
+---
+
+<a name = "types"></a>
+#### Parameter Basic Data Types
+
+Below are the basic parameters types ( See [Type](#properties-type) ).
+This is essentially the format that the data is in
+
+<div class="card tip">
+  <div class="card-body">
+    Please note that Intrinsic functions convert params to strings when used
+  </div>
+</div>
+
+<a name = "type-string"></a>
+##### String
+
+```
+# input value
+> test123
+
+# when referenced
+"test123"
+```
+
+<a name = "type-number"></a>
+##### Number
+
+```
+# input value
+> 123
+
+# when referenced
+"123"
+```
+
+<a name = "type-list"></a>
+##### List<Number>
+```
+# input value
+> 1,2,3
+
+# when referenced
+["1", "2", "3"]
+```
+
+<a name = "type-comma-delimited-list"></a>
+##### CommaDelimitedList
+```
+# input value
+> "test123", "test321"
+
+# when referenced
+["test123", "test321"]
+```
 
 ---
 
 <a name = "properties"></a>
 #### Parameter Properties
 
+Below are the properties that you can use to customise, guide and control what the user / system inputs.
+The below is listed in a progressive fashion that shows how you can combine them
+
 <div class="card official-docs">
   <div class="card-body">
     <a href = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#parameters-section-structure-properties">AWS docs on paramater properties</a>
   </div>
 </div>
-
-Below I've listed the properties in a progressive way that shows how you can combine them to control your inputs
 
 <a name = "properties-type"></a>
 ##### Type ( required )
@@ -248,59 +304,4 @@ A way to hide (mask ***** ) a value that has been provided. This prevents cloudf
     }
   }
 }
-```
-
----
-
-<a name = "types"></a>
-#### Parameter Types
-
-Below are the basic paramaters types ( See [Type](#properties-type) )
-
-<div class="card tip">
-  <div class="card-body">
-    Please note that Intrinsic functions convert params to strings when used
-  </div>
-</div>
-
-<a name = "type-string"></a>
-##### String
-
-```
-# input value
-> test123
-
-# when referenced
-"test123"
-```
-
-<a name = "type-number"></a>
-##### Number
-
-```
-# input value
-> 123
-
-# when referenced
-"123"
-```
-
-<a name = "type-list"></a>
-##### List<Number>
-```
-# input value
-> 1,2,3
-
-# when referenced
-["1", "2", "3"]
-```
-
-<a name = "type-comma-delimited-list"></a>
-##### CommaDelimitedList
-```
-# input value
-> "test123", "test321"
-
-# when referenced
-["test123", "test321"]
 ```

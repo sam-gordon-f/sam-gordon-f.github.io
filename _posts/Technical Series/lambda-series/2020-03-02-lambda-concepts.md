@@ -10,8 +10,8 @@ skill: beginner
 docs:
   - "<a href = \">https://docs.aws.amazon.com/lambda/latest/dg/welcome.html\">AWS docs on 'what is'</a>"
 ---
-
-The Major components are fairly straight forward, and they follow the basics / image below
+ 
+Most Lambda functions follow the below pattern
 
 ##### Typical Lifecycle
 ---

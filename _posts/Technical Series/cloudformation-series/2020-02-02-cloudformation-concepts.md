@@ -11,7 +11,7 @@ docs:
 skill: beginner
 ---
 
-The Major concepts are fairly straight forward, and they follow the model / actions below
+Most Cloudformation stacks follow the below pattern
 
 ##### Typical Lifecycle
 ---

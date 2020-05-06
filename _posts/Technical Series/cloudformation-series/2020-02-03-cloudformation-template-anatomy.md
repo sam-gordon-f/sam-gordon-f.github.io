@@ -14,7 +14,10 @@ skill: novice
 
 ---
 
-Below are each of the major components that make up a cloudformation template.
+All templates will have a combination of the below
+
+##### Template Blocks
+---
 
 1. [AWSTemplateFormatVersion](#aws-template-format-version)
 2. [Description](#description)

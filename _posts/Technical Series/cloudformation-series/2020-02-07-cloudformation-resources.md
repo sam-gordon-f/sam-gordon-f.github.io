@@ -30,7 +30,7 @@ Every logical resource inside your cloudformation template supports, and in some
 Each resource has a `Type`, this declares to cloudformation what you're intending on creating alongside what properties are supported.
 Refer to the docs above as your bible for what resources are supported
 
----
+<br>
 
 <a name = "properties"></a>
 #### 2) Properties
@@ -38,7 +38,7 @@ Refer to the docs above as your bible for what resources are supported
 As every resource type in AWS is completely different, there are a myriad of properties supported.
 Refer to the docs above as your bible for what properties are supported against each resource type
 
----
+<br>
 
 <a name = "retention-policies"></a>
 #### 3) Retention Policies
@@ -63,7 +63,7 @@ For example- The below keeps an S3 bucket if a `stackDelete` operation is run
 
 This is super handy for when you resource that in turn store data (S3, RDS, Elasticache, Redshift, etc...)
 
----
+<br>
 
 <a name = "conditions"></a>
 #### 4) Conditions
@@ -108,7 +108,7 @@ For example- The below only creates a bucket if `param1` == true
 
 This allows you to create stacks that dynamically create based on user input.
 
----
+<br>
 
 <a name = "depends-on"></a>
 #### 5) DependsOn

@@ -48,6 +48,8 @@ I've created the parameter and the value in the below template. This must be run
 }
 ```
 
+<br>
+
 <a name = "template-b"></a>
 ##### 2) Resolve the value (templateB)
 
@@ -71,6 +73,8 @@ In this template, theres a resolve directive which triggers cloudformation to lo
   }
 }
 ```
+
+<br>
 
 <a name = "outcome"></a>
 ##### 3) Outcome

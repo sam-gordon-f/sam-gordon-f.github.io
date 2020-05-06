@@ -24,7 +24,7 @@ The Major components are fairly straight forward, and they follow the basics / i
 ---
 
 <a name = "analyse"></a>
-##### Analyse
+##### 1) Analyse
 
 So this is a step that seems to be missed more and more as Serverless functions have gained popularity.
 While lambda is a fantastic, cheap, and easy solution; Its not always the best fit for all problems.
@@ -43,10 +43,10 @@ While lambda is a fantastic, cheap, and easy solution; Its not always the best f
   </div>
 </div>
 
----
+<br>
 
 <a name = "create"></a>
-##### Create Function
+##### 2) Create Function
 
 You'll need to either edit inside the console, or create some automation to create a deployment packages. Once done, you'll need to assign the following properties
   
@@ -72,10 +72,10 @@ Additional items such as the below can be added
   </div>
 </div>
 
----
+<br>
 
 <a name = "test-tweak"></a>
-##### Test / Tweak
+##### 3) Test / Tweak
 
 Once the above is done, you'll need to review performance and tweak as you observe the behaviour. This can be done using a variety of tools that we'll discuss later.
   <br>

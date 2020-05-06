@@ -13,7 +13,7 @@ skill: beginner
 
 The Major concepts are fairly straight forward, and they follow the model / actions below
 
-##### Typical lifecycle
+##### Typical Lifecycle
 ---
 1. [Write Templates](#write-template)
 2. [Create Stacks](#create)
@@ -30,6 +30,7 @@ The Major concepts are fairly straight forward, and they follow the model / acti
 These reflect the desired state of your infrastructure, and can be written in JSON / YML, or any number of DSLs (domain specific language)
   
 <br>
+
 <a name = "create"></a>
 ##### 2) Execute `createStack` action alongside your template
 
@@ -53,15 +54,18 @@ After the stack(s) stabilizes, all of your infrastructure will have been created
   > d. `executeChangeSet`, which will attempt to update the stack, much like the `updateStack` operation
 
 <br>
-<a name = "error"></a>
-##### 4) If an issue occurs with any of the above steps
 
-The service will attempt to revert to the `previous known state`. This is one of the key reasons why the service is so powerful !
+<a name = "error"></a>
+##### 4) Errors
+
+If there are any errors with the above, the service will attempt to revert to the `previous known state`. This is one of the key reasons why the service is so powerful !
 <br>
 
 ---
 
 <a name = "diagram"></a>
+##### Diagram
+
 The below diagram shows the below cardinality
 
 - Each template can creates one stack (with potentially nested children stacks)

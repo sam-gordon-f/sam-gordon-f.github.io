@@ -12,13 +12,15 @@ skill: novice
 Parameters are effectively placeholders for a user or service to provide details when a create/update operation is performed.
 They can be customised in a number of ways to help guide and control which values can be used
 
-#### Parameter Basic Data Types
+##### Parameter Basic Data Types
+---
 1. [String](#type-string)
 2. [Number](#type-number)
 3. [List](#type-list)
 4. [CommaDelimitedList](#type-comma-delimited-list)
 
-#### Parameter Properties
+##### Parameter Properties
+---
 1. [Type](#properties-type)
 2. [AllowedPattern](#properties-allowed-pattern)
 3. [MaxLength](#properties-max-length)

@@ -87,6 +87,7 @@ Below are the different basic parameters data types ( See [Type](#properties-typ
 ```
 
 <br>
+
 ---
 
 <a name = "properties"></a>

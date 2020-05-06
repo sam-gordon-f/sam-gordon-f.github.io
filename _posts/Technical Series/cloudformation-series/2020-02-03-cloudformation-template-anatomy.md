@@ -17,10 +17,10 @@ skill: novice
 When writing a template, they're constructed using the following main directives. Keeping in mind that only a couple of them are mandatory
 
 ##### Template Blocks
-1. [AWSTemplateFormatVersion](#aws-template-format-version)
-2. [Description](#description)
+1. [AWSTemplateFormatVersion](#aws-template-format-version)<span style = "color:orange">* </span>
+2. [Description](#description)<span style = "color:orange">* </span>
 3. [Macros (transforms)](#macros) <span style = "color:orange">* </span>
-4. [Parameters](#parameters)
+4. [Parameters](#parameters)<span style = "color:orange">* </span>
   a. [Referencing](#parameters-referencing)
 5. [Metadata](#metadata) <span style = "color:orange">* </span>
 6. [Mappings](#mappings) <span style = "color:orange">* </span>
@@ -40,9 +40,10 @@ When writing a template, they're constructed using the following main directives
 
 ---
 
-#### 1) AWSTemplateFormatVersion<a name="aws-template-format-version"></a>
+<a name="aws-template-format-version"></a>
+#### 1) AWSTemplateFormatVersion <span style = "color:orange">* </span>
 
-Identifies the structure and supported capabilities. [2010-09-09](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html) is currently the only version available
+Identifies the structure and supported capabilities. [2010-09-09](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html) is currently the only version available, and defaults if not specified
 
 ```json
 {
@@ -55,24 +56,24 @@ AWSTemplateFormatVersion: "2010-09-09"
 
 <br>
 
-#### 2) Description<a name="description"></a>
+<a name="description"></a>
+#### 2) Description <span style = "color:orange">* </span>
 
 Is used to help viewers identify the purpose of the template
 
 ```json
 {
-  "AWSTemplateFormatVersion" : "2010-09-09",
   "Description" : "A description to help identify the purpose of the template"
 }
 ```  
 ```yml
-AWSTemplateFormatVersion: "2010-09-09"
 Description: "A description to help identify the purpose of the template"
 ```
 
 <br>
 
-#### 3) Macros<a name="macros"></a> <span style = "color:orange">* </span>
+<a name="macros"></a>
+#### 3) Macros <span style = "color:orange">* </span>
 
 Are a directive for cloudformation (at runtime) to take the entirety of whats supplied and run through one or more custom, or AWS managed transforms. These can be defined in the header (as shown) for full template transforms, or inline (more details later).
 
@@ -89,8 +90,6 @@ which is an AWS defined transform for pulling in cloudformation snippets from S3
 
 ```json
 {
-  "AWSTemplateFormatVersion" : "2010-09-09",
-  "Description" : "A description to help identify the purpose of the template"
   "Transform" : [
     "transform1",
     "AWS::Serverless",
@@ -99,20 +98,18 @@ which is an AWS defined transform for pulling in cloudformation snippets from S3
 }
 ```  
 ```yml
-AWSTemplateFormatVersion: "2010-09-09"
-Description: "A description to help identify the purpose of the template"
 Transform: ["transform", "AWS::Serverless", "AWS::Include"]
 ```
 
 <br>
 
-#### 4) Parameters<a name="parameters"></a>
+<a name="parameters"></a>
+#### 4) Parameters <span style = "color:orange">* </span>
 
 Are a way of creating dynamic inputs for your stacks. These are placeholder definitions for what the user/system can provide to cloudformation at runtime operationa
 
 ```json
 {
-  "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters" : {
     "param1": {
       "Type": "String",
@@ -215,7 +212,8 @@ Metadata:
 
 <br>
 
-#### 6) Mappings<a name="mappings"></a> <span style = "color:orange">* </span>
+<a name="mappings"></a>
+#### 6) Mappings <span style = "color:orange">* </span>
 
 Ways of defining config for within templates. These can be dynamically referenced using intrinsic functions paired with 'Parameters'
 
@@ -268,7 +266,8 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 
 <br>
 
-#### 7) Conditions<a name="conditions"></a> <span style = "color:orange">* </span>
+<a name="conditions"></a>
+#### 7) Conditions <span style = "color:orange">* </span>
 
 A way of creating logic around property values, and/or cloudformation resource configuration. Mainly used for checking null values and helping your template work with them.
 
@@ -461,7 +460,8 @@ Resources:
 
 <br>
 
-#### 8) Resources<a name="resources"></a>
+<a name="resources"></a>
+#### 8) Resources
 
 The contents(resources) to be contained within your stack. Typically each resource is denoted by one logical ID (what the template specifies as the JSON/YML key).
 
@@ -522,7 +522,8 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 
 <br>
 
-#### 9) Outputs <a name="outputs"></a> <span style = "color:orange">* </span>
+<a name="outputs"></a>
+#### 9) Outputs <span style = "color:orange">* </span>
  
 A list of values that you wish to make available for viewers. These can also be exposed as exports (as optionally shown below)
 
@@ -595,7 +596,8 @@ See <a href = "{{ site.baseurl }}/technical-series/cloudformation-series/cloudfo
 
 ---
 
-#### Full Examples<a name="full-examples"></a>
+<a name="full-examples"></a>
+#### Full Examples
 
 The full template examples are here (some properties omitted as their have dependencies)
 

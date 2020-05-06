@@ -23,9 +23,9 @@ In the below example. There are three components
 ---
 
 <a name = "json-schema"></a>
-#### 1) json-schema (AWS::S3::Bucket)
+#### 1) S3 Bucket JSON Schema
 
-More information about json-schemas <a href = "https://json-schema.org/">here</a>
+Below is a sample schema that checks against the values specified for the `AccessControl` property
 
 ```json
 {
@@ -56,6 +56,8 @@ More information about json-schemas <a href = "https://json-schema.org/">here</a
 <a name = "cloudformation"></a>
 #### 2) Template1 (cloudformation template to validate)
 
+Here is a template that a user, or system could specify that we want to check against
+
 ```json
 {
   "Resources": {
@@ -74,8 +76,11 @@ More information about json-schemas <a href = "https://json-schema.org/">here</a
 <a name = "ruby-validate"></a>
 #### 3) Sample Ruby project to check
 
+Some sample code to run the validation. I'm using a ruby Rakefile for simplicity / portability
+
 <a name = "ruby-validate-gemfile"></a>
 ##### 3a) Gemfile
+
 ```ruby
 gem 'json-schema'
 ```
@@ -84,6 +89,7 @@ gem 'json-schema'
 
 <a name = "ruby-validate-rakefile"></a>
 ##### 3b) Rakefile
+
 ```ruby
 require 'json'
 require 'json-schema'

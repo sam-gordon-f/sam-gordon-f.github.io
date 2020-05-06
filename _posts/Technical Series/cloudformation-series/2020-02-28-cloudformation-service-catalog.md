@@ -6,5 +6,5 @@ category: [technical-series, cloudformation-series]
 author: samGordon
 short-description: Host your templates via an App-like store
 tags: [cloudformation, parameters, json, service-catalog]
-skill: proficient
+skill: intermediate
 ---

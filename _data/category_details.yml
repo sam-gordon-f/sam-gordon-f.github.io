@@ -39,22 +39,20 @@ vpc-series:
   link: /technical-series/vpc-series
   image: /assets/images/aws-icons/SVG Dark/Compute/Amazon-EC2.svg
 
-### conceptual - sub series
-
 dns-series:
   name: DNS Series
   description: WIP - Collection of progressive DNS related posts
-  link: /conceptual-series/dns-series
+  link: /technical-series/dns-series
   image: /assets/images/aws-icons/SVG Dark/Networking & Content Delivery/Amazon-Route-53.svg
 
 iam-series:
   name: IAM Series
   description: WIP - Collection of progressive IAM posts
-  link: /conceptual-series/iam-series
+  link: /technical-series/iam-series
   image: /assets/images/aws-icons/SVG Dark/Security, Identity, & Compliance/AWS-Identity-and-Access-Management_IAM.svg
 
 kms-series:
   name: KMS Series
   description: WIP - Collection of progressive KMS posts
-  link: /conceptual-series/kms-series
+  link: /technical-series/kms-series
   image: /assets/images/aws-icons/SVG Dark/Security, Identity, & Compliance/AWS-Key-Management-Service.svg

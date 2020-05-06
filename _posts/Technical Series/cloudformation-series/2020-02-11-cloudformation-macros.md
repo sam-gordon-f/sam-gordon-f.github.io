@@ -24,7 +24,10 @@ The Following are the two ways that you can reference in your templates
 ---
 
 <a name="header"></a>
-Example 1 - defined at heading level<br>
+##### 1) Header
+
+Defined at heading level of your template.
+
 In this example our macro would take the entire template, and could potentially return anything in exchange.
 `This is useful for auto-generating resources`
 
@@ -43,10 +46,13 @@ Description: "A description to help identify the purpose of the template"
 Transform: ["transformName1"]
 ```
 
----
+<br>
 
 <a name="inline"></a>
-example 2 - defined at specific point<br>
+##### 2) Inline
+
+Defined at a specific part of your template.
+
 In this example we're expecting our macro to return a value for the property `AccessControl` inside our bucket.
 `This is useful for dynamic property values`
 

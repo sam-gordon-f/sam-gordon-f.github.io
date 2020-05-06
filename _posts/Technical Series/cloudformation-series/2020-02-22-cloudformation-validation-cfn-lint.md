@@ -25,7 +25,7 @@ In the below example. There are four components. Each of these work together to 
 ---
 
 <a name = "cloudformation"></a>
-#### Template1 (cloudformation template to validate)
+#### 1) Template1 (cloudformation template to validate)
 
 The below is a file called `./cloudformation.template`
 (this is standard template that you want to validate)
@@ -45,8 +45,10 @@ The below is a file called `./cloudformation.template`
 }
 ```
 
+<br>
+
 <a name = "python-rule"></a>
-#### Sample custom validation rule (python)
+#### 2) Sample custom validation rule (python)
 
 The below is a file called `./append-rules/S3BucketsNotPublic.py`
 (this is a specifically formatted cfn-lint rule python file)
@@ -81,10 +83,10 @@ class S3BucketsNotPublic(CloudFormationLintRule):
     return matches
 ```
 
----
+<br>
 
 <a name = "cfn-sample-spec-file"></a>
-#### Sample Spec File (optional)
+#### 3) Sample Spec File (optional)
 
 This forces the user to specify the property in the template and not rely on defaults.
 In this example its not required as the python rule should capture. However it could be an easy alternative for required properties (`not values`)
@@ -104,10 +106,10 @@ In this example its not required as the python rule should capture. However it c
 
 ```
 
----
+<br>
 
 <a name = "usage"></a>
-#### Usage
+#### 4) Usage
 
 Run from the same directory as where your template is stored
 
@@ -125,9 +127,9 @@ cfn-lint \
   --info
 ```
 
----
+<br>
 
 <a name = "full-example"></a>
-#### Full Example
+#### 5) Full Example
 
 <a href = "https://github.com/sam-gordon-f/sam-gordon-f.github.io/tree/master/examples/technical-series/cloudformation-series/cloudformation-validate-cfn-lint">available here</a>

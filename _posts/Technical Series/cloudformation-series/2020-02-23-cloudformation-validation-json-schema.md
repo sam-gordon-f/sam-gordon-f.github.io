@@ -23,7 +23,7 @@ In the below example. There are three components
 ---
 
 <a name = "json-schema"></a>
-#### json-schema (AWS::S3::Bucket)
+#### 1) json-schema (AWS::S3::Bucket)
 
 More information about json-schemas <a href = \"https://json-schema.org/\">here</a>
 
@@ -51,10 +51,10 @@ More information about json-schemas <a href = \"https://json-schema.org/\">here<
 }
 ```
 
----
+<br>
 
 <a name = "cloudformation"></a>
-#### Template1 (cloudformation template to validate)
+#### 2) Template1 (cloudformation template to validate)
 
 ```json
 {
@@ -69,19 +69,21 @@ More information about json-schemas <a href = \"https://json-schema.org/\">here<
 }
 ```
 
----
+<br>
 
 <a name = "ruby-validate"></a>
-#### Sample Ruby project to check
+#### 3) Sample Ruby project to check
 
 <a name = "ruby-validate-gemfile"></a>
-##### Gemfile
+##### 3a) Gemfile
 ```ruby
 gem 'json-schema'
 ```
 
+<br>
+
 <a name = "ruby-validate-rakefile"></a>
-##### Rakefile
+##### 3b) Rakefile
 ```ruby
 require 'json'
 require 'json-schema'
@@ -131,8 +133,10 @@ namespace :template do
 end
 ```
 
+<br>
+
 <a name = "ruby-validate-usage"></a>
-##### Usage
+##### 3c) Usage
 ```shell
 Rake template:validate
 ```

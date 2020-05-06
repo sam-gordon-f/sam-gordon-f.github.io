@@ -26,7 +26,7 @@ The referencer is using the macro in the header (see <a href = "{{ site.baseurl 
 ---
 
 <a name = "javascript"></a>
-##### Lambda code - nodejs (Creates a dynamic bucket)
+##### 1) Lambda code - nodejs (Creates a dynamic bucket)
 
 ```javascript
 exports.handler = (event, context, callback) => {
@@ -49,10 +49,10 @@ exports.handler = (event, context, callback) => {
 };
 ```
 
----
+<br>
 
 <a name = "template1"></a>
-##### template1 (template that defines the transform)
+##### 2) template1 (template that defines the transform)
 
 ```json
 {
@@ -141,10 +141,10 @@ Resources:
       Name: cloudformationMacro
 ```
 
----
+<br>
 
 <a name = "template2"></a>
-##### template2 (template that consumes the custom macro to create the additional bucket dynamically)
+##### 3) template2 (template that consumes the custom macro to create the additional bucket dynamically)
 
 ```json
 {

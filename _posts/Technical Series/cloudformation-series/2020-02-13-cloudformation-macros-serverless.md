@@ -27,7 +27,7 @@ In the example below, the transform (template1), will create template2 when appl
 ---
 
 <a name = "template1"></a>
-##### template1 (template that runs the transform)
+##### 1) template1 (template that runs the transform)
 
 ```json
 {
@@ -60,10 +60,10 @@ Resources:
       CodeUri: s3://testBucket/mySourceCode.zip
 ```
 
----
+<br>
 
 <a name = "template2"></a>
-##### template2 (resultant template)
+##### 2) template2 (resultant template)
 
 This is what cloudformation will actually process. This is hidden under the hood as its transformed at runtime - when the cloudformation operation is triggered
 

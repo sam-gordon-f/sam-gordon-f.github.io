@@ -13,15 +13,15 @@ Templates can be generated using a range of different languages. One such aws su
 
 In the below example. These are the areas that make up a solution
 
-1. [Initial](#initial)
+1. [Initial setup](#initial-setup)
 2. [Template (typescript)](#template)
 3. [Conversion / Deployment](#conversion-deployment)
 4. [Result](#result)
 
 ---
 
-<a name = "initial"></a>
-#### Initial
+<a name = "initial-setup"></a>
+#### 1) Initial Setup
 
 You'll need to install the framework. Refer to <a href = "https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html">this</a> for pre-reqs
 
@@ -33,10 +33,10 @@ npm install -g aws-cdk
 cdk init --language typescript
 ```
 
----
+<br>
 
 <a name = "template"></a>
-#### Template
+#### 2) Template
 
 Location :: `<<folderName>>/bin/<<projectName>>.ts`
 
@@ -72,10 +72,10 @@ new CloudformationDslCdkStack(app, 'CloudformationDslCdkStack');
 app.run();
 ```
 
----
+<br>
 
 <a name = "conversion-deployment"></a>
-#### Conversion / Deployment
+#### 3) Conversion / Deployment
 
 From the directory you create your rake file, run the below
 
@@ -96,10 +96,10 @@ cdk deploy
 cdk diff
 ```
 
----
+<br>
 
 <a name = "result"></a>
-#### Result
+#### 4) Result
 
 Sample output from the above template / config
 

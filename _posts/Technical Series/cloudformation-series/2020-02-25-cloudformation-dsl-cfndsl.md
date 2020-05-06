@@ -22,7 +22,7 @@ In the below example. These are the areas that make up a solution
 ---
 
 <a name = "template"></a>
-#### Template
+#### 1) Template
 
 The below creates 'n' S3::Bucket(s) (with versioning), and Policies allowing another account to access
 This is based on whats inside a config file thats merged at conversion time
@@ -77,10 +77,10 @@ CloudFormation do
 end
 ```
 
----
+<br>
 
 <a name = "config"></a>
-#### Config
+#### 2) Config
 
 One of the powerful features is the abilty to use variables from a config (yml) file
 
@@ -90,10 +90,10 @@ external_account: "123456789123"
 bucket_count: 3
 ```
 
----
+<br>
 
 <a name = "conversion"></a>
-#### Conversion
+#### 3) Conversion
 
 Sample ruby rake file to merge some config, and convert the result to json
 
@@ -140,10 +140,10 @@ namespace :template do
 end
 ```
 
----
+<br>
 
 <a name = "usage"></a>
-#### Usage
+#### 4) Usage
 
 From the directory you create your rake file, run the below
 
@@ -154,10 +154,10 @@ rake template:convert
 rake template:convert projectPath="/somedirectory"
 ```
 
----
+<br>
 
 <a name = "result"></a>
-#### Result
+#### 5) Result
 
 Sample output from the above template / config
 

@@ -21,7 +21,7 @@ In the below example, the main template (template2), includes a bucket defined i
 ---
 
 <a name = "template1"></a>
-##### template1 (template that is included)
+##### 1) template1 (template that is included)
 
 ```json
 "S3Bucket1": {
@@ -39,10 +39,10 @@ S3Bucket1:
     AccessControl: "Private"
 ```
 
----
+<br>
 
 <a name = "template2"></a>
-##### template2 (template which runs the include)
+##### 2) template2 (template which runs the include)
 
 ```json
 {

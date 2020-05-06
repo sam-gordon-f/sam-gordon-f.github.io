@@ -26,14 +26,14 @@ Most Cloudformation stacks follow the below pattern
 <a name = "write-template"></a>
 ##### 1) Write Cloudformation templates
 
-These reflect the desired state of your infrastructure, and can be written in JSON / YML, or any number of DSLs (domain specific language)
+These are blueprints that reflect the desired state of your infrastructure, and can be written in JSON / YML, or any number of DSLs (domain specific language)
   
 <br>
 
 <a name = "create"></a>
 ##### 2) Execute `createStack` action alongside your template
 
-This gives Cloudformation the command to create a stack to house the resources reflected in your template
+This is where we take our blueprints, and create a stack that houses the resources described
   
 <div class="card tip">
   <div class="card-body">

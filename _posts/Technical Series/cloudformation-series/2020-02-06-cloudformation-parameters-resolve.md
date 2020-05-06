@@ -53,6 +53,8 @@ I've created the parameter and the value in the below template. This must be run
 
 In this template, theres a resolve directive which triggers cloudformation to lookup the value stored in the above SSM::Parameter
 
+(<span style = "color:orange">Please remove backslashes from example below if you wish to run yourself</span>)
+
 ```json
 {
   "Resources": {

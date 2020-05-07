@@ -75,6 +75,31 @@ The following builds a vpc with subnets structured like the following
         "EnableDnsHostnames" : true,
         "EnableDnsSupport" : true,  
       }
+    },
+    "EC2SubnetPublic0": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone" : {
+          "Fn::Select": [0, {
+            "Fn::GetAZs": {
+              "Ref": "AWS::Region"
+            }
+          }]
+        },
+        "CidrBlock" : {
+          "Fn::Cidr": [
+            {
+              "Ref": "VPCCidr"
+            },
+            "<<total number of subnets needed",
+            "<<subnet bits>>"
+          ]
+        },
+        "MapPublicIpOnLaunch" : true,
+        "VpcId" : {
+          "Ref": "EC2VPC"
+        }
+      }
     }
   }
 }

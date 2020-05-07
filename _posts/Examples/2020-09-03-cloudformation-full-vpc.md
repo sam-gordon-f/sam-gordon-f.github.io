@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Full VPC
+title: Cloudformation Dynamic VPC
 date: 2020-09-03 08:44:38
 category: [examples]
 author: samGordon
-short-description: create / reference an identity provider in cloudformation
+short-description: create a full working dynamically built VPC
 tags: [cloudformation, lambda, macro]
 skill: expert
 ---

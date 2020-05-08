@@ -36,10 +36,16 @@ The following builds a vpc with subnets structured like the following
       AZ Count
     </th>
     <th>
-      Subnet Host Split
+      Allocation AZ1
     </th>
     <th>
-      Hosts that can be used / Total Hosts ( host losses)
+      Allocation AZ2
+    </th>
+    <th>
+      Allocation AZ3
+    </th>
+    <th>
+      Hosts free / Hosts Total / Hosts Lost
     </th>
   </tr>
   <tr>
@@ -52,8 +58,14 @@ The following builds a vpc with subnets structured like the following
     <td>
       64<br> 64<br> 64<br> 64
     </td>
+    <td>
+      na
+    </td>
+    <td>
+      na
+    </td>
     <td valign = "top">
-      256 / 256 (0 loss)
+      256 / 256 / 0
     </td>
   </tr>
   <tr>
@@ -63,10 +75,16 @@ The following builds a vpc with subnets structured like the following
       2AZ
     </td>
     <td>
-      32 32<br> 32 32<br> 32 32<br> 32 32
+      32<br> 32<br> 32<br> 32
+    </td>
+    <td>
+      32<br> 32<br> 32<br> 32
+    </td>
+    <td>
+      na
     </td>
     <td valign = "top">
-      256 / 256 (0 loss)
+      256 / 256 / 0
     </td>
   </tr>
   <tr>
@@ -76,10 +94,16 @@ The following builds a vpc with subnets structured like the following
       3AZ
     </td>
     <td>
-      16 16 16<br> 16 16 16<br> 16 16 16<br> 16 16 16
+      16<br> 16<br> 16<br> 16
+    </td>
+    <td>
+      16<br> 16<br> 16<br> 16
+    </td>
+    <td>
+      16<br> 16<br> 16<br> 16
     </td>
     <td valign = "top">
-      192 / 256 (64 loss)
+      192 / 256 / 64
     </td>
   </tr>
   <tr>
@@ -92,8 +116,14 @@ The following builds a vpc with subnets structured like the following
     <td>
       128<br> 128<br> 128<br> 128
     </td>
+    <td>
+      na
+    </td>
+    <td>
+      na
+    </td>
     <td valign = "top">
-      512 / 512 (0 loss)
+      512 / 512 / 0
     </td>
   </tr>
   <tr>
@@ -103,10 +133,16 @@ The following builds a vpc with subnets structured like the following
       2AZ
     </td>
     <td>
-      64 64<br> 64 64<br> 64 64<br> 64 64
+      64<br> 64<br> 64<br> 64
+    </td>
+    <td>
+      64<br> 64<br> 64<br> 64
+    </td>    
+    <td>
+      na
     </td>
     <td valign = "top">
-      512 / 512 (0 loss)
+      512 / 512 / 0
     </td>
   </tr>
   <tr>
@@ -116,7 +152,13 @@ The following builds a vpc with subnets structured like the following
       3AZ
     </td>
     <td>
-      32 32 32 <br> 32 32 32(skip /26)<br> 32 32 32<br> 32 32 32(skip /26)
+      32<br> 32<br> 32<br> 32<br>  
+    </td>
+    <td>
+      32<br> 32<br> 32<br> 32<br>  
+    </td>
+    <td>
+      32<br> 32<br> 32<br> 32<br>  
     </td>
     <td valign = "top">
       384 / 512 (128 loss)
@@ -132,6 +174,12 @@ The following builds a vpc with subnets structured like the following
     <td>
       256<br> 256<br> 256<br> 256
     </td>
+    <td>
+      na
+    </td>
+    <td>
+      na
+    </td>
     <td valign = "top">
       1024 / 1024 (0 loss)
     </td>
@@ -143,7 +191,13 @@ The following builds a vpc with subnets structured like the following
       2AZ
     </td>
     <td>
-      128 128<br> 128 128<br> 128 128<br> 128 128
+      128<br> 128<br> 128<br> 128
+    </td>
+    <td>
+      128<br> 128<br> 128<br> 128
+    </td>
+    <td>
+      na
     </td>
     <td valign = "top">
       1024 / 1024 (0 loss)
@@ -156,7 +210,13 @@ The following builds a vpc with subnets structured like the following
       3AZ
     </td>
     <td>
-      64 64 64 <br> 64 64 64(skip /26)<br> 64 64 64<br> 64 64 64(skip /26)
+      64<br> 64<br> 64<br> 64
+    </td>
+    <td>
+      64<br> 64<br> 64<br> 64
+    </td>
+    <td>
+      64<br> 64<br> 64<br> 64
     </td>
     <td valign = "top">
       768 / 1024 (256 loss)

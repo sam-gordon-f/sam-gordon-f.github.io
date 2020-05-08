@@ -19,9 +19,15 @@ The below example creates a fully working VPC that changes its topology based on
 <a name = "subnet-split"></a>
 ##### 1) Subnet Split
 
+<div class="card tip">
+  <div class="card-body">
+    Because we're using the intrinsic function Fn::Split. It `evenly` carves the CIDS's, which means its not super flexible
+  </div>
+</div>
+
 The following builds a vpc with subnets structured like the following
 
-<table style = "width:100%;" class="sortable-theme-dark" data-sortable>
+<table style = "width:100%;">
   <tr>
     <th>
       VPC Size
@@ -157,6 +163,8 @@ The following builds a vpc with subnets structured like the following
     </td>
   </tr>
 </table>
+
+<br>
 
 <a name = "template"></a>
 ##### 2) Cloudformation template

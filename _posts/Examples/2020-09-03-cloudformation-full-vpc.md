@@ -21,7 +21,7 @@ The below example creates a fully working VPC that changes its topology based on
 
 <div class="card tip">
   <div class="card-body">
-    Because we're using the intrinsic function Fn::Split. It `evenly` carves the CIDS's, which means its not as flexible as allocating yourself (But it does save a heap of time !)
+    Because we're using the intrinsic function Fn::Cidr. It `evenly` carves the CIDR's, which means its not as flexible as allocating yourself (But it does save a heap of time, at the expense of not having the most perfect allocation)
   </div>
 </div>
 
@@ -169,6 +169,8 @@ The following builds a vpc with subnets structured like the following
 <a name = "template"></a>
 ##### 2) Cloudformation template
 
+By changing the AZ's and Cidr specified, the network automatically resizes, and allocates (based on the mapping) to the subnets
+
 ```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
@@ -216,7 +218,7 @@ The following builds a vpc with subnets structured like the following
           "Ref": "VPCCidr"
         },
         "EnableDnsHostnames" : true,
-        "EnableDnsSupport" : true,  
+        "EnableDnsSupport" : true  
       }
     },
     "EC2SubnetDMZ0": {
@@ -266,6 +268,578 @@ The following builds a vpc with subnets structured like the following
           ]
         },
         "MapPublicIpOnLaunch" : true,
+        "VpcId" : {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2SubnetWeb0": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone" : {
+          "Fn::Select": [0, {
+            "Fn::GetAZs": {
+              "Ref": "AWS::Region"
+            }
+          }]
+        },
+        "CidrBlock" : {
+          "Fn::Select": [
+            1,
+            {
+              "Fn::Cidr": [{
+                  "Ref": "VPCCidr"
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetCount",
+                    "AvailabilityZones", {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetBits", {
+                      "Fn::Select": [
+                        1, {
+                          "Fn::Split": [
+                            "/", {
+                              "Ref": "VPCCidr"
+                            }
+                          ]
+                        }
+                      ]
+                    }, {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch" : false,
+        "VpcId" : {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2SubnetData0": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone" : {
+          "Fn::Select": [0, {
+            "Fn::GetAZs": {
+              "Ref": "AWS::Region"
+            }
+          }]
+        },
+        "CidrBlock" : {
+          "Fn::Select": [
+            2,
+            {
+              "Fn::Cidr": [{
+                  "Ref": "VPCCidr"
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetCount",
+                    "AvailabilityZones", {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetBits", {
+                      "Fn::Select": [
+                        1, {
+                          "Fn::Split": [
+                            "/", {
+                              "Ref": "VPCCidr"
+                            }
+                          ]
+                        }
+                      ]
+                    }, {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch" : false,
+        "VpcId" : {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2SubnetApp0": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone" : {
+          "Fn::Select": [0, {
+            "Fn::GetAZs": {
+              "Ref": "AWS::Region"
+            }
+          }]
+        },
+        "CidrBlock" : {
+          "Fn::Select": [
+            3,
+            {
+              "Fn::Cidr": [{
+                  "Ref": "VPCCidr"
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetCount",
+                    "AvailabilityZones", {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetBits", {
+                      "Fn::Select": [
+                        1, {
+                          "Fn::Split": [
+                            "/", {
+                              "Ref": "VPCCidr"
+                            }
+                          ]
+                        }
+                      ]
+                    }, {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch" : false,
+        "VpcId" : {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2SubnetDMZ1": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone" : {
+          "Fn::Select": [1, {
+            "Fn::GetAZs": {
+              "Ref": "AWS::Region"
+            }
+          }]
+        },
+        "CidrBlock" : {
+          "Fn::Select": [
+            4,
+            {
+              "Fn::Cidr": [{
+                  "Ref": "VPCCidr"
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetCount",
+                    "AvailabilityZones", {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetBits", {
+                      "Fn::Select": [
+                        1, {
+                          "Fn::Split": [
+                            "/", {
+                              "Ref": "VPCCidr"
+                            }
+                          ]
+                        }
+                      ]
+                    }, {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch" : true,
+        "VpcId" : {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2SubnetWeb1": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone" : {
+          "Fn::Select": [1, {
+            "Fn::GetAZs": {
+              "Ref": "AWS::Region"
+            }
+          }]
+        },
+        "CidrBlock" : {
+          "Fn::Select": [
+            5,
+            {
+              "Fn::Cidr": [{
+                  "Ref": "VPCCidr"
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetCount",
+                    "AvailabilityZones", {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetBits", {
+                      "Fn::Select": [
+                        1, {
+                          "Fn::Split": [
+                            "/", {
+                              "Ref": "VPCCidr"
+                            }
+                          ]
+                        }
+                      ]
+                    }, {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch" : false,
+        "VpcId" : {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2SubnetData1": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone" : {
+          "Fn::Select": [1, {
+            "Fn::GetAZs": {
+              "Ref": "AWS::Region"
+            }
+          }]
+        },
+        "CidrBlock" : {
+          "Fn::Select": [
+            6,
+            {
+              "Fn::Cidr": [{
+                  "Ref": "VPCCidr"
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetCount",
+                    "AvailabilityZones", {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetBits", {
+                      "Fn::Select": [
+                        1, {
+                          "Fn::Split": [
+                            "/", {
+                              "Ref": "VPCCidr"
+                            }
+                          ]
+                        }
+                      ]
+                    }, {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch" : false,
+        "VpcId" : {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2SubnetApp1": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone" : {
+          "Fn::Select": [1, {
+            "Fn::GetAZs": {
+              "Ref": "AWS::Region"
+            }
+          }]
+        },
+        "CidrBlock" : {
+          "Fn::Select": [
+            7,
+            {
+              "Fn::Cidr": [{
+                  "Ref": "VPCCidr"
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetCount",
+                    "AvailabilityZones", {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetBits", {
+                      "Fn::Select": [
+                        1, {
+                          "Fn::Split": [
+                            "/", {
+                              "Ref": "VPCCidr"
+                            }
+                          ]
+                        }
+                      ]
+                    }, {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch" : false,
+        "VpcId" : {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2SubnetDMZ2": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone" : {
+          "Fn::Select": [2, {
+            "Fn::GetAZs": {
+              "Ref": "AWS::Region"
+            }
+          }]
+        },
+        "CidrBlock" : {
+          "Fn::Select": [
+            8,
+            {
+              "Fn::Cidr": [{
+                  "Ref": "VPCCidr"
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetCount",
+                    "AvailabilityZones", {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetBits", {
+                      "Fn::Select": [
+                        1, {
+                          "Fn::Split": [
+                            "/", {
+                              "Ref": "VPCCidr"
+                            }
+                          ]
+                        }
+                      ]
+                    }, {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch" : true,
+        "VpcId" : {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2SubnetWeb2": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone" : {
+          "Fn::Select": [2, {
+            "Fn::GetAZs": {
+              "Ref": "AWS::Region"
+            }
+          }]
+        },
+        "CidrBlock" : {
+          "Fn::Select": [
+            9,
+            {
+              "Fn::Cidr": [{
+                  "Ref": "VPCCidr"
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetCount",
+                    "AvailabilityZones", {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetBits", {
+                      "Fn::Select": [
+                        1, {
+                          "Fn::Split": [
+                            "/", {
+                              "Ref": "VPCCidr"
+                            }
+                          ]
+                        }
+                      ]
+                    }, {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch" : false,
+        "VpcId" : {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2SubnetData2": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone" : {
+          "Fn::Select": [2, {
+            "Fn::GetAZs": {
+              "Ref": "AWS::Region"
+            }
+          }]
+        },
+        "CidrBlock" : {
+          "Fn::Select": [
+            10,
+            {
+              "Fn::Cidr": [{
+                  "Ref": "VPCCidr"
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetCount",
+                    "AvailabilityZones", {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetBits", {
+                      "Fn::Select": [
+                        1, {
+                          "Fn::Split": [
+                            "/", {
+                              "Ref": "VPCCidr"
+                            }
+                          ]
+                        }
+                      ]
+                    }, {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch" : false,
+        "VpcId" : {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2SubnetApp2": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone" : {
+          "Fn::Select": [2, {
+            "Fn::GetAZs": {
+              "Ref": "AWS::Region"
+            }
+          }]
+        },
+        "CidrBlock" : {
+          "Fn::Select": [
+            11,
+            {
+              "Fn::Cidr": [{
+                  "Ref": "VPCCidr"
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetCount",
+                    "AvailabilityZones", {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetBits", {
+                      "Fn::Select": [
+                        1, {
+                          "Fn::Split": [
+                            "/", {
+                              "Ref": "VPCCidr"
+                            }
+                          ]
+                        }
+                      ]
+                    }, {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch" : false,
         "VpcId" : {
           "Ref": "EC2VPC"
         }

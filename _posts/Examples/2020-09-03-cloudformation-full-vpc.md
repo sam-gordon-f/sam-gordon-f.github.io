@@ -20,22 +20,24 @@ The below example creates a fully working VPC that changes its topology based on
 
 The following builds a vpc with subnets structured like the following
 
-| VPC Size  | AZ Count | Subnet Host Split | Hosts that can be used / Total Hosts ( host losses)  |
-| --------- | -------- |:----------------------------------------                               | -----:|
-| /24 | 1AZ | 64<br> 64<br> 64<br> 64                                                           | 256 / 256 (0 loss) |
-|     | 2AZ | 32 32<br> 32 32<br> 32 32<br> 32 32                                               | 256 / 256 (0 loss) |
-|     | 3AZ | 16 16 16<br> 16 16 16<br> 16 16 16<br> 16 16 16                                   | 192 / 256 (64 loss) |
-| /23 | 1AZ | 128<br> 128<br> 128<br> 128                                                       | 512 / 512  (0 loss) |
-|     | 2AZ | 64 64<br> 64 64<br> 64 64<br> 64 64                                               | 512 / 512 (0 loss) |
-|     | 3AZ | 32 32 32<br> 32 32 32<br> (skip /26) 32 32 32<br> 32 32 32 (skip /26)             | 384 / 512 (128 loss) |
-| /22 | 1AZ | 256<br> 256<br> 256<br> 256                                                       | 1024 / 1024 (0 loss) |
-|     | 2AZ | 128 128<br> 128 128<br> 128 128<br> 128 128                                       | 1024 / 1024 (0 loss) |
-|     | 3AZ | 64 64 64<br> (skip /26) 64 64 64<br> (skip /26) 64 64 64<br> (skip /26) 64 64 64  | 768 / 1024 (256 loss) |
-
-<table class = "table">
-  <tr>
+<table class = "table" style = "width:100%;">
+  <th>
     <td>
-      \24
+      VPC Size
+    </td>
+    <td>
+      AZ Count
+    </td>
+    <td>
+      Subnet Host Split
+    </td>
+    <td>
+      Hosts that can be used / Total Hosts ( host losses)
+    </td>
+  </th>
+  <tr>
+    <td valign = "top">
+      x.x.x.x \ 24
     </td>
     <td>
       1AZ
@@ -43,7 +45,7 @@ The following builds a vpc with subnets structured like the following
     <td>
       64<br> 64<br> 64<br> 64
     </td>
-    <td>
+    <td valign = "top">
       256 / 256 (0 loss)
     </td>
   </tr>
@@ -56,7 +58,7 @@ The following builds a vpc with subnets structured like the following
     <td>
       32 32<br> 32 32<br> 32 32<br> 32 32
     </td>
-    <td>
+    <td valign = "top">
       256 / 256 (0 loss)
     </td>
   </tr>
@@ -69,8 +71,88 @@ The following builds a vpc with subnets structured like the following
     <td>
       16 16 16<br> 16 16 16<br> 16 16 16<br> 16 16 16
     </td>
-    <td>
+    <td valign = "top">
       192 / 256 (64 loss)
+    </td>
+  </tr>
+  <tr>
+    <td valign = "top">
+      x.x.x.x \ 23
+    </td>
+    <td>
+      1AZ
+    </td>
+    <td>
+      128<br> 128<br> 128<br> 128
+    </td>
+    <td valign = "top">
+      512 / 512 (0 loss)
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      2AZ
+    </td>
+    <td>
+      64 64<br> 64 64<br> 64 64<br> 64 64
+    </td>
+    <td valign = "top">
+      512 / 512 (0 loss)
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      3AZ
+    </td>
+    <td>
+      32 32 32 <br> 32 32 32(skip /26)<br> 32 32 32<br> 32 32 32(skip /26)
+    </td>
+    <td valign = "top">
+      384 / 512 (128 loss)
+    </td>
+  </tr>
+  <tr>
+    <td valign = "top">
+      x.x.x.x \ 22
+    </td>
+    <td>
+      1AZ
+    </td>
+    <td>
+      256<br> 256<br> 256<br> 256
+    </td>
+    <td valign = "top">
+      1024 / 1024 (0 loss)
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      2AZ
+    </td>
+    <td>
+      128 128<br> 128 128<br> 128 128<br> 128 128
+    </td>
+    <td valign = "top">
+      1024 / 1024 (0 loss)
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      3AZ
+    </td>
+    <td>
+      64 64 64 <br> 64 64 64(skip /26)<br> 64 64 64<br> 64 64 64(skip /26)
+    </td>
+    <td valign = "top">
+      768 / 1024 (256 loss)
     </td>
   </tr>
 </table>
@@ -119,7 +201,7 @@ The following builds a vpc with subnets structured like the following
         "EnableDnsSupport" : true,  
       }
     },
-    "EC2SubnetPublic0": {
+    "EC2SubnetWeb0": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -144,7 +226,7 @@ The following builds a vpc with subnets structured like the following
         }
       }
     },
-    "EC2SubnetPublic1": {
+    "EC2SubnetWeb1": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -169,7 +251,7 @@ The following builds a vpc with subnets structured like the following
         }
       }
     },
-    "EC2SubnetPublic2": {
+    "EC2SubnetWeb2": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {

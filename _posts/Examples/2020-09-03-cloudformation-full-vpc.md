@@ -21,7 +21,7 @@ The below example creates a fully working VPC that changes its topology based on
 
 <div class="card tip">
   <div class="card-body">
-    Because we're using the intrinsic function Fn::Split. It `evenly` carves the CIDS's, which means its not super flexible
+    Because we're using the intrinsic function Fn::Split. It `evenly` carves the CIDS's, which means its not as flexible as allocating yourself (But it does save a heap of time !)
   </div>
 </div>
 

@@ -27,7 +27,7 @@ The below example creates a fully working VPC that changes its topology based on
 
 The following builds a vpc with subnets structured like the following
 
-<table style = "width:100%;">
+<table class = "table" style = "width:100%;">
   <tr>
     <th>
       VPC Size

@@ -21,20 +21,20 @@ The below example creates a fully working VPC that changes its topology based on
 The following builds a vpc with subnets structured like the following
 
 <table style = "width:100%;" class="sortable-theme-dark" data-sortable>
-  <th>
-    <td>
+  <tr>
+    <th>
       VPC Size
-    </td>
-    <td>
+    </th>
+    <th>
       AZ Count
-    </td>
-    <td>
+    </th>
+    <th>
       Subnet Host Split
-    </td>
-    <td>
+    </th>
+    <th>
       Hosts that can be used / Total Hosts ( host losses)
-    </td>
-  </th>
+    </th>
+  </tr>
   <tr>
     <td valign = "top">
       x.x.x.x \ 24

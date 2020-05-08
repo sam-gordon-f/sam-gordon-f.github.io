@@ -210,6 +210,39 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
       }
     }
   },
+  "Conditions": {
+    "1AZ": {
+      "Fn::Or": [{
+        "Fn::Equals": [{
+          "Ref": "VPCAZCount"
+        }, "1"]
+      }, {
+        "Fn::Equals": [{
+          "Ref": "VPCAZCount"
+        }, "2"]
+      }, {
+        "Fn::Equals": [{
+          "Ref": "VPCAZCount"
+        }, "3"]
+      }]
+    },
+    "2AZ": {
+      "Fn::Or": [{
+        "Fn::Equals": [{
+          "Ref": "VPCAZCount"
+        }, "2"]
+      }, {
+        "Fn::Equals": [{
+          "Ref": "VPCAZCount"
+        }, "3"]
+      }]
+    },
+    "3AZ": {
+      "Fn::Equals": [{
+        "Ref": "VPCAZCount"
+      }, "3"]
+    }
+  },
   "Resources": {
     "EC2VPC": {
       "Type": "AWS::EC2::VPC",
@@ -221,7 +254,7 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
         "EnableDnsSupport" : true  
       }
     },
-    "EC2SubnetDMZ0": {
+    "EC2SubnetDMZAZ1": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -271,9 +304,10 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
         "VpcId" : {
           "Ref": "EC2VPC"
         }
-      }
+      },
+      "Condition": "1AZ"
     },
-    "EC2SubnetWeb0": {
+    "EC2SubnetWebAZ1": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -323,9 +357,10 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
         "VpcId" : {
           "Ref": "EC2VPC"
         }
-      }
+      },
+      "Condition": "1AZ"
     },
-    "EC2SubnetData0": {
+    "EC2SubnetDataAZ1": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -375,9 +410,10 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
         "VpcId" : {
           "Ref": "EC2VPC"
         }
-      }
+      },
+      "Condition": "1AZ"
     },
-    "EC2SubnetApp0": {
+    "EC2SubnetAppAZ1": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -427,9 +463,10 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
         "VpcId" : {
           "Ref": "EC2VPC"
         }
-      }
+      },
+      "Condition": "1AZ"
     },
-    "EC2SubnetDMZ1": {
+    "EC2SubnetDMZAZ2": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -479,9 +516,10 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
         "VpcId" : {
           "Ref": "EC2VPC"
         }
-      }
+      },
+      "Condition": "2AZ"
     },
-    "EC2SubnetWeb1": {
+    "EC2SubnetWebAZ2": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -531,9 +569,10 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
         "VpcId" : {
           "Ref": "EC2VPC"
         }
-      }
+      },
+      "Condition": "2AZ"
     },
-    "EC2SubnetData1": {
+    "EC2SubnetDataAZ2": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -583,9 +622,10 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
         "VpcId" : {
           "Ref": "EC2VPC"
         }
-      }
+      },
+      "Condition": "2AZ"
     },
-    "EC2SubnetApp1": {
+    "EC2SubnetAppAZ2": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -635,9 +675,10 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
         "VpcId" : {
           "Ref": "EC2VPC"
         }
-      }
+      },
+      "Condition": "2AZ"
     },
-    "EC2SubnetDMZ2": {
+    "EC2SubnetDMZAZ3": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -687,9 +728,10 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
         "VpcId" : {
           "Ref": "EC2VPC"
         }
-      }
+      },
+      "Condition": "3AZ"
     },
-    "EC2SubnetWeb2": {
+    "EC2SubnetWebAZ3": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -739,9 +781,10 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
         "VpcId" : {
           "Ref": "EC2VPC"
         }
-      }
+      },
+      "Condition": "3AZ"
     },
-    "EC2SubnetData2": {
+    "EC2SubnetDataAZ3": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -791,9 +834,10 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
         "VpcId" : {
           "Ref": "EC2VPC"
         }
-      }
+      },
+      "Condition": "2AZ"
     },
-    "EC2SubnetApp2": {
+    "EC2SubnetAppAZ3": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -843,7 +887,8 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
         "VpcId" : {
           "Ref": "EC2VPC"
         }
-      }
+      },
+      "Condition": "3AZ"
     }
   }
 }

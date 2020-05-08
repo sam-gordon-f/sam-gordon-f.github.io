@@ -32,6 +32,49 @@ The following builds a vpc with subnets structured like the following
 |     | 2AZ | 128 128<br> 128 128<br> 128 128<br> 128 128                                       | 1024 / 1024 (0 loss) |
 |     | 3AZ | 64 64 64<br> (skip /26) 64 64 64<br> (skip /26) 64 64 64<br> (skip /26) 64 64 64  | 768 / 1024 (256 loss) |
 
+<table class = "table">
+  <tr>
+    <td>
+      \24
+    </td>
+    <td>
+      1AZ
+    </td>
+    <td>
+      64<br> 64<br> 64<br> 64
+    </td>
+    <td>
+      256 / 256 (0 loss)
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      2AZ
+    </td>
+    <td>
+      32 32<br> 32 32<br> 32 32<br> 32 32
+    </td>
+    <td>
+      256 / 256 (0 loss)
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      3AZ
+    </td>
+    <td>
+      16 16 16<br> 16 16 16<br> 16 16 16<br> 16 16 16
+    </td>
+    <td>
+      192 / 256 (64 loss)
+    </td>
+  </tr>
+</table>
+
 
 ```json
 {
@@ -91,8 +134,58 @@ The following builds a vpc with subnets structured like the following
             {
               "Ref": "VPCCidr"
             },
-            "<<total number of subnets needed",
-            "<<subnet bits>>"
+            "<<total number of subnets needed>>",
+            "<<subnet bits required for each>>"
+          ]
+        },
+        "MapPublicIpOnLaunch" : true,
+        "VpcId" : {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2SubnetPublic1": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone" : {
+          "Fn::Select": [1, {
+            "Fn::GetAZs": {
+              "Ref": "AWS::Region"
+            }
+          }]
+        },
+        "CidrBlock" : {
+          "Fn::Cidr": [
+            {
+              "Ref": "VPCCidr"
+            },
+            "<<total number of subnets needed>>",
+            "<<subnet bits required for each>>"
+          ]
+        },
+        "MapPublicIpOnLaunch" : true,
+        "VpcId" : {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2SubnetPublic2": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone" : {
+          "Fn::Select": [2, {
+            "Fn::GetAZs": {
+              "Ref": "AWS::Region"
+            }
+          }]
+        },
+        "CidrBlock" : {
+          "Fn::Cidr": [
+            {
+              "Ref": "VPCCidr"
+            },
+            "<<total number of subnets needed>>",
+            "<<subnet bits required for each>>"
           ]
         },
         "MapPublicIpOnLaunch" : true,

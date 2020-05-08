@@ -889,6 +889,163 @@ By changing the AZ's and Cidr specified, the network automatically resizes, and 
         }
       },
       "Condition": "3AZ"
+    },
+    "EC2InternetGateway": {
+      "Type": "AWS::EC2::InternetGateway"
+    },
+    "EC2VPCGatewayAttachment": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "InternetGatewayId": {
+          "Ref": "EC2InternetGateway"
+        },
+        "VpcId": {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2EIPNatAZ1": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc"
+      },
+      "Condition": "1AZ"
+    },
+    "EC2EIPNatAZ2": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc"
+      },
+      "Condition": "2AZ"
+    },
+    "EC2EIPNatAZ3": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc"
+      },
+      "Condition": "3AZ"
+    },
+    "EC2NatGatewayAZ1": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "SubnetId": {
+          "Ref": "EC2SubnetDMZAZ1"
+        },
+        "AllocationId": {
+          "Fn::GetAtt": ["EC2EIPNatAZ1", "AllocationId"]
+        }
+      },
+      "Condition": "1AZ"
+    },
+    "EC2NatGatewayAZ2": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "SubnetId": {
+          "Ref": "EC2SubnetDMZAZ2"
+        },
+        "AllocationId": {
+          "Fn::GetAtt": ["EC2EIPNatAZ2", "AllocationId"]
+        }
+      },
+      "Condition": "2AZ"
+    },
+    "EC2NatGatewayAZ3": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "SubnetId": {
+          "Ref": "EC2SubnetDMZAZ3"
+        },
+        "AllocationId": {
+          "Fn::GetAtt": ["EC2EIPNatAZ3", "AllocationId"]
+        }
+      },
+      "Condition": "3AZ"
+    },
+    "EC2RouteTableDMZ": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "EC2VPC"
+        }
+      }
+    },
+    "EC2RouteTableAZ1": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "EC2VPC"
+        }
+      },
+      "Condition": "1AZ"
+    },
+    "EC2RouteTableAZ2": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "EC2VPC"
+        }
+      },
+      "Condition": "2AZ"
+    },
+    "EC2RouteTableAZ3": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "EC2VPC"
+        }
+      },
+      "Condition": "3AZ"
+    },
+    "EC2RouteInternetDMZ": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "RouteTableId": {
+          "Ref": "EC2RouteTableDMZ"
+        },
+        "GatewayId": {
+          "Ref": "EC2InternetGateway"
+        }
+      }
+    },
+    "EC2RouteInternetAZ1": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "RouteTableId": {
+          "Ref": "EC2RouteTableAZ1"
+        },
+        "NatGatewayId": {
+          "Ref": "EC2NatGatewayAZ1"
+        }
+      },
+      "Condition": "1AZ"
+    },
+    "EC2RouteInternetAZ2": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "RouteTableId": {
+          "Ref": "EC2RouteTablePrivateAZ2"
+        },
+        "NatGatewayId": {
+          "Ref": "EC2NatGatewayAZ2"
+        }
+      },
+      "Condition": "2AZ"
+    },
+    "EC2RouteInternetAZ3": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "RouteTableId": {
+          "Ref": "EC2RouteTablePrivateAZ3"
+        },
+        "NatGatewayId": {
+          "Ref": "EC2NatGatewayAZ3"
+        }
+      },
+      "Condition": "3AZ"
     }
   }
 }

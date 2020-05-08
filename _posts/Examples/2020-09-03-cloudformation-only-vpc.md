@@ -1,23 +1,23 @@
 ---
 layout: post
-title: Cloudformation Dynamic VPC
+title: Cloudformation Pure VPC
 date: 2020-09-03 08:44:38
 category: [examples]
 author: samGordon
-short-description: create a full working dynamically built VPC
-tags: [cloudformation, lambda, macro]
+short-description: create a full working VPC "only with cloudformation"
+tags: [cloudformation, vpc]
 skill: expert
 ---
 
 The below example creates a fully working VPC that changes its topology based on parameters
 
-1. [Subnet Split](#subnet-split)
+1. [Subnet Split](#subnet-information)
 2. [Cloudformation template](#template)
 
 ---
 
-<a name = "subnet-split"></a>
-##### 1) Subnet Split
+<a name = "subnet-information"></a>
+##### 1) Subnet Information
 
 <div class="card tip">
   <div class="card-body">

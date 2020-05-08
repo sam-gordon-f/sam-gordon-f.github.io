@@ -39,7 +39,7 @@ The following builds a vpc with subnets structured like the following
     <td valign = "top">
       x.x.x.x \ 24
     </td>
-    <td>
+    <td valign = "top">
       1AZ
     </td>
     <td>
@@ -52,7 +52,7 @@ The following builds a vpc with subnets structured like the following
   <tr>
     <td>
     </td>
-    <td>
+    <td valign = "top">
       2AZ
     </td>
     <td>
@@ -65,7 +65,7 @@ The following builds a vpc with subnets structured like the following
   <tr>
     <td>
     </td>
-    <td>
+    <td valign = "top">
       3AZ
     </td>
     <td>
@@ -79,7 +79,7 @@ The following builds a vpc with subnets structured like the following
     <td valign = "top">
       x.x.x.x \ 23
     </td>
-    <td>
+    <td valign = "top">
       1AZ
     </td>
     <td>
@@ -92,7 +92,7 @@ The following builds a vpc with subnets structured like the following
   <tr>
     <td>
     </td>
-    <td>
+    <td valign = "top">
       2AZ
     </td>
     <td>
@@ -105,7 +105,7 @@ The following builds a vpc with subnets structured like the following
   <tr>
     <td>
     </td>
-    <td>
+    <td valign = "top">
       3AZ
     </td>
     <td>
@@ -119,7 +119,7 @@ The following builds a vpc with subnets structured like the following
     <td valign = "top">
       x.x.x.x \ 22
     </td>
-    <td>
+    <td valign = "top">
       1AZ
     </td>
     <td>
@@ -132,7 +132,7 @@ The following builds a vpc with subnets structured like the following
   <tr>
     <td>
     </td>
-    <td>
+    <td valign = "top">
       2AZ
     </td>
     <td>
@@ -145,7 +145,7 @@ The following builds a vpc with subnets structured like the following
   <tr>
     <td>
     </td>
-    <td>
+    <td valign = "top">
       3AZ
     </td>
     <td>

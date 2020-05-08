@@ -183,21 +183,28 @@ The following builds a vpc with subnets structured like the following
     }
   },
   "Mappings": {
-    "subnetCIDRs": {
+    "subnetBits": {
       "24": {
-        "1": [],
-        "2": [],
-        "3": []
+        "1": "6",
+        "2": "5",
+        "3": "4"
       },
       "23": {
-        "1": [],
-        "2": [],
-        "3": []
+        "1": "7",
+        "2": "6",
+        "3": "5"
       },
       "22": {
-        "1": [],
-        "2": [],
-        "3": []
+        "1": "8",
+        "2": "7",
+        "3": "6"
+      }
+    },
+    "subnetCount": {
+      "AvailabilityZones": {
+        "1": "4",
+        "2": "8",
+        "3": "12"
       }
     }
   },
@@ -212,7 +219,7 @@ The following builds a vpc with subnets structured like the following
         "EnableDnsSupport" : true,  
       }
     },
-    "EC2SubnetWeb0": {
+    "EC2SubnetDMZ0": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "AvailabilityZone" : {
@@ -223,62 +230,38 @@ The following builds a vpc with subnets structured like the following
           }]
         },
         "CidrBlock" : {
-          "Fn::Cidr": [
-            {
-              "Ref": "VPCCidr"
-            },
-            "<<total number of subnets needed>>",
-            "<<subnet bits required for each>>"
-          ]
-        },
-        "MapPublicIpOnLaunch" : true,
-        "VpcId" : {
-          "Ref": "EC2VPC"
-        }
-      }
-    },
-    "EC2SubnetWeb1": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-        "AvailabilityZone" : {
-          "Fn::Select": [1, {
-            "Fn::GetAZs": {
-              "Ref": "AWS::Region"
+          "Fn::Select": [
+            0, {
+              "Fn::Cidr": [{
+                  "Ref": "VPCCidr"
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetCount",
+                    "AvailabilityZones", {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                },
+                {
+                  "Fn::FindInMap": [
+                    "subnetBits", {
+                      "Fn::Select": [
+                        1, {
+                          "Fn::Split": [
+                            "/", {
+                              "Ref": "VPCCidr"
+                            }
+                          ]
+                        }
+                      ]
+                    }, {
+                      "Ref": "VPCAZCount"
+                    }
+                  ]
+                }
+              ]
             }
-          }]
-        },
-        "CidrBlock" : {
-          "Fn::Cidr": [
-            {
-              "Ref": "VPCCidr"
-            },
-            "<<total number of subnets needed>>",
-            "<<subnet bits required for each>>"
-          ]
-        },
-        "MapPublicIpOnLaunch" : true,
-        "VpcId" : {
-          "Ref": "EC2VPC"
-        }
-      }
-    },
-    "EC2SubnetWeb2": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-        "AvailabilityZone" : {
-          "Fn::Select": [2, {
-            "Fn::GetAZs": {
-              "Ref": "AWS::Region"
-            }
-          }]
-        },
-        "CidrBlock" : {
-          "Fn::Cidr": [
-            {
-              "Ref": "VPCCidr"
-            },
-            "<<total number of subnets needed>>",
-            "<<subnet bits required for each>>"
           ]
         },
         "MapPublicIpOnLaunch" : true,

@@ -231,7 +231,8 @@ The following builds a vpc with subnets structured like the following
         },
         "CidrBlock" : {
           "Fn::Select": [
-            0, {
+            0,
+            {
               "Fn::Cidr": [{
                   "Ref": "VPCCidr"
                 },

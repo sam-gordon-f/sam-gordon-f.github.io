@@ -11,12 +11,13 @@ skill: expert
 
 The below example creates a fully working VPC that changes its topology based on parameters
 
-1. [Cloudformation template](#template)
+1. [Subnet Split](#subnet-split)
+2. [Cloudformation template](#template)
 
 ---
 
-<a name = "template"></a>
-##### 1) Cloudformation template
+<a name = "subnet-split"></a>
+##### 1) Subnet Split
 
 The following builds a vpc with subnets structured like the following
 
@@ -157,6 +158,8 @@ The following builds a vpc with subnets structured like the following
   </tr>
 </table>
 
+<a name = "template"></a>
+##### 2) Cloudformation template
 
 ```json
 {

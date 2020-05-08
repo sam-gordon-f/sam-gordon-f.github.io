@@ -210,9 +210,6 @@ The following builds a vpc with subnets structured like the following
       3AZ
     </td>
     <td>
-      64 64 64 <br> 64 64 64(skip /26)<br> 64 64 64<br> 64 64 64(skip /26)
-    </td>
-    <td>
       64<br> 64<br> 64<br> 64
     </td>
     <td>

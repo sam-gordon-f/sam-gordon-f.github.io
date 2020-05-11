@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cloudformation Macro VPC (inline)
+title: Cloudformation VPC (inline macro)
 date: 2020-09-03 08:44:38
 category: [examples]
 author: samGordon

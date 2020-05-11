@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cloudformation Macro VPC (header)
+title: Cloudformation VPC (header macro)
 date: 2020-09-03 08:44:38
 category: [examples]
 author: samGordon
@@ -21,6 +21,8 @@ The below example creates a fully working VPC that changes its topology based on
 ##### 1) Subnet Information
 
 Because we're not restricted by even splits, you're free to return whatever structure you need
+
+<br>
 
 <a name = "lambda-function"></a>
 ##### 2) Lambda Function

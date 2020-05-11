@@ -8,3 +8,17 @@ short-description: information on available lamnda runtimes
 tags: [lambda, runtime]
 skill: beginner
 ---
+
+##### Different native supported runtimes (version inspecific)
+1. [NodeJS](#nodejs)
+2. [Python](#python)
+3. [Go](#go)
+
+<a name = "nodejs"></a>
+##### NodeJS
+
+<a name = "python"></a>
+##### Python
+
+<a name = "go"></a>
+##### Go

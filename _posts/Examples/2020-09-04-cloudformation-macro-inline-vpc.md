@@ -20,7 +20,49 @@ The below example creates a fully working VPC that changes its topology based on
 <a name = "subnet-information"></a>
 ##### 1) Subnet Information
 
-Because we're not restricted by even splits, you're free to return whatever structure you need
+The function below assumes a 3AZ model and slightly weights more address space in the web tier at the cost of space in the DMZ / data tiers
+
+<table class = "table" style = "width:100%;">
+  <tr>
+    <th>
+      VPC Size
+    </th>
+    <th>
+      AZ Count
+    </th>
+    <th>
+      Allocation AZ1
+    </th>
+    <th>
+      Allocation AZ2
+    </th>
+    <th>
+      Allocation AZ3
+    </th>
+    <th>
+      Hosts free / Hosts Total / Hosts Lost
+    </th>
+  </tr>
+  <tr>
+    <td valign = "top">
+      x.x.x.x \ 23
+    </td>
+    <td>
+      16<br> 64<br> 16<br> 32<br>  
+    </td>
+    <td>
+      16<br> 64<br> 16<br> 32<br>  
+    </td>
+    <td>
+      16<br> 64<br> 16<br> 32<br>  
+    </td>
+    <td valign = "top">
+      384 / 512 (128 loss)
+    </td>
+  </tr>
+</table>
+
+<br>
 
 <a name = "lambda-function"></a>
 ##### 2) Lambda Function
@@ -35,17 +77,31 @@ exports.handler = (event, context, callback) => {
       cidr: "10.0.0.0/23"
     },
     subnets: {
-      1: "10.0.0.0/27",
-      2: "10.0.0.32/27",
-      3: "10.0.0.64/27",
+        // DMZAZ1
+      1: "10.0.0.0/28",
+        // WebAZ1
+      2: "10.0.0.32/26",
+        // dataAZ1
+      3: "10.0.0.64/28",
+        // appAZ1
       4: "10.0.0.96/27",
-      5: "10.0.0.128/27",
-      6: "10.0.0.160/27",
-      7: "10.0.0.192/27",
+
+        // DMZAZ2
+      5: "10.0.0.128/28",
+        // WebAZ2
+      6: "10.0.0.160/26",
+        // dataAZ2
+      7: "10.0.0.192/28",
+        // appAZ2
       8: "10.0.0.224/27",
-      9: "10.0.1.0/27",
-      10: "10.0.1.32/27",
-      11: "10.0.1.64/27",
+
+        // DMZAZ2
+      9: "10.0.1.0/28",
+        // webAZ2
+      10: "10.0.1.32/26",
+        // dataAZ2
+      11: "10.0.1.64/28",
+        // appAZ2
       12: "10.0.1.96/27"
     }
   }

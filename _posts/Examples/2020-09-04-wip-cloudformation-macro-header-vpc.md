@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cloudformation Macro mapped VPC
+title: Cloudformation Macro VPC (header)
 date: 2020-09-03 08:44:38
 category: [examples]
 author: samGordon

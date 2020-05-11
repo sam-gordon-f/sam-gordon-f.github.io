@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cloudformation Pure VPC
+title: Cloudformation Fn::Cidr VPC
 date: 2020-09-03 08:44:38
 category: [examples]
 author: samGordon

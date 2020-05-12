@@ -16,10 +16,13 @@ skill: beginner
   c. [Build / Package](#nodejs-build-package)
 2. [Python](#python)
   a. [Example](#python-example)
-  b. [Build / Package](#python-build-package)
+  b. [Dependencies](#python-dependencies)
+  c. [Build / Package](#python-build-package)
 3. Golang
   a. [Example](#go-example)
   b. [Build / Package](#go-build-package)
+
+---
 
 ##### NodeJS
 

@@ -24,7 +24,7 @@ skill: beginner
 
 ---
 
-##### NodeJS
+#### NodeJS
 
 <a name = "nodejs-example"></a>
 ##### Example
@@ -43,8 +43,6 @@ exports.handler = (event, context, callback) => {
   });
 };
 ```
-
-<br>
 
 <a name = "nodejs-dependencies"></a>
 ##### Dependencies
@@ -67,8 +65,6 @@ exports.handler = (event, context, callback) => {
 }
 ```
 
-<br>
-
 <a name = "nodejs-build-package"></a>
 Build / Package
 
@@ -78,7 +74,9 @@ npm build
 zip -r function.zip index.js node_modules
 ```
 
-##### Python
+<br>
+
+#### Python
 
 <a name = "python-example"></a>
 ##### Example
@@ -94,8 +92,6 @@ def my_handler(event, context):
         'message' : message
     }  
 ```
-
-<br>
 
 <a name = "python-dependencies"></a>
 ##### Dependencies
@@ -113,7 +109,9 @@ pip install -r requirements.txt --target=./site-packages
 zip -r function.zip index.py site-packages
 ```
 
-##### Go
+<br>
+
+#### Go
 
 <a name = "go-example"></a>
 ##### Example
@@ -140,8 +138,6 @@ func main() {
   lambda.Start(Handler)
 }
 ```
-
-<br>
 
 <a name = "go-build"></a>
 ##### Build / Package

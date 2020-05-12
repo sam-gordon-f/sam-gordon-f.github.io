@@ -24,7 +24,8 @@ skill: beginner
   b. [Build / Package](#go-build-package)
 4. [Ruby](#ruby)
   a. [Example](#ruby-example)
-  b. [Build / Package](#ruby-build-package)
+  b. [Dependencies](#ruby-dependencies)
+  c. [Build / Package](#ruby-build-package)
 
 ---
 
@@ -52,7 +53,7 @@ exports.handler = (event, context, callback) => {
 ##### Handler
 
 ```sh
-# <<filename.handler>>
+# <<fileName.handlerName>>
 index.handler
 ```
 
@@ -109,7 +110,7 @@ def handler(event, context):
 ##### Handler
 
 ```sh
-# <<filename.handler>>
+# <<fileName.handlerName>>
 index.handler
 ```
 
@@ -166,7 +167,7 @@ func main() {
 ##### Handler
 
 ```sh
-# <<binary name>>
+# <<binaryName>>
 handler
 ```
 
@@ -198,13 +199,31 @@ def handler(event:, context:)
   { event: JSON.generate(event), context: JSON.generate(context.inspect) }
 end
 ```
+(./source.rb)
+```ruby
+  # sample module include
+require 'cfn_response'
+
+module LambdaFunctions
+  class Handler
+    def self.process(event:,context:)
+      "Hello!"
+    end
+  end
+end
+```
 
 <a name = "ruby-handler"></a>
 ##### Handler
 
 ```sh
-# <<filename.handler>>
+# <<fileName.handlerName>
 index.handler
+```
+or
+```sh
+# <<fileName.moduleName::className.'process'>>
+source.LambdaFunctions::Handler.process
 ```
 
 <a name = "ruby-dependencies"></a>

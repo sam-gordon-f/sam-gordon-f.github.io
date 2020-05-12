@@ -27,7 +27,7 @@ skill: beginner
 #### NodeJS
 
 <a name = "nodejs-example"></a>
-##### Example
+##### Example Code
 
 (./index.js)
 ```javascript
@@ -79,7 +79,7 @@ zip -r function.zip index.js node_modules
 #### Python
 
 <a name = "python-example"></a>
-##### Example
+##### Example Code
 
 (./index.py)
 ```python
@@ -114,7 +114,7 @@ zip -r function.zip index.py site-packages
 #### Go
 
 <a name = "go-example"></a>
-##### Example
+##### Example Code
 
 (./main.go)
 ```go

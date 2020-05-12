@@ -21,6 +21,9 @@ skill: beginner
 3. [Golang](#golang)
   a. [Example](#go-example)
   b. [Build / Package](#go-build-package)
+4. [Ruby](#ruby)
+  a. [Example](#ruby-example)
+  b. [Build / Package](#ruby-build-package)
 
 ---
 
@@ -34,7 +37,7 @@ skill: beginner
   // sample module include
 require('cfn-response')
 
-  // code entry point
+  // code entry point (handler)
 exports.handler = (event, context, callback) => {
   
     // code return point
@@ -70,7 +73,6 @@ exports.handler = (event, context, callback) => {
 
 ```
 npm install
-npm build
 zip -r function.zip index.js node_modules
 ```
 
@@ -83,14 +85,15 @@ zip -r function.zip index.js node_modules
 
 (./index.py)
 ```python
-  # sample import
+  # sample module include
 import cfnresponse
 
+  # code entry point (handler)
 def my_handler(event, context):
-    message = 'hello world'    
-    return {
-        'message' : message
-    }  
+  message = 'hello world'    
+  return {
+    'message' : message
+  }  
 ```
 
 <a name = "python-dependencies"></a>
@@ -121,12 +124,14 @@ zip -r function.zip index.py site-packages
 ```go
 package main
 
+  // sample module imports
 import (
   "fmt"
   "context"
   "github.com/aws/aws-lambda-go/lambda"
 )
 
+  // lambda event struct
 type MyEvent struct {
   Name string `json:"name"`
 }
@@ -147,4 +152,40 @@ func main() {
 go get github.com/aws/aws-lambda-go/lambda
 GOOS=linux go build main.go
 zip function.zip main
+```
+
+<br>
+
+#### Ruby
+
+<a name = "ruby-example"></a>
+##### Example Code
+
+(./index.rb)
+```ruby
+  # sample module include
+require 'cfn_response'
+
+  # code entry point (handler)
+def handler(event:, context:)
+
+    # code return
+  { event: JSON.generate(event), context: JSON.generate(context.inspect) }
+end
+```
+
+<a name = "ruby-dependencies"></a>
+##### Dependencies
+
+(./Gemfile)
+```sh
+cfn_response
+```
+
+<a name = "ruby-build-package"></a>
+##### Build / Package
+
+```sh
+bundle install --path vendor/bundle
+zip -r function.zip index.rb vendor/bundle
 ```

@@ -12,6 +12,7 @@ skill: beginner
 ##### Different native supported runtimes (version inspecific)
 1. [NodeJS](#nodejs)
   a. [Example](#nodejs-example)
+  b. [Handler](#nodejs-handler)
   b. [Dependencies](#nodejs-depencies)
   c. [Build / Package](#nodejs-build-package)
 2. [Python](#python)
@@ -45,6 +46,14 @@ exports.handler = (event, context, callback) => {
     status: true
   });
 };
+```
+
+<a name = "nodejs-handler"></a>
+##### Handler
+
+```sh
+# <<filename.handler>>
+index.handler
 ```
 
 <a name = "nodejs-dependencies"></a>
@@ -89,11 +98,19 @@ zip -r function.zip index.js node_modules
 import cfnresponse
 
   # code entry point (handler)
-def my_handler(event, context):
+def handler(event, context):
   message = 'hello world'    
   return {
     'message' : message
   }  
+```
+
+<a name = "python-handler"></a>
+##### Handler
+
+```sh
+# <<filename.handler>>
+index.handler
 ```
 
 <a name = "python-dependencies"></a>
@@ -120,7 +137,7 @@ zip -r function.zip index.py site-packages
 <a name = "go-example"></a>
 ##### Example Code
 
-(./main.go)
+(./handler.go)
 ```go
 package main
 
@@ -145,13 +162,21 @@ func main() {
 }
 ```
 
+<a name = "go-handler"></a>
+##### Handler
+
+```sh
+# <<binary name>>
+handler
+```
+
 <a name = "go-build"></a>
 ##### Build / Package
 
 ```sh
 go get github.com/aws/aws-lambda-go/lambda
-GOOS=linux go build main.go
-zip function.zip main
+GOOS=linux go build handler.go
+zip function.zip handler
 ```
 
 <br>
@@ -172,6 +197,14 @@ def handler(event:, context:)
     # code return
   { event: JSON.generate(event), context: JSON.generate(context.inspect) }
 end
+```
+
+<a name = "ruby-handler"></a>
+##### Handler
+
+```sh
+# <<filename.handler>>
+index.handler
 ```
 
 <a name = "ruby-dependencies"></a>

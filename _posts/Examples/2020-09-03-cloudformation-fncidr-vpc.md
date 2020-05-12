@@ -4,7 +4,7 @@ title: Cloudformation VPC (Fn::Cidr)
 date: 2020-09-03 08:44:38
 category: [examples]
 author: samGordon
-short-description: create a full working VPC "only with cloudformation"
+short-description: create a VPC with subnets allocated using Fn::Cidr
 tags: [cloudformation, vpc]
 skill: expert
 ---

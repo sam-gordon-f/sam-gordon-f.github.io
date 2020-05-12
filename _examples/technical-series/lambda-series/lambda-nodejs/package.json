@@ -1,0 +1,14 @@
+{
+  "name": "lambda-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'run your test scripts here'"
+  },
+  "author": "sam gordon",
+  "license": "ISC",
+  "dependencies": {
+    "cfn-response": "1.0.1"
+  }
+}

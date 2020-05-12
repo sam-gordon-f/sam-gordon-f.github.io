@@ -18,7 +18,7 @@ skill: beginner
   a. [Example](#python-example)
   b. [Dependencies](#python-dependencies)
   c. [Build / Package](#python-build-package)
-3. Golang
+3. [Golang](#golang)
   a. [Example](#go-example)
   b. [Build / Package](#go-build-package)
 
@@ -66,7 +66,7 @@ exports.handler = (event, context, callback) => {
 ```
 
 <a name = "nodejs-build-package"></a>
-Build / Package
+##### Build / Package
 
 ```
 npm install
@@ -111,6 +111,7 @@ zip -r function.zip index.py site-packages
 
 <br>
 
+<a name = "golang"></a>
 #### Go
 
 <a name = "go-example"></a>

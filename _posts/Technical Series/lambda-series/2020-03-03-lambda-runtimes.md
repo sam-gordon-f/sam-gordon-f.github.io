@@ -26,6 +26,16 @@ skill: beginner
   a. [Example](#ruby-example)
   b. [Dependencies](#ruby-dependencies)
   c. [Build / Package](#ruby-build-package)
+4. [Java](#java)
+  a. [Example(s)](#java-example)
+    i. maven
+    ii. gradle
+  b. [Dependencies](#java-dependencies)
+    i. maven
+    ii. gradle
+  c. [Build / Package](#java-build-package)
+    i. maven
+    ii. gradle
 
 ---
 
